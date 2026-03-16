@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217f13e4024fd4f45a506412147155b7, type: 3}
+  m_Name: NoneEnvironmentData
+  m_EditorClassIdentifier: 
+  type: 0
+  sprite: {fileID: 0}
+  populationType: 0
+  tempuratureType: 0
+  spawnRate: 0
+  isBlocked: 0
+  canBeLockeddown: 0
+  canHaveStructure: 0
+  canSpawnCarrier: 0
+  priorityToHuman: 0
+  basePriorityToMethods:
+    surfacePriority: 0
+    airPriority: 0
+    waterPriority: 0
+    carrierPriority: 0

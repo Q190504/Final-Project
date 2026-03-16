@@ -1,0 +1,7397 @@
+fileFormatVersion: 2
+guid: b6ab006049be98d44883acfacb4466b2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6734162843037679704
+    second: CellStage border_0
+  - first:
+      213: -2176910389762025490
+    second: CellStage border_1
+  - first:
+      213: 173032897550937652
+    second: CellStage border_2
+  - first:
+      213: 8519918959903492628
+    second: CellStage border_3
+  - first:
+      213: 6090102636228213787
+    second: CellStage border_4
+  - first:
+      213: 7092896728965210246
+    second: CellStage border_5
+  - first:
+      213: 5716842195125926027
+    second: CellStage border_6
+  - first:
+      213: -5983978045460247599
+    second: CellStage border_7
+  - first:
+      213: 5376340737910146331
+    second: CellStage border_8
+  - first:
+      213: -5414989387668656199
+    second: CellStage border_9
+  - first:
+      213: 5979131643717921895
+    second: CellStage border_10
+  - first:
+      213: -3524393383005129600
+    second: CellStage border_11
+  - first:
+      213: -4939477793553777643
+    second: CellStage border_12
+  - first:
+      213: 9159430841077328988
+    second: CellStage border_13
+  - first:
+      213: 4532123593334739815
+    second: CellStage border_14
+  - first:
+      213: -5130586061127826884
+    second: CellStage border_15
+  - first:
+      213: 1130951142174500897
+    second: CellStage border_16
+  - first:
+      213: 8293035095947078235
+    second: CellStage border_17
+  - first:
+      213: -3483675105481560387
+    second: CellStage border_18
+  - first:
+      213: -1626328761592477300
+    second: CellStage border_19
+  - first:
+      213: -7452184508681547470
+    second: CellStage border_20
+  - first:
+      213: -4068940268079454943
+    second: CellStage border_21
+  - first:
+      213: -8886072632364273522
+    second: CellStage border_22
+  - first:
+      213: 4372500558230032373
+    second: CellStage border_23
+  - first:
+      213: -2176948759746450740
+    second: CellStage border_24
+  - first:
+      213: -116819995725410361
+    second: CellStage border_25
+  - first:
+      213: 5665039038259521073
+    second: CellStage border_26
+  - first:
+      213: 1793152849628054285
+    second: CellStage border_27
+  - first:
+      213: 1099174582893712762
+    second: CellStage border_28
+  - first:
+      213: -935988843224910680
+    second: CellStage border_29
+  - first:
+      213: 1092288034726617847
+    second: CellStage border_30
+  - first:
+      213: -6109873752165151160
+    second: CellStage border_31
+  - first:
+      213: 8541591529196298820
+    second: CellStage border_32
+  - first:
+      213: -8748306992847645865
+    second: CellStage border_33
+  - first:
+      213: 8119614679690022093
+    second: CellStage border_34
+  - first:
+      213: -2592524212385859074
+    second: CellStage border_35
+  - first:
+      213: 2857784154350291562
+    second: CellStage border_36
+  - first:
+      213: 1081823546171941498
+    second: CellStage border_37
+  - first:
+      213: -9090837280648016997
+    second: CellStage border_38
+  - first:
+      213: 5441530709003565831
+    second: CellStage border_39
+  - first:
+      213: 1891120380836210898
+    second: CellStage border_40
+  - first:
+      213: -5499156721797625455
+    second: CellStage border_41
+  - first:
+      213: -844462983623926477
+    second: CellStage border_42
+  - first:
+      213: 1070472752358156731
+    second: CellStage border_43
+  - first:
+      213: -864780786078469599
+    second: CellStage border_44
+  - first:
+      213: -953663891645278539
+    second: CellStage border_45
+  - first:
+      213: 6653345915090471337
+    second: CellStage border_46
+  - first:
+      213: -1965471484310256443
+    second: CellStage border_47
+  - first:
+      213: 1280245464281612144
+    second: CellStage border_48
+  - first:
+      213: 7059525318585877420
+    second: CellStage border_49
+  - first:
+      213: 4308583139140423196
+    second: CellStage border_50
+  - first:
+      213: -412990080072498869
+    second: CellStage border_51
+  - first:
+      213: -6973219366679106356
+    second: CellStage border_52
+  - first:
+      213: 6412749282258208831
+    second: CellStage border_53
+  - first:
+      213: -904404120731902202
+    second: CellStage border_54
+  - first:
+      213: -1705020062591777250
+    second: CellStage border_55
+  - first:
+      213: -294738075748846384
+    second: CellStage border_56
+  - first:
+      213: 4388903939667202647
+    second: CellStage border_57
+  - first:
+      213: -4762610944846966119
+    second: CellStage border_58
+  - first:
+      213: -9211072286655464762
+    second: CellStage border_59
+  - first:
+      213: -5238357848175269500
+    second: CellStage border_60
+  - first:
+      213: -39446786553673585
+    second: CellStage border_61
+  - first:
+      213: 4993930883502350532
+    second: CellStage border_62
+  - first:
+      213: -836372303002999136
+    second: CellStage border_63
+  - first:
+      213: 6715870809107053467
+    second: CellStage border_64
+  - first:
+      213: -3830410203487974111
+    second: CellStage border_65
+  - first:
+      213: 1661044915871113219
+    second: CellStage border_66
+  - first:
+      213: -2388702509444229962
+    second: CellStage border_67
+  - first:
+      213: -3458362452773681078
+    second: CellStage border_68
+  - first:
+      213: -4802165234939159198
+    second: CellStage border_69
+  - first:
+      213: 7162774501362376483
+    second: CellStage border_70
+  - first:
+      213: -8936149184348534715
+    second: CellStage border_71
+  - first:
+      213: -3333952166611415335
+    second: CellStage border_72
+  - first:
+      213: -6163371247090430673
+    second: CellStage border_73
+  - first:
+      213: 5965421891500705861
+    second: CellStage border_74
+  - first:
+      213: 4590001841196870945
+    second: CellStage border_75
+  - first:
+      213: 7823782380287831144
+    second: CellStage border_76
+  - first:
+      213: -1761983020229312206
+    second: CellStage border_77
+  - first:
+      213: 5078636558612912436
+    second: CellStage border_78
+  - first:
+      213: 8024885793874436599
+    second: CellStage border_79
+  - first:
+      213: -4250584952753441223
+    second: CellStage border_80
+  - first:
+      213: 4226426833992795517
+    second: CellStage border_81
+  - first:
+      213: 5177825394778946963
+    second: CellStage border_82
+  - first:
+      213: 2690027527452093106
+    second: CellStage border_83
+  - first:
+      213: 7113006881543420166
+    second: CellStage border_84
+  - first:
+      213: -6178399458675802597
+    second: CellStage border_85
+  - first:
+      213: 3998347758361240761
+    second: CellStage border_86
+  - first:
+      213: -232194641750498204
+    second: CellStage border_87
+  - first:
+      213: -2911295482996896587
+    second: CellStage border_88
+  - first:
+      213: 7627327944027177453
+    second: CellStage border_89
+  - first:
+      213: -8814201694380546320
+    second: CellStage border_90
+  - first:
+      213: -5550669689648897613
+    second: CellStage border_91
+  - first:
+      213: 6800058422292241696
+    second: CellStage border_92
+  - first:
+      213: 3666660221442239039
+    second: CellStage border_93
+  - first:
+      213: 1429238335404944652
+    second: CellStage border_94
+  - first:
+      213: -6809169279904103326
+    second: CellStage border_95
+  - first:
+      213: 7872285888009553638
+    second: CellStage border_96
+  - first:
+      213: 8328708548794428290
+    second: CellStage border_97
+  - first:
+      213: 3943650660487265529
+    second: CellStage border_98
+  - first:
+      213: 4822804158733420644
+    second: CellStage border_99
+  - first:
+      213: -3971691087623975921
+    second: CellStage border_100
+  - first:
+      213: 5698017599852821033
+    second: CellStage border_101
+  - first:
+      213: -313978367455822778
+    second: CellStage border_102
+  - first:
+      213: 7423981888779287990
+    second: CellStage border_103
+  - first:
+      213: -488227634521853113
+    second: CellStage border_104
+  - first:
+      213: 6908695405914721735
+    second: CellStage border_105
+  - first:
+      213: -4651043738820810700
+    second: CellStage border_106
+  - first:
+      213: 8682581680223362816
+    second: CellStage border_107
+  - first:
+      213: -3229462340237204826
+    second: CellStage border_108
+  - first:
+      213: -7644755919706386178
+    second: CellStage border_109
+  - first:
+      213: 8316500441372790885
+    second: CellStage border_110
+  - first:
+      213: 34609792213687143
+    second: CellStage border_111
+  - first:
+      213: 297046342586711292
+    second: CellStage border_112
+  - first:
+      213: -4069190673375068390
+    second: CellStage border_113
+  - first:
+      213: 1440674603573666274
+    second: CellStage border_114
+  - first:
+      213: -136489093140295100
+    second: CellStage border_115
+  - first:
+      213: 4499959539703418695
+    second: CellStage border_116
+  - first:
+      213: -3726513816332863788
+    second: CellStage border_117
+  - first:
+      213: -8770933582510827956
+    second: CellStage border_118
+  - first:
+      213: -2205254243689268298
+    second: CellStage border_119
+  - first:
+      213: 8294428141173049143
+    second: CellStage border_120
+  - first:
+      213: 8566815886104293043
+    second: CellStage border_121
+  - first:
+      213: -1585311375971396573
+    second: CellStage border_122
+  - first:
+      213: 6583987707964068164
+    second: CellStage border_123
+  - first:
+      213: 6596274789607950857
+    second: CellStage border_124
+  - first:
+      213: -1794408973335431180
+    second: CellStage border_125
+  - first:
+      213: 2969181997476846593
+    second: CellStage border_126
+  - first:
+      213: 601760869504263602
+    second: CellStage border_127
+  - first:
+      213: 2155464918817854957
+    second: CellStage border_128
+  - first:
+      213: 6629939442377063113
+    second: CellStage border_129
+  - first:
+      213: 66464500727563095
+    second: CellStage border_130
+  - first:
+      213: -6490551115825192264
+    second: CellStage border_131
+  - first:
+      213: 7616393880985755700
+    second: CellStage border_132
+  - first:
+      213: 479126652436296738
+    second: CellStage border_133
+  - first:
+      213: 7649031995170598729
+    second: CellStage border_134
+  - first:
+      213: -8276951092707199574
+    second: CellStage border_135
+  - first:
+      213: -2760125246467768762
+    second: CellStage border_136
+  - first:
+      213: -7881030884185073452
+    second: CellStage border_137
+  - first:
+      213: -8704979033018452094
+    second: CellStage border_138
+  - first:
+      213: 392344638797018569
+    second: CellStage border_139
+  - first:
+      213: 71358763200503364
+    second: CellStage border_140
+  - first:
+      213: -6499970772356047691
+    second: CellStage border_141
+  - first:
+      213: 3033971321482425769
+    second: CellStage border_142
+  - first:
+      213: -4459502516596001121
+    second: CellStage border_143
+  - first:
+      213: 8533111761557910416
+    second: CellStage border_144
+  - first:
+      213: 2729897824985094549
+    second: CellStage border_145
+  - first:
+      213: -1231935736074814655
+    second: CellStage border_146
+  - first:
+      213: 2378153924568795529
+    second: CellStage border_147
+  - first:
+      213: -7728427470127570049
+    second: CellStage border_148
+  - first:
+      213: -2857734989358224827
+    second: CellStage border_149
+  - first:
+      213: 2615442154459328099
+    second: CellStage border_150
+  - first:
+      213: -8471843658983262101
+    second: CellStage border_151
+  - first:
+      213: 3481937663077933258
+    second: CellStage border_152
+  - first:
+      213: 8482729662613726227
+    second: CellStage border_153
+  - first:
+      213: 8387985462724278422
+    second: CellStage border_154
+  - first:
+      213: 5337262086512174208
+    second: CellStage border_155
+  - first:
+      213: -716659901868315018
+    second: CellStage border_156
+  - first:
+      213: -7687083713440454690
+    second: CellStage border_157
+  - first:
+      213: -3640003591889211791
+    second: CellStage border_158
+  - first:
+      213: 7431802835590490708
+    second: CellStage border_159
+  - first:
+      213: -9050811603581393407
+    second: CellStage border_160
+  - first:
+      213: -6717888332526905897
+    second: CellStage border_161
+  - first:
+      213: -1981120422954347496
+    second: CellStage border_162
+  - first:
+      213: 5987281442886244141
+    second: CellStage border_163
+  - first:
+      213: -649715845073866517
+    second: CellStage border_164
+  - first:
+      213: -385136192623463031
+    second: CellStage border_165
+  - first:
+      213: -4451091015006306941
+    second: CellStage border_166
+  - first:
+      213: -5576134337539932226
+    second: CellStage border_167
+  - first:
+      213: 8387488881675406338
+    second: CellStage border_168
+  - first:
+      213: 4137678595209732567
+    second: CellStage border_169
+  - first:
+      213: -1393333341305928171
+    second: CellStage border_170
+  - first:
+      213: 3128376529685930794
+    second: CellStage border_171
+  - first:
+      213: -1999818952503450891
+    second: CellStage border_172
+  - first:
+      213: -3880482148959802547
+    second: CellStage border_173
+  - first:
+      213: 8617422444511157984
+    second: CellStage border_174
+  - first:
+      213: -4445087004493188563
+    second: CellStage border_175
+  - first:
+      213: 7911503874761924280
+    second: CellStage border_176
+  - first:
+      213: -6146326200604194523
+    second: CellStage border_177
+  - first:
+      213: -8046995048295944693
+    second: CellStage border_178
+  - first:
+      213: -4511557393344139048
+    second: CellStage border_179
+  - first:
+      213: -6234155404697762991
+    second: CellStage border_180
+  - first:
+      213: -4898693914839436731
+    second: CellStage border_181
+  - first:
+      213: -4321366909158617214
+    second: CellStage border_182
+  - first:
+      213: 7720685186035721013
+    second: CellStage border_183
+  - first:
+      213: 1958146293689004495
+    second: CellStage border_184
+  - first:
+      213: -3874830886967453776
+    second: CellStage border_185
+  - first:
+      213: 4519336968563646869
+    second: CellStage border_186
+  - first:
+      213: -1964253126320434417
+    second: CellStage border_187
+  - first:
+      213: 3375431661927926116
+    second: CellStage border_188
+  - first:
+      213: 3552897250413676855
+    second: CellStage border_189
+  - first:
+      213: -8484139482406008726
+    second: CellStage border_190
+  - first:
+      213: 3650274962981543698
+    second: CellStage border_191
+  - first:
+      213: 6177638745920670235
+    second: CellStage border_192
+  - first:
+      213: 3396615064474561210
+    second: CellStage border_193
+  - first:
+      213: 9013750348819690871
+    second: CellStage border_194
+  - first:
+      213: 430561533665526038
+    second: CellStage border_195
+  - first:
+      213: 4083657776429836276
+    second: CellStage border_196
+  - first:
+      213: -4264441090462680992
+    second: CellStage border_197
+  - first:
+      213: -8579115970588038244
+    second: CellStage border_198
+  - first:
+      213: -3462003952440691262
+    second: CellStage border_199
+  - first:
+      213: 8163592364428104043
+    second: CellStage border_200
+  - first:
+      213: 6978277378761254141
+    second: CellStage border_201
+  - first:
+      213: -8345517340566728901
+    second: CellStage border_202
+  - first:
+      213: 3925140308649270065
+    second: CellStage border_203
+  - first:
+      213: 1810275536169369579
+    second: CellStage border_204
+  - first:
+      213: -4110393128442934861
+    second: CellStage border_205
+  - first:
+      213: 1053441360528792354
+    second: CellStage border_206
+  - first:
+      213: -5915167102392527810
+    second: CellStage border_207
+  - first:
+      213: 9084379536526148774
+    second: CellStage border_208
+  - first:
+      213: -7605180086866267350
+    second: CellStage border_209
+  - first:
+      213: -793773284083933266
+    second: CellStage border_210
+  - first:
+      213: -5158637369225831964
+    second: CellStage border_211
+  - first:
+      213: -1474964918072563252
+    second: CellStage border_212
+  - first:
+      213: 2207560790475798216
+    second: CellStage border_213
+  - first:
+      213: -6710351710411472202
+    second: CellStage border_214
+  - first:
+      213: 1409914706277279189
+    second: CellStage border_215
+  - first:
+      213: 3820005594310722427
+    second: CellStage border_216
+  - first:
+      213: 1173162260461325531
+    second: CellStage border_217
+  - first:
+      213: -6288609592044230046
+    second: CellStage border_218
+  - first:
+      213: -7909044276530271776
+    second: CellStage border_219
+  - first:
+      213: -8444780318646025907
+    second: CellStage border_220
+  - first:
+      213: 2135993057024073840
+    second: CellStage border_221
+  - first:
+      213: 6553445439281743337
+    second: CellStage border_222
+  - first:
+      213: 427088874260651006
+    second: CellStage border_223
+  - first:
+      213: -5366924525034194151
+    second: CellStage border_224
+  - first:
+      213: 2087722345218138060
+    second: CellStage border_225
+  - first:
+      213: 7081603993990768746
+    second: CellStage border_226
+  - first:
+      213: -9145559725706177781
+    second: CellStage border_227
+  - first:
+      213: 5889657078683792383
+    second: CellStage border_228
+  - first:
+      213: 4426631743006596479
+    second: CellStage border_229
+  - first:
+      213: -3586920333012997668
+    second: CellStage border_230
+  - first:
+      213: 4259671495196296993
+    second: CellStage border_231
+  - first:
+      213: 1546687522409384467
+    second: CellStage border_232
+  - first:
+      213: -7215980553361383220
+    second: CellStage border_233
+  - first:
+      213: 6646444497159233490
+    second: CellStage border_234
+  - first:
+      213: 7515899753982788208
+    second: CellStage border_235
+  - first:
+      213: -6171554236580429274
+    second: CellStage border_236
+  - first:
+      213: 703405914864476474
+    second: CellStage border_237
+  - first:
+      213: 7723771560186004639
+    second: CellStage border_238
+  - first:
+      213: -5343798981541595760
+    second: CellStage border_239
+  - first:
+      213: 8920686832500909227
+    second: CellStage border_240
+  - first:
+      213: -2784382642669846141
+    second: CellStage border_241
+  - first:
+      213: 8869696974492984325
+    second: CellStage border_242
+  - first:
+      213: 7188095850420039255
+    second: CellStage border_243
+  - first:
+      213: -7711318635502219568
+    second: CellStage border_244
+  - first:
+      213: -608786259337559767
+    second: CellStage border_245
+  - first:
+      213: 950409022536467406
+    second: CellStage border_246
+  - first:
+      213: -4344693880071690805
+    second: CellStage border_247
+  - first:
+      213: -6446309824099770633
+    second: CellStage border_248
+  - first:
+      213: 24300890477225478
+    second: CellStage border_249
+  - first:
+      213: -108152831626495214
+    second: CellStage border_250
+  - first:
+      213: -2313406609674886617
+    second: CellStage border_251
+  - first:
+      213: -5368463890132340056
+    second: CellStage border_252
+  - first:
+      213: -6486370687010508535
+    second: CellStage border_253
+  - first:
+      213: -5479242752480841632
+    second: CellStage border_254
+  - first:
+      213: 611722301601234641
+    second: CellStage border_255
+  - first:
+      213: 4800029257822138888
+    second: CellStage border_256
+  - first:
+      213: 5220734316589746161
+    second: CellStage border_257
+  - first:
+      213: 4069621572163419570
+    second: CellStage border_258
+  - first:
+      213: -4326388396290722293
+    second: CellStage border_259
+  - first:
+      213: 344530955753227063
+    second: CellStage border_260
+  - first:
+      213: 2287723622764705897
+    second: CellStage border_261
+  - first:
+      213: 626122155516279250
+    second: CellStage border_262
+  - first:
+      213: -7470749755254457245
+    second: CellStage border_263
+  - first:
+      213: -6927327818166275379
+    second: CellStage border_264
+  - first:
+      213: 4125909971789023320
+    second: CellStage border_265
+  - first:
+      213: 2421765003611806532
+    second: CellStage border_266
+  - first:
+      213: 6515318371476123438
+    second: CellStage border_267
+  - first:
+      213: 5257544121223711904
+    second: CellStage border_268
+  - first:
+      213: -4377833033599374238
+    second: CellStage border_269
+  - first:
+      213: -230132195782417113
+    second: CellStage border_270
+  - first:
+      213: 2787602387030995032
+    second: CellStage border_271
+  - first:
+      213: 3900617653416031316
+    second: CellStage border_272
+  - first:
+      213: 1760985897718098539
+    second: CellStage border_273
+  - first:
+      213: -1850002930417453451
+    second: CellStage border_274
+  - first:
+      213: -1238036833998408934
+    second: CellStage border_275
+  - first:
+      213: -1868742809064184467
+    second: CellStage border_276
+  - first:
+      213: 5572597955682062465
+    second: CellStage border_277
+  - first:
+      213: -4702687250146902181
+    second: CellStage border_278
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CellStage border_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 399
+        width: 97
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85045e63d6d847d50800000000000000
+      internalID: 6734162843037679704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_1
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 437
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee79066c88f0ac1e0800000000000000
+      internalID: -2176910389762025490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 399
+        width: 98
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43eeaf8e08cb66200800000000000000
+      internalID: 173032897550937652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_3
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41ac9205725dc3670800000000000000
+      internalID: 8519918959903492628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1c7d06b414648450800000000000000
+      internalID: 6090102636228213787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_5
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6806086cef70f6260800000000000000
+      internalID: 7092896728965210246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b88f175ffad465f40800000000000000
+      internalID: 5716842195125926027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_7
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1db0b901ca3a4fca0800000000000000
+      internalID: -5983978045460247599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1588928a699c9a40800000000000000
+      internalID: 5376340737910146331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_9
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bfef7d77d71ad4b0800000000000000
+      internalID: -5414989387668656199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_10
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76caa191d842af250800000000000000
+      internalID: 5979131643717921895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 084fd3524e6d61fc0800000000000000
+      internalID: -3524393383005129600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51cfb430e13737bb0800000000000000
+      internalID: -4939477793553777643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5ceb2b32d5dc1f70800000000000000
+      internalID: 9159430841077328988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_14
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76352ea556655ee30800000000000000
+      internalID: 4532123593334739815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_15
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c32c7e0192f7cc8b0800000000000000
+      internalID: -5130586061127826884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_16
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12822af5212f1bf00800000000000000
+      internalID: 1130951142174500897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_17
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ae5cb3b77c61370800000000000000
+      internalID: 8293035095947078235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_18
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbe66e8e2ff77afc0800000000000000
+      internalID: -3483675105481560387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c898745ab9e1e69e0800000000000000
+      internalID: -1626328761592477300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_20
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2311e573ca5849890800000000000000
+      internalID: -7452184508681547470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_21
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12567d462683887c0800000000000000
+      internalID: -4068940268079454943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_22
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e807b9375045ea480800000000000000
+      internalID: -8886072632364273522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_23
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 448
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff8f79571e3eac30800000000000000
+      internalID: 4372500558230032373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_24
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 416
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccae51113ace9c1e0800000000000000
+      internalID: -2176948759746450740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_25
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 448
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cfcf1435d8f06ef0800000000000000
+      internalID: -116819995725410361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_26
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 416
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 136ed2a9df24e9e40800000000000000
+      internalID: 5665039038259521073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_27
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 448
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d034f06240f82e810800000000000000
+      internalID: 1793152849628054285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_28
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 416
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a75948f957d014f00800000000000000
+      internalID: 1099174582893712762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_29
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 415
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a4b9dd2b13b203f0800000000000000
+      internalID: -935988843224910680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_30
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 415
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f22a4e2e26982f00800000000000000
+      internalID: 1092288034726617847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_31
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e86b3a13e553ba0800000000000000
+      internalID: -6109873752165151160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_32
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4422b329d34d98670800000000000000
+      internalID: 8541591529196298820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_33
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7531049f325c79680800000000000000
+      internalID: -8748306992847645865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_34
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcc88f7188aaea070800000000000000
+      internalID: 8119614679690022093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_35
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef93421f6f0850cd0800000000000000
+      internalID: -2592524212385859074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_36
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6a0ac41c83e8a720800000000000000
+      internalID: 2857784154350291562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_37
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a726b3398c8630f00800000000000000
+      internalID: 1081823546171941498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_38
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9bc81898abd6d180800000000000000
+      internalID: -9090837280648016997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_39
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70b79807953348b40800000000000000
+      internalID: 5441530709003565831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_40
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 384
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d86e3f77fb9e3a10800000000000000
+      internalID: 1891120380836210898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_41
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1990d09e8121fa3b0800000000000000
+      internalID: -5499156721797625455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_42
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 384
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33d112bf36dd744f0800000000000000
+      internalID: -844462983623926477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_43
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 384
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb9ea02fb451bde00800000000000000
+      internalID: 1070472752358156731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 122b535f47eaff3f0800000000000000
+      internalID: -864780786078469599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_45
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b6dd574eb7e3c2f0800000000000000
+      internalID: -953663891645278539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_46
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a983ccdbde655c50800000000000000
+      internalID: 6653345915090471337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_47
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 386
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c40789391e39b4e0800000000000000
+      internalID: -1965471484310256443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_48
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 399
+        width: 34
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07f7fcb777854c110800000000000000
+      internalID: 1280245464281612144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_49
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 385
+        width: 24
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca30031dfd878f160800000000000000
+      internalID: 7059525318585877420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 368
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1ec3b589892bcb30800000000000000
+      internalID: 4308583139140423196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_51
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 367
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b41c485d5b3c44af0800000000000000
+      internalID: -412990080072498869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_52
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 367
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccca7348ee52a3f90800000000000000
+      internalID: -6973219366679106356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_53
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3844aafe79aef850800000000000000
+      internalID: 6412749282258208831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_54
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 383
+        width: 50
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f10627e39e273f0800000000000000
+      internalID: -904404120731902202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_55
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 352
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e168d42694d8658e0800000000000000
+      internalID: -1705020062591777250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_56
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 352
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d4353d1841e8ebf0800000000000000
+      internalID: -294738075748846384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_57
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 383
+        width: 36
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7521d2531e488ec30800000000000000
+      internalID: 4388903939667202647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_58
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 992520d349ec7edb0800000000000000
+      internalID: -4762610944846966119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_59
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cab471ce82bb2080800000000000000
+      internalID: -9211072286655464762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_60
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48922258a4d9d47b0800000000000000
+      internalID: -5238357848175269500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_61
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8800fb4b5bd37ff0800000000000000
+      internalID: -39446786553673585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_62
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c0a208fda10e4540800000000000000
+      internalID: 4993930883502350532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_63
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a6e78b52db9464f0800000000000000
+      internalID: -836372303002999136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_64
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9bbd3e2be0933d50800000000000000
+      internalID: 6715870809107053467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_65
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12d411dd636a7dac0800000000000000
+      internalID: -3830410203487974111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_66
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3006776ec873d0710800000000000000
+      internalID: 1661044915871113219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_67
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b41e7a39bf99ded0800000000000000
+      internalID: -2388702509444229962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_68
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 352
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4840e12cad6100d0800000000000000
+      internalID: -3458362452773681078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_69
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 352
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26d98ba69284b5db0800000000000000
+      internalID: -4802165234939159198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_70
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 352
+        width: 80
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32f1eef7579476360800000000000000
+      internalID: 7162774501362376483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 355
+        width: 81
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 548420f99ab6cf380800000000000000
+      internalID: -8936149184348534715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 339
+        width: 81
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9de8bf22b2c6bb1d0800000000000000
+      internalID: -3333952166611415335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_73
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2d8156718e477aa0800000000000000
+      internalID: -6163371247090430673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_74
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5480d3aaa9f69c250800000000000000
+      internalID: 5965421891500705861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_75
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 320
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12dadee0b56f2bf30800000000000000
+      internalID: 4590001841196870945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_76
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86c24096f98a39c60800000000000000
+      internalID: 7823782380287831144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_77
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23146fa47cd2c87e0800000000000000
+      internalID: -1761983020229312206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_78
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4395f63da01fa7640800000000000000
+      internalID: 5078636558612912436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_79
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f1e6f2ac1f1e5f60800000000000000
+      internalID: 8024885793874436599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_80
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 936b28b8183e205c0800000000000000
+      internalID: -4250584952753441223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_81
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75c15d10d847aa30800000000000000
+      internalID: 4226426833992795517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_82
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39dbbc463c45bd740800000000000000
+      internalID: 5177825394778946963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_83
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2baedc9a8c5e45520800000000000000
+      internalID: 2690027527452093106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_84
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 609fd4b821a76b260800000000000000
+      internalID: 7113006881543420166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_85
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1eb9294d6ae14aa0800000000000000
+      internalID: -6178399458675802597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_86
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 320
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b4e9912a1cfc7730800000000000000
+      internalID: 3998347758361240761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_87
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 320
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46466bb143417ccf0800000000000000
+      internalID: -232194641750498204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_88
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 320
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bc45c3de200997d0800000000000000
+      internalID: -2911295482996896587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_89
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 323
+        width: 81
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de186219a56b9d960800000000000000
+      internalID: 7627327944027177453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 307
+        width: 49
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f62dc3324aada580800000000000000
+      internalID: -8814201694380546320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_91
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b123f2735f08f2b0800000000000000
+      internalID: -5550669689648897613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_92
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02dd1a85b19ae5e50800000000000000
+      internalID: 6800058422292241696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_93
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 288
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3aae1b6b0892e230800000000000000
+      internalID: 3666660221442239039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_94
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0dae2191bca5d310800000000000000
+      internalID: 1429238335404944652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_95
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26440dfcd98f081a0800000000000000
+      internalID: -6809169279904103326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_96
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e641255e4aff3d60800000000000000
+      internalID: 7872285888009553638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_97
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28ba6a83c44859370800000000000000
+      internalID: 8328708548794428290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_98
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fcf390a169aab630800000000000000
+      internalID: 3943650660487265529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_99
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 468059e74da0ee240800000000000000
+      internalID: 4822804158733420644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_100
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0c869caff7b1e8c0800000000000000
+      internalID: -3971691087623975921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_101
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92ab62351dc631f40800000000000000
+      internalID: 5698017599852821033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_102
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64c73ac965684abf0800000000000000
+      internalID: -313978367455822778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_103
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bd7f93a138470760800000000000000
+      internalID: 7423981888779287990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_104
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 288
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 743bbca9d877939f0800000000000000
+      internalID: -488227634521853113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_105
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 288
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cd8bea2edd90ef50800000000000000
+      internalID: 6908695405914721735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_106
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 288
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 438e7c0ac5c247fb0800000000000000
+      internalID: -4651043738820810700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_107
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 291
+        width: 49
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00f170f290abe7870800000000000000
+      internalID: 8682581680223362816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_108
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 275
+        width: 49
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a2e8aaac15ae23d0800000000000000
+      internalID: -3229462340237204826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_109
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef01653aefe58e590800000000000000
+      internalID: -7644755919706386178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_110
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5609766b6152a6370800000000000000
+      internalID: 8316500441372790885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_111
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 256
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76b95a23c65fa7000800000000000000
+      internalID: 34609792213687143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_112
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfcb5b323125f1400800000000000000
+      internalID: 297046342586711292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_113
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f752e54a45787c0800000000000000
+      internalID: -4069190673375068390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_114
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e16fee3bed4ef310800000000000000
+      internalID: 1440674603573666274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_115
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44258a794e71b1ef0800000000000000
+      internalID: -136489093140295100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_116
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74f07ab0c51137e30800000000000000
+      internalID: 4499959539703418695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_117
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d6f4ee8d63c84cc0800000000000000
+      internalID: -3726513816332863788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_118
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c46d5e98062674680800000000000000
+      internalID: -8770933582510827956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_119
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bb7a7503fc5561e0800000000000000
+      internalID: -2205254243689268298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_120
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7378f99d27abb1370800000000000000
+      internalID: 8294428141173049143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_121
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3be6b63d8a173e670800000000000000
+      internalID: 8566815886104293043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_122
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 256
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 324d6d0f3b7dff9e0800000000000000
+      internalID: -1585311375971396573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_123
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 256
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4419cbadfe50f5b50800000000000000
+      internalID: 6583987707964068164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_124
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 256
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90a427bf8fcaa8b50800000000000000
+      internalID: 6596274789607950857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_125
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 239
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f77192cb8af817e0800000000000000
+      internalID: -1794408973335431180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_126
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 239
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c97199b47a43920800000000000000
+      internalID: 2969181997476846593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_127
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b528829252e95800800000000000000
+      internalID: 601760869504263602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_128
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 239
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de554fb6cefb9ed10800000000000000
+      internalID: 2155464918817854957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_129
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 239
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca7c31cbc6420c50800000000000000
+      internalID: 6629939442377063113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_130
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 240
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7534a0c7c112ce000800000000000000
+      internalID: 66464500727563095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_131
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b269b8062eece5a0800000000000000
+      internalID: -6490551115825192264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_132
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 239
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4306d91a1edd2b960800000000000000
+      internalID: 7616393880985755700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_133
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 240
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22433e0e62336a600800000000000000
+      internalID: 479126652436296738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_134
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 239
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94fadb3c212d62a60800000000000000
+      internalID: 7649031995170598729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_135
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa5f7e795dc522d80800000000000000
+      internalID: -8276951092707199574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_136
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 240
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64e73bc46b012b9d0800000000000000
+      internalID: -2760125246467768762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_137
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 241
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d814449a24f0a290800000000000000
+      internalID: -7881030884185073452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_138
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 241
+        width: 34
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28736bfb0b3b13780800000000000000
+      internalID: -8704979033018452094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_139
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c57609ce53e17500800000000000000
+      internalID: 392344638797018569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_140
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44e5d24ca648df000800000000000000
+      internalID: 71358763200503364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_141
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bcdb4755077bc5a0800000000000000
+      internalID: -6499970772356047691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_142
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a5beab97d4da1a20800000000000000
+      internalID: 3033971321482425769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_143
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f96b55fa61aac12c0800000000000000
+      internalID: -4459502516596001121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_144
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 093fd50dfe3bb6670800000000000000
+      internalID: 8533111761557910416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_145
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5991953bb9b82e520800000000000000
+      internalID: 2729897824985094549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_146
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14bb621a9f847eee0800000000000000
+      internalID: -1231935736074814655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_147
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 989cf17f466e00120800000000000000
+      internalID: 2378153924568795529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_148
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f73eca2b92c1fb490800000000000000
+      internalID: -7728427470127570049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_149
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 224
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54a29190b294758d0800000000000000
+      internalID: -2857734989358224827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_150
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 224
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36e612348caeb4420800000000000000
+      internalID: 2615442154459328099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_151
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 224
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6838a1f317fd6a80800000000000000
+      internalID: -8471843658983262101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_152
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac060d14bd3525030800000000000000
+      internalID: 3481937663077933258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_153
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 208
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 314a2c94fa5b8b570800000000000000
+      internalID: 8482729662613726227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_154
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 224
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69832de365c186470800000000000000
+      internalID: 8387985462724278422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_155
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 191
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 084e7b3f693c11a40800000000000000
+      internalID: 5337262086512174208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_156
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e6f54cd99ed06f0800000000000000
+      internalID: -716659901868315018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_157
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed7e0bd271ef15590800000000000000
+      internalID: -7687083713440454690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_158
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17e2c4cc40c1c7dc0800000000000000
+      internalID: -3640003591889211791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_159
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 224
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45aac18bd41132760800000000000000
+      internalID: 7431802835590490708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_160
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1062c8fbcce056280800000000000000
+      internalID: -9050811603581393407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_161
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 207
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d51efa872445c2a0800000000000000
+      internalID: -6717888332526905897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_162
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 814d884c875a184e0800000000000000
+      internalID: -1981120422954347496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_163
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 207
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d27d58510c8171350800000000000000
+      internalID: 5987281442886244141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_164
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 224
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be0fd6991eebbf6f0800000000000000
+      internalID: -649715845073866517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_165
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98538806ca8b7aaf0800000000000000
+      internalID: -385136192623463031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_166
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38dbd930e4c8a32c0800000000000000
+      internalID: -4451091015006306941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_167
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebff2171d579d92b0800000000000000
+      internalID: -5576134337539932226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_168
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20c0dc5f2b8566470800000000000000
+      internalID: 8387488881675406338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_169
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d1a63e82ccfb6930800000000000000
+      internalID: 4137678595209732567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_170
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51680c155b2e9ace0800000000000000
+      internalID: -1393333341305928171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_171
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a23699ff0e93a6b20800000000000000
+      internalID: 3128376529685930794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_172
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f220f812473f34e0800000000000000
+      internalID: -1999818952503450891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_173
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4ba1029b02c52ac0800000000000000
+      internalID: -3880482148959802547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_174
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eed0946e0c379770800000000000000
+      internalID: 8617422444511157984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_175
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d227a75abe0ef42c0800000000000000
+      internalID: -4445087004493188563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_176
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be9f4e6bde4bcd60800000000000000
+      internalID: 7911503874761924280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_177
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 192
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5298f4b92ecd3baa0800000000000000
+      internalID: -6146326200604194523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_178
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 192
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0e2efc63a4535090800000000000000
+      internalID: -8046995048295944693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_179
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 209
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d07fe9347ab361c0800000000000000
+      internalID: -4511557393344139048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_180
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 207
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 153886c70b4db79a0800000000000000
+      internalID: -6234155404697762991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_181
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 207
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 542b0aeb6d7540cb0800000000000000
+      internalID: -4898693914839436731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_182
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 207
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28f097311bb6704c0800000000000000
+      internalID: -4321366909158617214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_183
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 207
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 533a7405542652b60800000000000000
+      internalID: 7720685186035721013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_184
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 207
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc1b49dedabbc2b10800000000000000
+      internalID: 1958146293689004495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_185
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 210
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b7d79986d5d93ac0800000000000000
+      internalID: -3874830886967453776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_186
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 193
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 591e6874709e7be30800000000000000
+      internalID: 4519336968563646869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_187
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 193
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0358bc40329db4e0800000000000000
+      internalID: -1964253126320434417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_188
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 192
+        width: 34
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46902d47631f7de20800000000000000
+      internalID: 3375431661927926116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_189
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 191
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7398e56a93d6e4130800000000000000
+      internalID: 3552897250413676855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_190
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 191
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a68c2567718424a80800000000000000
+      internalID: -8484139482406008726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_191
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 191
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21f54052db168a230800000000000000
+      internalID: 3650274962981543698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_192
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 191
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1a8a4975b16bb550800000000000000
+      internalID: 6177638745920670235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_193
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 191
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aba2fb4b763332f20800000000000000
+      internalID: 3396615064474561210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_194
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 193
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77573737f26471d70800000000000000
+      internalID: 9013750348819690871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_195
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 611c4140f69a9f500800000000000000
+      internalID: 430561533665526038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_196
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f7ac5c8c111ca830800000000000000
+      internalID: 4083657776429836276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_197
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06874651c69a1d4c0800000000000000
+      internalID: -4264441090462680992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_198
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b28369a7bd0f880800000000000000
+      internalID: -8579115970588038244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_199
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c536cb6fbd74ffc0800000000000000
+      internalID: -3462003952440691262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_200
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6114dcb008ea4170800000000000000
+      internalID: 8163592364428104043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_201
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df46531bd42d7d060800000000000000
+      internalID: 6978277378761254141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_202
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3f48a8f134ce2c80800000000000000
+      internalID: -8345517340566728901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_203
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 128
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13b5b9e7056e87630800000000000000
+      internalID: 3925140308649270065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_204
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bef74f642046f1910800000000000000
+      internalID: 1810275536169369579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_205
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 128
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b9c3fb3a33f4f6c0800000000000000
+      internalID: -4110393128442934861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_206
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22bd50606539e9e00800000000000000
+      internalID: 1053441360528792354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_207
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3411da3cda19eda0800000000000000
+      internalID: -5915167102392527810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_208
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 128
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a4087fae03321e70800000000000000
+      internalID: 9084379536526148774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_209
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2336754109f47690800000000000000
+      internalID: -7605180086866267350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_210
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaf5bf95763fbf4f0800000000000000
+      internalID: -793773284083933266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_211
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e91d32f4a6d868b0800000000000000
+      internalID: -5158637369225831964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_212
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc92f12c83fd78be0800000000000000
+      internalID: -1474964918072563252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_213
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c6f360c7d4d2ae10800000000000000
+      internalID: 2207560790475798216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_214
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b24dfe1caa00e2a0800000000000000
+      internalID: -6710351710411472202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_215
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d5a14f84f5019310800000000000000
+      internalID: 1409914706277279189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_216
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7345e849d2630530800000000000000
+      internalID: 3820005594310722427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_217
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc01b63cd8e74010800000000000000
+      internalID: 1173162260461325531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_218
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26ae61ff4ee5ab8a0800000000000000
+      internalID: -6288609592044230046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_219
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 160
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e9a398622e6d3290800000000000000
+      internalID: -7909044276530271776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_220
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 128
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d41c4e4ea0d1eca80800000000000000
+      internalID: -8444780318646025907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_221
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 160
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 070ee9e4e5294ad10800000000000000
+      internalID: 2135993057024073840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_222
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 128
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e5ca47c7e382fa50800000000000000
+      internalID: 6553445439281743337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_223
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 160
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efbd3dd71135de500800000000000000
+      internalID: 427088874260651006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_224
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 128
+        width: 112
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91b3105649ad485b0800000000000000
+      internalID: -5366924525034194151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_225
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccf5f58696419fc10800000000000000
+      internalID: 2087722345218138060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_226
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a68aec50059e64260800000000000000
+      internalID: 7081603993990768746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_227
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b031a2d72e1741180800000000000000
+      internalID: -9145559725706177781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_228
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff3ffc788e34cb150800000000000000
+      internalID: 5889657078683792383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_229
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7d5061fd1e8e6d30800000000000000
+      internalID: 4426631743006596479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_230
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd9622126f2b83ec0800000000000000
+      internalID: -3586920333012997668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_231
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 96
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 127480bf7a46d1b30800000000000000
+      internalID: 4259671495196296993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_232
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 64
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31a8dbf5b10f67510800000000000000
+      internalID: 1546687522409384467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_233
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 96
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0a4ca2befabdb90800000000000000
+      internalID: -7215980553361383220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_234
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 64
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2df96884e0aec3c50800000000000000
+      internalID: 6646444497159233490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_235
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 96
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 072079b5107dd4860800000000000000
+      internalID: 7515899753982788208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_236
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 64
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6220190ce1c3a5aa0800000000000000
+      internalID: -6171554236580429274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_237
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 96
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a31e768e3fff2c900800000000000000
+      internalID: 703405914864476474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_238
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f94c62bcf49503b60800000000000000
+      internalID: 7723771560186004639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_239
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 96
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0957e12932307d5b0800000000000000
+      internalID: -5343798981541595760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_240
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba4a8bb0965accb70800000000000000
+      internalID: 8920686832500909227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_241
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 96
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38186e02db2eb59d0800000000000000
+      internalID: -2784382642669846141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_242
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 504e206976e771b70800000000000000
+      internalID: 8869696974492984325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_243
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 96
+        width: 128
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75eeebf771f31c360800000000000000
+      internalID: 7188095850420039255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_244
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 64
+        width: 128
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0de4a0dae84ebf490800000000000000
+      internalID: -7711318635502219568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_245
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 96
+        width: 128
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 921cb046f182d87f0800000000000000
+      internalID: -608786259337559767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_246
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 64
+        width: 128
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec3cc9378f7803d00800000000000000
+      internalID: 950409022536467406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_247
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 96
+        width: 128
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc5638c6feb84b3c0800000000000000
+      internalID: -4344693880071690805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_248
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 64
+        width: 128
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fe1c667e5b1a86a0800000000000000
+      internalID: -6446309824099770633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_249
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 606ee98f785565000800000000000000
+      internalID: 24300890477225478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_250
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b33799293cf7ef0800000000000000
+      internalID: -108152831626495214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_251
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 722a94902f025efd0800000000000000
+      internalID: -2313406609674886617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_252
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a2762709826f75b0800000000000000
+      internalID: -5368463890132340056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_253
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9017b37f938cbf5a0800000000000000
+      internalID: -6486370687010508535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_254
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 060fe343fb1d5f3b0800000000000000
+      internalID: -5479242752480841632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_255
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 32
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1de302831364d7800800000000000000
+      internalID: 611722301601234641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_256
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80278f7ad212d9240800000000000000
+      internalID: 4800029257822138888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_257
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 32
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f706074336c37840800000000000000
+      internalID: 5220734316589746161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_258
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bd311312433a7830800000000000000
+      internalID: 4069621572163419570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_259
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 32
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0638befca495f3c0800000000000000
+      internalID: -4326388396290722293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_260
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7330ccf241508c400800000000000000
+      internalID: 344530955753227063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_261
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 968f8279380afbf10800000000000000
+      internalID: 2287723622764705897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_262
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d9bc8978ce60b800800000000000000
+      internalID: 626122155516279250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_263
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36cb838eda0925890800000000000000
+      internalID: -7470749755254457245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_264
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc2748b4d003ddf90800000000000000
+      internalID: -6927327818166275379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_265
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8580ab3624d224930800000000000000
+      internalID: 4125909971789023320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_266
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b11c19076db9120800000000000000
+      internalID: 2421765003611806532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_267
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f296a0a8f0b6a50800000000000000
+      internalID: 6515318371476123438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_268
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ac8b78c58c86f840800000000000000
+      internalID: 5257544121223711904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_269
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26ca65afc00de33c0800000000000000
+      internalID: -4377833033599374238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_270
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 725220bbcf76eccf0800000000000000
+      internalID: -230132195782417113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_271
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85073060a9d8fa620800000000000000
+      internalID: 2787602387030995032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_272
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 454fa74e617c12630800000000000000
+      internalID: 3900617653416031316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_273
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6aa5f70857407810800000000000000
+      internalID: 1760985897718098539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_274
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5763903f2287356e0800000000000000
+      internalID: -1850002930417453451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_275
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a13fca21f0c91dee0800000000000000
+      internalID: -1238036833998408934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_276
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d65e921f054e016e0800000000000000
+      internalID: -1868742809064184467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_277
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1805f78d058d55d40800000000000000
+      internalID: 5572597955682062465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CellStage border_278
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5f3c35acd2bcbeb0800000000000000
+      internalID: -4702687250146902181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CellStage border_0: 6734162843037679704
+      CellStage border_1: -2176910389762025490
+      CellStage border_10: 5979131643717921895
+      CellStage border_100: -3971691087623975921
+      CellStage border_101: 5698017599852821033
+      CellStage border_102: -313978367455822778
+      CellStage border_103: 7423981888779287990
+      CellStage border_104: -488227634521853113
+      CellStage border_105: 6908695405914721735
+      CellStage border_106: -4651043738820810700
+      CellStage border_107: 8682581680223362816
+      CellStage border_108: -3229462340237204826
+      CellStage border_109: -7644755919706386178
+      CellStage border_11: -3524393383005129600
+      CellStage border_110: 8316500441372790885
+      CellStage border_111: 34609792213687143
+      CellStage border_112: 297046342586711292
+      CellStage border_113: -4069190673375068390
+      CellStage border_114: 1440674603573666274
+      CellStage border_115: -136489093140295100
+      CellStage border_116: 4499959539703418695
+      CellStage border_117: -3726513816332863788
+      CellStage border_118: -8770933582510827956
+      CellStage border_119: -2205254243689268298
+      CellStage border_12: -4939477793553777643
+      CellStage border_120: 8294428141173049143
+      CellStage border_121: 8566815886104293043
+      CellStage border_122: -1585311375971396573
+      CellStage border_123: 6583987707964068164
+      CellStage border_124: 6596274789607950857
+      CellStage border_125: -1794408973335431180
+      CellStage border_126: 2969181997476846593
+      CellStage border_127: 601760869504263602
+      CellStage border_128: 2155464918817854957
+      CellStage border_129: 6629939442377063113
+      CellStage border_13: 9159430841077328988
+      CellStage border_130: 66464500727563095
+      CellStage border_131: -6490551115825192264
+      CellStage border_132: 7616393880985755700
+      CellStage border_133: 479126652436296738
+      CellStage border_134: 7649031995170598729
+      CellStage border_135: -8276951092707199574
+      CellStage border_136: -2760125246467768762
+      CellStage border_137: -7881030884185073452
+      CellStage border_138: -8704979033018452094
+      CellStage border_139: 392344638797018569
+      CellStage border_14: 4532123593334739815
+      CellStage border_140: 71358763200503364
+      CellStage border_141: -6499970772356047691
+      CellStage border_142: 3033971321482425769
+      CellStage border_143: -4459502516596001121
+      CellStage border_144: 8533111761557910416
+      CellStage border_145: 2729897824985094549
+      CellStage border_146: -1231935736074814655
+      CellStage border_147: 2378153924568795529
+      CellStage border_148: -7728427470127570049
+      CellStage border_149: -2857734989358224827
+      CellStage border_15: -5130586061127826884
+      CellStage border_150: 2615442154459328099
+      CellStage border_151: -8471843658983262101
+      CellStage border_152: 3481937663077933258
+      CellStage border_153: 8482729662613726227
+      CellStage border_154: 8387985462724278422
+      CellStage border_155: 5337262086512174208
+      CellStage border_156: -716659901868315018
+      CellStage border_157: -7687083713440454690
+      CellStage border_158: -3640003591889211791
+      CellStage border_159: 7431802835590490708
+      CellStage border_16: 1130951142174500897
+      CellStage border_160: -9050811603581393407
+      CellStage border_161: -6717888332526905897
+      CellStage border_162: -1981120422954347496
+      CellStage border_163: 5987281442886244141
+      CellStage border_164: -649715845073866517
+      CellStage border_165: -385136192623463031
+      CellStage border_166: -4451091015006306941
+      CellStage border_167: -5576134337539932226
+      CellStage border_168: 8387488881675406338
+      CellStage border_169: 4137678595209732567
+      CellStage border_17: 8293035095947078235
+      CellStage border_170: -1393333341305928171
+      CellStage border_171: 3128376529685930794
+      CellStage border_172: -1999818952503450891
+      CellStage border_173: -3880482148959802547
+      CellStage border_174: 8617422444511157984
+      CellStage border_175: -4445087004493188563
+      CellStage border_176: 7911503874761924280
+      CellStage border_177: -6146326200604194523
+      CellStage border_178: -8046995048295944693
+      CellStage border_179: -4511557393344139048
+      CellStage border_18: -3483675105481560387
+      CellStage border_180: -6234155404697762991
+      CellStage border_181: -4898693914839436731
+      CellStage border_182: -4321366909158617214
+      CellStage border_183: 7720685186035721013
+      CellStage border_184: 1958146293689004495
+      CellStage border_185: -3874830886967453776
+      CellStage border_186: 4519336968563646869
+      CellStage border_187: -1964253126320434417
+      CellStage border_188: 3375431661927926116
+      CellStage border_189: 3552897250413676855
+      CellStage border_19: -1626328761592477300
+      CellStage border_190: -8484139482406008726
+      CellStage border_191: 3650274962981543698
+      CellStage border_192: 6177638745920670235
+      CellStage border_193: 3396615064474561210
+      CellStage border_194: 9013750348819690871
+      CellStage border_195: 430561533665526038
+      CellStage border_196: 4083657776429836276
+      CellStage border_197: -4264441090462680992
+      CellStage border_198: -8579115970588038244
+      CellStage border_199: -3462003952440691262
+      CellStage border_2: 173032897550937652
+      CellStage border_20: -7452184508681547470
+      CellStage border_200: 8163592364428104043
+      CellStage border_201: 6978277378761254141
+      CellStage border_202: -8345517340566728901
+      CellStage border_203: 3925140308649270065
+      CellStage border_204: 1810275536169369579
+      CellStage border_205: -4110393128442934861
+      CellStage border_206: 1053441360528792354
+      CellStage border_207: -5915167102392527810
+      CellStage border_208: 9084379536526148774
+      CellStage border_209: -7605180086866267350
+      CellStage border_21: -4068940268079454943
+      CellStage border_210: -793773284083933266
+      CellStage border_211: -5158637369225831964
+      CellStage border_212: -1474964918072563252
+      CellStage border_213: 2207560790475798216
+      CellStage border_214: -6710351710411472202
+      CellStage border_215: 1409914706277279189
+      CellStage border_216: 3820005594310722427
+      CellStage border_217: 1173162260461325531
+      CellStage border_218: -6288609592044230046
+      CellStage border_219: -7909044276530271776
+      CellStage border_22: -8886072632364273522
+      CellStage border_220: -8444780318646025907
+      CellStage border_221: 2135993057024073840
+      CellStage border_222: 6553445439281743337
+      CellStage border_223: 427088874260651006
+      CellStage border_224: -5366924525034194151
+      CellStage border_225: 2087722345218138060
+      CellStage border_226: 7081603993990768746
+      CellStage border_227: -9145559725706177781
+      CellStage border_228: 5889657078683792383
+      CellStage border_229: 4426631743006596479
+      CellStage border_23: 4372500558230032373
+      CellStage border_230: -3586920333012997668
+      CellStage border_231: 4259671495196296993
+      CellStage border_232: 1546687522409384467
+      CellStage border_233: -7215980553361383220
+      CellStage border_234: 6646444497159233490
+      CellStage border_235: 7515899753982788208
+      CellStage border_236: -6171554236580429274
+      CellStage border_237: 703405914864476474
+      CellStage border_238: 7723771560186004639
+      CellStage border_239: -5343798981541595760
+      CellStage border_24: -2176948759746450740
+      CellStage border_240: 8920686832500909227
+      CellStage border_241: -2784382642669846141
+      CellStage border_242: 8869696974492984325
+      CellStage border_243: 7188095850420039255
+      CellStage border_244: -7711318635502219568
+      CellStage border_245: -608786259337559767
+      CellStage border_246: 950409022536467406
+      CellStage border_247: -4344693880071690805
+      CellStage border_248: -6446309824099770633
+      CellStage border_249: 24300890477225478
+      CellStage border_25: -116819995725410361
+      CellStage border_250: -108152831626495214
+      CellStage border_251: -2313406609674886617
+      CellStage border_252: -5368463890132340056
+      CellStage border_253: -6486370687010508535
+      CellStage border_254: -5479242752480841632
+      CellStage border_255: 611722301601234641
+      CellStage border_256: 4800029257822138888
+      CellStage border_257: 5220734316589746161
+      CellStage border_258: 4069621572163419570
+      CellStage border_259: -4326388396290722293
+      CellStage border_26: 5665039038259521073
+      CellStage border_260: 344530955753227063
+      CellStage border_261: 2287723622764705897
+      CellStage border_262: 626122155516279250
+      CellStage border_263: -7470749755254457245
+      CellStage border_264: -6927327818166275379
+      CellStage border_265: 4125909971789023320
+      CellStage border_266: 2421765003611806532
+      CellStage border_267: 6515318371476123438
+      CellStage border_268: 5257544121223711904
+      CellStage border_269: -4377833033599374238
+      CellStage border_27: 1793152849628054285
+      CellStage border_270: -230132195782417113
+      CellStage border_271: 2787602387030995032
+      CellStage border_272: 3900617653416031316
+      CellStage border_273: 1760985897718098539
+      CellStage border_274: -1850002930417453451
+      CellStage border_275: -1238036833998408934
+      CellStage border_276: -1868742809064184467
+      CellStage border_277: 5572597955682062465
+      CellStage border_278: -4702687250146902181
+      CellStage border_28: 1099174582893712762
+      CellStage border_29: -935988843224910680
+      CellStage border_3: 8519918959903492628
+      CellStage border_30: 1092288034726617847
+      CellStage border_31: -6109873752165151160
+      CellStage border_32: 8541591529196298820
+      CellStage border_33: -8748306992847645865
+      CellStage border_34: 8119614679690022093
+      CellStage border_35: -2592524212385859074
+      CellStage border_36: 2857784154350291562
+      CellStage border_37: 1081823546171941498
+      CellStage border_38: -9090837280648016997
+      CellStage border_39: 5441530709003565831
+      CellStage border_4: 6090102636228213787
+      CellStage border_40: 1891120380836210898
+      CellStage border_41: -5499156721797625455
+      CellStage border_42: -844462983623926477
+      CellStage border_43: 1070472752358156731
+      CellStage border_44: -864780786078469599
+      CellStage border_45: -953663891645278539
+      CellStage border_46: 6653345915090471337
+      CellStage border_47: -1965471484310256443
+      CellStage border_48: 1280245464281612144
+      CellStage border_49: 7059525318585877420
+      CellStage border_5: 7092896728965210246
+      CellStage border_50: 4308583139140423196
+      CellStage border_51: -412990080072498869
+      CellStage border_52: -6973219366679106356
+      CellStage border_53: 6412749282258208831
+      CellStage border_54: -904404120731902202
+      CellStage border_55: -1705020062591777250
+      CellStage border_56: -294738075748846384
+      CellStage border_57: 4388903939667202647
+      CellStage border_58: -4762610944846966119
+      CellStage border_59: -9211072286655464762
+      CellStage border_6: 5716842195125926027
+      CellStage border_60: -5238357848175269500
+      CellStage border_61: -39446786553673585
+      CellStage border_62: 4993930883502350532
+      CellStage border_63: -836372303002999136
+      CellStage border_64: 6715870809107053467
+      CellStage border_65: -3830410203487974111
+      CellStage border_66: 1661044915871113219
+      CellStage border_67: -2388702509444229962
+      CellStage border_68: -3458362452773681078
+      CellStage border_69: -4802165234939159198
+      CellStage border_7: -5983978045460247599
+      CellStage border_70: 7162774501362376483
+      CellStage border_71: -8936149184348534715
+      CellStage border_72: -3333952166611415335
+      CellStage border_73: -6163371247090430673
+      CellStage border_74: 5965421891500705861
+      CellStage border_75: 4590001841196870945
+      CellStage border_76: 7823782380287831144
+      CellStage border_77: -1761983020229312206
+      CellStage border_78: 5078636558612912436
+      CellStage border_79: 8024885793874436599
+      CellStage border_8: 5376340737910146331
+      CellStage border_80: -4250584952753441223
+      CellStage border_81: 4226426833992795517
+      CellStage border_82: 5177825394778946963
+      CellStage border_83: 2690027527452093106
+      CellStage border_84: 7113006881543420166
+      CellStage border_85: -6178399458675802597
+      CellStage border_86: 3998347758361240761
+      CellStage border_87: -232194641750498204
+      CellStage border_88: -2911295482996896587
+      CellStage border_89: 7627327944027177453
+      CellStage border_9: -5414989387668656199
+      CellStage border_90: -8814201694380546320
+      CellStage border_91: -5550669689648897613
+      CellStage border_92: 6800058422292241696
+      CellStage border_93: 3666660221442239039
+      CellStage border_94: 1429238335404944652
+      CellStage border_95: -6809169279904103326
+      CellStage border_96: 7872285888009553638
+      CellStage border_97: 8328708548794428290
+      CellStage border_98: 3943650660487265529
+      CellStage border_99: 4822804158733420644
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

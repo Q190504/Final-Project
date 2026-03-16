@@ -1,0 +1,292 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Grid<TGridObject>
+{
+    private int width;
+    private int height;
+    private float cellSize;
+    private Vector3 originPosition;
+
+    private GridCell[,] gridArray;
+    private float[,] temperatureGridArray;
+    private float[,] populationGridArray;
+    private bool[,] waterGridArray;
+    private bool[,] mountainGridArray;
+
+    private int waterCellCount = 0;
+    private MinHeap<Vector3Int> lakeCenterCellsHeap = new();
+    private MinHeap<RiverData> riverDatasHeap = new();
+
+    private int mountainCellCount = 0;
+    //private List<MountainData> mountainDatasList = new();
+
+    public List<UrbanCluster> urbanClusters;
+
+    public Grid(int width, int height, float cellSize, Vector3 originPosition,
+        Func<Grid<TGridObject>, int, int, PopulationType, TempuratureType, StructureType, int, GridCell> createCell,
+        bool showDebug)
+    {
+        this.width = width;
+        this.height = height;
+        this.cellSize = cellSize;
+        this.originPosition = originPosition;
+
+        gridArray = new GridCell[width, height];
+        temperatureGridArray = new float[width, height];
+        populationGridArray = new float[width, height];
+        waterGridArray = new bool[width, height];
+        mountainGridArray = new bool[width, height];
+
+        for (int x = 0; x < gridArray.GetLength(0); x++)
+        {
+            for (int y = 0; y < gridArray.GetLength(1); y++)
+            {
+                gridArray[x, y] = createCell(this, x, y, PopulationType.High, TempuratureType.Normal, StructureType.None, 50);
+            }
+        }
+
+
+        //if (showDebug)
+        //{
+
+        //}
+    }
+
+    public Grid(int width, int height, float cellSize, Vector3 originPosition,
+    Func<Grid<TGridObject>, int, int, GridCell> createCell, bool showDebug)
+    {
+        this.width = width;
+        this.height = height;
+        this.cellSize = cellSize;
+        this.originPosition = originPosition;
+
+        gridArray = new GridCell[width, height];
+        temperatureGridArray = new float[width, height];
+        populationGridArray = new float[width, height];
+        waterGridArray = new bool[width, height];
+        mountainGridArray = new bool[width, height];
+
+        for (int x = 0; x < gridArray.GetLength(0); x++)
+        {
+            for (int y = 0; y < gridArray.GetLength(1); y++)
+            {
+                gridArray[x, y] = createCell(this, x, y);
+            }
+        }
+
+        //if (showDebug)
+        //{
+
+        //}
+    }
+
+    public void GetXY(Vector3 worldPosition, out int x, out int y)
+    {
+        x = Mathf.FloorToInt(((worldPosition.x - originPosition.x) / cellSize) + cellSize / 2);
+        y = Mathf.FloorToInt(((worldPosition.y - originPosition.y) / cellSize) + cellSize / 2);
+    }
+
+    public GridCell GetCell(int x, int y)
+    {
+        if (x >= 0 && y >= 0 && x < width && y < height)
+            return gridArray[x, y];
+        else return default(GridCell);
+    }
+
+    public GridCell GetCell(Vector3 worldPosition)
+    {
+        GetXY(worldPosition, out int x, out int y);
+        if (x >= 0 && y >= 0 && x < width && y < height)
+            return gridArray[x, y];
+        else return null;
+    }
+
+    public void SetTemperatureCell(int x, int y, float value)
+    {
+        if (IsInBounds(x, y))
+            temperatureGridArray[x, y] = value;
+    }
+
+    public void SetPopulationCell(int x, int y, float value)
+    {
+        if (IsInBounds(x, y))
+            populationGridArray[x, y] = value;
+    }
+
+    public void SetMoutainCell(int x, int y, bool value)
+    {
+        if (IsInBounds(x, y))
+            mountainGridArray[x, y] = value;
+    }
+
+    public void NormalizePopulationMap()
+    {
+        float max = 0f;
+
+        // Find maximum value in grid
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (populationGridArray[x, y] > max)
+                    max = populationGridArray[x, y];
+            }
+        }
+
+        // Avoid division by zero
+        if (max <= 0f) return;
+
+
+        // Normalize and clamp
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                float normalized = populationGridArray[x, y] / max;
+                populationGridArray[x, y] = Mathf.Clamp(normalized, 0.1f, 1f);
+            }
+        }
+    }
+
+    public void SetWaterCell(int x, int y, bool value)
+    {
+        if (IsInBounds(x, y))
+            waterGridArray[x, y] = value;
+    }
+
+    public GridCell[,] GetGrid()
+    {
+        return gridArray;
+    }
+
+    public float[,] GetPopulationGrid()
+    {
+        return populationGridArray;
+    }
+
+    public float[,] GetTemperatureGrid()
+    {
+        return temperatureGridArray;
+    }
+
+    public bool[,] GetMountainGrid()
+    {
+        return mountainGridArray;
+    }
+
+    public bool[,] GetWaterGrid()
+    {
+        return waterGridArray;
+    }
+
+    public List<UrbanCluster> GetUrbanClusters()
+    { return urbanClusters; }
+
+    public int GetWidth() { return width; }
+    public int GetHeight() { return height; }
+
+    public bool IsInBounds(int x, int y)
+    {
+        return (x >= 0 && y >= 0 && x < width && y < height);
+    }
+
+    public void IncrementWaterCellCount()
+    {
+        waterCellCount++;
+    }
+
+    public void DecrementWaterCellCount()
+    {
+        waterCellCount--;
+    }
+
+    public void ResetWaterCellCount()
+    {
+        waterCellCount = 0;
+    }
+
+    public int GetWaterCellCount()
+    {
+        return waterCellCount;
+    }
+
+    #region Lake
+
+    public void AddLakeCenterCell(Vector3Int cell)
+    {
+        lakeCenterCellsHeap.Push(cell, cell.z);
+    }
+
+    public MinHeap<Vector3Int> GetLakeCenterCellsHeap()
+    {
+        return lakeCenterCellsHeap;
+    }
+
+    public void ClearLakeCenterCellsList()
+    {
+        lakeCenterCellsHeap.Clear();
+    }
+
+    #endregion
+
+    #region River   
+
+    public void AddRiverData(RiverData riverData)
+    {
+        riverDatasHeap.Push(riverData, riverData.targetLength);
+    }
+
+    public MinHeap<RiverData> GetRiverDataHeap()
+    {
+        return riverDatasHeap;
+    }
+
+    public void ClearRiverData()
+    {
+        riverDatasHeap.Clear();
+    }
+
+    #endregion
+
+    #region Mountain
+
+    public void IncrementMountainCellCount()
+    {
+        mountainCellCount++;
+    }
+
+    public void DecrementMountainCellCount()
+    {
+        mountainCellCount--;
+    }
+
+    public void ResetMountainCellCount()
+    {
+        mountainCellCount = 0;
+    }
+
+    public int GetMountainCellCount()
+    {
+        return mountainCellCount;
+    }
+
+    //public void AddMountainData(MountainData mountainData)
+    //{
+    //    mountainDatasList.Add(mountainData);
+    //}
+
+    //public List<MountainData> GetMountainDataList()
+    //{
+    //    return mountainDatasList;
+    //}
+
+    //public void ClearMountainData()
+    //{
+    //    mountainDatasList.Clear();
+    //}
+
+    #endregion
+
+}

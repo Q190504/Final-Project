@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9650092d172c1d340ab6ddcef82f7d7f, type: 3}
+  m_Name: InfectedCellStageData
+  m_EditorClassIdentifier: 
+  type: 3
+  sprite: {fileID: -4715139217805200250, guid: 2566b424e74e1a848a0b9421c9035bbd, type: 3}
+  cellStageStats:
+    minInfectionValue: 50
+    maxInfectionValue: 99
+    infectionResistance: 0
+    targetInfectionIncreasePercent: 0.6
+    increaseInfectionLevelPerTick: 3
+    detectionPercent: 0.7
+    isContagious: 1
+    isBlocked: 0
+    canSwitchToDead: 0
+    tickToDeadCount: 0
+    priorityToHuman: 0.7
+    basePriorityToMethods:
+      surfacePriority: 0.5
+      airPriority: 0.5
+      waterPriority: 0.5
+      carrierPriority: 0.5
