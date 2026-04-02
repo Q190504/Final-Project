@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CriticalCellStageData
   m_EditorClassIdentifier: 
   type: 4
-  sprite: {fileID: -3295806868771481872, guid: 2566b424e74e1a848a0b9421c9035bbd, type: 3}
+  displayName: Critical
+  sprite: {fileID: -1069379795, guid: b13313dac8411a243adade923f7386c4, type: 3}
   cellStageStats:
     minInfectionValue: 100
     maxInfectionValue: 100

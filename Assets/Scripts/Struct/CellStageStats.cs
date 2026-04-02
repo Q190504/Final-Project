@@ -8,7 +8,6 @@ public struct CellStageStats
     public int infectionResistance;
     [Range(0, 1)]
     public float targetInfectionIncreasePercent;
-    public int increaseInfectionLevelPerTick;
 
     [Range(0, 1)]
     public float detectionPercent;

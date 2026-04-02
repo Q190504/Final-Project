@@ -3,29 +3,16 @@ using UnityEngine;
 public class CellStage
 {
     public CellStageType type;
-    public CellStageStats stats;
+
+    public float priorityToHuman;
+    public PriorityToMethods priorityToMethods;
 
     public CellStage()
     {
         type = CellStageType.None;
-        stats = new CellStageStats();
     }
 
-    public CellStage(int infectionLevel)
-    {
-        foreach (CellStageData cellStageData in CellPropertyManager.Instance.GetCellStageDatas())
-        {
-            if (cellStageData != null && cellStageData.cellStageStats.minInfectionValue <= infectionLevel 
-                && infectionLevel <= cellStageData.cellStageStats.maxInfectionValue)
-            {
-                type = cellStageData.type;
-                stats = cellStageData.cellStageStats;
-                return;
-            }
-        }
-    }
-
-    public CellStageType SetCellStageType(int infectionLevel)
+    public CellStageType SetCellStageType(int infectionLevel, CellStats cellStats)
     {
         foreach (CellStageData cellStageData in CellPropertyManager.Instance.GetCellStageDatas())
         {
@@ -33,11 +20,21 @@ public class CellStage
                 && infectionLevel <= cellStageData.cellStageStats.maxInfectionValue)
             {
                 type = cellStageData.type;
-                stats = cellStageData.cellStageStats;
+                cellStats.DetermineInfectionFlags(cellStageData.cellStageStats);
                 return type;
             }
         }
 
         return CellStageType.None;
+    }
+
+    public void SetCellStageType(CellStageType cellStageType, CellStats cellStats)
+    {
+        CellStageData cellStageData = CellPropertyManager.Instance.GetCellStageData(cellStageType);
+        if (cellStageData != null)
+        {
+            type = cellStageData.type;
+            cellStats.DetermineInfectionFlags(cellStageData.cellStageStats);
+        }
     }
 }

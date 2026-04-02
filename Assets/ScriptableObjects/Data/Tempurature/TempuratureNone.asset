@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TempuratureNone
   m_EditorClassIdentifier: 
   type: 0
+  displayName: Nobe
   sprite: {fileID: 0}
   minTempuratureValue: 0
   maxTempuratureValue: 0

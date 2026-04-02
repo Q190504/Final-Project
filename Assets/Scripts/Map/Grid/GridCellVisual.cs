@@ -55,6 +55,7 @@ public class GridCellVisual : MonoBehaviour
             structureIcon.sprite = strucData.sprite;
 
         CellStageData cellStageData = CellPropertyManager.Instance.GetCellStageData(cellStats.stage.type);
+
         if (cellStageData != null)
             cellStageBorderRenderer.sprite = cellStageData.sprite;
 

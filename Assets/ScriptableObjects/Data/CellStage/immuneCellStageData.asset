@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9650092d172c1d340ab6ddcef82f7d7f, type: 3}
-  m_Name: immuneCellStageData
+  m_Name: ImmuneCellStageData
   m_EditorClassIdentifier: 
   type: 5
-  sprite: {fileID: 0}
+  displayName: Immune
+  sprite: {fileID: 8272137908544563709, guid: ec8d5f9df3245ed4895254ccaf071c33, type: 3}
   cellStageStats:
     minInfectionValue: 0
     maxInfectionValue: 0

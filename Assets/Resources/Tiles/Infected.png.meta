@@ -1,0 +1,2946 @@
+fileFormatVersion: 2
+guid: 781dbda9f9211c547a93d93f7b5cd0cb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4035544565604029489
+    second: Deco All 1_0
+  - first:
+      213: -4710745587314088718
+    second: Deco All 1_1
+  - first:
+      213: -7785080452495978806
+    second: Deco All 1_2
+  - first:
+      213: -6660218631569745351
+    second: Deco All 1_3
+  - first:
+      213: 1462542853084405566
+    second: Deco All 1_4
+  - first:
+      213: 220527177266150825
+    second: Deco All 1_5
+  - first:
+      213: -8083272573397204805
+    second: Deco All 1_6
+  - first:
+      213: -7242343857009710528
+    second: Deco All 1_7
+  - first:
+      213: 8712770555503288055
+    second: Deco All 1_8
+  - first:
+      213: -2891647597816520445
+    second: Deco All 1_9
+  - first:
+      213: -117585509784605153
+    second: Deco All 1_10
+  - first:
+      213: 8850557372356841852
+    second: Deco All 1_11
+  - first:
+      213: 2245270570981373166
+    second: Deco All 1_12
+  - first:
+      213: -2033318327236306364
+    second: Deco All 1_13
+  - first:
+      213: -5985324818888899988
+    second: Deco All 1_14
+  - first:
+      213: 3341880203954690177
+    second: Deco All 1_15
+  - first:
+      213: 4905430352367959898
+    second: Deco All 1_16
+  - first:
+      213: 7227044018865822431
+    second: Deco All 1_17
+  - first:
+      213: -350815123104194140
+    second: Deco All 1_18
+  - first:
+      213: -3752254889374751584
+    second: Deco All 1_19
+  - first:
+      213: 1211294532285919825
+    second: Deco All 1_20
+  - first:
+      213: -8105099052335025301
+    second: Deco All 1_21
+  - first:
+      213: -3748736486920161806
+    second: Deco All 1_22
+  - first:
+      213: 3902179061189392245
+    second: Deco All 1_23
+  - first:
+      213: -2953656730618087061
+    second: Deco All 1_24
+  - first:
+      213: -3581215576410760042
+    second: Deco All 1_25
+  - first:
+      213: -3320432975459745148
+    second: Deco All 1_26
+  - first:
+      213: -3226155594000695480
+    second: Deco All 1_27
+  - first:
+      213: 7088793293792053442
+    second: Deco All 1_28
+  - first:
+      213: 4013390733738151920
+    second: Deco All 1_29
+  - first:
+      213: 8095548260997461839
+    second: Deco All 1_30
+  - first:
+      213: -522276246089286003
+    second: Deco All 1_31
+  - first:
+      213: 272093044639545398
+    second: Deco All 1_32
+  - first:
+      213: -1724335380744587717
+    second: Deco All 1_33
+  - first:
+      213: -3614839843971771881
+    second: Deco All 1_34
+  - first:
+      213: 5656056087158726134
+    second: Deco All 1_35
+  - first:
+      213: 7453521296672100897
+    second: Deco All 1_36
+  - first:
+      213: 7347972697030889780
+    second: Deco All 1_37
+  - first:
+      213: 4775946193942990902
+    second: Deco All 1_38
+  - first:
+      213: 1930717611590889810
+    second: Deco All 1_39
+  - first:
+      213: -6441578781680925222
+    second: Deco All 1_40
+  - first:
+      213: -4071837230047988004
+    second: Deco All 1_41
+  - first:
+      213: -5311503669751753959
+    second: Deco All 1_42
+  - first:
+      213: -672463694016591423
+    second: Deco All 1_43
+  - first:
+      213: 6764997912298400380
+    second: Deco All 1_44
+  - first:
+      213: -1155422228946730027
+    second: Deco All 1_45
+  - first:
+      213: 242466102937073664
+    second: Deco All 1_46
+  - first:
+      213: 8300441990727466545
+    second: Deco All 1_47
+  - first:
+      213: 973770386890812840
+    second: Deco All 1_48
+  - first:
+      213: -1738968912306464862
+    second: Deco All 1_49
+  - first:
+      213: 5417751354194448100
+    second: Deco All 1_50
+  - first:
+      213: 6398070930104989898
+    second: Deco All 1_51
+  - first:
+      213: -8065815193467543804
+    second: Deco All 1_52
+  - first:
+      213: 7270705726947821468
+    second: Deco All 1_53
+  - first:
+      213: 5007079721004282942
+    second: Deco All 1_54
+  - first:
+      213: -978221083458345647
+    second: Deco All 1_55
+  - first:
+      213: 6820819534740866080
+    second: Deco All 1_56
+  - first:
+      213: 3144073302122620099
+    second: Deco All 1_57
+  - first:
+      213: 3538487855816356792
+    second: Deco All 1_58
+  - first:
+      213: 2255638562112988106
+    second: Deco All 1_59
+  - first:
+      213: 5234230281644120274
+    second: Deco All 1_60
+  - first:
+      213: 7733992936952697850
+    second: Deco All 1_61
+  - first:
+      213: 2841549324109888862
+    second: Deco All 1_62
+  - first:
+      213: 8166776553564387362
+    second: Deco All 1_63
+  - first:
+      213: 7934637104655493860
+    second: Deco All 1_64
+  - first:
+      213: -8793375033971740478
+    second: Deco All 1_65
+  - first:
+      213: 3677038255195459792
+    second: Deco All 1_66
+  - first:
+      213: -4604255791848368052
+    second: Deco All 1_67
+  - first:
+      213: -4290789854511300893
+    second: Deco All 1_68
+  - first:
+      213: 8435555257597598253
+    second: Deco All 1_69
+  - first:
+      213: 1223905125919032575
+    second: Deco All 1_70
+  - first:
+      213: 2987555179801935999
+    second: Deco All 1_71
+  - first:
+      213: -5643523153759613106
+    second: Deco All 1_72
+  - first:
+      213: -4711075585367129012
+    second: Deco All 1_73
+  - first:
+      213: 3716592243205443937
+    second: Deco All 1_74
+  - first:
+      213: 3271574487741976388
+    second: Deco All 1_75
+  - first:
+      213: -8738377362941956871
+    second: Deco All 1_76
+  - first:
+      213: 4845996906834796640
+    second: Deco All 1_77
+  - first:
+      213: 3206994167752811435
+    second: Deco All 1_78
+  - first:
+      213: 6457486059749209871
+    second: Deco All 1_79
+  - first:
+      213: -8935580010042897753
+    second: Deco All 1_80
+  - first:
+      213: -6470354675898749474
+    second: Deco All 1_81
+  - first:
+      213: -8517597051288187684
+    second: Deco All 1_82
+  - first:
+      213: 2829827485411598100
+    second: Deco All 1_83
+  - first:
+      213: 8358924273477150345
+    second: Deco All 1_84
+  - first:
+      213: 2725074122018602307
+    second: Deco All 1_85
+  - first:
+      213: 5237153558203534449
+    second: Deco All 1_86
+  - first:
+      213: -1285517803036213320
+    second: Deco All 1_87
+  - first:
+      213: -7691810601441522332
+    second: Deco All 1_88
+  - first:
+      213: -1758698711299866458
+    second: Deco All 1_89
+  - first:
+      213: -1978595757390233714
+    second: Deco All 1_90
+  - first:
+      213: -2853958715700936465
+    second: Deco All 1_91
+  - first:
+      213: -8087504314716702549
+    second: Deco All 1_92
+  - first:
+      213: -7451226361519123493
+    second: Deco All 1_93
+  - first:
+      213: 8080907562946904455
+    second: Deco All 1_94
+  - first:
+      213: -3648022081428587622
+    second: Deco All 1_95
+  - first:
+      213: -1886476599261329944
+    second: Deco All 1_96
+  - first:
+      213: -2671993180862963447
+    second: Deco All 1_97
+  - first:
+      213: -7934896074311429993
+    second: Deco All 1_98
+  - first:
+      213: -2276866954540485030
+    second: Deco All 1_99
+  - first:
+      213: 3596948236831647155
+    second: Deco All 1_100
+  - first:
+      213: 6680365316681098600
+    second: Deco All 1_101
+  - first:
+      213: 355666362094735829
+    second: Deco All 1_102
+  - first:
+      213: -7240617973586037121
+    second: Deco All 1_103
+  - first:
+      213: 1973110786235553448
+    second: Deco All 1_104
+  - first:
+      213: 3564415504261388518
+    second: Deco All 1_105
+  - first:
+      213: -6161068153553255341
+    second: Deco All 1_106
+  - first:
+      213: -5235649464088810036
+    second: Deco All 1_107
+  - first:
+      213: -5116186879269475039
+    second: Deco All 1_108
+  - first:
+      213: -3476869907832571103
+    second: Deco All 1_109
+  - first:
+      213: -4854537262858095898
+    second: Deco All 1_110
+  - first:
+      213: 5038509457867978944
+    second: Deco All 1_111
+  - first:
+      213: -2101031913851736017
+    second: Deco All 1_112
+  - first:
+      213: 539908893759329414
+    second: Deco All 1_113
+  - first:
+      213: -4955371553360640484
+    second: Deco All 1_114
+  - first:
+      213: -4256321013268829466
+    second: Deco All 1_115
+  - first:
+      213: 6000032760963684409
+    second: Deco All 1_116
+  - first:
+      213: -2274061230027620327
+    second: Deco All 1_117
+  - first:
+      213: -4711430724608678044
+    second: Deco All 1_118
+  - first:
+      213: -618755938474312625
+    second: Deco All 1_119
+  - first:
+      213: 6587306022502436563
+    second: Deco All 1_120
+  - first:
+      213: -8253585559010463889
+    second: Deco All 1_121
+  - first:
+      213: -854938078933546450
+    second: Deco All 1_122
+  - first:
+      213: 1184658598892281760
+    second: Deco All 1_123
+  - first:
+      213: -905140582060142906
+    second: Deco All 1_124
+  - first:
+      213: -8001827833792579425
+    second: Deco All 1_125
+  - first:
+      213: -1163793928362719584
+    second: Deco All 1_126
+  - first:
+      213: 4573913774927993726
+    second: Deco All 1_127
+  - first:
+      213: -6970874368009125715
+    second: Deco All 1_128
+  - first:
+      213: -8361451608068291011
+    second: Deco All 1_129
+  - first:
+      213: -7087970438686522142
+    second: Deco All 1_130
+  - first:
+      213: -2648502485035283312
+    second: Deco All 1_131
+  - first:
+      213: -7566802706301908579
+    second: Deco All 1_132
+  - first:
+      213: 7965584294276991014
+    second: Deco All 1_133
+  - first:
+      213: 8981943571401572943
+    second: Deco All 1_134
+  - first:
+      213: 3932326971847862389
+    second: Deco All 1_135
+  - first:
+      213: -6978389944282881117
+    second: Deco All 1_136
+  - first:
+      213: 7929806541097711982
+    second: Deco All 1_137
+  - first:
+      213: 5150328044794471666
+    second: Deco All 1_138
+  - first:
+      213: -4438904175151460523
+    second: Deco All 1_139
+  - first:
+      213: -8861421819316858815
+    second: Deco All 1_140
+  - first:
+      213: 4080761211164467120
+    second: Deco All 1_141
+  - first:
+      213: -3681831029316670730
+    second: Deco All 1_142
+  - first:
+      213: -3310949199163073656
+    second: Deco All 1_143
+  - first:
+      213: -3156544959491118254
+    second: Deco All 1_144
+  - first:
+      213: 8309165569693722382
+    second: Deco All 1_145
+  - first:
+      213: 2015355296316944500
+    second: Deco All 1_146
+  - first:
+      213: 3927356756237047861
+    second: Deco All 1_147
+  - first:
+      213: -7640459414226653955
+    second: Deco All 1_148
+  - first:
+      213: -677280229966817355
+    second: Deco All 1_149
+  - first:
+      213: -3508562030955775019
+    second: Deco All 1_150
+  - first:
+      213: -7439278397102414946
+    second: Deco All 1_151
+  - first:
+      213: -3162555448409939384
+    second: Deco All 1_152
+  - first:
+      213: -121584044239901065
+    second: Deco All 1_153
+  - first:
+      213: -965995250149481733
+    second: Deco All 1_154
+  - first:
+      213: 8484071573414126493
+    second: Deco All 1_155
+  - first:
+      213: 6101018901105490391
+    second: Deco All 1_156
+  - first:
+      213: 5005899164275733309
+    second: Deco All 1_157
+  - first:
+      213: 5526637931759359710
+    second: Deco All 1_158
+  - first:
+      213: -3948990198536079496
+    second: Deco All 1_159
+  - first:
+      213: 6035615450647176602
+    second: Deco All 1_160
+  - first:
+      213: -7724181867287701034
+    second: Deco All 1_161
+  - first:
+      213: 763289219744322541
+    second: Deco All 1_162
+  - first:
+      213: -2253195634888157558
+    second: Deco All 1_163
+  - first:
+      213: -2769703429076522532
+    second: Deco All 1_164
+  - first:
+      213: 8012153300179860203
+    second: Deco All 1_165
+  - first:
+      213: 2853516166762223061
+    second: Deco All 1_166
+  - first:
+      213: 519522864368729778
+    second: Deco All 1_167
+  - first:
+      213: 3892336564011968976
+    second: Deco All 1_168
+  - first:
+      213: -7962349332033405825
+    second: Deco All 1_169
+  - first:
+      213: -355887183975145918
+    second: Deco All 1_170
+  - first:
+      213: -5204955090312038236
+    second: Deco All 1_171
+  - first:
+      213: 375541273258532459
+    second: Deco All 1_172
+  - first:
+      213: -3380890101996066401
+    second: Deco All 1_173
+  - first:
+      213: 8974718962605243791
+    second: Deco All 1_174
+  - first:
+      213: 7868146500570735403
+    second: Deco All 1_175
+  - first:
+      213: -8603182393822356554
+    second: Deco All 1_176
+  - first:
+      213: -6734787958320109652
+    second: Deco All 1_177
+  - first:
+      213: -1300854117986487347
+    second: Deco All 1_178
+  - first:
+      213: 4283351228023273175
+    second: Deco All 1_179
+  - first:
+      213: 590751531227219254
+    second: Deco All 1_180
+  - first:
+      213: 2625395619515734110
+    second: Deco All 1_181
+  - first:
+      213: 3847945125880817780
+    second: Deco All 1_182
+  - first:
+      213: -7473595100912733006
+    second: Deco All 1_183
+  - first:
+      213: 6647482754780081107
+    second: Deco All 1_184
+  - first:
+      213: -1191746479386447085
+    second: Deco All 1_185
+  - first:
+      213: 6336556161420644926
+    second: Deco All 1_186
+  - first:
+      213: -9219028663546777235
+    second: Deco All 1_187
+  - first:
+      213: 7283305296128865479
+    second: Deco All 1_188
+  - first:
+      213: 5231450972957864163
+    second: Deco All 1_189
+  - first:
+      213: 8792027683018745265
+    second: Deco All 1_190
+  - first:
+      213: -599972418174960062
+    second: Deco All 1_191
+  - first:
+      213: -7181260510074175190
+    second: Deco All 1_192
+  - first:
+      213: 7113860168419503844
+    second: Deco All 1_193
+  - first:
+      213: 2568971484736546250
+    second: Deco All 1_194
+  - first:
+      213: -2035197218578071973
+    second: Deco All 1_195
+  - first:
+      213: 3479903009728826884
+    second: Deco All 1_196
+  - first:
+      213: 3418676690969190854
+    second: Deco All 1_197
+  - first:
+      213: -7709353975669047848
+    second: Deco All 1_198
+  - first:
+      213: 4409560929767022280
+    second: Deco All 1_199
+  - first:
+      213: 2978593074841504951
+    second: Deco All 1_200
+  - first:
+      213: -2398193490578929037
+    second: Deco All 1_201
+  - first:
+      213: 3339691123156398442
+    second: Deco All 1_202
+  - first:
+      213: -3216355464810323116
+    second: Deco All 1_203
+  - first:
+      213: -1057662076072380902
+    second: Deco All 1_204
+  - first:
+      213: -2031703288224051698
+    second: Deco All 1_205
+  - first:
+      213: 4840757733617474526
+    second: Deco All 1_206
+  - first:
+      213: 2064715141615458440
+    second: Deco All 1_207
+  - first:
+      213: 2596795207475644963
+    second: Deco All 1_208
+  - first:
+      213: 5383331204019830801
+    second: Deco All 1_209
+  - first:
+      213: 2641300124051442837
+    second: Deco All 1_210
+  - first:
+      213: 6657945557559782502
+    second: Deco All 1_211
+  - first:
+      213: 7400649541277275990
+    second: Deco All 1_212
+  - first:
+      213: 463292480635663782
+    second: Deco All 1_213
+  - first:
+      213: -8921406853615103445
+    second: Deco All 1_214
+  - first:
+      213: -8978303449354017608
+    second: Deco All 1_215
+  - first:
+      213: -299842035407316140
+    second: Deco All 1_216
+  - first:
+      213: 3356203768462816321
+    second: Deco All 1_217
+  - first:
+      213: 6151885833473874515
+    second: Deco All 1_218
+  - first:
+      213: 8221769334652053638
+    second: Deco All 1_219
+  - first:
+      213: -8052977471660979587
+    second: Deco All 1_220
+  - first:
+      213: 1109621319567045249
+    second: Deco All 1_221
+  - first:
+      213: 4031012443897945304
+    second: Deco All 1_222
+  - first:
+      213: -6024250025941754363
+    second: Deco All 1_223
+  - first:
+      213: -2051553729804480580
+    second: Deco All 1_224
+  - first:
+      213: -404628631589495964
+    second: Deco All 1_225
+  - first:
+      213: 1813015908028822671
+    second: Deco All 1_226
+  - first:
+      213: 2502192988618265484
+    second: Deco All 1_227
+  - first:
+      213: 673337256959474253
+    second: Deco All 1_228
+  - first:
+      213: -1377855129422260281
+    second: Deco All 1_229
+  - first:
+      213: -4965619876365210271
+    second: Deco All 1_230
+  - first:
+      213: -5943854336385648178
+    second: Deco All 1_231
+  - first:
+      213: 6339808040584243666
+    second: Deco All 1_232
+  - first:
+      213: 6084566547888622414
+    second: Deco All 1_233
+  - first:
+      213: 7572474826019309743
+    second: Deco All 1_234
+  - first:
+      213: 8000370589378306575
+    second: Deco All 1_235
+  - first:
+      213: -4566090992738431562
+    second: Deco All 1_236
+  - first:
+      213: -6337491232969154194
+    second: Deco All 1_237
+  - first:
+      213: -1997592468127797013
+    second: Deco All 1_238
+  - first:
+      213: 2441132773161499351
+    second: Deco All 1_239
+  - first:
+      213: -726975514564647280
+    second: Deco All 1_240
+  - first:
+      213: 6642309488761153717
+    second: Deco All 1_241
+  - first:
+      213: -5728540671903056486
+    second: Deco All 1_242
+  - first:
+      213: 8126219314634298671
+    second: Deco All 1_243
+  - first:
+      213: -7048482574660178868
+    second: Deco All 1_244
+  - first:
+      213: -6636894867461982326
+    second: Deco All 1_245
+  - first:
+      213: 160171222294609839
+    second: Deco All 1_246
+  - first:
+      213: -4594850454349138880
+    second: Deco All 1_247
+  - first:
+      213: -7779229366256561461
+    second: Deco All 1_248
+  - first:
+      213: 6504992687553628878
+    second: Deco All 1_249
+  - first:
+      213: 6167169490100509343
+    second: Deco All 1_250
+  - first:
+      213: 745271019567010068
+    second: Deco All 1_251
+  - first:
+      213: -7775071587824449961
+    second: Deco All 1_252
+  - first:
+      213: -5037146177099496111
+    second: Deco All 1_253
+  - first:
+      213: -8112422586888280761
+    second: Deco All 1_254
+  - first:
+      213: -3470475050282666359
+    second: Deco All 1_255
+  - first:
+      213: -94649488773776334
+    second: Deco All 1_256
+  - first:
+      213: -438186539021663438
+    second: Deco All 1_257
+  - first:
+      213: 6104929565551286085
+    second: Deco All 1_258
+  - first:
+      213: -7259951346064254848
+    second: Deco All 1_259
+  - first:
+      213: -7013030405388761632
+    second: Deco All 1_260
+  - first:
+      213: -8645496422277342441
+    second: Deco All 1_261
+  - first:
+      213: 298876008711240174
+    second: Deco All 1_262
+  - first:
+      213: -6616686887472326486
+    second: Deco All 1_263
+  - first:
+      213: 8823891127495572818
+    second: Deco All 1_264
+  - first:
+      213: 2616342273460323926
+    second: Deco All 1_265
+  - first:
+      213: -103280012120391060
+    second: Deco All 1_266
+  - first:
+      213: 2644073189736525118
+    second: Deco All 1_267
+  - first:
+      213: -8891084051971146040
+    second: Deco All 1_268
+  - first:
+      213: 747225813563040815
+    second: Deco All 1_269
+  - first:
+      213: 8112575034721473309
+    second: Deco All 1_270
+  - first:
+      213: -7003632915615490582
+    second: Deco All 1_271
+  - first:
+      213: 9016172531256206519
+    second: Deco All 1_272
+  - first:
+      213: 3063572781537494540
+    second: Deco All 1_273
+  - first:
+      213: -8047502700148183916
+    second: Deco All 1_274
+  - first:
+      213: 6196643639401511869
+    second: Deco All 1_275
+  - first:
+      213: -7388742183122120700
+    second: Deco All 1_276
+  - first:
+      213: -9220887238867808787
+    second: Deco All 1_277
+  - first:
+      213: -657464470091435476
+    second: Deco All 1_278
+  - first:
+      213: 7061939154216120356
+    second: Deco All 1_279
+  - first:
+      213: 8332878797248129582
+    second: Deco All 1_280
+  - first:
+      213: -7189433680123291201
+    second: Deco All 1_281
+  - first:
+      213: 4837912018410268634
+    second: Deco All 1_282
+  - first:
+      213: -497558747283942015
+    second: Deco All 1_283
+  - first:
+      213: -981961014598462471
+    second: Deco All 1_284
+  - first:
+      213: 881623184836611079
+    second: Deco All 1_285
+  - first:
+      213: 310893370110688046
+    second: Deco All 1_286
+  - first:
+      213: -6326181980991374549
+    second: Deco All 1_287
+  - first:
+      213: 5905048087141476159
+    second: Deco All 1_288
+  - first:
+      213: -1739900031116555379
+    second: Deco All 1_289
+  - first:
+      213: -4797821949237747937
+    second: Deco All 1_290
+  - first:
+      213: -3072975423113211381
+    second: Deco All 1_291
+  - first:
+      213: -3454535252834415447
+    second: Deco All 1_292
+  - first:
+      213: -4809089773532595186
+    second: Deco All 1_293
+  - first:
+      213: -7883452657510824177
+    second: Deco All 1_294
+  - first:
+      213: -6017326132460944376
+    second: Deco All 1_295
+  - first:
+      213: -944967889621855275
+    second: Deco All 1_296
+  - first:
+      213: -8806124989494700028
+    second: Deco All 1_297
+  - first:
+      213: -5209518894613812404
+    second: Deco All 1_298
+  - first:
+      213: 5931778393506518211
+    second: Deco All 1_299
+  - first:
+      213: 6902458195920943476
+    second: Deco All 1_300
+  - first:
+      213: 6204290894029554116
+    second: Deco All 1_301
+  - first:
+      213: 497251525507820569
+    second: Deco All 1_302
+  - first:
+      213: 7134081849149619354
+    second: Deco All 1_303
+  - first:
+      213: 7774525501317646304
+    second: Deco All 1_304
+  - first:
+      213: 423905921049064789
+    second: Deco All 1_305
+  - first:
+      213: -1293995052849985538
+    second: Deco All 1_306
+  - first:
+      213: -6818550147393678684
+    second: Deco All 1_307
+  - first:
+      213: -4241945753759917165
+    second: Deco All 1_308
+  - first:
+      213: 4575050666547808149
+    second: Deco All 1_309
+  - first:
+      213: 5445538083911510672
+    second: Deco All 1_310
+  - first:
+      213: -4166720124001181788
+    second: Deco All 1_311
+  - first:
+      213: -1698992150714160108
+    second: Deco All 1_312
+  - first:
+      213: -7748883397734079952
+    second: Deco All 1_313
+  - first:
+      213: -472645010815827480
+    second: Deco All 1_314
+  - first:
+      213: -2724929293895794488
+    second: Deco All 1_315
+  - first:
+      213: -3424613293312311123
+    second: Deco All 1_316
+  - first:
+      213: -104600632614287614
+    second: Deco All 1_317
+  - first:
+      213: -4408140896604625422
+    second: Deco All 1_318
+  - first:
+      213: 8200189465451942524
+    second: Deco All 1_319
+  - first:
+      213: -7966183715071161772
+    second: Deco All 1_320
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Infected_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56f120ee8aebaa4c9428a97608e6622
+      internalID: -2126753333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ae6f6c7f570f84a8a6194d8d700526
+      internalID: -2119104225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed8e2ebe650c284e8c99b4eda5f02bd
+      internalID: -1882023926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7222eeafa436bb04c9cba276cc3275b3
+      internalID: -1798908511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa6d065e73d1924e82f3cda1a458faf
+      internalID: -1926076848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a1f0cc8814551a40b8d7340251c6a1c
+      internalID: 664309827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e23f989b445c6ef47bc2cf329ca929b0
+      internalID: 597079280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ebafbd891223384dbda48ec7b5d5fae
+      internalID: -1323976504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceea0f56876b4954da2a94d44b5fd838
+      internalID: -114832271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc687475e344bab42aaffd1114ccf7bd
+      internalID: 1980601170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56205599e4e49024ba6992f636279207
+      internalID: 1039305227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 205008579d92b0941bfca99cecba3930
+      internalID: -1807038448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f54d077c2bd9c14db208c1786c72772
+      internalID: -864034145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 627e4134ce3379a42bfe0dc9308277ca
+      internalID: -2044575093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_14
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d3085cf6129acc45a41c8b79ec79f64
+      internalID: 343246912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_15
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfc2c0c33dea1b343949b061c51fe8d0
+      internalID: -412258340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_16
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5358ab4084b0b1945b1f15f34a0fa313
+      internalID: 1013006964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_17
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70fbbdce92194544497d3ba3ad39a439
+      internalID: -635928676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cabdd5eb30c6dc34db40154309e5b946
+      internalID: -405832794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_19
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 722fabd07fa1f684c98637e6afbc7316
+      internalID: -1416379270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db83aba5173c9542b9517f33cc495f2
+      internalID: 474275610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a7c8bdb5ede6b243b8bc7e0e3e545c8
+      internalID: 1380168012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd41f89bcd1883347882f5144b305512
+      internalID: -1768382892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_23
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e13f61f584e91844992ffdaabe685e59
+      internalID: -1948424120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_24
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7354635f026889c4e98837677cb19799
+      internalID: -440019974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_25
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06fb5ceb3f9519a469bb8ad2007c3d81
+      internalID: -2124557331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_26
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c590eafb8945c72498ba04a77c655acb
+      internalID: -121683186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_27
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd68127eeefc29a48ab4a6303484a999
+      internalID: 1447369918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_28
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e545d0eef8fbab544a6c60a60ec88667
+      internalID: 949288253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_29
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d089e639ab6e6364e8498ca8da379845
+      internalID: 1894509320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f917dabde838e4d4a9100e39163cc014
+      internalID: 590696934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_31
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 049830b3575f2514e9f44b1f61534fdd
+      internalID: 1951557237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e35e7a5f42669a747bedbbb607ce4a65
+      internalID: 1899659321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b46f71269bba6424a8074ce77d53ccfd
+      internalID: -380243533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_34
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ae3f75aff073140a3684c569d73503
+      internalID: -371145005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_35
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e4fb763febbad146ac728f9295daa9f
+      internalID: -901355160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_36
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61bf3ba110e42d4eb77d25383b2fcee
+      internalID: -1754039699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_37
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c9a9ff6bf8640e44971361f75277ed7
+      internalID: -383523917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_38
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71f221cd210101d4e9cd9dc8f1dd3f7a
+      internalID: 1912652704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_39
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71f8a5434e10ed04eb5935ed71cb85de
+      internalID: -411483506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0df619bf758730c45a45211ffda1adc0
+      internalID: -857530375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_41
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae05a86666746742854f5bb121aebb9
+      internalID: -1526034063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_42
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9d9abe35c9cd7e4aabfa2ae1075cb72
+      internalID: 239579368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_43
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11653ac034931f847969e267c27df666
+      internalID: 1125119089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_44
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37aa141a854e77841965ec0957fc07e5
+      internalID: 181349855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_45
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81de7296cbab4c4f92cbf44984d40f1
+      internalID: 2133422058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_46
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7059367d312c984287d0fa422a70cc0
+      internalID: -949068262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_47
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52b6e1f268422484c9c3be71d95760b8
+      internalID: -1624744602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_48
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f19c425eae940af409926e7044376e28
+      internalID: -1069829899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_49
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a144e2f423c9b542b49941446e6f58b
+      internalID: -1196004087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab65f4d87d5c2c49b02ec93f3277c9e
+      internalID: -88649870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_51
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59d7be03ec743644783b42e06c053ada
+      internalID: 1017122178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_52
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c76bbc5ac6a5ca4080d8e14f301d25f
+      internalID: 147062588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_53
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc11b07023a3df408d5bef09838df23
+      internalID: -2041628373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_54
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b62069f68019d684c88ded08f1f7b90f
+      internalID: 1951748308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_55
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27a68020a5ef8dd4d96da691ba999c14
+      internalID: 800063298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_56
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4baa03e66d51368458bc175db575c300
+      internalID: -764441000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_57
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98f002f7ae07e2b4ea21d202b35fc793
+      internalID: 1661522082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_58
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b17d10444d79d94bb6f616d10e0bc93
+      internalID: 1457804138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_59
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6408d165e45937249aa26b8180dbd1b5
+      internalID: -1440379939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d8f414f720fa934bafbb0f8e2450733
+      internalID: -47235560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_61
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28fdc3030cbe3a14aa2cb012607f37fe
+      internalID: -30020130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_62
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6d21fb0d25f3d244bec5282778c972b
+      internalID: -2103580051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_63
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eacb1a97b394cf34fab7cc4eba42aaff
+      internalID: -1440298427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_64
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 833c27c2593ab6c4daffd1a0a84d2d33
+      internalID: -2045862530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_65
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c877a1eaffb2c594fb3dfccd3c31eae7
+      internalID: -1244750181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_66
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 664457405329ae34f880076f748179ca
+      internalID: -502910633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_67
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb921a819542e84295ff5968c270c5b
+      internalID: 2136379609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_68
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0135d735fa04234f99c877ed443d5e4
+      internalID: -1961189500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_69
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 523e1714131799446be9288acb5bcd43
+      internalID: 1599965650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cb0e2d0368c45c4db5f6978a87e0c6f
+      internalID: 812046528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_71
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec183b7ebeb06484bafaf6d651bdacf0
+      internalID: 1481517503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_72
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a2d26708003a8b4b83a5d2c2e42dc02
+      internalID: 1659572461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_73
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 765bd1ad2ade0b84fb7fc98e34a3c223
+      internalID: 2041700209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_74
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527f38570999e3549966ba6e9f7369cf
+      internalID: -705107923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_75
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fea1954d7adefc46a6d57bcb9d76443
+      internalID: -1517370915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_76
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8eb14a1cff94024799d977c57ce1263
+      internalID: 588777544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_77
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7e13b1fa18d3c429b5c2ab05d6c56a
+      internalID: 415424473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_78
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04f84a4bb34d5e40896c6b2534cc542
+      internalID: -912529907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Infected_79
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aebf656cf7c3f14fb067b0aeb7df0d3
+      internalID: 331268734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6db784968e594974dbe3af136821279b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Infected_0: -2126753333
+      Infected_1: -2119104225
+      Infected_10: 1039305227
+      Infected_11: -1807038448
+      Infected_12: -864034145
+      Infected_13: -2044575093
+      Infected_14: 343246912
+      Infected_15: -412258340
+      Infected_16: 1013006964
+      Infected_17: -635928676
+      Infected_18: -405832794
+      Infected_19: -1416379270
+      Infected_2: -1882023926
+      Infected_20: 474275610
+      Infected_21: 1380168012
+      Infected_22: -1768382892
+      Infected_23: -1948424120
+      Infected_24: -440019974
+      Infected_25: -2124557331
+      Infected_26: -121683186
+      Infected_27: 1447369918
+      Infected_28: 949288253
+      Infected_29: 1894509320
+      Infected_3: -1798908511
+      Infected_30: 590696934
+      Infected_31: 1951557237
+      Infected_32: 1899659321
+      Infected_33: -380243533
+      Infected_34: -371145005
+      Infected_35: -901355160
+      Infected_36: -1754039699
+      Infected_37: -383523917
+      Infected_38: 1912652704
+      Infected_39: -411483506
+      Infected_4: -1926076848
+      Infected_40: -857530375
+      Infected_41: -1526034063
+      Infected_42: 239579368
+      Infected_43: 1125119089
+      Infected_44: 181349855
+      Infected_45: 2133422058
+      Infected_46: -949068262
+      Infected_47: -1624744602
+      Infected_48: -1069829899
+      Infected_49: -1196004087
+      Infected_5: 664309827
+      Infected_50: -88649870
+      Infected_51: 1017122178
+      Infected_52: 147062588
+      Infected_53: -2041628373
+      Infected_54: 1951748308
+      Infected_55: 800063298
+      Infected_56: -764441000
+      Infected_57: 1661522082
+      Infected_58: 1457804138
+      Infected_59: -1440379939
+      Infected_6: 597079280
+      Infected_60: -47235560
+      Infected_61: -30020130
+      Infected_62: -2103580051
+      Infected_63: -1440298427
+      Infected_64: -2045862530
+      Infected_65: -1244750181
+      Infected_66: -502910633
+      Infected_67: 2136379609
+      Infected_68: -1961189500
+      Infected_69: 1599965650
+      Infected_7: -1323976504
+      Infected_70: 812046528
+      Infected_71: 1481517503
+      Infected_72: 1659572461
+      Infected_73: 2041700209
+      Infected_74: -705107923
+      Infected_75: -1517370915
+      Infected_76: 588777544
+      Infected_77: 415424473
+      Infected_78: -912529907
+      Infected_79: 331268734
+      Infected_8: -114832271
+      Infected_9: 1980601170
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

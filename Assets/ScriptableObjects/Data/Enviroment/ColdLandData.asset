@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ColdLandData
   m_EditorClassIdentifier: 
   type: 6
+  displayName: Cold Land
   sprite: {fileID: 21300000, guid: 85858fb0463893b40ab66d52535a837a, type: 3}
   populationType: 2
   tempuratureType: 3

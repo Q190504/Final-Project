@@ -9,9 +9,9 @@ public enum EnvironmentType
     NormalLand,
     HotLand,
     ColdLand,
-    NormalLowPopulation,
-    HotLowPopulation,
-    ColdLowPopulation,
+    NormalRural,
+    HotRural,
+    ColdRural,
     Water,
     Mountain,
 }

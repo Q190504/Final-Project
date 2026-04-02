@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: SafeCellStageData
   m_EditorClassIdentifier: 
   type: 1
-  sprite: {fileID: -3636236985777248685, guid: 2566b424e74e1a848a0b9421c9035bbd, type: 3}
+  displayName: Safe
+  sprite: {fileID: -612299362, guid: e7336a4a4f900f844a049fa0a1289b6b, type: 3}
   cellStageStats:
     minInfectionValue: 0
     maxInfectionValue: 0
     infectionResistance: 0
     targetInfectionIncreasePercent: 0
-    increaseInfectionLevelPerTick: 0
     detectionPercent: 0
     isContagious: 0
     isBlocked: 0

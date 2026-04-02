@@ -13,7 +13,7 @@ public class CellPropertyManager : MonoBehaviour
     [SerializeField] private List<CellStageData> cellStageDatas;
 
     private Dictionary<PopulationType, PopulationData> populationDict;
-    private Dictionary<TempuratureType, TempuratureData> tempuratureDict;
+    private Dictionary<TemperatureType, TempuratureData> tempuratureDict;
     private Dictionary<EnvironmentType, EnvironmentData> environmentDict;
     private Dictionary<StructureType, StructureData> structureDict;
     private Dictionary<CellStageType, CellStageData> cellStageDict;
@@ -75,7 +75,7 @@ public class CellPropertyManager : MonoBehaviour
         return populationDict.TryGetValue(type, out var data) ? data : null;
     }
 
-    public TempuratureData GetTempuratureData(TempuratureType type)
+    public TempuratureData GetTempuratureData(TemperatureType type)
     {
         return tempuratureDict.TryGetValue(type, out var data) ? data : null;
     }

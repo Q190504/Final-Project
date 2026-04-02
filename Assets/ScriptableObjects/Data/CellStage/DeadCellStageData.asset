@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: DeadCellStageData
   m_EditorClassIdentifier: 
   type: 6
-  sprite: {fileID: 0}
+  displayName: Dead
+  sprite: {fileID: -5056748854543191231, guid: e6f47b84bb4bd2e4a854f946b88ee505, type: 3}
   cellStageStats:
     minInfectionValue: 100
     maxInfectionValue: 100

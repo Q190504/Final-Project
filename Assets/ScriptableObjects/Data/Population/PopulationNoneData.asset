@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: PopulationNoneData
   m_EditorClassIdentifier: 
   type: 0
-  sprite: {fileID: 0}
+  displayName: No Population
+  sprite: {fileID: 21300000, guid: 61ac4093cb7c38149971b7c6379e3761, type: 3}
+  minPopulationValue: 0
+  maxPopulationValue: 0
   weight: 0
+  priorityToHuman: 0
   basePriorityToMethods:
     surfacePriority: 0
     airPriority: 0

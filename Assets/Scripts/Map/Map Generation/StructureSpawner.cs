@@ -92,7 +92,7 @@ public class StructureSpawner : IMapGeneratorStep
                 if (HasStructureInRange(cell.X, cell.Y, range, structureData.type))
                     continue;
 
-                stats.structure.SetStructure(structureData.type, cell);
+                stats.SetStructure(structureData.type, cell);
                 structurePositions[structureData.type].Add(new Vector2Int(cell.X, cell.Y));
                 //Debug.Log("Spawned structure " + structureData.type + " at (" + cell.X + ", " + cell.Y + ")");
 

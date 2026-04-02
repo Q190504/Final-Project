@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: VaccineResearchCenter
   m_EditorClassIdentifier: 
   type: 2
+  displayName: Vaccine Research Center
   sprite: {fileID: 21300000, guid: 43fa94f54851f8e45bcadc0446fbc0da, type: 3}
   spawnEnvironmentAndRateList:
   - environmentTypeCanSpawn: 1

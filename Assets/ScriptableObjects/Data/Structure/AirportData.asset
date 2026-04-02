@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: AirportData
   m_EditorClassIdentifier: 
   type: 3
+  displayName: Airport
   sprite: {fileID: 21300000, guid: e8dc9c10e6c13604293b898eca6f7efa, type: 3}
   spawnEnvironmentAndRateList:
   - environmentTypeCanSpawn: 1

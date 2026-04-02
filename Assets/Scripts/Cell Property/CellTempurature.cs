@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CellTempurature
 {
-    public TempuratureType type;
+    public TemperatureType type;
 
     [Header("Base Gameplay Values")]
     public float priorityToHuman;
@@ -10,7 +10,7 @@ public class CellTempurature
 
     public CellTempurature()
     {
-        type = TempuratureType.None;
+        type = TemperatureType.None;
         priorityToHuman = 0f;
         priorityToMethods.surfacePriority = 0f;
         priorityToMethods.airPriority = 0f;
@@ -18,7 +18,7 @@ public class CellTempurature
         priorityToMethods.carrierPriority = 0f;
     }
 
-    public void SetTempurature(TempuratureType tempuratureType)
+    public void SetTempurature(TemperatureType tempuratureType)
     {
         type = tempuratureType;
 
@@ -59,6 +59,6 @@ public class CellTempurature
             }
         }
 
-        type = TempuratureType.None;
+        type = TemperatureType.None;
     }
 }

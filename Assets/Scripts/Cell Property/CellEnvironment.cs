@@ -47,7 +47,7 @@ public class CellEnvironment
         }
     }
 
-    public CellEnvironment(PopulationType populationType, TempuratureType tempuratureType)
+    public CellEnvironment(PopulationType populationType, TemperatureType tempuratureType)
     {
         foreach (EnvironmentData envData in CellPropertyManager.Instance.GetEnvironmentDatas())
         {
@@ -60,7 +60,7 @@ public class CellEnvironment
         currentEnvironmentType = originalEnvironmentType = EnvironmentType.None;
     }
 
-    public EnvironmentType SetEnvironmentType(PopulationType populationType, TempuratureType tempuratureType)
+    public EnvironmentType SetEnvironmentType(PopulationType populationType, TemperatureType tempuratureType)
     {
         foreach (EnvironmentData envData in CellPropertyManager.Instance.GetEnvironmentDatas())
         {

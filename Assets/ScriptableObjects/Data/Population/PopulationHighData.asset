@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PopulationHighData
   m_EditorClassIdentifier: 
   type: 3
+  displayName: High Population
   sprite: {fileID: 21300000, guid: 61ac4093cb7c38149971b7c6379e3761, type: 3}
   minPopulationValue: 0.7
   maxPopulationValue: 1

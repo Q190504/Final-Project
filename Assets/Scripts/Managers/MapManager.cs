@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 //using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class MapManager : MonoBehaviour
 {
-    public static MapManager Instance { get; private set; }
+    public static MapManager Instance;
 
     [Header("Grid")]
     private int width;
@@ -13,19 +12,14 @@ public class MapManager : MonoBehaviour
     private float cellSize = 1f;
     private Vector3 originPosition = Vector3.zero;
     private int seed;
-    [SerializeField] private bool showDebug;
-
-    [Header("Prefabs")]
-    [SerializeField] private GridCellVisual cellViewPrefab;
-
-    [Header("Parents")]
-    [SerializeField] private Transform cellViewParent;
 
     [Header("Map Config")]
     [SerializeField] private MapConfig config;
+    [SerializeField] private BoxCollider2D mapBoundary;
 
-    [Header("Input")]
-    [SerializeField] private InputAction getCellInfoAction;
+    [Header("Events")]
+    [SerializeField] private VoidPublisherSO spawnGridVisualSO;
+    [SerializeField] private VoidPublisherSO updateGridVisualSO;
 
     MapGenerator mapGenerator;
     private Grid<GridCell> grid;
@@ -36,9 +30,16 @@ public class MapManager : MonoBehaviour
     //private Grid<GridCell> currentGrid;
     private Vector2Int currentSize;
 
-    private CellPresenter[,] presenters;
-
+    private HashSet<Vector2Int> cellsNeedToUpdateVisual = new();
     //bool isFirstTime = true;
+
+    private float totalPopulation;
+    private float totalDead;
+    private float totalInfected;
+    private float deadRate;
+    private float infectedRate;
+    private bool deadRateChanged = false;
+    private bool infectedRateChanged = false;
 
     void Awake()
     {
@@ -48,31 +49,9 @@ public class MapManager : MonoBehaviour
             Destroy(this);
     }
 
-    /// <summary>
-    /// Standard Unity function called whenever the attached gameobject is enabled
-    /// </summary>
-    void OnEnable()
-    {
-        getCellInfoAction.Enable();
-    }
-
-    /// <summary>
-    /// Standard Unity function called whenever the attached gameobject is disabled
-    /// </summary>
-    void OnDisable()
-    {
-        getCellInfoAction.Disable();
-    }
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (getCellInfoAction.bindings.Count == 0)
-        {
-            Debug.LogWarning("The Get Cell Info Action does not have a binding set! Make sure that each Input Action has a binding set or the controller will not work!");
-        }
-
         SetMapData();
 
         if (config != null && config.generateRandomSeed)
@@ -82,33 +61,11 @@ public class MapManager : MonoBehaviour
             config.seed = seed;
         }
         mapGenerator = new(seed, config);
-
-        CameraController.Instance.SetBounds(width, height, cellSize, originPosition);
-        //BuildGrid();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (showDebug)
-        {
-            if (getCellInfoAction.triggered)
-            {
-                Vector3 mouseWorldPos = Utility.GetMouseWorldPosition();
-                Vector2Int cellPos = Utility.WorldToGridPosition(
-                    mouseWorldPos,
-                    width,
-                    height,
-                    cellSize
-                );
-                if (grid != null && grid.IsInBounds(cellPos.x, cellPos.y))
-                {
-                    GridCell cell = grid.GetCell(cellPos.x, cellPos.y);
-                    cell.DebugStats();
-                }
-            }
-        }
-
         if (Input.GetKeyDown(KeyCode.Space))
             BuildGrid();
 
@@ -126,6 +83,9 @@ public class MapManager : MonoBehaviour
         height = config.height;
         cellSize = config.cellSize;
         originPosition = config.originPosition;
+
+        mapBoundary.size = new Vector2(width + Mathf.RoundToInt(0.3f * width), height + Mathf.RoundToInt(0.3f * height));
+        CameraController.Instance.Init();
     }
 
     //void BuildGrid(Vector2Int currentGridSize, Grid<GridCell> grid)
@@ -165,64 +125,19 @@ public class MapManager : MonoBehaviour
 
     //    if (isFirstTime)
     //    {
-    //        presenters = new CellPresenter[currentGridSize.x, currentGridSize.y];
-
-    //        for (int x = 0; x < currentGridSize.x; x++)
-    //        {
-    //            for (int y = 0; y < currentGridSize.y; y++)
-    //            {
-    //                GridCell cell = currentGrid.GetCell(x, y);
-    //                GridCellVisual view = SpawnCellView(x, y);
-
-    //                presenters[x, y] = new CellPresenter(cell, view);
-    //                presenters[x, y].Refresh();
-    //            }
-    //        }
-
+    //        spawnGridVisualSO.RaiseEvent();
     //        isFirstTime = false;
     //    }
     //}
 
-    void BuildGrid()
+    public void BuildGrid()
     {
-        bool isFirstTime = true;
-
         grid = new Grid<GridCell>(width, height, cellSize, originPosition,
-      (grid, x, y) => new GridCell(grid, x, y), showDebug);
+      (grid, x, y) => new GridCell(grid, x, y));
 
         mapGenerator.Generate(grid);
 
-        if (isFirstTime)
-        {
-            presenters = new CellPresenter[width, height];
-
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    GridCell cell = grid.GetCell(x, y);
-                    GridCellVisual view = SpawnCellView(x, y);
-
-                    presenters[x, y] = new CellPresenter(cell, view);
-                    presenters[x, y].Refresh();
-                }
-            }
-
-            isFirstTime = false;
-        }
-    }
-
-    private GridCellVisual SpawnCellView(int x, int y)
-    {
-        GridCellVisual view =
-            Instantiate(cellViewPrefab, cellViewParent);
-
-        Vector3 worldPos = Utility.GridToWorldPosition(x, y, width, height, cellSize);
-        view.transform.position = worldPos;
-
-        view.name = $"CellView ({x},{y})";
-
-        return view;
+        spawnGridVisualSO.RaiseEvent();
     }
 
     public float GetBaseSize()
@@ -235,6 +150,36 @@ public class MapManager : MonoBehaviour
         return grid;
     }
 
+
+    public void UpdateDetectionRateOfMap()
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                GridCell cell = grid.GetCell(x, y);
+                if (cell.Stats.infectionLevel > 0)
+                {
+                    cell.Stats.UpdateDetectionRate();
+                    AddCellNeedToUpdateVisual(new Vector2Int(x, y));
+                }
+            }
+        }
+
+        updateGridVisualSO.RaiseEvent();
+    }
+
+    public void AddCellNeedToUpdateVisual(Vector2Int cell)
+    {
+        cellsNeedToUpdateVisual.Add(cell);
+    }
+
+    public HashSet<Vector2Int> GetCellNeedToUpdateVisualList()
+    {
+        return cellsNeedToUpdateVisual;
+    }
+
+
     //public float GetBaseSize()
     //{
     //    return Mathf.Sqrt(width * width + height * height);
@@ -244,4 +189,40 @@ public class MapManager : MonoBehaviour
     //{
     //    return currentGrid;
     //}
+
+    public void UpdateDeadRate(float value)
+    {
+        float previousDeadRate = deadRate;
+
+        totalDead += value;
+        deadRate = totalDead / totalPopulation;
+
+        if (deadRate > previousDeadRate)
+            deadRateChanged = true;
+    }
+
+    public void UpdateInfectedRate(float value)
+    {
+        float previousInfectedRate = infectedRate;
+
+        totalInfected += value;
+        infectedRate = totalInfected / totalPopulation;
+
+        if (infectedRate > previousInfectedRate)
+            infectedRateChanged = true;
+    }
+
+    public void UpdateTotalPopulation(float value)
+    {
+        totalPopulation += value;
+    }
+
+    public float GetTotalPopulation()
+    { return totalPopulation; }
+
+    public float GetTotalDead()
+    { return totalDead; }
+
+    public float GetDeadRate()
+    { return deadRate; }
 }

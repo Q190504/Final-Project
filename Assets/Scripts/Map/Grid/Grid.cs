@@ -25,8 +25,7 @@ public class Grid<TGridObject>
     public List<UrbanCluster> urbanClusters;
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition,
-        Func<Grid<TGridObject>, int, int, PopulationType, TempuratureType, StructureType, int, GridCell> createCell,
-        bool showDebug)
+        Func<Grid<TGridObject>, int, int, PopulationType, TemperatureType, StructureType, int, GridCell> createCell)
     {
         this.width = width;
         this.height = height;
@@ -43,19 +42,13 @@ public class Grid<TGridObject>
         {
             for (int y = 0; y < gridArray.GetLength(1); y++)
             {
-                gridArray[x, y] = createCell(this, x, y, PopulationType.High, TempuratureType.Normal, StructureType.None, 50);
+                gridArray[x, y] = createCell(this, x, y, PopulationType.High, TemperatureType.Normal, StructureType.None, 50);
             }
         }
-
-
-        //if (showDebug)
-        //{
-
-        //}
     }
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition,
-    Func<Grid<TGridObject>, int, int, GridCell> createCell, bool showDebug)
+    Func<Grid<TGridObject>, int, int, GridCell> createCell)
     {
         this.width = width;
         this.height = height;
@@ -75,11 +68,6 @@ public class Grid<TGridObject>
                 gridArray[x, y] = createCell(this, x, y);
             }
         }
-
-        //if (showDebug)
-        //{
-
-        //}
     }
 
     public void GetXY(Vector3 worldPosition, out int x, out int y)
@@ -92,7 +80,7 @@ public class Grid<TGridObject>
     {
         if (x >= 0 && y >= 0 && x < width && y < height)
             return gridArray[x, y];
-        else return default(GridCell);
+        else return null;
     }
 
     public GridCell GetCell(Vector3 worldPosition)
@@ -161,6 +149,23 @@ public class Grid<TGridObject>
         return gridArray;
     }
 
+    public List<GridCell> GetInfectedSnapshot()
+    {
+        List<GridCell> snapshot = new();
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                GridCell cell = gridArray[x, y];
+
+                if (cell.IsInfectious() || cell.Stats.isContagious)
+                    snapshot.Add(gridArray[x, y]);
+            }
+        }
+
+        return snapshot;
+    }
+
     public float[,] GetPopulationGrid()
     {
         return populationGridArray;
@@ -186,6 +191,8 @@ public class Grid<TGridObject>
 
     public int GetWidth() { return width; }
     public int GetHeight() { return height; }
+    public float GetCellSize() { return cellSize; }
+    public Vector3 GetOriginPosition() { return originPosition; }
 
     public bool IsInBounds(int x, int y)
     {

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TempuratureHotData
   m_EditorClassIdentifier: 
   type: 2
+  displayName: Hot
   sprite: {fileID: 21300000, guid: 041ae6da8d0cf78418ce33a3d46cb888, type: 3}
   minTempuratureValue: 0.7
   maxTempuratureValue: 1

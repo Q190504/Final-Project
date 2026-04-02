@@ -10,9 +10,7 @@ public class EnvironmentDerivationStep : IMapGeneratorStep
             {
                 GridCell cell = grid.GetCell(x, y);
 
-                cell.Stats.hasWater = grid.GetWaterGrid()[x, y];
-
-                if (cell.Stats.hasWater)
+                if (grid.GetWaterGrid()[x, y])
                 {
                     EnvironmentData environmentData = CellPropertyManager.Instance
                  .GetEnvironmentData(EnvironmentType.Water);

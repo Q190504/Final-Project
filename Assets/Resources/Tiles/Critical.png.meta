@@ -1,0 +1,2922 @@
+fileFormatVersion: 2
+guid: b13313dac8411a243adade923f7386c4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6967743873344277700
+    second: Deco All 2_0
+  - first:
+      213: -2924299029193592869
+    second: Deco All 2_1
+  - first:
+      213: 583182980866515035
+    second: Deco All 2_2
+  - first:
+      213: -1698785133537333540
+    second: Deco All 2_3
+  - first:
+      213: 8016179629014674856
+    second: Deco All 2_4
+  - first:
+      213: -1796546898241288442
+    second: Deco All 2_5
+  - first:
+      213: 1872715180489535454
+    second: Deco All 2_6
+  - first:
+      213: -5906878278073733070
+    second: Deco All 2_7
+  - first:
+      213: -8903331576768442573
+    second: Deco All 2_8
+  - first:
+      213: 5310537314813745316
+    second: Deco All 2_9
+  - first:
+      213: 2315460146982663310
+    second: Deco All 2_10
+  - first:
+      213: 8947025777686726746
+    second: Deco All 2_11
+  - first:
+      213: -1028843529465668564
+    second: Deco All 2_12
+  - first:
+      213: 4258037737514338195
+    second: Deco All 2_13
+  - first:
+      213: 8239178839964885787
+    second: Deco All 2_14
+  - first:
+      213: 1948249902998418949
+    second: Deco All 2_15
+  - first:
+      213: -3040440570926790585
+    second: Deco All 2_16
+  - first:
+      213: -5055978696207736403
+    second: Deco All 2_17
+  - first:
+      213: -7542450891845464051
+    second: Deco All 2_18
+  - first:
+      213: 6460875691930947284
+    second: Deco All 2_19
+  - first:
+      213: 5296806471275797418
+    second: Deco All 2_20
+  - first:
+      213: -1718904881508030887
+    second: Deco All 2_21
+  - first:
+      213: 1957951477608403995
+    second: Deco All 2_22
+  - first:
+      213: 8602859547867139242
+    second: Deco All 2_23
+  - first:
+      213: 2433346859311113503
+    second: Deco All 2_24
+  - first:
+      213: 275146469331295552
+    second: Deco All 2_25
+  - first:
+      213: 2792471684369432995
+    second: Deco All 2_26
+  - first:
+      213: -5210293539941360262
+    second: Deco All 2_27
+  - first:
+      213: 439710897159444234
+    second: Deco All 2_28
+  - first:
+      213: 2537306598339605385
+    second: Deco All 2_29
+  - first:
+      213: -6577846841039937073
+    second: Deco All 2_30
+  - first:
+      213: 4791933732172481758
+    second: Deco All 2_31
+  - first:
+      213: 4036890799894037170
+    second: Deco All 2_32
+  - first:
+      213: -2358911859755790883
+    second: Deco All 2_33
+  - first:
+      213: 9207209954299588677
+    second: Deco All 2_34
+  - first:
+      213: 5825508414539495359
+    second: Deco All 2_35
+  - first:
+      213: 6355650310502415224
+    second: Deco All 2_36
+  - first:
+      213: 43093890533167845
+    second: Deco All 2_37
+  - first:
+      213: 7948321706049004406
+    second: Deco All 2_38
+  - first:
+      213: 4164548897610702050
+    second: Deco All 2_39
+  - first:
+      213: 4184356594194372419
+    second: Deco All 2_40
+  - first:
+      213: -7868633526218838555
+    second: Deco All 2_41
+  - first:
+      213: 1485500270068900243
+    second: Deco All 2_42
+  - first:
+      213: -1687466425561777802
+    second: Deco All 2_43
+  - first:
+      213: 1604318135346126883
+    second: Deco All 2_44
+  - first:
+      213: -3911107060043007781
+    second: Deco All 2_45
+  - first:
+      213: 5207870360491353316
+    second: Deco All 2_46
+  - first:
+      213: 5725669373994144172
+    second: Deco All 2_47
+  - first:
+      213: 8762193312773700061
+    second: Deco All 2_48
+  - first:
+      213: 6844456159146310907
+    second: Deco All 2_49
+  - first:
+      213: 2287803288737533500
+    second: Deco All 2_50
+  - first:
+      213: 3161871887059721273
+    second: Deco All 2_51
+  - first:
+      213: -7928985580068197556
+    second: Deco All 2_52
+  - first:
+      213: -3102509829348634928
+    second: Deco All 2_53
+  - first:
+      213: 7374474767132122656
+    second: Deco All 2_54
+  - first:
+      213: 2475369265069880237
+    second: Deco All 2_55
+  - first:
+      213: -8792988890362631253
+    second: Deco All 2_56
+  - first:
+      213: 553798722287938959
+    second: Deco All 2_57
+  - first:
+      213: 1122083647436004905
+    second: Deco All 2_58
+  - first:
+      213: 1134444394327510813
+    second: Deco All 2_59
+  - first:
+      213: 7801164470998429247
+    second: Deco All 2_60
+  - first:
+      213: -522143718878565776
+    second: Deco All 2_61
+  - first:
+      213: -3747054804360151457
+    second: Deco All 2_62
+  - first:
+      213: -235845606685928380
+    second: Deco All 2_63
+  - first:
+      213: 1250413860675339616
+    second: Deco All 2_64
+  - first:
+      213: 2418901086966282036
+    second: Deco All 2_65
+  - first:
+      213: -5761874675562001404
+    second: Deco All 2_66
+  - first:
+      213: 2676375916818476443
+    second: Deco All 2_67
+  - first:
+      213: -6964660430444503207
+    second: Deco All 2_68
+  - first:
+      213: 5196365384572718851
+    second: Deco All 2_69
+  - first:
+      213: -5242963055985998623
+    second: Deco All 2_70
+  - first:
+      213: 8453685092329897238
+    second: Deco All 2_71
+  - first:
+      213: -6296800742021959441
+    second: Deco All 2_72
+  - first:
+      213: 4059402306807159153
+    second: Deco All 2_73
+  - first:
+      213: 6782124321444987099
+    second: Deco All 2_74
+  - first:
+      213: 2223579660781666009
+    second: Deco All 2_75
+  - first:
+      213: -5090730695879380135
+    second: Deco All 2_76
+  - first:
+      213: 7929911769518072115
+    second: Deco All 2_77
+  - first:
+      213: -5235083653296095019
+    second: Deco All 2_78
+  - first:
+      213: -5010876636156166955
+    second: Deco All 2_79
+  - first:
+      213: -5341218723361939779
+    second: Deco All 2_80
+  - first:
+      213: -545982123685706259
+    second: Deco All 2_81
+  - first:
+      213: 1903614559970869147
+    second: Deco All 2_82
+  - first:
+      213: -1380502107198616345
+    second: Deco All 2_83
+  - first:
+      213: -925483105459537494
+    second: Deco All 2_84
+  - first:
+      213: -9210585011140002383
+    second: Deco All 2_85
+  - first:
+      213: 8456836467823304763
+    second: Deco All 2_86
+  - first:
+      213: -9132859482190652910
+    second: Deco All 2_87
+  - first:
+      213: 8375983265425712386
+    second: Deco All 2_88
+  - first:
+      213: 3333350722538446547
+    second: Deco All 2_89
+  - first:
+      213: 4124723018767151927
+    second: Deco All 2_90
+  - first:
+      213: -8816880710450710278
+    second: Deco All 2_91
+  - first:
+      213: 634318556733202656
+    second: Deco All 2_92
+  - first:
+      213: 3980773888282122189
+    second: Deco All 2_93
+  - first:
+      213: 2884018960751483378
+    second: Deco All 2_94
+  - first:
+      213: 8034451086429518069
+    second: Deco All 2_95
+  - first:
+      213: 6418586501978032467
+    second: Deco All 2_96
+  - first:
+      213: -8476080476493811432
+    second: Deco All 2_97
+  - first:
+      213: -658285782761096903
+    second: Deco All 2_98
+  - first:
+      213: -823614004376293715
+    second: Deco All 2_99
+  - first:
+      213: 4148026518821116099
+    second: Deco All 2_100
+  - first:
+      213: -3214456427404646922
+    second: Deco All 2_101
+  - first:
+      213: -7395631704712306100
+    second: Deco All 2_102
+  - first:
+      213: 3237662969493433095
+    second: Deco All 2_103
+  - first:
+      213: 1756199153441355798
+    second: Deco All 2_104
+  - first:
+      213: -8780311071581453676
+    second: Deco All 2_105
+  - first:
+      213: 5841848121526521939
+    second: Deco All 2_106
+  - first:
+      213: -1446472218411376858
+    second: Deco All 2_107
+  - first:
+      213: 8487389353870515768
+    second: Deco All 2_108
+  - first:
+      213: -3361788434789286464
+    second: Deco All 2_109
+  - first:
+      213: -2924218470693436449
+    second: Deco All 2_110
+  - first:
+      213: -3701282676255404051
+    second: Deco All 2_111
+  - first:
+      213: -206243129400075608
+    second: Deco All 2_112
+  - first:
+      213: -4457638358458057945
+    second: Deco All 2_113
+  - first:
+      213: 3698105093674011813
+    second: Deco All 2_114
+  - first:
+      213: -865374201495718309
+    second: Deco All 2_115
+  - first:
+      213: 4299588825347051466
+    second: Deco All 2_116
+  - first:
+      213: 2583693994991588218
+    second: Deco All 2_117
+  - first:
+      213: -7535885944763329251
+    second: Deco All 2_118
+  - first:
+      213: 3354853775505713390
+    second: Deco All 2_119
+  - first:
+      213: 2697621262204579641
+    second: Deco All 2_120
+  - first:
+      213: 8992932559377466189
+    second: Deco All 2_121
+  - first:
+      213: -365866917880560294
+    second: Deco All 2_122
+  - first:
+      213: -4350916815735592710
+    second: Deco All 2_123
+  - first:
+      213: -8246068095755602603
+    second: Deco All 2_124
+  - first:
+      213: -6708202173197790378
+    second: Deco All 2_125
+  - first:
+      213: -4348268417363202197
+    second: Deco All 2_126
+  - first:
+      213: 8908302894683061201
+    second: Deco All 2_127
+  - first:
+      213: -4557507080969653499
+    second: Deco All 2_128
+  - first:
+      213: -1502783512463259325
+    second: Deco All 2_129
+  - first:
+      213: 8376040485071728021
+    second: Deco All 2_130
+  - first:
+      213: 4537096952022891772
+    second: Deco All 2_131
+  - first:
+      213: -8013177020768514750
+    second: Deco All 2_132
+  - first:
+      213: -7823879405229716830
+    second: Deco All 2_133
+  - first:
+      213: -5960959186140495391
+    second: Deco All 2_134
+  - first:
+      213: 7194374162500449501
+    second: Deco All 2_135
+  - first:
+      213: -2541051410098836944
+    second: Deco All 2_136
+  - first:
+      213: 4422667571990044299
+    second: Deco All 2_137
+  - first:
+      213: 7495716796395902512
+    second: Deco All 2_138
+  - first:
+      213: 1537453800100341282
+    second: Deco All 2_139
+  - first:
+      213: -1937230217012949102
+    second: Deco All 2_140
+  - first:
+      213: -6476851132803881299
+    second: Deco All 2_141
+  - first:
+      213: -3572190790842925429
+    second: Deco All 2_142
+  - first:
+      213: 5470498117040486863
+    second: Deco All 2_143
+  - first:
+      213: 7990990490712902980
+    second: Deco All 2_144
+  - first:
+      213: -4171032625469999001
+    second: Deco All 2_145
+  - first:
+      213: -5934108914317801427
+    second: Deco All 2_146
+  - first:
+      213: -793429109557253493
+    second: Deco All 2_147
+  - first:
+      213: -9060412369364772135
+    second: Deco All 2_148
+  - first:
+      213: 8487352097290735961
+    second: Deco All 2_149
+  - first:
+      213: -3161966842772940780
+    second: Deco All 2_150
+  - first:
+      213: 4582812246117839562
+    second: Deco All 2_151
+  - first:
+      213: 2749846335044448224
+    second: Deco All 2_152
+  - first:
+      213: -2503089304961216487
+    second: Deco All 2_153
+  - first:
+      213: -1107019245429707563
+    second: Deco All 2_154
+  - first:
+      213: 2780306954431066357
+    second: Deco All 2_155
+  - first:
+      213: -2838616313601165808
+    second: Deco All 2_156
+  - first:
+      213: -3514217965842168659
+    second: Deco All 2_157
+  - first:
+      213: 1333675944820196709
+    second: Deco All 2_158
+  - first:
+      213: 725407294178749396
+    second: Deco All 2_159
+  - first:
+      213: -6053115009258039377
+    second: Deco All 2_160
+  - first:
+      213: 7738373165864553745
+    second: Deco All 2_161
+  - first:
+      213: 5489394229412449417
+    second: Deco All 2_162
+  - first:
+      213: -1404436766323461088
+    second: Deco All 2_163
+  - first:
+      213: 2010785440156252738
+    second: Deco All 2_164
+  - first:
+      213: 7736078224985538294
+    second: Deco All 2_165
+  - first:
+      213: 7482600462034746868
+    second: Deco All 2_166
+  - first:
+      213: -3052110832869196290
+    second: Deco All 2_167
+  - first:
+      213: -2102455058309177829
+    second: Deco All 2_168
+  - first:
+      213: 7257545436346130458
+    second: Deco All 2_169
+  - first:
+      213: 1254302599257583200
+    second: Deco All 2_170
+  - first:
+      213: -8090085839369415454
+    second: Deco All 2_171
+  - first:
+      213: 4845777287186229296
+    second: Deco All 2_172
+  - first:
+      213: 4279220226517614578
+    second: Deco All 2_173
+  - first:
+      213: 130511660227422942
+    second: Deco All 2_174
+  - first:
+      213: -7971925118600697565
+    second: Deco All 2_175
+  - first:
+      213: 8224110822796414992
+    second: Deco All 2_176
+  - first:
+      213: -1295403581741650078
+    second: Deco All 2_177
+  - first:
+      213: 3060134979996369366
+    second: Deco All 2_178
+  - first:
+      213: -793611868635414756
+    second: Deco All 2_179
+  - first:
+      213: -3851945351579209544
+    second: Deco All 2_180
+  - first:
+      213: -3881515388815631188
+    second: Deco All 2_181
+  - first:
+      213: -639746287913720879
+    second: Deco All 2_182
+  - first:
+      213: 3128643069408115815
+    second: Deco All 2_183
+  - first:
+      213: -5872355323730852891
+    second: Deco All 2_184
+  - first:
+      213: 4521924500009084543
+    second: Deco All 2_185
+  - first:
+      213: 8105501274055991555
+    second: Deco All 2_186
+  - first:
+      213: 1407560671600649210
+    second: Deco All 2_187
+  - first:
+      213: -662543358600745646
+    second: Deco All 2_188
+  - first:
+      213: -7515800557487657396
+    second: Deco All 2_189
+  - first:
+      213: 5920342852462635108
+    second: Deco All 2_190
+  - first:
+      213: -5101453199915873155
+    second: Deco All 2_191
+  - first:
+      213: 6938522481788285057
+    second: Deco All 2_192
+  - first:
+      213: 548282528338127155
+    second: Deco All 2_193
+  - first:
+      213: 7700251314965322073
+    second: Deco All 2_194
+  - first:
+      213: 1970055804900426273
+    second: Deco All 2_195
+  - first:
+      213: -4547371271550614123
+    second: Deco All 2_196
+  - first:
+      213: 6869334547303668455
+    second: Deco All 2_197
+  - first:
+      213: -2240017900877430649
+    second: Deco All 2_198
+  - first:
+      213: 6333280593517830475
+    second: Deco All 2_199
+  - first:
+      213: -3245185834523478797
+    second: Deco All 2_200
+  - first:
+      213: 3002743851844726960
+    second: Deco All 2_201
+  - first:
+      213: -4499785268186771075
+    second: Deco All 2_202
+  - first:
+      213: -7419798585937911859
+    second: Deco All 2_203
+  - first:
+      213: -5940890497985936777
+    second: Deco All 2_204
+  - first:
+      213: -4863008374927465226
+    second: Deco All 2_205
+  - first:
+      213: 6353139993048987034
+    second: Deco All 2_206
+  - first:
+      213: 8192781261015886775
+    second: Deco All 2_207
+  - first:
+      213: 6899445352839803734
+    second: Deco All 2_208
+  - first:
+      213: -6085605180108616578
+    second: Deco All 2_209
+  - first:
+      213: 2097614238059191892
+    second: Deco All 2_210
+  - first:
+      213: -6870148920233958506
+    second: Deco All 2_211
+  - first:
+      213: -2967581088264425868
+    second: Deco All 2_212
+  - first:
+      213: -3109024624082768662
+    second: Deco All 2_213
+  - first:
+      213: 4654315061506471250
+    second: Deco All 2_214
+  - first:
+      213: 4242224105494550286
+    second: Deco All 2_215
+  - first:
+      213: 7865467338147198969
+    second: Deco All 2_216
+  - first:
+      213: 2567456695562206494
+    second: Deco All 2_217
+  - first:
+      213: 3481946610998429706
+    second: Deco All 2_218
+  - first:
+      213: 5731915201782554133
+    second: Deco All 2_219
+  - first:
+      213: 7044339951637933921
+    second: Deco All 2_220
+  - first:
+      213: -4165790094857741883
+    second: Deco All 2_221
+  - first:
+      213: 4112960116165110949
+    second: Deco All 2_222
+  - first:
+      213: 296048780914033875
+    second: Deco All 2_223
+  - first:
+      213: 8730385250791000150
+    second: Deco All 2_224
+  - first:
+      213: -3757711059779800782
+    second: Deco All 2_225
+  - first:
+      213: 4175247046218620116
+    second: Deco All 2_226
+  - first:
+      213: 773718115920168347
+    second: Deco All 2_227
+  - first:
+      213: 8562792182795012647
+    second: Deco All 2_228
+  - first:
+      213: 5494044003788430062
+    second: Deco All 2_229
+  - first:
+      213: -1519102116864318175
+    second: Deco All 2_230
+  - first:
+      213: -3623475388082755598
+    second: Deco All 2_231
+  - first:
+      213: 2137013511927032158
+    second: Deco All 2_232
+  - first:
+      213: -5995834940320559100
+    second: Deco All 2_233
+  - first:
+      213: 3935903865160354268
+    second: Deco All 2_234
+  - first:
+      213: 3061451836372940071
+    second: Deco All 2_235
+  - first:
+      213: -2518437872829082523
+    second: Deco All 2_236
+  - first:
+      213: 6024034903774774847
+    second: Deco All 2_237
+  - first:
+      213: 2468015789278802608
+    second: Deco All 2_238
+  - first:
+      213: -7031173788243324477
+    second: Deco All 2_239
+  - first:
+      213: -33649731093865118
+    second: Deco All 2_240
+  - first:
+      213: 1458026578602186198
+    second: Deco All 2_241
+  - first:
+      213: -7720701593487066894
+    second: Deco All 2_242
+  - first:
+      213: 181038843394587115
+    second: Deco All 2_243
+  - first:
+      213: 138468239461696858
+    second: Deco All 2_244
+  - first:
+      213: 3401329889465140911
+    second: Deco All 2_245
+  - first:
+      213: 1287556605690522648
+    second: Deco All 2_246
+  - first:
+      213: -6938137637446869071
+    second: Deco All 2_247
+  - first:
+      213: 272193754377142397
+    second: Deco All 2_248
+  - first:
+      213: 7194431641580738889
+    second: Deco All 2_249
+  - first:
+      213: -6690079907522122274
+    second: Deco All 2_250
+  - first:
+      213: -2720535747450010885
+    second: Deco All 2_251
+  - first:
+      213: -7047057081045651962
+    second: Deco All 2_252
+  - first:
+      213: -4312669985371979529
+    second: Deco All 2_253
+  - first:
+      213: -192533001789884700
+    second: Deco All 2_254
+  - first:
+      213: 2964584683107139546
+    second: Deco All 2_255
+  - first:
+      213: -8702960672468527992
+    second: Deco All 2_256
+  - first:
+      213: 5871322921049179832
+    second: Deco All 2_257
+  - first:
+      213: 4900603479578478064
+    second: Deco All 2_258
+  - first:
+      213: 7541165756683051968
+    second: Deco All 2_259
+  - first:
+      213: -832423785226000088
+    second: Deco All 2_260
+  - first:
+      213: 842122977030017888
+    second: Deco All 2_261
+  - first:
+      213: 1101766905451080197
+    second: Deco All 2_262
+  - first:
+      213: 4190042671651539847
+    second: Deco All 2_263
+  - first:
+      213: 3139586932728278017
+    second: Deco All 2_264
+  - first:
+      213: -5027278910410211343
+    second: Deco All 2_265
+  - first:
+      213: 7336207000464112889
+    second: Deco All 2_266
+  - first:
+      213: 8588493868551166552
+    second: Deco All 2_267
+  - first:
+      213: -5799374148209091298
+    second: Deco All 2_268
+  - first:
+      213: -5072931211398671976
+    second: Deco All 2_269
+  - first:
+      213: 3178374603297424246
+    second: Deco All 2_270
+  - first:
+      213: 3899730540616774091
+    second: Deco All 2_271
+  - first:
+      213: 3553408505553328227
+    second: Deco All 2_272
+  - first:
+      213: 8483943666986599154
+    second: Deco All 2_273
+  - first:
+      213: 3773017750966333051
+    second: Deco All 2_274
+  - first:
+      213: 8397545421327189045
+    second: Deco All 2_275
+  - first:
+      213: -3789554503570396517
+    second: Deco All 2_276
+  - first:
+      213: 4516161722781974586
+    second: Deco All 2_277
+  - first:
+      213: 8335574235443820933
+    second: Deco All 2_278
+  - first:
+      213: 1311855671673587729
+    second: Deco All 2_279
+  - first:
+      213: 4595266213517602995
+    second: Deco All 2_280
+  - first:
+      213: -8751751566052053636
+    second: Deco All 2_281
+  - first:
+      213: -898776321592462704
+    second: Deco All 2_282
+  - first:
+      213: 2190676978058672374
+    second: Deco All 2_283
+  - first:
+      213: -1734945369937199662
+    second: Deco All 2_284
+  - first:
+      213: -4647285508226766725
+    second: Deco All 2_285
+  - first:
+      213: -7245546364619918070
+    second: Deco All 2_286
+  - first:
+      213: 2761402471143065594
+    second: Deco All 2_287
+  - first:
+      213: -7774104366547113187
+    second: Deco All 2_288
+  - first:
+      213: 4521283716217210731
+    second: Deco All 2_289
+  - first:
+      213: 4761237922659378399
+    second: Deco All 2_290
+  - first:
+      213: 3496753959084593320
+    second: Deco All 2_291
+  - first:
+      213: -9126916764498437643
+    second: Deco All 2_292
+  - first:
+      213: -6785420227559345748
+    second: Deco All 2_293
+  - first:
+      213: 8179425391735110377
+    second: Deco All 2_294
+  - first:
+      213: 7761273793307386618
+    second: Deco All 2_295
+  - first:
+      213: -799817526944711703
+    second: Deco All 2_296
+  - first:
+      213: -5995019984727916911
+    second: Deco All 2_297
+  - first:
+      213: 7273151378040171350
+    second: Deco All 2_298
+  - first:
+      213: 1243547466547671205
+    second: Deco All 2_299
+  - first:
+      213: -1873353500673755106
+    second: Deco All 2_300
+  - first:
+      213: -3342730067393423273
+    second: Deco All 2_301
+  - first:
+      213: -6912157288319244041
+    second: Deco All 2_302
+  - first:
+      213: 2590726324036429770
+    second: Deco All 2_303
+  - first:
+      213: -8815663112064040698
+    second: Deco All 2_304
+  - first:
+      213: -513769606203825116
+    second: Deco All 2_305
+  - first:
+      213: 8429263212579926572
+    second: Deco All 2_306
+  - first:
+      213: 7902789781857419251
+    second: Deco All 2_307
+  - first:
+      213: -1451655610120414649
+    second: Deco All 2_308
+  - first:
+      213: -2555786789019256138
+    second: Deco All 2_309
+  - first:
+      213: -1605744309748317821
+    second: Deco All 2_310
+  - first:
+      213: 7824111292350316048
+    second: Deco All 2_311
+  - first:
+      213: 3143140329274074789
+    second: Deco All 2_312
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Critical_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d94718c7e1760d64f8868aae1cefc842
+      internalID: -1275562651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c6dfcade625e44287d0ac8ff438ff7
+      internalID: 919271577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2078e1b7a3230b748953e4e6184385fa
+      internalID: 871381593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9494d5b98bcdf51488d79d019d14b2ba
+      internalID: -1165610508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142049133bcb57346851ea7e51a71a7a
+      internalID: -1929889419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36f9aa51acbb3de41b5a3e202042fd6c
+      internalID: 1615859194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd9f39a15ff2174c9077f9347a019b9
+      internalID: -1292244989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5549f793de25ed847ab5f5fee4abb1ad
+      internalID: 950911073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed19a732c59043248a8e1ac327a676d1
+      internalID: 1566950848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc3b6d561eeb2d343aee9ff290c2628e
+      internalID: 678626296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cce9a0fee8bdb14c9351c31133c9739
+      internalID: -792465687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29507db37737e534dba7aac372f7fd7f
+      internalID: 1329530963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc88956bde476844289637b98e22ee6d
+      internalID: 2019211056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9b08070b918ebc46a62ac697a3ff5bc
+      internalID: -109517427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_14
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8412230fa4501554bb7c75979a537316
+      internalID: -1182659868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_15
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0228522024f5ec749b7df3b266dd1d8e
+      internalID: 1569030657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_16
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e1b5e4bcd84cba4fab20cdd3176eeb6
+      internalID: -685848236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_17
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 932dd7d1c4bb80b4dab6ddef33c98b83
+      internalID: 2040350187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb3abe027a5eac94491bf1549e5612de
+      internalID: -359034055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_19
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec10d1c5602074a4ca978fa5ae7d46b3
+      internalID: 776694406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23aea21c406cbfa48be8ab72dce76d21
+      internalID: -570068485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb339d0e5f54da469d37347b314e922
+      internalID: -79609255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4981e61643c8f4bac20e2ab30d1b9c
+      internalID: -977374468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_23
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3149daed832a8c45a705c9f195ae76f
+      internalID: 94676150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_24
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc6a23b8d67e32a41ae30bbbb0afff30
+      internalID: -1312331097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_25
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d203aeaa20949444bb1d9ebbbe3aa1b6
+      internalID: 404012303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_26
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ddea755c389cbd4bbaab84b45bf8e0f
+      internalID: -1311203004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_27
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbd7cf3e0316645449490dd3293c9c2b
+      internalID: 1832598661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_28
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23d130c30b11d574e9e9a81bf5158aa3
+      internalID: 1425598499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_29
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 997348981796b944bad4e089e2763472
+      internalID: 1769951341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 256da53340e7b484798deee4a8ac3d1b
+      internalID: -1891089465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_31
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cacbfd8835d45e0499db6325832e935a
+      internalID: 356120522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db324b45f7744a540b440c961cf006c9
+      internalID: 1399645639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ce638cba0ce9e74599188ee04104c80
+      internalID: -58934766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_34
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec78c4022d47be14e878ac78ec33b816
+      internalID: -834569508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_35
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 458f0040b74ba3e4388a04b7646101de
+      internalID: 1347406646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_36
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba3d695764fc8674bb1314205817e044
+      internalID: 207462163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_37
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3f01fa12bf7b441b17e589efbecb4c
+      internalID: -2136633095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_38
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0737330bae0cc714f8a2001048a04179
+      internalID: -1139935363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_39
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cecf682a3e3f51459712709abae8b08
+      internalID: -459517342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bbe731601acc204391903884915ed47
+      internalID: 2123052309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_41
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 383c9a8abfd63bd4385817fa1f4f7006
+      internalID: -1889850222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_42
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27682bdace45e4641aea85905df1315f
+      internalID: 686021462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_43
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ff684fb25411049b532d979b6dc1f9
+      internalID: 1075789845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_44
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8399e9c1f6b94e04a8e92a6cdd99859a
+      internalID: 500972560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_45
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 257299ecb974955469badbb09c742f45
+      internalID: 2054990758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_46
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e87a1dd36b3b0d54ea9e3199ebe37cef
+      internalID: -276799256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_47
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c016e179d9f6115488b8a6607d97e300
+      internalID: 1879367702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_48
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f1ad2b95747ce448b1794719ed55a6c
+      internalID: -2024120903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_49
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13ae04b071e52cf4c84d17281b40b135
+      internalID: 408764199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31926f8131eb20f4aa5d638b6a92df5e
+      internalID: 1290963200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_51
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98bc1a83232727742b3096f14725981b
+      internalID: -95437727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_52
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e718a9d81e38cb043a3e6c198ad9c8a3
+      internalID: 2050028080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_53
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f462c14e14f4a6f49b8f4329d134a0f9
+      internalID: 2004332442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_54
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c3192201010e2b41abe01d37b3bc461
+      internalID: -19873056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_55
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e40ed7c3dc87ba4784d202c9ece0a87
+      internalID: -1846476241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_56
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6acc0000d7f6dcb4cab9b92da7f48c94
+      internalID: -1329327899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_57
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35d853727a746094bb8f0f2f2cc80fa5
+      internalID: -1069379795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_58
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6686c83862069894aa353d0eff3dd5b5
+      internalID: 2108191269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_59
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4168438c3d86014886871c5d074acec
+      internalID: -1289840888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64b2f1890c5ddf48bf70fd59f1ccaa4
+      internalID: 24077799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_61
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeca02b07315e784c9e0161af2fbef12
+      internalID: -1035866030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_62
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a7e81c950415514699f34aeaf2ea2e1
+      internalID: 1070456436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_63
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4164a53f3ff884e87641e177864b41
+      internalID: 1651527774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_64
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd68aa0ba23df654f93f3766f1491588
+      internalID: -1527503507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_65
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38a907b6e94cc484982aedad4d324e52
+      internalID: -1546610776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_66
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af2714c6e5ce8594db38e6a9dbb9ff92
+      internalID: 1356477040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_67
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea1a1eb12b5b2d488126c69986ed941
+      internalID: -1219297809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_68
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 695292754fdfd2747ab24e9f9091dedf
+      internalID: 1849631112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_69
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4429b375c1b39e445b23a54d79eff474
+      internalID: 878664142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e80a05c0d72ccec4ba8c07fe0dd28a21
+      internalID: -1801673148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_71
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a8f0869442ec554d838d2e4ecaa0968
+      internalID: 145125406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_72
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b16a14f0f7aade4ba96f6f751273ed0
+      internalID: -1729930437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_73
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51011e7bc091ffd45bf15528cdae1c9e
+      internalID: 746376576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_74
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30e46c73ceeb51d47af9a2b1b887f50c
+      internalID: 321161795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_75
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b23a059f04d2bac4f8204115112e5064
+      internalID: -502965715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_76
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebbec42ecffa849448c940b850e529e5
+      internalID: 1442205979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_77
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c658cd5c0ba1640428ca7390670ef332
+      internalID: -1301898704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_78
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b3da5fd48f97842b9778e22fc06b23
+      internalID: 1004626385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Critical_79
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f369872d08146e14187a8e583a48c109
+      internalID: 2039518781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 163ef4d6e9dbc054b858872dbc579712
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Critical_0: -1275562651
+      Critical_1: 919271577
+      Critical_10: -792465687
+      Critical_11: 1329530963
+      Critical_12: 2019211056
+      Critical_13: -109517427
+      Critical_14: -1182659868
+      Critical_15: 1569030657
+      Critical_16: -685848236
+      Critical_17: 2040350187
+      Critical_18: -359034055
+      Critical_19: 776694406
+      Critical_2: 871381593
+      Critical_20: -570068485
+      Critical_21: -79609255
+      Critical_22: -977374468
+      Critical_23: 94676150
+      Critical_24: -1312331097
+      Critical_25: 404012303
+      Critical_26: -1311203004
+      Critical_27: 1832598661
+      Critical_28: 1425598499
+      Critical_29: 1769951341
+      Critical_3: -1165610508
+      Critical_30: -1891089465
+      Critical_31: 356120522
+      Critical_32: 1399645639
+      Critical_33: -58934766
+      Critical_34: -834569508
+      Critical_35: 1347406646
+      Critical_36: 207462163
+      Critical_37: -2136633095
+      Critical_38: -1139935363
+      Critical_39: -459517342
+      Critical_4: -1929889419
+      Critical_40: 2123052309
+      Critical_41: -1889850222
+      Critical_42: 686021462
+      Critical_43: 1075789845
+      Critical_44: 500972560
+      Critical_45: 2054990758
+      Critical_46: -276799256
+      Critical_47: 1879367702
+      Critical_48: -2024120903
+      Critical_49: 408764199
+      Critical_5: 1615859194
+      Critical_50: 1290963200
+      Critical_51: -95437727
+      Critical_52: 2050028080
+      Critical_53: 2004332442
+      Critical_54: -19873056
+      Critical_55: -1846476241
+      Critical_56: -1329327899
+      Critical_57: -1069379795
+      Critical_58: 2108191269
+      Critical_59: -1289840888
+      Critical_6: -1292244989
+      Critical_60: 24077799
+      Critical_61: -1035866030
+      Critical_62: 1070456436
+      Critical_63: 1651527774
+      Critical_64: -1527503507
+      Critical_65: -1546610776
+      Critical_66: 1356477040
+      Critical_67: -1219297809
+      Critical_68: 1849631112
+      Critical_69: 878664142
+      Critical_7: 950911073
+      Critical_70: -1801673148
+      Critical_71: 145125406
+      Critical_72: -1729930437
+      Critical_73: 746376576
+      Critical_74: 321161795
+      Critical_75: -502965715
+      Critical_76: 1442205979
+      Critical_77: -1301898704
+      Critical_78: 1004626385
+      Critical_79: 2039518781
+      Critical_8: 1566950848
+      Critical_9: 678626296
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: InfectedCellStageData
   m_EditorClassIdentifier: 
   type: 3
-  sprite: {fileID: -4715139217805200250, guid: 2566b424e74e1a848a0b9421c9035bbd, type: 3}
+  displayName: Infected
+  sprite: {fileID: 1661522082, guid: 781dbda9f9211c547a93d93f7b5cd0cb, type: 3}
   cellStageStats:
     minInfectionValue: 50
     maxInfectionValue: 99

@@ -13,4 +13,21 @@ MonoBehaviour:
   m_Name: NoneCellStageData
   m_EditorClassIdentifier: 
   type: 0
+  displayName: None
   sprite: {fileID: 0}
+  cellStageStats:
+    minInfectionValue: -1
+    maxInfectionValue: -1
+    infectionResistance: 0
+    targetInfectionIncreasePercent: 0
+    detectionPercent: 0
+    isContagious: 0
+    isBlocked: 0
+    canSwitchToDead: 0
+    tickToDeadCount: 0
+    priorityToHuman: 0
+    basePriorityToMethods:
+      surfacePriority: 0
+      airPriority: 0
+      waterPriority: 0
+      carrierPriority: 0

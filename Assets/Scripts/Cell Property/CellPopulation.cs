@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class CellPopulation
 {
-    public PopulationType type;
+    public PopulationType type = PopulationType.None;
 
     [Header("Base Gameplay Values")]
-    public float weight;
+    public float weight = 0f;
 
-    public float priorityToHuman;
+    public float priorityToHuman = 0f;
     public PriorityToMethods priorityToMethods;
 
     public CellPopulation()
@@ -23,15 +23,10 @@ public class CellPopulation
 
     public void SetPopulation(PopulationType populationType)
     {
-        type = populationType;
-
-        PopulationData populationData = CellPropertyManager.Instance.GetPopulationData(type);
+        PopulationData populationData = CellPropertyManager.Instance.GetPopulationData(populationType);
         if (populationData != null)
         {
-            weight = 0f;
-            priorityToMethods.surfacePriority = populationData.weight;
-            priorityToHuman = populationData.priorityToHuman;
-            populationData.basePriorityToMethods = priorityToMethods;
+            SetData(populationData);
             return;
         }
     }
@@ -40,16 +35,11 @@ public class CellPopulation
     {
         if (environmentData != null)
         {
-            foreach (PopulationData populationData in CellPropertyManager.Instance.GetPopulationDatas())
+            PopulationData populationData = CellPropertyManager.Instance.GetPopulationData(environmentData.populationType);
+            if (populationData != null)
             {
-                if (populationData != null && populationData.type == environmentData.populationType)
-                {
-                    weight = 0f;
-                    priorityToMethods.surfacePriority = populationData.weight;
-                    priorityToHuman = populationData.priorityToHuman;
-                    populationData.basePriorityToMethods = priorityToMethods;
-                    return;
-                }
+                SetData(populationData);
+                return;
             }
         }
     }
@@ -61,11 +51,28 @@ public class CellPopulation
             if (populationData != null && populationData.minPopulationValue <= value
                 && value <= populationData.maxPopulationValue)
             {
-                type = populationData.type;
+                SetData(populationData);
                 return;
             }
         }
 
-        type = PopulationType.None;
+        SetData(CellPropertyManager.Instance.GetPopulationData(PopulationType.None));
+    }
+
+    private void SetData(PopulationData populationData)
+    {
+        if (populationData != null)
+        {
+            float previousWeight = weight;
+
+            type = populationData.type;
+            weight = populationData.weight;
+            priorityToHuman = populationData.priorityToHuman;
+            populationData.basePriorityToMethods = priorityToMethods;
+
+            float deltaWeight = weight - previousWeight;
+
+            MapManager.Instance.UpdateTotalPopulation(deltaWeight);
+        }
     }
 }

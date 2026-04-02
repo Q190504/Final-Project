@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PopulationMediumData
   m_EditorClassIdentifier: 
   type: 2
+  displayName: Medium Population
   sprite: {fileID: 21300000, guid: 61ac4093cb7c38149971b7c6379e3761, type: 3}
   minPopulationValue: 0.4
   maxPopulationValue: 0.7

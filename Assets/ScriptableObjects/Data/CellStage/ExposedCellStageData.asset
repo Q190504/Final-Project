@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: ExposedCellStageData
   m_EditorClassIdentifier: 
   type: 2
-  sprite: {fileID: -7769849017157214238, guid: 2566b424e74e1a848a0b9421c9035bbd, type: 3}
+  displayName: Exposed
+  sprite: {fileID: -1008396829, guid: 5174212481cad6842aec0825fae8bae2, type: 3}
   cellStageStats:
     minInfectionValue: 1
     maxInfectionValue: 49
     infectionResistance: 0
     targetInfectionIncreasePercent: 0.3
-    increaseInfectionLevelPerTick: 16
     detectionPercent: 0.5
     isContagious: 1
     isBlocked: 0

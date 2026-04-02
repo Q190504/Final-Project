@@ -15,10 +15,12 @@ public class InfectionSeeder : IMapGeneratorStep
     public void Execute(Grid<GridCell> grid)
     {
         List<GridCell> candidates = new();
-        System.Random infectionCellRandom = new System.Random(randomSeed);
+        System.Random infectionCellRandom = new(randomSeed);
 
         foreach (var cell in grid.GetGrid())
         {
+            cell.Stats.SetInfectionLevel(0);
+
             if (!cell.Stats.isBlocked)
                 candidates.Add(cell);
         }
@@ -36,8 +38,8 @@ public class InfectionSeeder : IMapGeneratorStep
             else
             {
                 candidates[index].Stats.SetInfectionLevel(1);
-                //Debug.Log($"Don't have enough stageData to spawn starting infected cell. " +
-                //    $"Starting infected cell: {config.startingInfectedCellCount}, stageData count {config.startingInfectionLevelsList.Count}");
+                Debug.Log($"Don't have enough stageData to spawn starting infected cell. " +
+                    $"Starting infected cell: {config.startingInfectedCellCount}, stageData count {config.startingInfectionLevelsList.Count}");
             }
         }
     }

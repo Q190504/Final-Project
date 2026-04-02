@@ -1,118 +1,168 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class CameraController : MonoBehaviour
 {
-    public static CameraController Instance { get; private set; }
+    public static CameraController Instance;
 
     [Header("Input")]
     [SerializeField] private InputAction moveAction;
     [SerializeField] private InputAction zoomAction;
 
-    [Header("Pan Settings")]
-    [SerializeField] private float panSpeed = 20f;
+    [Header("Pan")]
+    [SerializeField] private float panSpeed = 25f;
+    [SerializeField] private float smoothTime = 0.1f;
 
-    [Header("Zoom Settings")]
-    [SerializeField] private float zoomSpeed = 3f;
+    [Header("Zoom")]
+    [SerializeField] private float zoomSpeed = 10f;
+    [SerializeField] private float zoomSmooth = 10f;
     [SerializeField] private float minZoom = 5f;
-    [SerializeField] private float maxZoom = 40f;
 
-    [Header("Bounds")]
-    private Vector2 xBounds;
-    private Vector2 yBounds;
+    [Header("Refs")]
+    [SerializeField] private CinemachineCamera virtualCam;
+    [SerializeField] private BoxCollider2D bounds;
 
-    private Camera cam;
-    private Vector2 lastMousePos;
+    private Vector3 targetPosition;
+    private Vector3 velocity;
 
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(this);
-    }
+    private float targetZoom;
+    private float maxZoom = 20f;
 
-    /// <summary>
-    /// Standard Unity function called whenever the attached gameobject is enabled
-    /// </summary>
-    void OnEnable()
+    private void OnEnable()
     {
         moveAction.Enable();
         zoomAction.Enable();
     }
 
-    /// <summary>
-    /// Standard Unity function called whenever the attached gameobject is disabled
-    /// </summary>
-    void OnDisable()
+    private void OnDisable()
     {
         moveAction.Disable();
         zoomAction.Disable();
     }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        if (moveAction.bindings.Count == 0)
-        {
-            Debug.LogWarning("The Move Camera Action does not have a binding set! Make sure that each Input Action has a binding set or the controller will not work!");
-        }
-
-        if (zoomAction.bindings.Count == 0)
-        {
-            Debug.LogError("The Zoom Camera Action does not have a binding set! Make sure that each Input Action has a binding set or the controller will not work!");
-        }
-
-        cam = GetComponent<Camera>();
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        HandleKeyboardPan();
+        targetPosition = virtualCam.transform.position;
+        targetZoom = virtualCam.Lens.OrthographicSize;
+    }
+
+    private void Update()
+    {
+        HandlePan();
         HandleZoom();
-        ClampPosition();
+        ApplyMovement();
     }
 
-    private void HandleKeyboardPan()
+    // ================= PAN =================
+    private void HandlePan()
     {
         Vector2 input = moveAction.ReadValue<Vector2>();
-        Vector3 move = new Vector3(input.x, input.y, 0);
-        transform.Translate(move * panSpeed * Time.deltaTime, Space.World);
+        if (input.sqrMagnitude < 0.01f) return;
+
+        Vector3 dir = (Vector3)input.normalized;
+        targetPosition += panSpeed * Time.deltaTime * dir;
+
+        targetPosition = ClampToBounds(targetPosition);
     }
 
+    // ================= ZOOM =================
     private void HandleZoom()
     {
         float scroll = zoomAction.ReadValue<float>();
+        if (Mathf.Abs(scroll) < 0.01f) return;
 
-        if (cam.orthographic)
-        {
-            cam.orthographicSize -= scroll * zoomSpeed;
-            cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
-        }
+        targetZoom -= scroll * zoomSpeed;
+        targetZoom = Mathf.Clamp(targetZoom, minZoom, maxZoom);
+
+        targetPosition = ClampToBounds(virtualCam.transform.position);
+    }
+
+    // ================= APPLY =================
+    private void ApplyMovement()
+    {
+        // Smooth position
+        Vector3 pos = Vector3.SmoothDamp(
+            virtualCam.transform.position,
+            targetPosition,
+            ref velocity,
+            smoothTime
+        );
+
+        virtualCam.transform.position = pos;
+
+        // Smooth zoom
+        var lens = virtualCam.Lens;
+        lens.OrthographicSize = Mathf.Lerp(
+            lens.OrthographicSize,
+            targetZoom,
+            Time.deltaTime * zoomSmooth
+        );
+        virtualCam.Lens = lens;
+    }
+
+    // ================= CLAMP =================
+    private Vector3 ClampToBounds(Vector3 pos)
+    {
+        float camHeight = targetZoom;
+        float camWidth = camHeight * Camera.main.aspect;
+
+        Bounds b = bounds.bounds;
+
+        float mapWidth = 35 * 0.5f;
+        float mapHeight = 35 * 0.5f;
+
+        Vector3 center = b.center;
+
+        // If zoom out to much → force back to center
+        if (camWidth >= mapWidth)
+            pos.x = Mathf.Lerp(pos.x, center.x, Time.deltaTime * 5f);
         else
         {
-            transform.position += transform.forward * scroll * zoomSpeed;
+            float minX = b.min.x + camWidth;
+            float maxX = b.max.x - camWidth;
+            pos.x = Mathf.Clamp(pos.x, minX, maxX);
         }
+
+        if (camHeight >= mapHeight)
+            pos.y = Mathf.Lerp(pos.y, center.y, Time.deltaTime * 5f);
+        else
+        {
+            float minY = b.min.y + camHeight;
+            float maxY = b.max.y - camHeight;
+            pos.y = Mathf.Clamp(pos.y, minY, maxY);
+        }
+
+        return pos;
     }
 
-    private void ClampPosition()
+    public void Init()
     {
-        Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, xBounds.x, xBounds.y);
-        pos.y = Mathf.Clamp(pos.y, yBounds.x, yBounds.y);
-        transform.position = pos;
+        if (virtualCam.TryGetComponent<CinemachineConfiner2D>(out var confiner))
+            confiner.InvalidateBoundingShapeCache();
+        maxZoom = CalculateMaxZoom();
     }
 
-    public void ResetCamera()
+    private float CalculateMaxZoom()
     {
-        transform.position = new Vector3(0, 0, 0);
-        transform.rotation = Quaternion.Euler(0, 0, 0);
-    }
+        Bounds b = bounds.bounds;
 
-    public void SetBounds(int gridWidth, int gridHeight, float cellSize, Vector2 originalPos)
-    {
-        xBounds = new Vector2(originalPos.x - gridWidth * cellSize / 3f, originalPos.x + gridWidth * cellSize / 3f);
-        yBounds = new Vector2(originalPos.y - gridHeight * cellSize / 2f, originalPos.y + gridHeight * cellSize / 2f);
+        float mapWidth = b.size.x;
+        float mapHeight = b.size.y;
+
+        float aspect = Camera.main.aspect;
+
+        float zoomY = mapHeight / 2f;
+        float zoomX = mapWidth / (2f * aspect);
+
+        return Mathf.Max(zoomY, zoomX);
     }
 }

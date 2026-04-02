@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e991937bdbb1374e9f9053ad4777ee6, type: 3}
+  m_Name: Airborne Spread Data
+  m_EditorClassIdentifier: 
+  baseConfig:
+    methodType: 2
+    baseInfectionPower: 1
+    methodOrder: 1
+    eventPriority: 1
+    tickToSpread: 1
+    spreadChanceWhenBlocked: 0
+    spreadSpeed: 1
+    spreadDirection: 1
+    minDistance: 1
+    maxDistance: 1
+    detectionRate: 0
+    environmentModifiers:
+      entries:
+      - environment: 1
+        multiplier: 1
+      - environment: 2
+        multiplier: 1
+      - environment: 3
+        multiplier: 1
+      - environment: 4
+        multiplier: 1
+      - environment: 5
+        multiplier: 1
+      - environment: 6
+        multiplier: 1
+      - environment: 7
+        multiplier: 1
+      - environment: 8
+        multiplier: 1
+      - environment: 9
+        multiplier: 1
+      - environment: 10
+        multiplier: 1
+      - environment: 11
+        multiplier: 0
+    temperatureModifiers:
+      entries:
+      - temperature: 1
+        multiplier: 1
+      - temperature: 2
+        multiplier: 1
+      - temperature: 3
+        multiplier: 1
+    populationModifiers:
+      entries:
+      - population: 1
+        multiplier: 1
+      - population: 2
+        multiplier: 1
+      - population: 3
+        multiplier: 1

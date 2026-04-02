@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: NoneStructureData
   m_EditorClassIdentifier: 
   type: 0
+  displayName: None
   sprite: {fileID: 0}
   spawnEnvironmentAndRateList:
   - environmentTypeCanSpawn: 7
@@ -33,7 +34,8 @@ MonoBehaviour:
     spawnRateOnEnvironment: 0
   spawnRate: 0
   maxAmountInAMatch: 0
-  effectRange: 0
+  effectRangePercent: 0
+  priorityToHuman: 0
   basePriorityToMethods:
     surfacePriority: 1
     airPriority: 1

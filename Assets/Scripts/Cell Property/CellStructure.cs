@@ -7,11 +7,11 @@ public class CellStructure
     private bool isActive;
 
     [Header("Base Gameplay Values")]
-    private int effectRange;
-    private float currentPriorityToHuman;
-    private float originalPriorityToHuman;
-    private PriorityToMethods currentPriorityToMethods;
-    private PriorityToMethods originalPriorityToMethods;
+    public int effectRange;
+    public float currentPriorityToHuman;
+    public float originalPriorityToHuman;
+    public PriorityToMethods currentPriorityToMethods;
+    public PriorityToMethods originalPriorityToMethods;
 
     private GridCell parentCell;
 
@@ -52,6 +52,7 @@ public class CellStructure
                 if (grid.IsInBounds(i, j))
                 {
                     grid.GetCell(i, j).Stats.affectedByStructures.Add(type);
+                    // Apply effect
                 }
             }
         }

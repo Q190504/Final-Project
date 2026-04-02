@@ -26,9 +26,9 @@ public static class Utility
 
     public static Vector3 GetMouseWorldPosition()
     {
-        Vector3 vector = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
-        vector.z = 0;
-        return vector;
+        Vector3 pos = Input.mousePosition;
+        pos.z = -Camera.main.transform.position.z;
+        return Camera.main.ScreenToWorldPoint(pos);
     }
 
     public static Vector3 GetMouseWorldPositionWithZ(Vector3 screenPosition, Camera worldCamera)
@@ -37,12 +37,16 @@ public static class Utility
         return worldPosition;
     }
 
-    public static Vector3 GridToWorldPosition(int x, int y, float width, float height, float cellSize)
+    public static Vector3 GridToWorldPosition(
+        int x, int y,
+        int width, int height,
+        float cellSize,
+        Vector3 origin)
     {
         float offsetX = (width - 1) * cellSize * 0.5f;
         float offsetY = (height - 1) * cellSize * 0.5f;
 
-        return new Vector3(
+        return origin + new Vector3(
             x * cellSize - offsetX,
             y * cellSize - offsetY,
             0f
@@ -50,16 +54,19 @@ public static class Utility
     }
 
     public static Vector2Int WorldToGridPosition(
-    Vector3 worldPos,
-    int width,
-    int height,
-    float cellSize)
+        Vector3 worldPos,
+        int width,
+        int height,
+        float cellSize,
+        Vector3 origin)
     {
         float offsetX = (width - 1) * cellSize * 0.5f;
         float offsetY = (height - 1) * cellSize * 0.5f;
 
-        int x = Mathf.FloorToInt((worldPos.x + offsetX) / cellSize);
-        int y = Mathf.FloorToInt((worldPos.y + offsetY) / cellSize);
+        Vector3 local = worldPos - origin;
+
+        int x = Mathf.FloorToInt((local.x + offsetX + cellSize * 0.5f) / cellSize);
+        int y = Mathf.FloorToInt((local.y + offsetY + cellSize * 0.5f) / cellSize);
 
         return new Vector2Int(x, y);
     }
@@ -284,10 +291,10 @@ public static class Utility
         int maxY = Mathf.Min(h - 1, Mathf.CeilToInt(cy + radius));
 
         float[,] pop = grid.GetPopulationGrid();
-        bool [,] water = grid.GetWaterGrid();
+        bool[,] water = grid.GetWaterGrid();
         bool[,] mountain = grid.GetMountainGrid();
 
-        int cellsUpdated = 0;   
+        int cellsUpdated = 0;
 
         for (int x = minX; x <= maxX; x++)
         {
