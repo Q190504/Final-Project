@@ -9,13 +9,13 @@ public class CellPropertyManager : MonoBehaviour
     [SerializeField] private List<PopulationData> populationDatas;
     [SerializeField] private List<TempuratureData> tempuratureDatas;
     [SerializeField] private List<EnvironmentData> environmentDatas;
-    [SerializeField] private List<StructureData> structureDatas;
+    [SerializeField] private List<StructureDataSO> structureDatas;
     [SerializeField] private List<CellStageData> cellStageDatas;
 
     private Dictionary<PopulationType, PopulationData> populationDict;
     private Dictionary<TemperatureType, TempuratureData> tempuratureDict;
     private Dictionary<EnvironmentType, EnvironmentData> environmentDict;
-    private Dictionary<StructureType, StructureData> structureDict;
+    private Dictionary<StructureType, StructureDataSO> structureDict;
     private Dictionary<CellStageType, CellStageData> cellStageDict;
 
     void Awake()
@@ -66,7 +66,7 @@ public class CellPropertyManager : MonoBehaviour
 
     public List<EnvironmentData> GetEnvironmentDatas() { return environmentDatas; }
 
-    public List<StructureData> GetStructureDatas() { return structureDatas; }
+    public List<StructureDataSO> GetStructureDatas() { return structureDatas; }
 
     public List<CellStageData> GetCellStageDatas() { return cellStageDatas; }
 
@@ -85,7 +85,7 @@ public class CellPropertyManager : MonoBehaviour
         return environmentDict.TryGetValue(type, out var data) ? data : null;
     }
 
-    public StructureData GetStructureData(StructureType type)
+    public StructureDataSO GetStructureData(StructureType type)
     {
         return structureDict.TryGetValue(type, out var data) ? data : null;
     }

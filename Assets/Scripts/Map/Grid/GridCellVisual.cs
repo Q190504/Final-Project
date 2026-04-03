@@ -55,7 +55,7 @@ public class GridCellVisual : MonoBehaviour
         if (envData != null && environmentRenderer != null)
             environmentRenderer.sprite = envData.sprite;
 
-        StructureData strucData = CellPropertyManager.Instance.GetStructureData(cellStats.structure.type);
+        StructureDataSO strucData = CellPropertyManager.Instance.GetStructureData(cellStats.structure.type);
         if (strucData != null && structureIcon != null)
             structureIcon.sprite = strucData.sprite;
 

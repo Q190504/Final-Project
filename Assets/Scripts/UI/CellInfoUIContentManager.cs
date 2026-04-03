@@ -194,7 +194,7 @@ public class CellInfoUIContentManager : MonoBehaviour
                 tempData != null ? tempData.sprite : null);
 
             // ===== STRUCTURE =====
-            StructureData structureData = cellPropertyManager.GetStructureData(cellStats.structure.type);
+            StructureDataSO structureData = cellPropertyManager.GetStructureData(cellStats.structure.type);
             SetupEntry(structureEntry,
                 Safe(structureData != null ? structureData.displayName : null),
                 structureData != null ? structureData.sprite : null);

@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Structure Data", menuName = "Scriptable Objects/Cell Property/Structure Data")]
-public class StructureData : ScriptableObject
+public abstract class StructureDataSO : ScriptableObject
 {
     public StructureType type;
+    public StructureLogicType logicType;
     public string displayName;
     public Sprite sprite;
 
@@ -16,6 +16,12 @@ public class StructureData : ScriptableObject
     public float effectRangePercent;
     public float priorityToHuman;
     public PriorityToMethods basePriorityToMethods;
+
+    public int infectionPointWhenDestroyed;
+    public int dnaointWhenDestroyed;
+    public int mutationPointWhenDestroyed;
+
+    public abstract Structure CreateLogic();
 }
 
 [System.Serializable]

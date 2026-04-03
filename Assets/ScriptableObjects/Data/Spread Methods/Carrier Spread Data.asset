@@ -17,10 +17,10 @@ MonoBehaviour:
     baseInfectionPower: 1
     methodOrder: 3
     eventPriority: 1
-    tickToSpread: 1
+    tickToSpread: 5
     spreadChanceWhenBlocked: 0
     spreadSpeed: 1
-    spreadDirection: 1
+    spreadDirection: 2
     minDistance: 1
     maxDistance: 1
     environmentModifiers:

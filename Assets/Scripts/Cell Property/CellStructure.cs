@@ -4,7 +4,9 @@ using UnityEngine;
 public class CellStructure
 {
     public StructureType type;
+    public Structure logic;
     private bool isActive;
+    private bool hasBeenDestroyedBefore;
 
     [Header("Base Gameplay Values")]
     public int effectRange;
@@ -18,7 +20,9 @@ public class CellStructure
     public CellStructure()
     {
         isActive = false;
+        hasBeenDestroyedBefore = false;
         type = StructureType.None;
+        logic = null;
         effectRange = 0;
         currentPriorityToHuman = originalPriorityToHuman = 0f;
         currentPriorityToMethods = originalPriorityToMethods = new PriorityToMethods();
@@ -29,14 +33,17 @@ public class CellStructure
         parentCell = cell;
         type = structureType;
 
-        StructureData structureData = CellPropertyManager.Instance.GetStructureData(type);
+        StructureDataSO structureData = CellPropertyManager.Instance.GetStructureData(type);
         if (structureData != null)
         {
             isActive = true;
+            logic = structureData.CreateLogic();
             effectRange = Mathf.FloorToInt(structureData.effectRangePercent * MapManager.Instance.GetBaseSize());
             currentPriorityToHuman = originalPriorityToHuman = structureData.priorityToHuman;
             currentPriorityToMethods = originalPriorityToMethods = structureData.basePriorityToMethods;
-            SetAffectedByStructuresListOfCellsInRange(new Vector2Int(cell.X, cell.Y), effectRange);
+
+            EnableStructure();
+
             return;
         }
     }
@@ -52,7 +59,7 @@ public class CellStructure
                 if (grid.IsInBounds(i, j))
                 {
                     grid.GetCell(i, j).Stats.affectedByStructures.Add(type);
-                    // Apply effect
+                    logic.ApplyEffectToCell(grid.GetCell(i, j));
                 }
             }
         }
@@ -70,6 +77,8 @@ public class CellStructure
                     List<StructureType> neighbourCellAffectedByStructuresList = grid.GetCell(i, j).Stats.affectedByStructures;
                     if (neighbourCellAffectedByStructuresList.Contains(type))
                         neighbourCellAffectedByStructuresList.Remove(type);
+
+                    logic.DisapplyEffectToCell(grid.GetCell(i, j));
                 }
             }
         }
@@ -81,6 +90,15 @@ public class CellStructure
             return;
 
         isActive = false;
+
+        logic.DisapplyGlobalEffect();
+
+        if (!hasBeenDestroyedBefore)
+        {
+            hasBeenDestroyedBefore = true;
+
+            //Add points to the player for the structure being removed
+        }
 
         originalPriorityToHuman = currentPriorityToHuman;
         currentPriorityToHuman = 0f;
@@ -98,6 +116,8 @@ public class CellStructure
             return;
 
         isActive = true;
+
+        logic.ApplyGlobalEffect();
 
         currentPriorityToHuman = originalPriorityToHuman;
         currentPriorityToMethods = originalPriorityToMethods;
