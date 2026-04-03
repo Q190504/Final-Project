@@ -60,6 +60,7 @@ public class MapManager : MonoBehaviour
             seed = random.Next(0, int.MaxValue / 2);
             config.seed = seed;
         }
+
         mapGenerator = new(seed, config);
     }
 

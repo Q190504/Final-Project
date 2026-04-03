@@ -67,8 +67,6 @@ public abstract class BaseSpreadMethod<T> : ISpreadMethod
         return Mathf.RoundToInt(config.baseInfectionPower * modifier);
     }
 
-    public virtual float GetDetectionRate() { return config.detectionRate; }
-
     public void Start()
     {
         ScheduleNext();

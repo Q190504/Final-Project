@@ -23,7 +23,6 @@ MonoBehaviour:
     spreadDirection: 1
     minDistance: 1
     maxDistance: 1
-    detectionRate: 0
     environmentModifiers:
       entries:
       - environment: 1

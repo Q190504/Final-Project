@@ -44,26 +44,45 @@ public class GridCellVisual : MonoBehaviour
 
     public void UpdateVisual(GridCell gridCell)
     {
+        if (gridCell == null) return;
+
+        if (cellFocusVFX != null)
+            cellFocusVFX.SetActive(gridCell.IsBeingShownInfo);
+
         CellStats cellStats = gridCell.Stats;
 
         EnvironmentData envData = CellPropertyManager.Instance.GetEnvironmentData(cellStats.environment.currentEnvironmentType);
-        if (envData != null)
+        if (envData != null && environmentRenderer != null)
             environmentRenderer.sprite = envData.sprite;
 
         StructureData strucData = CellPropertyManager.Instance.GetStructureData(cellStats.structure.type);
-        if (strucData != null)
+        if (strucData != null && structureIcon != null)
             structureIcon.sprite = strucData.sprite;
 
         CellStageData cellStageData = CellPropertyManager.Instance.GetCellStageData(cellStats.stage.type);
 
-        if (cellStageData != null)
+        if (cellStageData != null && cellStageBorderRenderer != null)
             cellStageBorderRenderer.sprite = cellStageData.sprite;
+
+        if (detectedIcon != null)
+            detectedIcon.gameObject.SetActive(cellStats.isDetected);
+
+        if (carrierIcon != null)
+            carrierIcon.gameObject.SetActive(cellStats.hasCarrier);
+
+        if (lockdownOverlayRenderer != null)
+            lockdownOverlayRenderer.gameObject.SetActive(cellStats.isLockdown);
 
         //text.text = $"Popu: {cellStats.population.type},\nTem: {cellStats.tempurature.type}";
     }
 
-    public void OnCellSelected(int x, int y)
+    public void ShowAffectedByStructureOverlay(bool show)
     {
-        cellFocusVFX.SetActive(true);
+        affectedByStructureOverlayRenderer.gameObject.SetActive(show);
+    }
+
+    public void ShowAffectedBySkillOverlay(bool show)
+    {
+        affectedBySkillOverlayRenderer.gameObject.SetActive(show);
     }
 }

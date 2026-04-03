@@ -15,8 +15,6 @@ public class SpreadMethodConfig
     public SpreadDirection spreadDirection;
     public int minDistance = 1;
     public int maxDistance = 1;
-    [Range(0f, 1f)]
-    public float detectionRate;
 
     [Header("Modifier Tables")]
     public EnvironmentModifierTable environmentModifiers;

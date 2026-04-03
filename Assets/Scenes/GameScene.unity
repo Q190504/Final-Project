@@ -1444,7 +1444,6 @@ MonoBehaviour:
   zoomSpeed: 1
   zoomSmooth: 10
   minZoom: 2
-  maxZoom: 20
   virtualCam: {fileID: 1964217279}
   bounds: {fileID: 1919266689}
 --- !u!114 &519420034
