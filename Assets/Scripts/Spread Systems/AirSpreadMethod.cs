@@ -98,7 +98,7 @@ public class AirSpreadMethod : BaseSpreadMethod<AirSpreadDataSO>
 
                 GridCell cell = grid.GetCell(next.x, next.y);
 
-                if (cell.Stats.originalHasWater) continue;
+                if (cell.Stats.HasWater()) continue;
                 if (!cell.CanBeInfected()) continue;
 
                 if (cell.Stats.isBlocked)

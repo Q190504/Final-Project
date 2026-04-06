@@ -9,19 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef840d9f468faef4e9188183eb54ab72, type: 3}
-  m_Name: VaccineResearchCenter
-  m_EditorClassIdentifier: 
+  m_Script: {fileID: 0}
+  m_Name: Vaccine Research Center Data
+  m_EditorClassIdentifier: Assembly-CSharp::VaccineResearchCenterDataSO
   type: 2
+  logicType: 2
   displayName: Vaccine Research Center
   sprite: {fileID: 21300000, guid: 43fa94f54851f8e45bcadc0446fbc0da, type: 3}
   spawnEnvironmentAndRateList:
   - environmentTypeCanSpawn: 1
-    spawnRateOnEnvironment: 0.33333334
+    spawnRateOnEnvironment: 0.5
   - environmentTypeCanSpawn: 2
-    spawnRateOnEnvironment: 0.3333333
+    spawnRateOnEnvironment: 0.25
   - environmentTypeCanSpawn: 3
-    spawnRateOnEnvironment: 0.3333333
+    spawnRateOnEnvironment: 0.25
   - environmentTypeCanSpawn: 4
     spawnRateOnEnvironment: 0
   - environmentTypeCanSpawn: 5
@@ -34,12 +35,21 @@ MonoBehaviour:
     spawnRateOnEnvironment: 0
   - environmentTypeCanSpawn: 9
     spawnRateOnEnvironment: 0
+  - environmentTypeCanSpawn: 10
+    spawnRateOnEnvironment: 0
+  - environmentTypeCanSpawn: 11
+    spawnRateOnEnvironment: 0
   spawnRate: 0
-  maxAmountInAMatch: 0
+  maxAmountInAMatch: 5
   effectRangePercent: 0
-  priorityToHuman: 0
+  priorityToHuman: 0.5
   basePriorityToMethods:
-    surfacePriority: 1
-    airPriority: 1
-    waterPriority: 1
-    carrierPriority: 1
+    surfacePriority: 0
+    airPriority: 0
+    waterPriority: 0
+    carrierPriority: 0
+  infectionPointWhenDestroyed: 50
+  dnaPointWhenDestroyed: 50
+  mutationPointWhenDestroyed: 50
+  extraConfig:
+    vaccineProgressIncrementPercentPerTick: 0

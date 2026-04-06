@@ -11,7 +11,9 @@ public class WaterFactory : Structure
 
     public override void ApplyEffectToCell(GridCell cell)
     {
+        int increaseInfectionLevel = Mathf.RoundToInt(cell.Stats.infectionLevel * extraConfig.increasedInfectionLevelPercentWhenTakenDown);
 
+        cell.Stats.UpdateInfectionLevel(increaseInfectionLevel);
     }
 
     public override void ApplyGlobalEffect()

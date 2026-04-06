@@ -16,13 +16,10 @@ public class CellStats
     public int infectionLevel = 0;
     public int currentInfectionResistance = 0;
     public int originalInfectionResistance = 0;
-    [Range(0, 1)]
     public float targetInfectionIncreasePercent = 0;
 
     public bool isDetected = false;
-    [Range(0, 1)]
     public float currentDetectionPercent = 0;
-    [Range(0, 1)]
     public float originalDetectionPercent = 0;
 
     public bool isContagious = false; // whether the cell can spread infection to other cells 
@@ -31,9 +28,11 @@ public class CellStats
 
     public bool canHasStructure = true;
     public bool canHasCarrier = true;
-    public bool currentHasWater = false;
-    public bool originalHasWater = false;
     public bool hasCarrier = false;
+    public float additionalCarrierSpreadChancePercent = 0;
+
+    //public bool currentHasWater = false;
+    //public bool originalHasWater = false;
 
     public bool canSwitchToDead = false;
     public float toDeadTicksCount = 0;
@@ -46,6 +45,21 @@ public class CellStats
     public PriorityToMethods priorityToMethods;
 
     private MapManager mapManager;
+
+    const int minInfectionLevel = 0;
+    const int maxInfectionLevel = 100;
+
+    const int minInfectionResistance = 0;
+    const int maxInfectionResistance = 100;
+
+    const int minTargetInfectionIncreasePercent = 0;
+    const int maxTargetInfectionIncreasePercent = 100;
+
+    const int minDetectionPercent = 0;
+    const int maxDetectionPercent = 100;
+
+    const int minAdditionalCarrierSpreadChance = 0;
+    const int maxAdditionalCarrierSpreadChance = 100;
 
     public CellStats()
     {
@@ -72,8 +86,8 @@ public class CellStats
 
         if (environment == EnvironmentType.Water)
         {
-            this.originalHasWater = true;
-            this.currentHasWater = true;
+            //this.originalHasWater = true;
+            //this.currentHasWater = true;
             this.canHasStructure = false;
             this.canHasCarrier = false;
         }
@@ -137,20 +151,26 @@ public class CellStats
         parentCell.CheckIsBeingShownInfo();
     }
 
-    public void SetCurrentWater(bool state)
+    public bool HasWater()
     {
-        currentHasWater = state;
-
-        parentCell.CheckIsBeingShownInfo();
+        return environment.currentEnvironmentType == EnvironmentType.Water
+            || affectedByStructures.Contains(StructureType.WaterFactory);
     }
 
-    public void SetOriginalWater(bool state)
-    {
-        originalHasWater = state;
-        currentHasWater = state;
+    //public void SetCurrentWater(bool state)
+    //{
+    //    currentHasWater = state;
 
-        parentCell.CheckIsBeingShownInfo();
-    }
+    //    parentCell.CheckIsBeingShownInfo();
+    //}
+
+    //public void SetOriginalWater(bool state)
+    //{
+    //    originalHasWater = state;
+    //    currentHasWater = state;
+
+    //    parentCell.CheckIsBeingShownInfo();
+    //}
 
     public void SetCarrier(bool state)
     {
@@ -184,8 +204,8 @@ public class CellStats
     public void UpdateInfectionLevel(int value)
     {
         infectionLevel += value;
-        if (infectionLevel < 0) infectionLevel = 0;
-        else if (infectionLevel > 100) infectionLevel = 100;
+        if (infectionLevel < minInfectionLevel) infectionLevel = minInfectionLevel;
+        else if (infectionLevel > maxInfectionLevel) infectionLevel = maxInfectionLevel;
 
         CellStageType cellStageType = stage.SetCellStageType(infectionLevel, this);
 
@@ -206,9 +226,9 @@ public class CellStats
     /// <param name="infectionLevel">The infection level to assign. Must be a non-negative integer representing the severity of infection.</param>
     public void SetInfectionLevel(int infectionLevel)
     {
-        if (infectionLevel < 0 || infectionLevel > 100)
+        if (infectionLevel < minInfectionLevel || infectionLevel > maxInfectionLevel)
         {
-            Debug.LogError("Infection level must be between 0 and 100.");
+            Debug.LogError($"Infection level must be between {minInfectionLevel} and {maxInfectionLevel}.");
             return;
         }
 
@@ -262,7 +282,7 @@ public class CellStats
         canSwitchToDead = cellStageStats.canSwitchToDead;
         toDeadTicksCount = cellStageStats.tickToDeadCount;
 
-        if(toDeadTicksCount > 0)
+        if (toDeadTicksCount > 0)
         {
             TimeManager.Instance.ScheduleEvent(
                 toDeadTicksCount,
@@ -300,17 +320,17 @@ public class CellStats
 
     /// <summary>
     /// Increase or decrease the original infection resistance of the cell by the value
-    /// 
+    /// </summary>
     public void UpdateOriginalInfectionResistance(int value)
     {
         originalInfectionResistance += value;
         currentInfectionResistance += value;
 
-        if (originalInfectionResistance < 0) originalInfectionResistance = 0;
-        else if (originalInfectionResistance > 100) originalInfectionResistance = 100;
+        if (originalInfectionResistance < minInfectionResistance) originalInfectionResistance = minInfectionResistance;
+        else if (originalInfectionResistance > maxInfectionResistance) originalInfectionResistance = maxInfectionResistance;
 
-        if (currentInfectionResistance < 0) currentInfectionResistance = 0;
-        else if (currentInfectionResistance > 100) currentInfectionResistance = 100;
+        if (currentInfectionResistance < minInfectionResistance) currentInfectionResistance = minInfectionResistance;
+        else if (currentInfectionResistance > maxInfectionResistance) currentInfectionResistance = maxInfectionResistance;
 
         parentCell.CheckIsBeingShownInfo();
     }
@@ -322,9 +342,9 @@ public class CellStats
 
     public void SetOriginalInfectionResistance(int infectionResistance)
     {
-        if (infectionResistance < 0 || infectionResistance > 100)
+        if (infectionResistance < minInfectionResistance || infectionResistance > maxInfectionResistance)
         {
-            Debug.LogError("Infection resistance must be between 0 and 100.");
+            Debug.LogError($"Infection resistance must be between {minInfectionResistance} and {maxInfectionResistance}.");
             return;
         }
 
@@ -333,13 +353,13 @@ public class CellStats
 
     /// <summary>
     /// Increase or decrease the current infection resistance of the cell by the value
-    /// 
+    /// </summary>
     public void UpdateCurrentlInfectionResistance(int value)
     {
         currentInfectionResistance += value;
 
-        if (currentInfectionResistance < 0) currentInfectionResistance = 0;
-        else if (currentInfectionResistance > 100) currentInfectionResistance = 100;
+        if (currentInfectionResistance < minInfectionResistance) currentInfectionResistance = minInfectionResistance;
+        else if (currentInfectionResistance > maxInfectionResistance) currentInfectionResistance = maxInfectionResistance;
 
         parentCell.CheckIsBeingShownInfo();
     }
@@ -351,9 +371,9 @@ public class CellStats
 
     public void SetCurrentInfectionResistance(int infectionResistance)
     {
-        if (infectionResistance < 0 || infectionResistance > 100)
+        if (infectionResistance < minInfectionResistance || infectionResistance > maxInfectionResistance)
         {
-            Debug.LogError("Infection resistance must be between 0 and 100.");
+            Debug.LogError($"Infection resistance must be between {minInfectionResistance} and {maxInfectionResistance}.");
             return;
         }
 
@@ -370,6 +390,9 @@ public class CellStats
         //currentDetectionPercent = human.infectionRateDetected * human.infectionRateDetectedWeight
         //    + human.deadRateDetected * human.deadRateDetectedWeight
         //    + stage.cellStageStats.detectionPercent;
+
+        if(currentDetectionPercent < minDetectionPercent) currentDetectionPercent = minDetectionPercent;
+        else if (currentDetectionPercent > maxDetectionPercent) currentDetectionPercent = maxDetectionPercent;
 
         if (Random.value < currentDetectionPercent)
         {
@@ -390,5 +413,33 @@ public class CellStats
             structure.currentPriorityToHuman;
 
         priorityToHuman = Mathf.Clamp01(priorityToHuman);
+    }
+
+    public void AddStructureEffect(StructureType structureType)
+    {
+        affectedByStructures.Add(structureType);
+        parentCell.CheckIsBeingShownInfo();
+    }
+
+    public void RemoveStructureEffect(StructureType structureType)
+    {
+        if (affectedByStructures.Contains(structureType))
+            affectedByStructures.Remove(structureType);
+
+        parentCell.CheckIsBeingShownInfo();
+    }
+
+    public void UpdateIncreaseCarrierSpreadChance(float value)
+    {
+        additionalCarrierSpreadChancePercent += value;
+        if (additionalCarrierSpreadChancePercent < minAdditionalCarrierSpreadChance) additionalCarrierSpreadChancePercent = minAdditionalCarrierSpreadChance;
+        else if (additionalCarrierSpreadChancePercent > maxAdditionalCarrierSpreadChance) additionalCarrierSpreadChancePercent = maxAdditionalCarrierSpreadChance;
+    }
+
+    public void SetIncreaseCarrierSpreadChance(float value)
+    {
+        additionalCarrierSpreadChancePercent = value;
+        if (additionalCarrierSpreadChancePercent < minAdditionalCarrierSpreadChance) additionalCarrierSpreadChancePercent = minAdditionalCarrierSpreadChance;
+        else if (additionalCarrierSpreadChancePercent > maxAdditionalCarrierSpreadChance) additionalCarrierSpreadChancePercent = maxAdditionalCarrierSpreadChance;
     }
 }

@@ -99,7 +99,7 @@ public class SurfaceSpreadMethod : BaseSpreadMethod<SurfaceSpreadDataSO>
 
                 GridCell cell = grid.GetCell(next.x, next.y);
 
-                if (cell.Stats.originalHasWater) continue;
+                if (cell.Stats.HasWater()) continue;
                 if (!cell.CanBeInfected()) continue;
 
                 if (cell.Stats.isBlocked)

@@ -3112,11 +3112,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 44fd0d8adcd2c7145b422dd35ebf4531, type: 2}
   - {fileID: 11400000, guid: 8f78a082597897c4796ac3a002362cc4, type: 2}
   structureDatas:
-  - {fileID: 11400000, guid: 6b33e45e016cfd7419148072e18bd772, type: 2}
-  - {fileID: 11400000, guid: d542e9017568b48438ed1a637ba44606, type: 2}
-  - {fileID: 11400000, guid: 2641b925df120ce478f824f6bb5ab498, type: 2}
-  - {fileID: 11400000, guid: eec68cacd247c70409523c991df4eb89, type: 2}
-  - {fileID: 11400000, guid: 58cf718d5a20326448bfc66175ee049c, type: 2}
+  - {fileID: 11400000, guid: a48eaf1730d169e479b0f49d066a0c22, type: 2}
+  - {fileID: 11400000, guid: 01fe39997a5f6c044991946fc7ac4e2f, type: 2}
+  - {fileID: 11400000, guid: 78c588d5eca079745b25df9ff08de9fe, type: 2}
+  - {fileID: 11400000, guid: 4e65157349ede304f9b4be447ceb77a6, type: 2}
   cellStageDatas:
   - {fileID: 11400000, guid: 6ec1586c10bb8d54da912936320deee2, type: 2}
   - {fileID: 11400000, guid: 7ac7a0f13ac818948a7baae57e28d0a3, type: 2}
@@ -5311,8 +5310,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 900124005}
   m_HandleRect: {fileID: 900124004}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.57014185
+  m_Value: 1
+  m_Size: 0.57009983
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

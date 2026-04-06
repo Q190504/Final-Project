@@ -6,7 +6,7 @@ public struct CarrierExtraConfig
     public float travelTime;
     public float baseCarrierSpawnChance;
     public float structurePriority;
-    public int speardCellCount;
+    public int spreadCellCount;
 }
 
 [CreateAssetMenu(fileName = "Carrier Spread Data", menuName = "Scriptable Objects/Spread Method/Carrier")]

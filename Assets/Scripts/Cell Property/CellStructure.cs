@@ -33,6 +33,8 @@ public class CellStructure
         parentCell = cell;
         type = structureType;
 
+        if (type == StructureType.None) return;
+
         StructureDataSO structureData = CellPropertyManager.Instance.GetStructureData(type);
         if (structureData != null)
         {
@@ -50,6 +52,8 @@ public class CellStructure
 
     public void SetAffectedByStructuresListOfCellsInRange(Vector2Int pos, int range)
     {
+        if (type == StructureType.None) return;
+
         Grid<GridCell> grid = MapManager.Instance.GetGrid();
 
         for (int i = pos.x - range; i < pos.x + range; i++)
@@ -58,8 +62,9 @@ public class CellStructure
             {
                 if (grid.IsInBounds(i, j))
                 {
-                    grid.GetCell(i, j).Stats.affectedByStructures.Add(type);
-                    logic.ApplyEffectToCell(grid.GetCell(i, j));
+                    GridCell cell = grid.GetCell(i, j);
+                    cell.Stats.AddStructureEffect(type);
+                    logic.ApplyEffectToCell(cell);
                 }
             }
         }
@@ -67,6 +72,8 @@ public class CellStructure
 
     public void RemoveAffectedByStructuresListOfCellsInRange(Vector2Int pos, int range)
     {
+        if (type == StructureType.None) return;
+
         Grid<GridCell> grid = MapManager.Instance.GetGrid();
         for (int i = pos.x - range; i < pos.x + range; i++)
         {
@@ -74,11 +81,9 @@ public class CellStructure
             {
                 if (grid.IsInBounds(i, j))
                 {
-                    List<StructureType> neighbourCellAffectedByStructuresList = grid.GetCell(i, j).Stats.affectedByStructures;
-                    if (neighbourCellAffectedByStructuresList.Contains(type))
-                        neighbourCellAffectedByStructuresList.Remove(type);
-
-                    logic.DisapplyEffectToCell(grid.GetCell(i, j));
+                    GridCell cell = grid.GetCell(i, j);
+                    cell.Stats.RemoveStructureEffect(type);
+                    logic.DisapplyEffectToCell(cell);
                 }
             }
         }
@@ -86,8 +91,7 @@ public class CellStructure
 
     public void DisableStructure()
     {
-        if (type == StructureType.None)
-            return;
+        if (type == StructureType.None) return;
 
         isActive = false;
 
@@ -112,8 +116,7 @@ public class CellStructure
 
     public void EnableStructure()
     {
-        if (type == StructureType.None)
-            return;
+        if (type == StructureType.None) return;
 
         isActive = true;
 

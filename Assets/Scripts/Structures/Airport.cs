@@ -11,15 +11,15 @@ public class Airport : Structure
 
     public override void ApplyEffectToCell(GridCell cell)
     {
-
-    }
-
-    public override void ApplyGlobalEffect()
-    {
-
+        cell.Stats.UpdateIncreaseCarrierSpreadChance(extraConfig.increaseCarrierSpawningPercent);
     }
 
     public override void DisapplyEffectToCell(GridCell cell)
+    {
+        cell.Stats.UpdateIncreaseCarrierSpreadChance(-extraConfig.increaseCarrierSpawningPercent);
+    }
+
+    public override void ApplyGlobalEffect()
     {
 
     }

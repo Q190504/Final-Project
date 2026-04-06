@@ -158,7 +158,7 @@ public class CellInfoUIContentManager : MonoBehaviour
             SetupEntry(infectionResistanceEntry, $"Infection Resistance: {cellStats.currentInfectionResistance}.");
 
             // ===== FLAGS =====
-            SetActiveSafe(waterEntry, cellStats.currentHasWater);
+            SetActiveSafe(waterEntry, cellStats.HasWater());
             SetActiveSafe(carrierEntry, cellStats.hasCarrier);
             SetActiveSafe(isContagiousEntry, cellStats.isContagious);
             SetActiveSafe(isBlockedEntry, cellStats.isBlocked);

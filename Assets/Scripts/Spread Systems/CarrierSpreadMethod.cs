@@ -23,15 +23,17 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO>
     public override SpreadResult Execute()
     {
         var sources = grid.GetInfectedSnapshot();
-        
+
         HashSet<Vector2Int> globallySelected = new();
-        MinHeapWithSize candidateHeap = new(extra.speardCellCount);
+        MinHeapWithSize candidateHeap = new(extra.spreadCellCount);
 
         foreach (GridCell source in sources)
         {
             if (source == null) continue;
 
-            float chance = extra.baseCarrierSpawnChance * source.Stats.population.weight;
+            if (!source.Stats.canHasCarrier) continue;
+
+            float chance = (extra.baseCarrierSpawnChance * source.Stats.population.weight) + source.Stats.additionalCarrierSpreadChancePercent;
             if (Random.value > chance) continue;
 
             source.Stats.SetCarrier(true);

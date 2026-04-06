@@ -18,7 +18,7 @@ public abstract class StructureDataSO : ScriptableObject
     public PriorityToMethods basePriorityToMethods;
 
     public int infectionPointWhenDestroyed;
-    public int dnaointWhenDestroyed;
+    public int dnaPointWhenDestroyed;
     public int mutationPointWhenDestroyed;
 
     public abstract Structure CreateLogic();

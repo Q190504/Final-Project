@@ -6,7 +6,7 @@ public struct HospitalExtraConfig
     public int inreasedInfectionResistance;
 }
 
-[CreateAssetMenu(fileName = "Hospital Data", menuName = "Scriptable Objects/Cell Property/Structure Data")]
+[CreateAssetMenu(fileName = "Hospital Data", menuName = "Scriptable Objects/Cell Property/Structure Data/Hospital Data")]
 public class HospitalDataSO : StructureDataSO
 {
     public HospitalExtraConfig extraConfig;
