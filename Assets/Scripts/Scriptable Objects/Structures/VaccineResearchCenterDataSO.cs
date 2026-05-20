@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public struct VaccineResearchCenterExtraConfig
 {
+    [Range(0f, 100f)]
     public float vaccineProgressIncrementPercentPerTick;
 }
 

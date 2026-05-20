@@ -38,8 +38,9 @@ public class CellInfoUIContentManager : MonoBehaviour
     [Header("Input")]
     [SerializeField] private InputAction getCellInfoAction;
 
-    private CellPropertyManager cellPropertyManager;
+    private PropertyDataManager cellPropertyManager;
     private MapManager mapManager;
+    private UIManager uiManager;
 
     private GridCell currentCell;
 
@@ -138,13 +139,15 @@ public class CellInfoUIContentManager : MonoBehaviour
                 return;
             }
 
-            if (currentCell != previousCell)
+            currentCell = cell;
+            if (previousCell != null && currentCell != previousCell)
             {
                 previousCell.IsBeingShownInfo = false;
-
-                currentCell = cell;
-                currentCell.IsBeingShownInfo = true;
+                uiManager.SetCellFocusVFXVisibility(previousCell, false);
             }
+
+            currentCell.IsBeingShownInfo = true;
+            uiManager.SetCellFocusVFXVisibility(currentCell, true);
 
             CellStats cellStats = cell.Stats;
 
@@ -155,7 +158,7 @@ public class CellInfoUIContentManager : MonoBehaviour
             CellStageData stageData = cellPropertyManager.GetCellStageData(cellStats.stage.type);
             SetupEntry(stageEntry, Safe(stageData != null ? $"Stage: {stageData.displayName}." : null), stageData != null ? stageData.sprite : null);
 
-            SetupEntry(infectionResistanceEntry, $"Infection Resistance: {cellStats.currentInfectionResistance}.");
+            SetupEntry(infectionResistanceEntry, $"Infection Resistance: {cellStats.finalInfectionResistance}.");
 
             // ===== FLAGS =====
             SetActiveSafe(waterEntry, cellStats.HasWater());
@@ -171,10 +174,14 @@ public class CellInfoUIContentManager : MonoBehaviour
                 if (cellStats.isDetected)
                     detectionValueEntry.Setup("Is detected!", detectedSprite);
                 else
+                {
+                    float detectionValue = Mathf.RoundToInt(cellStats.finalDetection * 100);
                     detectionValueEntry.Setup(
-                        $"Detection percent: {cellStats.currentDetectionPercent * 100}%.",
-                        undetectedSprite
-                    );
+                       $"Detection percent: {detectionValue}%.",
+                       undetectedSprite
+                   );
+
+                }
             }
 
             // ===== ENVIRONMENT =====
@@ -196,7 +203,7 @@ public class CellInfoUIContentManager : MonoBehaviour
             // ===== STRUCTURE =====
             StructureDataSO structureData = cellPropertyManager.GetStructureData(cellStats.structure.type);
             SetupEntry(structureEntry,
-                Safe(structureData != null ? structureData.displayName : null),
+                Safe(structureData != null ? structureData.displayName + $" - {(cellStats.structure.isActive ? "Active" : "Inactive")}" : null),
                 structureData != null ? structureData.sprite : null);
 
             // ===== NEAR STRUCTURES =====
@@ -262,8 +269,9 @@ public class CellInfoUIContentManager : MonoBehaviour
 
     public void Init()
     {
-        cellPropertyManager = CellPropertyManager.Instance;
+        cellPropertyManager = PropertyDataManager.Instance;
         mapManager = MapManager.Instance;
+        uiManager = UIManager.Instance;
 
         if (mapManager == null)
         {

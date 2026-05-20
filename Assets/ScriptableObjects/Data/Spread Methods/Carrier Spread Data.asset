@@ -16,13 +16,12 @@ MonoBehaviour:
     methodType: 4
     baseInfectionPower: 1
     methodOrder: 3
-    eventPriority: 1
-    tickToSpread: 5
+    eventPriority: 3
+    tickToSpread: 7
     spreadChanceWhenBlocked: 0
-    spreadSpeed: 1
     spreadDirection: 2
-    minDistance: 1
-    maxDistance: 1
+    minDistance: 4
+    maxDistance: 6
     environmentModifiers:
       entries:
       - environment: 1
@@ -67,4 +66,4 @@ MonoBehaviour:
     travelTime: 1
     baseCarrierSpawnChance: 0.05
     structurePriority: 0
-    speardCellCount: 1
+    spreadCellCount: 1

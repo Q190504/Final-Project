@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: ColdRuralData
   m_EditorClassIdentifier: 
   type: 9
-  displayName: ColdRural
+  displayName: Cold Rural
   sprite: {fileID: 21300000, guid: 9b126e6b5e3411f4b8e7231a4b2edc7e, type: 3}
   populationType: 1
   tempuratureType: 3
-  maxSpawnRate: 0
+  maxSpawnRate: 0.11666667
   isBlocked: 0
   canBeLockeddown: 1
   canHaveStructure: 1

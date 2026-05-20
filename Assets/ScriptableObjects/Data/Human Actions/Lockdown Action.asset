@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b61e8463193d44ca99a4f6a5b739a5, type: 3}
+  m_Name: Lockdown Action
+  m_EditorClassIdentifier: 
+  ActionType: 1
+  actionName: Lockdown
+  actionIcon: {fileID: 0}
+  executionType: 2
+  priority: 1
+  minTargetPerExecution: 10
+  maxTargetPerExecution: 30
+  minUtility: 0
+  maxUtility: 52057.023
+  cooldownTicks: 3
+  extraConfig:
+    UndetectedCellWeight: 0.5
+    SpreadPotentialWeight: 0.5
+    SafeNeighborsPopulationWeight: 0.5
+    InfectionPressureRadius: 10
+    FrontlinePressureThreshold: 0.01
+    SealBonus: 5
+    AdjacentToExistingLockdownBonus: 3
+    RegionCompletionWeight: 20
+    InfectionPressureWeight: 15
+    RegionProtectionWeight: 10
+    TargetsScoreWeight: 5
+    InfectionResistanceIncreasedAfterLockdown: 5
+    lockdownDuration: 10

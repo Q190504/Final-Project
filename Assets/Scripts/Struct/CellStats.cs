@@ -14,19 +14,27 @@ public class CellStats
 
     public CellStage stage;
     public int infectionLevel = 0;
-    public int currentInfectionResistance = 0;
-    public int originalInfectionResistance = 0;
+
+    public int baseInfectionResistance = 0;
+    public float infectionResistanceMultiplier = 1f;
+    public int finalInfectionResistance = 0;
+    private List<InfectionResistanceModifier> infectionResistanceModifiers = new();
+
     public float targetInfectionIncreasePercent = 0;
 
     public bool isDetected = false;
-    public float currentDetectionPercent = 0;
-    public float originalDetectionPercent = 0;
+    public float baseDetection = 0;
+    public float detectionMultiplier = 1f;
+    public float finalDetection = 0;
+    private List<CellDetectionModifier> detectionAdditiveModifiers = new();
 
-    public bool isContagious = false; // whether the cell can spread infection to other cells 
+    public bool isContagious = false; // whether the cell can spread infection to other cells
     public bool isBlocked = false; // whether the cell can't be infected by other cells
     public bool isLockdown = false; // whether the cell can't spread infection to other cells and can't be infected by other cells
+    public float lockdownRemainingTicks = 0;
+    private InfectionResistanceModifier lockdownInfectionResistanceModifier = null;
 
-    public bool canHasStructure = true;
+    public bool canBuildStructure = true;
     public bool canHasCarrier = true;
     public bool hasCarrier = false;
     public float additionalCarrierSpreadChancePercent = 0;
@@ -45,21 +53,7 @@ public class CellStats
     public PriorityToMethods priorityToMethods;
 
     private MapManager mapManager;
-
-    const int minInfectionLevel = 0;
-    const int maxInfectionLevel = 100;
-
-    const int minInfectionResistance = 0;
-    const int maxInfectionResistance = 100;
-
-    const int minTargetInfectionIncreasePercent = 0;
-    const int maxTargetInfectionIncreasePercent = 100;
-
-    const int minDetectionPercent = 0;
-    const int maxDetectionPercent = 100;
-
-    const int minAdditionalCarrierSpreadChance = 0;
-    const int maxAdditionalCarrierSpreadChance = 100;
+    private CellDetectionModifier lockdownDetectionModifier = null;
 
     public CellStats()
     {
@@ -88,14 +82,14 @@ public class CellStats
         {
             //this.originalHasWater = true;
             //this.currentHasWater = true;
-            this.canHasStructure = false;
+            this.canBuildStructure = false;
             this.canHasCarrier = false;
         }
         else if (environment == EnvironmentType.Mountain)
         {
             this.isBlocked = true;
             this.isContagious = false;
-            this.canHasStructure = false;
+            this.canBuildStructure = false;
             this.canHasCarrier = false;
         }
 
@@ -117,31 +111,9 @@ public class CellStats
     {
         this.structure.SetStructure(structure, cell);
         UpdateHumanPriority();
-
         parentCell.CheckIsBeingShownInfo();
+        mapManager.AddCellNeedToUpdateVisual(new Vector2Int(cell.X, cell.Y));
     }
-
-    //public void SetEnvironment(EnvironmentType environmentType)
-    //{
-    //    this.environment.SetEnvironmentType(environmentType);
-    //    if (environmentType == EnvironmentType.Water)
-    //    {
-    //        this.originalHasWater = true;
-    //        this.currentHasWater = true;
-    //        this.canHasStructure = false;
-    //        this.canHasCarrier = false;
-    //    }
-    //    else if (environmentType == EnvironmentType.Mountain)
-    //    {
-    //        this.isBlocked = true;
-    //        this.isContagious = false;
-    //        this.canHasStructure = false;
-    //        this.canHasCarrier = false;
-    //    }
-    //    UpdateHumanPriority();
-
-    //    parentCell.CheckIsBeingShownInfo();
-    //}
 
     public void SetTempurature(TemperatureType temperatureType)
     {
@@ -157,21 +129,6 @@ public class CellStats
             || affectedByStructures.Contains(StructureType.WaterFactory);
     }
 
-    //public void SetCurrentWater(bool state)
-    //{
-    //    currentHasWater = state;
-
-    //    parentCell.CheckIsBeingShownInfo();
-    //}
-
-    //public void SetOriginalWater(bool state)
-    //{
-    //    originalHasWater = state;
-    //    currentHasWater = state;
-
-    //    parentCell.CheckIsBeingShownInfo();
-    //}
-
     public void SetCarrier(bool state)
     {
         hasCarrier = state;
@@ -179,22 +136,58 @@ public class CellStats
         parentCell.CheckIsBeingShownInfo();
     }
 
-    public void SetIsLockDown(bool value)
+    #region Lockdown
+
+    public void SetIsLockDown(bool value, int infectionResistanceIncreased = 0, float lockdownDuration = 0f, AIContext ctx = null)
     {
-        this.isLockdown = value;
-        if (this.isLockdown)
+        isLockdown = value;
+        if (isLockdown)
         {
+            SetInfectionLevel(0);
             isContagious = false;
             isBlocked = true;
+            lockdownRemainingTicks = lockdownDuration;
+
+            lockdownInfectionResistanceModifier = new(infectionResistanceIncreased, InfectionResistanceAdditiveSourceType.Lockdown);
+            AddInfectionResistanceModifier(lockdownInfectionResistanceModifier);
+            lockdownDetectionModifier = AddDetectionModifier(1f, DetectionAdditiveSourceType.Lockdown, ctx);
+
+            mapManager.AddLockdownedCell(new Vector2Int(parentCell.X, parentCell.Y));
         }
         else
         {
-            isContagious = true;
+            CellStageStats cellStageStats = PropertyDataManager.Instance.GetCellStageData(stage.type).cellStageStats;
+
+            isContagious = cellStageStats.isContagious;
             isBlocked = false;
+            lockdownRemainingTicks = 0f;
+
+            if (lockdownDetectionModifier != null)
+            {
+                RemoveDetectionModifier(lockdownDetectionModifier, ctx);
+                lockdownDetectionModifier = null;
+            }
+
+            mapManager.RemoveLockdownedCell(new Vector2Int(parentCell.X, parentCell.Y));
         }
 
+        mapManager.AddCellNeedToUpdateVisual(new Vector2Int(parentCell.X, parentCell.Y));
         parentCell.CheckIsBeingShownInfo();
     }
+
+    public void UpdateLockdownDuration(float deltaTime)
+    {
+        if (isLockdown)
+        {
+            lockdownRemainingTicks -= deltaTime;
+            if (lockdownRemainingTicks <= 0)
+            {
+                SetIsLockDown(false);
+            }
+        }
+    }
+
+    #endregion
 
     #region Infection Level
 
@@ -203,21 +196,13 @@ public class CellStats
     /// </summary>
     public void UpdateInfectionLevel(int value)
     {
+        if (stage.type == CellStageType.Dead)
+            return;
+
         infectionLevel += value;
-        if (infectionLevel < minInfectionLevel) infectionLevel = minInfectionLevel;
-        else if (infectionLevel > maxInfectionLevel) infectionLevel = maxInfectionLevel;
-
-        CellStageType cellStageType = stage.SetCellStageType(infectionLevel, this);
-
-        UpdateGameInfectionStats(cellStageType);
-
-        UpdateHumanPriority();
-        if (isDetected)
-        {
-            //human.UpdateInfectionStats();
-        }
-
-        parentCell.CheckIsBeingShownInfo();
+        if (infectionLevel < Utility.minInfectionLevel) infectionLevel = Utility.minInfectionLevel;
+        else if (infectionLevel > Utility.maxInfectionLevel) infectionLevel = Utility.maxInfectionLevel;
+        SetStage(stage.SetCellStageType(this.infectionLevel, this));
     }
 
     /// <summary>
@@ -226,52 +211,47 @@ public class CellStats
     /// <param name="infectionLevel">The infection level to assign. Must be a non-negative integer representing the severity of infection.</param>
     public void SetInfectionLevel(int infectionLevel)
     {
-        if (infectionLevel < minInfectionLevel || infectionLevel > maxInfectionLevel)
+        if (stage.type == CellStageType.Dead)
+            return;
+
+        if (infectionLevel < Utility.minInfectionLevel || infectionLevel > Utility.maxInfectionLevel)
         {
-            Debug.LogError($"Infection level must be between {minInfectionLevel} and {maxInfectionLevel}.");
+            Debug.LogError($"Infection level must be between {Utility.minInfectionLevel} and {Utility.maxInfectionLevel}.");
             return;
         }
 
         this.infectionLevel = infectionLevel;
-        CellStageType cellStageType = stage.SetCellStageType(this.infectionLevel, this);
 
-        UpdateGameInfectionStats(cellStageType);
-
-        UpdateHumanPriority();
-        if (isDetected)
-        {
-            //human.UpdateInfectionStats();
-        }
-
-        parentCell.CheckIsBeingShownInfo();
+        SetStage(stage.SetCellStageType(this.infectionLevel, this));
     }
 
     public void SetStage(CellStageType cellStageType)
     {
+        if (stage.type == CellStageType.Dead)
+            return;
+
         stage.SetCellStageType(cellStageType, this);
 
-        UpdateGameInfectionStats(cellStageType);
+        mapManager.UpdateInfectedRateAndDeadRate(new Vector2Int(parentCell.X, parentCell.Y),
+            cellStageType, population.weight);
 
         UpdateHumanPriority();
-        if (isDetected)
-        {
-            //human.UpdateInfectionStats();
-        }
 
         parentCell.CheckIsBeingShownInfo();
+        mapManager.AddCellNeedToUpdateVisual(new Vector2Int(parentCell.X, parentCell.Y));
     }
 
-    public void DetermineInfectionFlags(CellStageStats cellStageStats)
+    public void DetermineInfectionStats(CellStageStats cellStageStats)
     {
+        if (stage.type == CellStageType.Dead || stage.type == CellStageType.Immune)
+        {
+            infectionLevel = cellStageStats.minInfectionValue;
+        }
+
         targetInfectionIncreasePercent = cellStageStats.targetInfectionIncreasePercent;
-        float increaseDetectionPercent = cellStageStats.detectionPercent - originalDetectionPercent;
-
-        currentDetectionPercent += increaseDetectionPercent;
-        originalDetectionPercent += increaseDetectionPercent;
-
-        int increaseInfectionResistance = cellStageStats.infectionResistance - originalInfectionResistance;
-        currentInfectionResistance += increaseInfectionResistance;
-        originalInfectionResistance += increaseInfectionResistance;
+        canBuildStructure = cellStageStats.canBuildStructure;
+        canHasCarrier = cellStageStats.canHasCarrier;
+        canBeDisinfected = cellStageStats.canBeDisinfected;
 
         if (!isLockdown)
         {
@@ -294,115 +274,126 @@ public class CellStats
         stage.priorityToMethods = cellStageStats.basePriorityToMethods;
     }
 
-    private void UpdateGameInfectionStats(CellStageType cellStageType)
-    {
-        switch (cellStageType)
-        {
-            case CellStageType.Safe:
-            case CellStageType.Immune:
-                //if previous stage == Exposed || Infected || Critical
-                //mapManager.UpdateInfectedRate(-population.weight);
-                break;
-            case CellStageType.Exposed:
-                mapManager.UpdateInfectedRate(population.weight);
-                break;
-            case CellStageType.Dead:
-                mapManager.UpdateDeadRate(population.weight);
-                break;
-            default:
-                break;
-        }
-    }
-
     #endregion
 
     #region Infection Resistance
 
-    /// <summary>
-    /// Increase or decrease the original infection resistance of the cell by the value
-    /// </summary>
-    public void UpdateOriginalInfectionResistance(int value)
+    public InfectionResistanceModifier AddInfectionResistanceModifier(InfectionResistanceModifier modifier)
     {
-        originalInfectionResistance += value;
-        currentInfectionResistance += value;
+        infectionResistanceModifiers.Add(modifier);
 
-        if (originalInfectionResistance < minInfectionResistance) originalInfectionResistance = minInfectionResistance;
-        else if (originalInfectionResistance > maxInfectionResistance) originalInfectionResistance = maxInfectionResistance;
-
-        if (currentInfectionResistance < minInfectionResistance) currentInfectionResistance = minInfectionResistance;
-        else if (currentInfectionResistance > maxInfectionResistance) currentInfectionResistance = maxInfectionResistance;
-
-        parentCell.CheckIsBeingShownInfo();
+        RecalculateInfectionResistance();
+        return modifier; // return the modifier so that it can be removed later if needed
     }
 
-    /// <summary>
-    /// Sets the original infection resistance for the cell.
-    /// </summary>
-    /// <param name="infectionResistance">The infection resistance to assign. Must be a non-negative integer.</param>
-
-    public void SetOriginalInfectionResistance(int infectionResistance)
+    public void RemoveInfectionResistanceModifier(InfectionResistanceModifier modifier)
     {
-        if (infectionResistance < minInfectionResistance || infectionResistance > maxInfectionResistance)
+        if (infectionResistanceModifiers.Remove(modifier))
         {
-            Debug.LogError($"Infection resistance must be between {minInfectionResistance} and {maxInfectionResistance}.");
-            return;
+            RecalculateInfectionResistance();
+        }
+    }
+
+    public InfectionResistanceModifier UpdateInfectionResistanceModifierValue(InfectionResistanceModifier modifier, int newValue)
+    {
+        if (!infectionResistanceModifiers.Contains(modifier))
+        {
+            modifier.Value = newValue;
+            return AddInfectionResistanceModifier(modifier);
+        }
+        else
+            modifier.Value = newValue;
+
+        RecalculateInfectionResistance();
+
+        return modifier;
+    }
+
+    private void RecalculateInfectionResistance()
+    {
+        int total = 0;
+
+        foreach (var mod in infectionResistanceModifiers)
+        {
+            total += mod.Value;
         }
 
-        this.originalInfectionResistance = infectionResistance;
-    }
+        finalInfectionResistance = Mathf.Clamp(
+            Mathf.RoundToInt((baseInfectionResistance + total) * infectionResistanceMultiplier),
+            Utility.minInfectionResistance,
+            Utility.maxInfectionResistance
+        );
 
-    /// <summary>
-    /// Increase or decrease the current infection resistance of the cell by the value
-    /// </summary>
-    public void UpdateCurrentlInfectionResistance(int value)
-    {
-        currentInfectionResistance += value;
-
-        if (currentInfectionResistance < minInfectionResistance) currentInfectionResistance = minInfectionResistance;
-        else if (currentInfectionResistance > maxInfectionResistance) currentInfectionResistance = maxInfectionResistance;
-
-        parentCell.CheckIsBeingShownInfo();
-    }
-
-    /// <summary>
-    /// Sets the current infection resistance for the cell.
-    /// </summary>
-    /// <param name="infectionResistance">The infection resistance to assign. Must be a non-negative integer.</param>
-
-    public void SetCurrentInfectionResistance(int infectionResistance)
-    {
-        if (infectionResistance < minInfectionResistance || infectionResistance > maxInfectionResistance)
-        {
-            Debug.LogError($"Infection resistance must be between {minInfectionResistance} and {maxInfectionResistance}.");
-            return;
-        }
-
-        this.currentInfectionResistance = infectionResistance;
+        if (finalInfectionResistance == Utility.maxInfectionResistance)
+            SetStage(CellStageType.Immune);
 
         parentCell.CheckIsBeingShownInfo();
     }
 
     #endregion
 
-    public void UpdateDetectionRate()
+    #region Detection
+
+    public CellDetectionModifier AddDetectionModifier(float value, DetectionAdditiveSourceType sourceType, AIContext ctx)
     {
-        originalDetectionPercent = currentDetectionPercent;
-        //currentDetectionPercent = human.infectionRateDetected * human.infectionRateDetectedWeight
-        //    + human.deadRateDetected * human.deadRateDetectedWeight
-        //    + stage.cellStageStats.detectionPercent;
+        var modifier = new CellDetectionModifier(value, sourceType);
+        detectionAdditiveModifiers.Add(modifier);
 
-        if(currentDetectionPercent < minDetectionPercent) currentDetectionPercent = minDetectionPercent;
-        else if (currentDetectionPercent > maxDetectionPercent) currentDetectionPercent = maxDetectionPercent;
+        RecalculateDetection(ctx);
+        return modifier; // return the modifier so that it can be removed later if needed
+    }
 
-        if (Random.value < currentDetectionPercent)
+    public void RemoveDetectionModifier(CellDetectionModifier modifier, AIContext ctx)
+    {
+        if (detectionAdditiveModifiers.Remove(modifier))
+        {
+            RecalculateDetection(ctx);
+        }
+    }
+
+    public void UpdateDetectionModifierValue(CellDetectionModifier modifier, float newValue, AIContext ctx)
+    {
+        modifier.Value = newValue;
+        RecalculateDetection(ctx);
+    }
+
+    public void RecalculateDetection(AIContext ctx)
+    {
+        if (isDetected) return;
+
+        HumanAIManager human = HumanAIManager.Instance;
+
+        float total = 0;
+
+        foreach (var mod in detectionAdditiveModifiers)
+        {
+            total += mod.Value;
+        }
+
+        baseDetection = ctx.InfectionRateDetected * human.InfectionRateDetectedWeight
+            + ctx.DeadRateDetected * human.DeadRateDetectedWeight
+            + stage.detectionPercent;
+
+        finalDetection = Mathf.Clamp(
+            baseDetection + (total * detectionMultiplier),
+            Utility.minDetection,
+            Utility.maxDetection
+        );
+
+        float random = Random.value;
+        if (random < finalDetection)
         {
             isDetected = true;
-            //human.Detected(this);
-            // virus update detection list
+        }
+        else
+        {
+            isDetected = false;
         }
 
         parentCell.CheckIsBeingShownInfo();
     }
+
+    #endregion
 
     public void UpdateHumanPriority()
     {
@@ -414,6 +405,8 @@ public class CellStats
 
         priorityToHuman = Mathf.Clamp01(priorityToHuman);
     }
+
+    #region Structure Effect
 
     public void AddStructureEffect(StructureType structureType)
     {
@@ -429,17 +422,32 @@ public class CellStats
         parentCell.CheckIsBeingShownInfo();
     }
 
+    #endregion
+
+
+    #region Carrier Spread Chance
     public void UpdateIncreaseCarrierSpreadChance(float value)
     {
         additionalCarrierSpreadChancePercent += value;
-        if (additionalCarrierSpreadChancePercent < minAdditionalCarrierSpreadChance) additionalCarrierSpreadChancePercent = minAdditionalCarrierSpreadChance;
-        else if (additionalCarrierSpreadChancePercent > maxAdditionalCarrierSpreadChance) additionalCarrierSpreadChancePercent = maxAdditionalCarrierSpreadChance;
+        if (additionalCarrierSpreadChancePercent < Utility.minAdditionalCarrierSpreadChance)
+            additionalCarrierSpreadChancePercent = Utility.minAdditionalCarrierSpreadChance;
+        else if (additionalCarrierSpreadChancePercent > Utility.maxAdditionalCarrierSpreadChance)
+            additionalCarrierSpreadChancePercent = Utility.maxAdditionalCarrierSpreadChance;
     }
 
     public void SetIncreaseCarrierSpreadChance(float value)
     {
         additionalCarrierSpreadChancePercent = value;
-        if (additionalCarrierSpreadChancePercent < minAdditionalCarrierSpreadChance) additionalCarrierSpreadChancePercent = minAdditionalCarrierSpreadChance;
-        else if (additionalCarrierSpreadChancePercent > maxAdditionalCarrierSpreadChance) additionalCarrierSpreadChancePercent = maxAdditionalCarrierSpreadChance;
+        if (additionalCarrierSpreadChancePercent < Utility.minAdditionalCarrierSpreadChance)
+            additionalCarrierSpreadChancePercent = Utility.minAdditionalCarrierSpreadChance;
+        else if (additionalCarrierSpreadChancePercent > Utility.maxAdditionalCarrierSpreadChance)
+            additionalCarrierSpreadChancePercent = Utility.maxAdditionalCarrierSpreadChance;
+    }
+
+    #endregion
+
+    public bool IsSafe()
+    {
+        return stage.type == CellStageType.Safe || stage.type == CellStageType.Immune;
     }
 }

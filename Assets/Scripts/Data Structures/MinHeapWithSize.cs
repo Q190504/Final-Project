@@ -16,6 +16,9 @@ public class MinHeapWithSize
 
     public void Push((GridCell cell, float key) item)
     {
+        if (capacity <= 0)
+            return;
+
         if (heap.Count < capacity)
         {
             heap.Add(item);
@@ -26,6 +29,22 @@ public class MinHeapWithSize
             heap[0] = item;
             HeapifyDown(0);
         }
+    }
+
+    public (bool success, (GridCell cell, float key) item) Pop()
+    {
+        if (heap.Count == 0) return (false, default);
+        var item = heap[0];
+        heap[0] = heap[heap.Count - 1];
+        heap.RemoveAt(heap.Count - 1);
+        HeapifyDown(0);
+        return (true, item);
+    }
+
+    public (bool success, (GridCell cell, float key) item) Peek()
+    {
+        if (heap.Count == 0) return (false, default);
+        return (true, heap[0]);
     }
 
     private void HeapifyUp(int i)

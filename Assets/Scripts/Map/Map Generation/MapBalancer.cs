@@ -31,9 +31,9 @@ public class MapBalancer : IMapGeneratorStep
 
         float[,] popGrid = grid.GetPopulationGrid();
 
-        PopulationData highPopulationData = CellPropertyManager.Instance.GetPopulationData(PopulationType.High);
+        PopulationData highPopulationData = PropertyDataManager.Instance.GetPopulationData(PopulationType.High);
 
-        PopulationData mediumPopulationData = CellPropertyManager.Instance.GetPopulationData(PopulationType.Medium);
+        PopulationData mediumPopulationData = PropertyDataManager.Instance.GetPopulationData(PopulationType.Medium);
 
         float minUrbanValue = highPopulationData.minPopulationValue;
 

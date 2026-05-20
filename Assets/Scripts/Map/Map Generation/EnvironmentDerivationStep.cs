@@ -12,7 +12,7 @@ public class EnvironmentDerivationStep : IMapGeneratorStep
 
                 if (grid.GetWaterGrid()[x, y])
                 {
-                    EnvironmentData environmentData = CellPropertyManager.Instance
+                    EnvironmentData environmentData = PropertyDataManager.Instance
                  .GetEnvironmentData(EnvironmentType.Water);
 
                     cell.Stats.SetStats(environmentData.populationType, environmentData.tempuratureType, EnvironmentType.Water, cell);
@@ -22,7 +22,7 @@ public class EnvironmentDerivationStep : IMapGeneratorStep
 
                 if (grid.GetMountainGrid()[x, y])
                 {
-                    EnvironmentData environmentData = CellPropertyManager.Instance
+                    EnvironmentData environmentData = PropertyDataManager.Instance
                     .GetEnvironmentData(EnvironmentType.Mountain);
 
                     cell.Stats.SetStats(environmentData.populationType, environmentData.tempuratureType, EnvironmentType.Mountain, cell);

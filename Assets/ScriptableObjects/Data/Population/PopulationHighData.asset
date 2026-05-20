@@ -17,10 +17,10 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 61ac4093cb7c38149971b7c6379e3761, type: 3}
   minPopulationValue: 0.7
   maxPopulationValue: 1
-  weight: 2
+  weight: 3
   priorityToHuman: 0
   basePriorityToMethods:
-    surfacePriority: 1
-    airPriority: 1
-    waterPriority: 1
-    carrierPriority: 1
+    surfacePriority: 0
+    airPriority: 0
+    waterPriority: 0
+    carrierPriority: 0

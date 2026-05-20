@@ -4,6 +4,7 @@ using UnityEngine;
 public struct HospitalExtraConfig
 {
     public int inreasedInfectionResistance;
+    public int disinfectAmount;
 }
 
 [CreateAssetMenu(fileName = "Hospital Data", menuName = "Scriptable Objects/Cell Property/Structure Data/Hospital Data")]

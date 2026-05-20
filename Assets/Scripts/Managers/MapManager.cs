@@ -30,6 +30,7 @@ public class MapManager : MonoBehaviour
     //private Grid<GridCell> currentGrid;
     private Vector2Int currentSize;
 
+    private HashSet<Vector2Int> lockdownedCells = new();
     private HashSet<Vector2Int> cellsNeedToUpdateVisual = new();
     //bool isFirstTime = true;
 
@@ -40,6 +41,14 @@ public class MapManager : MonoBehaviour
     private float infectedRate;
     private bool deadRateChanged = false;
     private bool infectedRateChanged = false;
+
+    private HashSet<Vector2Int> safeCells = new();
+    private HashSet<Vector2Int> infectedCells = new();
+    private HashSet<Vector2Int> deadCells = new();
+
+    private float previousUpdateTick = 0f;
+
+    private UIManager uiManager;
 
     void Awake()
     {
@@ -52,12 +61,13 @@ public class MapManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        uiManager = UIManager.Instance;
         SetMapData();
 
         if (config != null && config.generateRandomSeed)
         {
-            System.Random random = new();
-            seed = random.Next(0, int.MaxValue / 2);
+            Random.InitState(System.Environment.TickCount);
+            seed = Random.Range(0, int.MaxValue / 2);
             config.seed = seed;
         }
 
@@ -67,15 +77,27 @@ public class MapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            BuildGrid();
-
         //if (Input.GetKeyDown(KeyCode.B))
         //    BuildGrid(new Vector2Int(50, 50), frgrid);
         //if (Input.GetKeyDown(KeyCode.N))
         //    BuildGrid(new Vector2Int(100, 100), scgrid);
         //if (Input.GetKeyDown(KeyCode.M))
         //    BuildGrid(new Vector2Int(200, 200), thgrid);
+    }
+
+    public void Tick()
+    {
+        float currentTick = TimeManager.Instance.CurrentTick;
+        float deltaTime = currentTick - previousUpdateTick;
+
+        UpdateLockdownedCellsStatus(deltaTime);
+
+        previousUpdateTick = currentTick;
+    }
+
+    public void StartMatch()
+    {
+        TimeManager.Instance.ScheduleEvent(0f, () => Tick(), EventPriority.MapUpdate);
     }
 
     void SetMapData()
@@ -135,7 +157,7 @@ public class MapManager : MonoBehaviour
     {
         grid = new Grid<GridCell>(width, height, cellSize, originPosition,
       (grid, x, y) => new GridCell(grid, x, y));
-
+        currentSize = new Vector2Int(width, height);
         mapGenerator.Generate(grid);
 
         spawnGridVisualSO.RaiseEvent();
@@ -151,8 +173,31 @@ public class MapManager : MonoBehaviour
         return grid;
     }
 
+    public void UpdateMap(AIContext ctx)
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                CellStats cellStats = grid.GetCell(x, y).Stats;
+                CellStructure cellStructure = cellStats.structure;
+                if (cellStructure.type != StructureType.None && cellStructure.isActive)
+                {
+                    cellStructure.logic.ApplyTickEffect();
+                }
 
-    public void UpdateDetectionRateOfMap()
+                if (!cellStats.isDetected)
+                {
+                    cellStats.RecalculateDetection(ctx);
+                    AddCellNeedToUpdateVisual(new Vector2Int(x, y));
+                }
+            }
+        }
+
+        updateGridVisualSO.RaiseEvent();
+    }
+
+    public void UpdateMapInfectionResistanceByVaccine(InfectionResistanceModifier infectionResistanceModifier, int newValue)
     {
         for (int x = 0; x < width; x++)
         {
@@ -161,7 +206,7 @@ public class MapManager : MonoBehaviour
                 GridCell cell = grid.GetCell(x, y);
                 if (cell.Stats.infectionLevel > 0)
                 {
-                    cell.Stats.UpdateDetectionRate();
+                    cell.Stats.UpdateInfectionResistanceModifierValue(infectionResistanceModifier, newValue);
                     AddCellNeedToUpdateVisual(new Vector2Int(x, y));
                 }
             }
@@ -191,26 +236,83 @@ public class MapManager : MonoBehaviour
     //    return currentGrid;
     //}
 
-    public void UpdateDeadRate(float value)
+    public void UpdateInfectedRateAndDeadRate(Vector2Int cellPos, CellStageType cellStageType, float value)
     {
+        switch (cellStageType)
+        {
+            case CellStageType.Safe:
+            case CellStageType.Immune:
+                if (infectedCells.Contains(cellPos))
+                {
+                    totalInfected -= value;
+                    infectedCells.Remove(cellPos);
+                }
+
+                if (!safeCells.Contains(cellPos))
+                    safeCells.Add(cellPos);
+                break;
+            case CellStageType.Exposed:
+                if (safeCells.Contains(cellPos))
+                    safeCells.Remove(cellPos);
+
+                if (!infectedCells.Contains(cellPos))
+                {
+                    totalInfected += value;
+                    infectedCells.Add(cellPos);
+                }
+
+                break;
+            case CellStageType.Dead:
+                if (safeCells.Contains(cellPos))
+                    safeCells.Remove(cellPos);
+
+                if (!deadCells.Contains(cellPos))
+                {
+                    totalDead += value;
+                    deadCells.Add(cellPos);
+                }
+
+                break;
+            default:
+                break;
+        }
+
+        float previousInfectedRate = infectedRate;
         float previousDeadRate = deadRate;
 
-        totalDead += value;
-        deadRate = totalDead / totalPopulation;
-
-        if (deadRate > previousDeadRate)
-            deadRateChanged = true;
-    }
-
-    public void UpdateInfectedRate(float value)
-    {
-        float previousInfectedRate = infectedRate;
-
-        totalInfected += value;
         infectedRate = totalInfected / totalPopulation;
+        deadRate = totalDead / totalPopulation;
 
         if (infectedRate > previousInfectedRate)
             infectedRateChanged = true;
+
+        if (deadRate > previousDeadRate)
+            deadRateChanged = true;
+
+        if (infectedRateChanged || deadRateChanged)
+        {
+            uiManager.UpdateActualInfectedRateAndDeadRate(totalInfected, infectedRate, totalDead, deadRate);
+            uiManager.UpdateDeadSlider(deadRate, GameManager.Instance.endGameDeadRate);
+        }
+    }
+
+    public void AddLockdownedCell(Vector2Int cell)
+    {
+        lockdownedCells.Add(cell);
+    }
+
+    public void RemoveLockdownedCell(Vector2Int cell)
+    {
+        lockdownedCells.Remove(cell);
+    }
+
+    public void UpdateLockdownedCellsStatus(float deltaTime)
+    {
+        foreach (Vector2Int cellPos in lockdownedCells)
+        {
+            GridCell cell = grid.GetCell(cellPos.x, cellPos.y);
+            cell.Stats.UpdateLockdownDuration(deltaTime);
+        }
     }
 
     public void UpdateTotalPopulation(float value)
@@ -226,4 +328,9 @@ public class MapManager : MonoBehaviour
 
     public float GetDeadRate()
     { return deadRate; }
+
+    public MapConfig GetMapConfig()
+    {
+        return config;
+    }
 }

@@ -22,7 +22,7 @@ public class CellTempurature
     {
         type = tempuratureType;
 
-        TempuratureData tempuratureData = CellPropertyManager.Instance.GetTempuratureData(tempuratureType);
+        TempuratureData tempuratureData = PropertyDataManager.Instance.GetTempuratureData(tempuratureType);
         if (tempuratureData != null)
         {
             priorityToHuman = tempuratureData.priorityToHuman;
@@ -35,7 +35,7 @@ public class CellTempurature
     {
         if (environmentData != null)
         {
-            foreach (TempuratureData tempuratureData in CellPropertyManager.Instance.GetTempuratureDatas())
+            foreach (TempuratureData tempuratureData in PropertyDataManager.Instance.GetTempuratureDatas())
             {
                 if (tempuratureData != null && tempuratureData.type == environmentData.tempuratureType)
                 {
@@ -49,7 +49,7 @@ public class CellTempurature
 
     public void SetTempurature(float value)
     {
-        foreach (TempuratureData tempuratureData in CellPropertyManager.Instance.GetTempuratureDatas())
+        foreach (TempuratureData tempuratureData in PropertyDataManager.Instance.GetTempuratureDatas())
         {
             if (tempuratureData != null && tempuratureData.minTempuratureValue <= value
                 && value <= tempuratureData.maxTempuratureValue)

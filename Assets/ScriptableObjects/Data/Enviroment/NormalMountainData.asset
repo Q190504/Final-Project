@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: NormalMountainData
   m_EditorClassIdentifier: 
   type: 11
-  displayName: Mountain
+  displayName: Normal Mountain
   sprite: {fileID: 21300000, guid: 0e0e8996e2ef0544c87a15084f91eb1e, type: 3}
   populationType: 0
   tempuratureType: 1
-  maxSpawnRate: 0
+  maxSpawnRate: 0.041666668
   isBlocked: 1
   canBeLockeddown: 0
   canHaveStructure: 0

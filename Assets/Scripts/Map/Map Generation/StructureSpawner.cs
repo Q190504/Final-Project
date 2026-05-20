@@ -45,7 +45,7 @@ public class StructureSpawner : IMapGeneratorStep
     {
         float rangeBase = gridBaseSize;
 
-        foreach (StructureDataSO structureData in CellPropertyManager.Instance.GetStructureDatas())
+        foreach (StructureDataSO structureData in PropertyDataManager.Instance.GetStructureDatas())
         {
             if (random.NextDouble() > structureData.spawnRate)
                 continue;

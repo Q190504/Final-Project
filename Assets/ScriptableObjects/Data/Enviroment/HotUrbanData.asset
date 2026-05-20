@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: HotUrbanData
   m_EditorClassIdentifier: 
   type: 2
+  displayName: Hot Urban
   sprite: {fileID: 2099447594, guid: 2e7cf35bb45491d4c94e815f8940440a, type: 3}
   populationType: 3
   tempuratureType: 2
-  spawnRate: 0
-  canBeInfected: 1
+  maxSpawnRate: 0.05
+  isBlocked: 0
   canBeLockeddown: 1
   canHaveStructure: 1
   canSpawnCarrier: 1

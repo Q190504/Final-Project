@@ -9,23 +9,38 @@ public class Airport : Structure
         extraConfig = data.extraConfig;
     }
 
-    public override void ApplyEffectToCell(GridCell cell)
+    public override void ApplyEffectToCellWhenEnabled(GridCell cell)
+    {
+
+    }
+
+    public override void DisapplyEffectToCellWhenDisabled(GridCell cell)
+    {
+
+    }
+
+    public override void ApplyGlobalEffectWhenEnabled()
+    {
+
+    }
+
+    public override void DisapplyGlobalEffectWhenDisabled()
+    {
+
+    }
+
+    public override void ApplyTickEffect()
+    {
+
+    }
+
+    public override void ApplyEffectToCellWhenDisabled(GridCell cell)
     {
         cell.Stats.UpdateIncreaseCarrierSpreadChance(extraConfig.increaseCarrierSpawningPercent);
     }
 
-    public override void DisapplyEffectToCell(GridCell cell)
+    public override void DisapplyEffectToCellWhenEnabled(GridCell cell)
     {
         cell.Stats.UpdateIncreaseCarrierSpreadChance(-extraConfig.increaseCarrierSpawningPercent);
-    }
-
-    public override void ApplyGlobalEffect()
-    {
-
-    }
-
-    public override void DisapplyGlobalEffect()
-    {
-
     }
 }

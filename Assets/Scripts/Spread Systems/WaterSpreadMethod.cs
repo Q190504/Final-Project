@@ -8,7 +8,7 @@ public class WaterSpreadMethod : BaseSpreadMethod<WaterSpreadDataSO>
     private bool increaseRangeIfAffectedByWaterFactory = false;
 
     private int maxDistanceWhenAffectedByWaterFactory = 0;
-    
+
     private Queue<(Vector2Int pos, int dist)> queue = new();
     private HashSet<Vector2Int> visited = new();
 
@@ -70,7 +70,7 @@ public class WaterSpreadMethod : BaseSpreadMethod<WaterSpreadDataSO>
 
                 int increaseInfectionLevel =
                     Mathf.RoundToInt(power * originBonus)
-                    - currentCell.Stats.currentInfectionResistance;
+                    - currentCell.Stats.finalInfectionResistance;
 
                 if (increaseInfectionLevel > 0)
                 {

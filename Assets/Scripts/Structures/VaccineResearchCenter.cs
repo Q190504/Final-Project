@@ -9,22 +9,37 @@ public class VaccineResearchCenter : Structure
         extraConfig = data.extraConfig;
     }
 
-    public override void ApplyEffectToCell(GridCell cell)
+    public override void ApplyEffectToCellWhenEnabled(GridCell cell)
     {
 
     }
 
-    public override void DisapplyEffectToCell(GridCell cell)
+    public override void DisapplyEffectToCellWhenDisabled(GridCell cell)
     {
 
     }
 
-    public override void ApplyGlobalEffect()
+    public override void ApplyGlobalEffectWhenEnabled()
     {
 
     }
 
-    public override void DisapplyGlobalEffect()
+    public override void DisapplyGlobalEffectWhenDisabled()
+    {
+
+    }
+
+    public override void ApplyTickEffect()
+    {
+        VaccineSystem.Instance.UpdateProgress(extraConfig.vaccineProgressIncrementPercentPerTick);
+    }
+
+    public override void ApplyEffectToCellWhenDisabled(GridCell cell)
+    {
+
+    }
+
+    public override void DisapplyEffectToCellWhenEnabled(GridCell cell)
     {
 
     }

@@ -14,6 +14,9 @@ public struct CellStageStats
 
     public bool isContagious;
     public bool isBlocked;
+    public bool canBeDisinfected;
+    public bool canHasCarrier;
+    public bool canBuildStructure;
 
     public bool canSwitchToDead;
     public float tickToDeadCount;

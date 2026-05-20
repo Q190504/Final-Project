@@ -56,9 +56,9 @@ public class EventScheduler
     public ScheduledEvent Schedule(
         float delay,
         Action action,
-        int priority = 0)
+        EventPriority priority = EventPriority.RandomEvent)
     {
-        ScheduledEvent e = new(CurrentTime + delay, priority, action, false);
+        ScheduledEvent e = new(CurrentTime + delay, (int)priority, action, false);
 
         eventQueue.Enqueue(e);
 

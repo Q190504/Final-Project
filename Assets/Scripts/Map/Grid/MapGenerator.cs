@@ -17,7 +17,6 @@ public class MapGenerator
             new UrbanGenerator(config, seed + 6000),
             new MapBalancer(config, seed),
             new EnvironmentDerivationStep(),
-            //new UrbanClusterGenerator(),
             new StructureSpawner(config, seed + 7000),
             new InfectionSeeder(config, seed + 8000)
         };

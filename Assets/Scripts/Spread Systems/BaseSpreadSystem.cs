@@ -87,7 +87,6 @@ public abstract class BaseSpreadMethod<T> : ISpreadMethod
     {
         SpreadResult result = Execute();
         ApplyResult(result);
-        mapManager.UpdateDetectionRateOfMap();
         ScheduleNext();
     }
 

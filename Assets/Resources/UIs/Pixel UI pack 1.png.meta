@@ -1716,7 +1716,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 356
-        width: 80
+        width: 48
         height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1738,11 +1738,11 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 340
-        width: 80
+        width: 48
         height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 2, y: 2, z: 2, w: 2}
       customData: 
       outline: []
       physicsShape: []
@@ -2112,11 +2112,11 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 324
-        width: 80
+        width: 48
         height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 2, y: 2, z: 2, w: 2}
       customData: 
       outline: []
       physicsShape: []
@@ -6264,6 +6264,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Pixel UI pack 1_187
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 343
+        width: 30
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 253db40e50ccf0b469a5fc3d357aa4d8
+      internalID: -746653449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel UI pack 1_279
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 359
+        width: 30
+        height: 2
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8210b1815f57fe649bc12bd6040ed9b0
+      internalID: 1028523296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -6478,6 +6522,7 @@ TextureImporter:
       Pixel UI pack 1_276: 13947762
       Pixel UI pack 1_277: 1007965833
       Pixel UI pack 1_278: 1629117127
+      Pixel UI pack 1_279: 1028523296
       Pixel UI pack 1_28: 1134188845
       Pixel UI pack 1_29: -301896842
       Pixel UI pack 1_3: 969640030

@@ -33,7 +33,7 @@ public class UrbanGenerator : IMapGeneratorStep
             config.minUrbans,
             config.maxUrbans + 1);
 
-        PopulationData highPopulationData = CellPropertyManager.Instance.GetPopulationData(PopulationType.High);
+        PopulationData highPopulationData = PropertyDataManager.Instance.GetPopulationData(PopulationType.High);
 
         for (int i = 0; i < centerCount; i++)
         {

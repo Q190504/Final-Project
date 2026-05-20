@@ -4,6 +4,24 @@ using UnityEngine;
 
 public static class Utility
 {
+    public const int minInfectionLevel = 0;
+    public const int maxInfectionLevel = 100;
+
+    public const int minInfectionResistance = 0;
+    public const int maxInfectionResistance = 100;
+
+    public const int minTargetInfectionIncreasePercent = 0;
+    public const int maxTargetInfectionIncreasePercent = 100;
+
+    public const float minDetection = 0f;
+    public const float maxDetection = 1f;
+
+    public const int minAdditionalCarrierSpreadChance = 0;
+    public const int maxAdditionalCarrierSpreadChance = 100;
+
+    public const float minThreatLevel = 0f;
+    public const float maxThreatLevel = 1f;
+
     public static readonly Vector2Int[] Neighbor8Directions =
     {
         new Vector2Int(-1, -1),

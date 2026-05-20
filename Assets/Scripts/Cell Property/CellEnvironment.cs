@@ -33,7 +33,7 @@ public class CellEnvironment
     {
         currentEnvironmentType = originalEnvironmentType = environmentType;
 
-        EnvironmentData envData = CellPropertyManager.Instance.GetEnvironmentData(currentEnvironmentType);
+        EnvironmentData envData = PropertyDataManager.Instance.GetEnvironmentData(currentEnvironmentType);
         if (envData != null)
         {
             isBlocked = envData.isBlocked;
@@ -49,7 +49,7 @@ public class CellEnvironment
 
     public CellEnvironment(PopulationType populationType, TemperatureType tempuratureType)
     {
-        foreach (EnvironmentData envData in CellPropertyManager.Instance.GetEnvironmentDatas())
+        foreach (EnvironmentData envData in PropertyDataManager.Instance.GetEnvironmentDatas())
         {
             if (envData != null && envData.populationType == populationType && envData.tempuratureType == tempuratureType)
             {
@@ -62,7 +62,7 @@ public class CellEnvironment
 
     public EnvironmentType SetEnvironmentType(PopulationType populationType, TemperatureType tempuratureType)
     {
-        foreach (EnvironmentData envData in CellPropertyManager.Instance.GetEnvironmentDatas())
+        foreach (EnvironmentData envData in PropertyDataManager.Instance.GetEnvironmentDatas())
         {
             if (envData != null && envData.populationType == populationType && envData.tempuratureType == tempuratureType)
             {

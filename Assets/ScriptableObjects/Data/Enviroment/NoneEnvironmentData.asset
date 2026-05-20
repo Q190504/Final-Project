@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: NoneEnvironmentData
   m_EditorClassIdentifier: 
   type: 0
+  displayName: None
   sprite: {fileID: 0}
   populationType: 0
   tempuratureType: 0
-  spawnRate: 0
+  maxSpawnRate: 0
   isBlocked: 0
   canBeLockeddown: 0
   canHaveStructure: 0

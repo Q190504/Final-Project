@@ -9,32 +9,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 2ea95d255099d04428dd672a28cba651, type: 3}
   m_Name: Vaccine Research Center Data
-  m_EditorClassIdentifier: Assembly-CSharp::VaccineResearchCenterDataSO
+  m_EditorClassIdentifier: 
   type: 2
   logicType: 2
   displayName: Vaccine Research Center
   sprite: {fileID: 21300000, guid: 43fa94f54851f8e45bcadc0446fbc0da, type: 3}
   spawnEnvironmentAndRateList:
   - environmentTypeCanSpawn: 1
-    spawnRateOnEnvironment: 0.5
+    spawnRateOnEnvironment: 0.25
   - environmentTypeCanSpawn: 2
-    spawnRateOnEnvironment: 0.25
+    spawnRateOnEnvironment: 0.125
   - environmentTypeCanSpawn: 3
-    spawnRateOnEnvironment: 0.25
+    spawnRateOnEnvironment: 0.125
   - environmentTypeCanSpawn: 4
-    spawnRateOnEnvironment: 0
+    spawnRateOnEnvironment: 0.15
   - environmentTypeCanSpawn: 5
-    spawnRateOnEnvironment: 0
+    spawnRateOnEnvironment: 0.075
   - environmentTypeCanSpawn: 6
-    spawnRateOnEnvironment: 0
+    spawnRateOnEnvironment: 0.075
   - environmentTypeCanSpawn: 7
-    spawnRateOnEnvironment: 0
+    spawnRateOnEnvironment: 0.1
   - environmentTypeCanSpawn: 8
-    spawnRateOnEnvironment: 0
+    spawnRateOnEnvironment: 0.05
   - environmentTypeCanSpawn: 9
-    spawnRateOnEnvironment: 0
+    spawnRateOnEnvironment: 0.05
   - environmentTypeCanSpawn: 10
     spawnRateOnEnvironment: 0
   - environmentTypeCanSpawn: 11
@@ -42,14 +42,14 @@ MonoBehaviour:
   spawnRate: 0
   maxAmountInAMatch: 5
   effectRangePercent: 0
-  priorityToHuman: 0.5
+  priorityToHuman: 0.3333333
   basePriorityToMethods:
     surfacePriority: 0
     airPriority: 0
     waterPriority: 0
     carrierPriority: 0
-  infectionPointWhenDestroyed: 50
-  dnaPointWhenDestroyed: 50
-  mutationPointWhenDestroyed: 50
+  infectionPointWhenDestroyed: 35
+  dnaPointWhenDestroyed: 35
+  mutationPointWhenDestroyed: 35
   extraConfig:
-    vaccineProgressIncrementPercentPerTick: 0
+    vaccineProgressIncrementPercentPerTick: 0.005

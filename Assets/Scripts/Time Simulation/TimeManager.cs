@@ -130,7 +130,7 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    public ScheduledEvent ScheduleEvent(float delayTicks, Action action, int priority = 0)
+    public ScheduledEvent ScheduleEvent(float delayTicks, Action action, EventPriority priority = EventPriority.RandomEvent)
     {
         return scheduler.Schedule(delayTicks, action, priority);
     }

@@ -23,7 +23,7 @@ public class CellPopulation
 
     public void SetPopulation(PopulationType populationType)
     {
-        PopulationData populationData = CellPropertyManager.Instance.GetPopulationData(populationType);
+        PopulationData populationData = PropertyDataManager.Instance.GetPopulationData(populationType);
         if (populationData != null)
         {
             SetData(populationData);
@@ -35,7 +35,7 @@ public class CellPopulation
     {
         if (environmentData != null)
         {
-            PopulationData populationData = CellPropertyManager.Instance.GetPopulationData(environmentData.populationType);
+            PopulationData populationData = PropertyDataManager.Instance.GetPopulationData(environmentData.populationType);
             if (populationData != null)
             {
                 SetData(populationData);
@@ -46,7 +46,7 @@ public class CellPopulation
 
     public void SetPopulation(float value)
     {
-        foreach (PopulationData populationData in CellPropertyManager.Instance.GetPopulationDatas())
+        foreach (PopulationData populationData in PropertyDataManager.Instance.GetPopulationDatas())
         {
             if (populationData != null && populationData.minPopulationValue <= value
                 && value <= populationData.maxPopulationValue)
@@ -56,7 +56,7 @@ public class CellPopulation
             }
         }
 
-        SetData(CellPropertyManager.Instance.GetPopulationData(PopulationType.None));
+        SetData(PropertyDataManager.Instance.GetPopulationData(PopulationType.None));
     }
 
     private void SetData(PopulationData populationData)

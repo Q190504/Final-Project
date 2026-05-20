@@ -13,6 +13,7 @@ public class MountainGenerator : IMapGeneratorStep
     {
         this.config = config;
         randomSeed = seed;
+
         targetRatio = config.maxMountainRatio;
     }
 

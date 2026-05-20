@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: ColdUrbanData
   m_EditorClassIdentifier: 
   type: 3
+  displayName: Cold Urban
   sprite: {fileID: 717666123, guid: 31d7112c61456a04aa1aafe6ddfea21f, type: 3}
   populationType: 3
   tempuratureType: 3
-  spawnRate: 0
-  canBeInfected: 1
+  maxSpawnRate: 0.05
+  isBlocked: 0
   canBeLockeddown: 1
   canHaveStructure: 1
   canSpawnCarrier: 1

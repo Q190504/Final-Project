@@ -16,10 +16,9 @@ MonoBehaviour:
     methodType: 3
     baseInfectionPower: 1
     methodOrder: 2
-    eventPriority: 1
-    tickToSpread: 5
+    eventPriority: 3
+    tickToSpread: 3
     spreadChanceWhenBlocked: 0
-    spreadSpeed: 1
     spreadDirection: 1
     minDistance: 1
     maxDistance: 1

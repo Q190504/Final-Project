@@ -20,9 +20,6 @@ public class Grid<TGridObject>
     private MinHeap<RiverData> riverDatasHeap = new();
 
     private int mountainCellCount = 0;
-    //private List<MountainData> mountainDatasList = new();
-
-    public List<UrbanCluster> urbanClusters;
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition,
         Func<Grid<TGridObject>, int, int, PopulationType, TemperatureType, StructureType, int, GridCell> createCell)
@@ -186,9 +183,6 @@ public class Grid<TGridObject>
         return waterGridArray;
     }
 
-    public List<UrbanCluster> GetUrbanClusters()
-    { return urbanClusters; }
-
     public int GetWidth() { return width; }
     public int GetHeight() { return height; }
     public float GetCellSize() { return cellSize; }
@@ -296,4 +290,62 @@ public class Grid<TGridObject>
 
     #endregion
 
+    public List<GridCell> GetNeighborsInRange(GridCell cell, int range, bool includeDiagonals = true)
+    {
+        List<GridCell> neighbors = new();
+
+        for (int x = cell.X - range;  x <= cell.X + range; x++)
+        {
+            for (int y = cell.Y - range; y <= cell.Y + range; y++)
+            {
+                if (!IsInBounds(x, y))
+                    continue;
+
+                // Skip self
+                if (x == cell.X && y == cell.Y)
+                    continue;
+
+                // Skip diagonals if disabled
+                if (!includeDiagonals
+                    && x != cell.X
+                    && y != cell.Y)
+                {
+                    continue;
+                }
+
+                neighbors.Add(gridArray[x, y]);
+            }
+        }
+
+        return neighbors;
+    }
+
+    public List<GridCell> GetNeighbourInCircleWithRange(int cx, int cy, int radius)
+    {
+        List<GridCell> neighbours = new List<GridCell>();
+
+        for (int dx = -radius; dx <= radius; dx++)
+        {
+            for (int dy = -radius; dy <= radius; dy++)
+            {
+                int nx = cx + dx;
+                int ny = cy + dy;
+
+                // Skip self
+                if (nx == cx && ny == cy)
+                    continue;
+
+                if (IsInBounds(nx, ny) && (dx * dx + dy * dy <= radius * radius))
+                {
+                    if (dx * dx + dy * dy <= radius * radius)
+                    {
+                        GridCell cell = GetCell(nx, ny);
+                        neighbours.Add(cell);
+                    }
+                }
+            }
+        }
+
+        return neighbours;
+    }
 }

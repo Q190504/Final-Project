@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: HotLandData
   m_EditorClassIdentifier: 
   type: 5
+  displayName: Hot Land
   sprite: {fileID: 21300000, guid: 92642c1305b8f6b46814b7f0ce6eb9f5, type: 3}
   populationType: 2
   tempuratureType: 2
-  maxSpawnRate: 0
+  maxSpawnRate: 0.083333336
   isBlocked: 0
   canBeLockeddown: 1
   canHaveStructure: 1

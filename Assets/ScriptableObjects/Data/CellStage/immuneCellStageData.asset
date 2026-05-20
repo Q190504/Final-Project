@@ -20,10 +20,12 @@ MonoBehaviour:
     maxInfectionValue: 0
     infectionResistance: 100
     targetInfectionIncreasePercent: 0
-    increaseInfectionLevelPerTick: 0
     detectionPercent: 1
     isContagious: 0
     isBlocked: 1
+    canBeDisinfected: 0
+    canHasCarrier: 0
+    canBuildStructure: 1
     canSwitchToDead: 0
     tickToDeadCount: 0
     priorityToHuman: 0

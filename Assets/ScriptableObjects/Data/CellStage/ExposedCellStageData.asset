@@ -19,13 +19,16 @@ MonoBehaviour:
     minInfectionValue: 1
     maxInfectionValue: 49
     infectionResistance: 0
-    targetInfectionIncreasePercent: 0.3
-    detectionPercent: 0.5
+    targetInfectionIncreasePercent: 0
+    detectionPercent: 0.2
     isContagious: 1
     isBlocked: 0
+    canBeDisinfected: 1
+    canHasCarrier: 1
+    canBuildStructure: 1
     canSwitchToDead: 0
     tickToDeadCount: 0
-    priorityToHuman: 0
+    priorityToHuman: 0.3
     basePriorityToMethods:
       surfacePriority: 0.7
       airPriority: 0.7

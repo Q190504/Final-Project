@@ -36,9 +36,6 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO>
             float chance = (extra.baseCarrierSpawnChance * source.Stats.population.weight) + source.Stats.additionalCarrierSpreadChancePercent;
             if (Random.value > chance) continue;
 
-            source.Stats.SetCarrier(true);
-            mapManager.AddCellNeedToUpdateVisual(new Vector2Int(source.X, source.Y));
-
             List<(GridCell cell, float key)> candidates = new();
 
             foreach (var offset in cachedOffsets)
@@ -89,6 +86,7 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO>
             selected.Sort((a, b) => b.key.CompareTo(a.key));
 
             float originBonus = 1 + source.GetStageInfectionIncreasePercent();
+            bool thisSourceInfectedAny = false;
 
             foreach ((GridCell cell, float key) in selected)
             {
@@ -101,23 +99,28 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO>
 
                 int power = GetInfectionPowerOfMethod(cell);
 
-                int increaseInfectionLevel =
-                    Mathf.RoundToInt(power * originBonus)
-                    - cell.Stats.currentInfectionResistance;
-
+                int increaseInfectionLevel = Mathf.RoundToInt(power * originBonus) - cell.Stats.finalInfectionResistance;
                 if (increaseInfectionLevel <= 0)
                     continue;
 
                 // --- Delay event ---
                 timeManager.ScheduleEvent(extra.travelTime, () =>
                 {
-                    ClearCarrier(source);
+                    ClearCarrierSource(source);
                 }, config.eventPriority);
 
                 timeManager.ScheduleEvent(extra.travelTime, () =>
                 {
-                    CreateCarrier(cell, increaseInfectionLevel);
+                    CreateCarrierInfection(cell, increaseInfectionLevel);
                 }, config.eventPriority);
+
+                thisSourceInfectedAny = true;
+            }
+
+            if (thisSourceInfectedAny)
+            {
+                source.Stats.SetCarrier(true);
+                mapManager.AddCellNeedToUpdateVisual(new Vector2Int(source.X, source.Y));
             }
 
             candidateHeap.Clear();
@@ -126,13 +129,13 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO>
         return new SpreadResult();
     }
 
-    private void ClearCarrier(GridCell cell)
+    private void ClearCarrierSource(GridCell cell)
     {
         cell.Stats.SetCarrier(false);
         mapManager.AddCellNeedToUpdateVisual(new Vector2Int(cell.X, cell.Y));
     }
 
-    private void CreateCarrier(GridCell cell, int increaseInfection)
+    private void CreateCarrierInfection(GridCell cell, int increaseInfection)
     {
         cell.Stats.UpdateInfectionLevel(increaseInfection);
         mapManager.AddCellNeedToUpdateVisual(new Vector2Int(cell.X, cell.Y));

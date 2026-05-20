@@ -66,10 +66,7 @@ public class AirSpreadMethod : BaseSpreadMethod<AirSpreadDataSO>
 
                 int power = GetInfectionPowerOfMethod(currentCell);
 
-                int increaseInfectionLevel =
-                    Mathf.RoundToInt(power * originBonus)
-                    - currentCell.Stats.currentInfectionResistance;
-
+                int increaseInfectionLevel = Mathf.RoundToInt(power * originBonus) - currentCell.Stats.finalInfectionResistance;
                 if (increaseInfectionLevel > 0)
                 {
                     CellDelta cellDelta = new()

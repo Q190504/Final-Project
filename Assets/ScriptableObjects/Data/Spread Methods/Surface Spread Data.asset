@@ -14,12 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseConfig:
     methodType: 1
-    baseInfectionPower: 3
+    baseInfectionPower: 2
     methodOrder: 0
-    eventPriority: 1
-    tickToSpread: 5
+    eventPriority: 3
+    tickToSpread: 3
     spreadChanceWhenBlocked: 0
-    spreadSpeed: 1
     spreadDirection: 1
     minDistance: 1
     maxDistance: 1

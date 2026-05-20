@@ -46,20 +46,30 @@ public class GridCellVisual : MonoBehaviour
     {
         if (gridCell == null) return;
 
-        if (cellFocusVFX != null)
-            cellFocusVFX.SetActive(gridCell.IsBeingShownInfo);
-
         CellStats cellStats = gridCell.Stats;
 
-        EnvironmentData envData = CellPropertyManager.Instance.GetEnvironmentData(cellStats.environment.currentEnvironmentType);
+        EnvironmentData envData = PropertyDataManager.Instance.GetEnvironmentData(cellStats.environment.currentEnvironmentType);
         if (envData != null && environmentRenderer != null)
             environmentRenderer.sprite = envData.sprite;
 
-        StructureDataSO strucData = CellPropertyManager.Instance.GetStructureData(cellStats.structure.type);
+        StructureDataSO strucData = PropertyDataManager.Instance.GetStructureData(cellStats.structure.type);
         if (strucData != null && structureIcon != null)
-            structureIcon.sprite = strucData.sprite;
+        {
+            if (cellStats.structure.type == StructureType.None)
+            {
+                structureIcon.sprite = null;
+                structureIcon.gameObject.SetActive(false);
+            }
+            else
+            {
+                structureIcon.gameObject.SetActive(true);
+                structureIcon.sprite = strucData.sprite;
+                structureIcon.color = new Color(structureIcon.color.r, structureIcon.color.g, structureIcon.color.b,
+                    cellStats.structure.isActive ? 1f : 0.5f);
+            }
+        }
 
-        CellStageData cellStageData = CellPropertyManager.Instance.GetCellStageData(cellStats.stage.type);
+        CellStageData cellStageData = PropertyDataManager.Instance.GetCellStageData(cellStats.stage.type);
 
         if (cellStageData != null && cellStageBorderRenderer != null)
             cellStageBorderRenderer.sprite = cellStageData.sprite;
@@ -76,13 +86,21 @@ public class GridCellVisual : MonoBehaviour
         //text.text = $"Popu: {cellStats.population.type},\nTem: {cellStats.tempurature.type}";
     }
 
-    public void ShowAffectedByStructureOverlay(bool show)
+    public void SetAffectedByStructureOverlayVisibility(bool state)
     {
-        affectedByStructureOverlayRenderer.gameObject.SetActive(show);
+        if (affectedByStructureOverlayRenderer != null)
+            affectedByStructureOverlayRenderer.gameObject.SetActive(state);
     }
 
-    public void ShowAffectedBySkillOverlay(bool show)
+    public void SetAffectedBySkillOverlayVisibility(bool state)
     {
-        affectedBySkillOverlayRenderer.gameObject.SetActive(show);
+        if (affectedBySkillOverlayRenderer != null)
+            affectedBySkillOverlayRenderer.gameObject.SetActive(state);
+    }
+
+    public void SetCellFocusVFXVisibility(bool state)
+    {
+        if (cellFocusVFX != null)
+            cellFocusVFX.SetActive(state);
     }
 }

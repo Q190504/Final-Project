@@ -42,7 +42,7 @@ MonoBehaviour:
   spawnRate: 0.3
   maxAmountInAMatch: 4
   effectRangePercent: 0.15
-  priorityToHuman: 0.2
+  priorityToHuman: 0.1666667
   basePriorityToMethods:
     surfacePriority: 0
     airPriority: 0

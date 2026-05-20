@@ -23,6 +23,9 @@ MonoBehaviour:
     detectionPercent: 0
     isContagious: 0
     isBlocked: 0
+    canBeDisinfected: 0
+    canHasCarrier: 0
+    canBuildStructure: 0
     canSwitchToDead: 0
     tickToDeadCount: 0
     priorityToHuman: 0
