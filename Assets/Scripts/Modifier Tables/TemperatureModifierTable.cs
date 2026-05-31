@@ -32,8 +32,34 @@ public class TemperatureModifierTable
         return 1f;
     }
 
+    public void SetModifier(TemperatureType temperature, float multiplier)
+    {
+        if (lookup.ContainsKey(temperature))
+        {
+            lookup[temperature] = multiplier;
+            int index = entries.FindIndex(e => e.temperature == temperature);
+            if (index != -1)
+            {
+                entries[index] = new TemperatureModifierEntry(temperature, multiplier);
+            }
+        }
+        else
+        {
+            lookup[temperature] = multiplier;
+            entries.Add(new TemperatureModifierEntry(temperature, multiplier));
+        }
+    }
+
     public List<TemperatureModifierEntry> GetEntries()
     {
         return entries;
+    }
+
+    public TemperatureModifierTable Clone()
+    {
+        TemperatureModifierTable clone = new();
+        clone.entries = new List<TemperatureModifierEntry>(entries);
+        clone.initialized = false;
+        return clone;
     }
 }

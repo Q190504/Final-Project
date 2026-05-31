@@ -32,8 +32,36 @@ public class EnvironmentModifierTable
         return 1f;
     }
 
+    public void SetModifier(EnvironmentType environment, float multiplier)
+    {
+        if (lookup.ContainsKey(environment))
+        {
+            lookup[environment] = multiplier;
+            int index = entries.FindIndex(e => e.environment == environment);
+            if (index != -1)
+            {
+                entries[index] = new EnvironmentModifierEntry { environment = environment, multiplier = multiplier };
+            }
+        }
+        else
+        {
+            lookup[environment] = multiplier;
+            entries.Add(new EnvironmentModifierEntry { environment = environment, multiplier = multiplier });
+        }
+    }
+
     public List<EnvironmentModifierEntry> GetEntries()
     {
         return entries;
+    }
+
+    public EnvironmentModifierTable Clone()
+    {
+        EnvironmentModifierTable clone = new()
+        {
+            entries = new List<EnvironmentModifierEntry>(entries),
+            initialized = false
+        };
+        return clone;
     }
 }

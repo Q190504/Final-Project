@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class SpreadResult
 {
-    private Dictionary<GridCell, CellDelta> cellChanges = new();
+    private Dictionary<GridCell, InfectionInfo> cellChanges = new();
 
-    public void Add(GridCell cell, CellDelta delta)
+    public void Add(GridCell cell, InfectionInfo delta)
     {
         if (!cellChanges.TryGetValue(cell, out var existing))
         {
@@ -18,7 +18,7 @@ public class SpreadResult
         cellChanges[cell] = existing;
     }
 
-    public IEnumerable<CellDelta> GetAll()
+    public IEnumerable<InfectionInfo> GetAll()
     {
         return cellChanges.Values;
     }

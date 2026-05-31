@@ -32,8 +32,36 @@ public class PopulationModifierTable
         return 1f;
     }
 
+    public void SetModifier(PopulationType population, float multiplier)
+    {
+        if (lookup.ContainsKey(population))
+        {
+            lookup[population] = multiplier;
+            int index = entries.FindIndex(e => e.population == population);
+            if (index != -1)
+            {
+                entries[index] = new PopulationModifierEntry(population, multiplier);
+            }
+        }
+        else
+        {
+            lookup[population] = multiplier;
+            entries.Add(new PopulationModifierEntry(population, multiplier));
+        }
+    }
+
     public List<PopulationModifierEntry> GetEntries()
     {
         return entries;
+    }
+
+    public PopulationModifierTable Clone()
+    {
+        PopulationModifierTable clone = new()
+        {
+            entries = new List<PopulationModifierEntry>(entries),
+            initialized = false
+        };
+        return clone;
     }
 }

@@ -8,12 +8,25 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [Header("Refs")]
+    [Header("Panels")]
+    [SerializeField] private GameObject topMiddlePanel;
+    [SerializeField] private GameObject topLeftPanel;
+    [SerializeField] private GameObject topRightPanel;
+    [SerializeField] private GameObject cellInfoViewPanel;
+    [SerializeField] private GameObject vaccinePanel;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject evolutionSelectionPanel;
+    [SerializeField] private EvolutionTreePanel evolutionTreePanel;
+    [SerializeField] private Notification notificationPanel;
+
+    [Header("Points")]
+    [SerializeField] private PointTextContainer evolutionPointTextContainer;
+    [SerializeField] private PointTextContainer infectionPointTextContainer;
+
+    [Header("Time")]
     [SerializeField] private TMP_Text dayText;
     [SerializeField] private Slider tickTimerSlider;
     [SerializeField] private Image timeStateIcon;
-    [SerializeField] private GameObject pausePanel;
-    [SerializeField] private Transform cellViewParent;
 
     [Header("Infected & Dead")]
     [SerializeField] private Slider deadRateSlider;
@@ -23,25 +36,43 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text detectedInfectedText;
     [SerializeField] private TMP_Text detectedDeadText;
 
+    [Header("Cell Info View")]
+    [SerializeField] private Transform cellViewParent;
+
+    [Header("Evolution Upgrade Panel")]
+    [SerializeField] private Transform evolutionCardParent;
+    [SerializeField] private TMP_Text evolutionTierText;
+    [SerializeField] private TMP_Text evolutionCostText;
+    [SerializeField] private Button evolutionPanelToggleVisibilityButton;
+    [SerializeField] private TMP_Text evolutionPanelToggleVisibilityButtonText;
+
+    [Header("Evolution Tree Panel")]
+    [SerializeField] private Button evolutionTreePanelToggleVisibilityButton;
+
+    [Header("Human")]
+    [SerializeField] private TMP_Text threatTierText;
+    [SerializeField] private List<ThreatTierUITextColor> threatTierTextColors;
+    [SerializeField] private HumanActionVisualDatabase humanActionVisualDatabase;
+    [SerializeField] private List<HumanActionUI> humanActionUIs;
+
+    [Header("Vaccine")]
+    [SerializeField] private Slider vaccineProgressSlider;
+    [SerializeField] private TMP_Text vaccineProgressText;
+
     [Header("Prefabs")]
     [SerializeField] private GridCellVisual cellPrefab;
+    [SerializeField] private EvolutionUpgradeCard evolutionCardPrefab;
 
     [Header("Sprites")]
     [SerializeField] private Sprite pauseIcon;
     [SerializeField] private Sprite normalTimeSpeedIcon;
     [SerializeField] private Sprite spedUpTimeIcon;
 
-    [Header("Human")]
-    [SerializeField] private TMP_Text threatTierText;
-    [SerializeField] private List<ThreatTierUITextColor> threatTierTextColors;
-
-    [SerializeField] private HumanActionVisualDatabase humanActionVisualDatabase;
-    [SerializeField] private List<HumanActionUI> humanActionUIs;
-
-    [Header("Vaccine")]
-    [SerializeField] private GameObject vaccinePanel;
-    [SerializeField] private Slider vaccineProgressSlider;
-    [SerializeField] private TMP_Text vaccineProgressText;
+    [Header("Event SOs")]
+    [SerializeField] private VoidPublisherSO onEvolutionTierSelectionUIOpened;
+    [SerializeField] private VoidPublisherSO onEvolutionTierSelectionUIClosed;
+    [SerializeField] private VoidPublisherSO onEvolutionTreePanelOpened;
+    [SerializeField] private VoidPublisherSO onEvolutionTreePanelClosed;
 
     private Dictionary<ThreatTier, Color> threatTierColorMap;
 
@@ -98,6 +129,17 @@ public class UIManager : MonoBehaviour
         UpdateDeadSlider(0, GameManager.Instance.endGameDeadRate);
 
         threatTierColorMap = threatTierTextColors.ToDictionary(x => x.threatTier, x => x.color);
+
+        SetEvolutionPointText(0, 0);
+        SetInfectionPointText(0, 0);
+
+        evolutionSelectionPanel.SetActive(false);
+        evolutionPanelToggleVisibilityButton.gameObject.SetActive(false);
+
+        evolutionTreePanel.SetPanelVisibility(false, null);
+        SetEvolutionTreePanelToggleButtonVisibility(false);
+
+        notificationPanel.HidePanel();
     }
 
     public void SetTimeState()
@@ -265,7 +307,7 @@ public class UIManager : MonoBehaviour
     public void SetVaccineProgress(float progress)
     {
         vaccineProgressSlider.value = progress;
-        vaccineProgressText.SetText($"{Mathf.RoundToInt(progress * 100)}%");
+        vaccineProgressText.SetText($"{Mathf.FloorToInt(progress * 100)}%");
         if (!vaccinePanel.activeSelf)
             vaccinePanel.SetActive(true);
     }
@@ -276,10 +318,10 @@ public class UIManager : MonoBehaviour
 
     public void UpdateActualInfectedRateAndDeadRate(float actualInfected, float actualInfectedRate, float actualDead, float actualDeadRate)
     {
-        int actualInfectedToInt = Mathf.RoundToInt(actualInfected);
-        int actualDeadToInt = Mathf.RoundToInt(actualDead);
-        int actualInfectedRateToInt = Mathf.RoundToInt(actualInfectedRate * 100);
-        int actualDeadRateToInt = Mathf.RoundToInt(actualDeadRate * 100);
+        int actualInfectedToInt = Mathf.FloorToInt(actualInfected);
+        int actualDeadToInt = Mathf.FloorToInt(actualDead);
+        int actualInfectedRateToInt = Mathf.FloorToInt(actualInfectedRate * 100);
+        int actualDeadRateToInt = Mathf.FloorToInt(actualDeadRate * 100);
 
         actualInfectedText.text = $"{actualInfectedToInt} - {actualInfectedRateToInt}%";
         actualDeadText.text = $"{actualDeadToInt} - {actualDeadRateToInt}%";
@@ -287,10 +329,10 @@ public class UIManager : MonoBehaviour
 
     public void UpdateDetectedInfectedRateAndDeadRate(float detectedInfected, float detectedInfectedRate, float detectedDead, float detectedDeadRate)
     {
-        int detectedInfectedToInt = Mathf.RoundToInt(detectedInfected);
-        int detectedDeadToInt = Mathf.RoundToInt(detectedDead);
-        int detectedInfectedRateToInt = Mathf.RoundToInt(detectedInfectedRate * 100);
-        int detectedDeadRateToInt = Mathf.RoundToInt(detectedDeadRate * 100);
+        int detectedInfectedToInt = Mathf.FloorToInt(detectedInfected);
+        int detectedDeadToInt = Mathf.FloorToInt(detectedDead);
+        int detectedInfectedRateToInt = Mathf.FloorToInt(detectedInfectedRate * 100);
+        int detectedDeadRateToInt = Mathf.FloorToInt(detectedDeadRate * 100);
 
         detectedInfectedText.text = $"{detectedInfectedToInt} - {detectedInfectedRateToInt}%";
         detectedDeadText.text = $"{detectedDeadToInt} - {detectedDeadRateToInt}%";
@@ -298,11 +340,194 @@ public class UIManager : MonoBehaviour
 
     public void UpdateDeadSlider(float value, float endGameDeadRate)
     {
-        int current = Mathf.RoundToInt(value * 100);
-        int target = Mathf.RoundToInt(endGameDeadRate * 100);
+        int current = Mathf.FloorToInt(value * 100);
+        int target = Mathf.FloorToInt(endGameDeadRate * 100);
 
         actualDeadRateText.text = $"{current}%/{target}%";
         deadRateSlider.value = value;
     }
+
+    #endregion
+
+    #region Notifications
+
+    public void ShowNotification(string message, float duration, Color color)
+    {
+        notificationPanel.gameObject.SetActive(true);
+        notificationPanel.ShowNotification(message, color, duration);
+    }
+
+    #endregion
+
+    #region Evolution Upgrades
+
+    public void ShowEvolutionUpgradeNotification(string message, float duration, Color color)
+    {
+        ShowNotification(message, duration, color);
+        evolutionPanelToggleVisibilityButton.gameObject.SetActive(true);
+    }
+
+    public void ShowSpecializationSelection(List<EvolutionTreeSO> evolutionTrees)
+    {
+        ClearCards();
+
+        evolutionSelectionPanel.SetActive(true);
+        evolutionPanelToggleVisibilityButton.gameObject.SetActive(false);
+
+        foreach (EvolutionTreeSO evolutionTreeSO in evolutionTrees)
+            AddCard(evolutionTreeSO.spreadType);
+    }
+
+    public void ToggleEvolutionSelectionPanel()
+    {
+        bool isVisible = !evolutionSelectionPanel.activeSelf;
+        if (isVisible)
+            onEvolutionTierSelectionUIOpened.RaiseEvent();
+        else
+        {
+            onEvolutionTierSelectionUIClosed.RaiseEvent();
+            SetEvolutionSelectionPanelVisibility(false, true);
+        }
+    }
+
+    public void ShowEvolutionTier(EvolutionTierData tierData)
+    {
+        ClearCards();
+
+        SetEvolutionSelectionPanelVisibility(true, true);
+
+        foreach (EvolutionUpgradeNodeSO upgradeNodeSO in tierData.choices)
+            AddCard(upgradeNodeSO);
+    }
+
+    public void SetEvolutionSelectionPanelVisibility(bool isVisible, bool showTogglePanelButton)
+    {
+        SetBackgroundUIElementsVisibility(!isVisible, true);
+        evolutionSelectionPanel.SetActive(isVisible);
+        evolutionPanelToggleVisibilityButton.gameObject.SetActive(showTogglePanelButton);
+
+        if (isVisible)
+            evolutionPanelToggleVisibilityButtonText.text = "CLOSE";
+        else
+            evolutionPanelToggleVisibilityButtonText.text = "SHOW UPGRADES";
+    }
+
+    public void AddCard(EvolutionUpgradeNodeSO upgradeNodeSO)
+    {
+        EvolutionUpgradeCard upgradeCard = Instantiate(evolutionCardPrefab, evolutionCardParent);
+        upgradeCard.SetCardInfo(upgradeNodeSO);
+    }
+
+    public void OnEvolutionUpgradeFinishSelection()
+    {
+        SetEvolutionSelectionPanelVisibility(false, false);
+        ClearCards();
+    }
+
+    public void SetEvolutionSelectionPanelInfo(int tierIndex, int cost)
+    {
+        evolutionTierText.text = $"Tier {tierIndex}";
+        evolutionCostText.text = $"Cost: {cost}";
+    }
+
+    #endregion
+
+    #region Evolution Tree
+
+    public void ToggleEvolutionTreePanel()
+    {
+        bool isVisible = !evolutionTreePanel.gameObject.activeSelf;
+        SetEvolutionTreePanel(isVisible);
+    }
+
+    public void SetEvolutionTreePanel(bool isVisible)
+    {
+        SetBackgroundUIElementsVisibility(!isVisible, !isVisible);
+
+        if (isVisible)
+        {
+            onEvolutionTreePanelOpened.RaiseEvent();
+        }
+        else
+        {
+            SetEvolutionTreePanelVisibility(false, null);
+            onEvolutionTreePanelClosed.RaiseEvent();
+        }
+    }
+
+    public void InitializeEvolutionTree(EvolutionTreeSO evolutionTree, string methodName, Sprite methodIcon)
+    {
+        List<EvolutionUpgradeNodeSO> nodeSOs = new();
+
+        foreach (EvolutionTierData tierData in evolutionTree.tiers)
+        {
+            nodeSOs.AddRange(tierData.choices);
+        }
+
+        evolutionTreePanel.Initialize(nodeSOs, methodName, methodIcon);
+        SetEvolutionTreePanelToggleButtonVisibility(true);
+    }
+
+    public void SetEvolutionTreePanelToggleButtonVisibility(bool isVisible)
+    {
+        evolutionTreePanelToggleVisibilityButton.gameObject.SetActive(isVisible);
+    }
+
+    public void SetEvolutionTreePanelVisibility(bool isVisible, List<EvolutionTierInfo> tierInfos)
+    {
+        evolutionTreePanel.gameObject.SetActive(isVisible);
+        evolutionTreePanel.SetPanelVisibility(isVisible, tierInfos);
+    }
+
+    public bool IsEvolutionTreePanelInitialized()
+    {
+        return evolutionTreePanel.IsInitialized();
+    }
+
+    public void AddCard(SpreadMethodType methodType)
+    {
+        EvolutionUpgradeCard upgradeCard = Instantiate(evolutionCardPrefab, evolutionCardParent);
+
+        SpreadMethodDataSO spreadMethodDataSO = SpreadMethodManager.Instance.GetSpreadMethodData(methodType);
+        upgradeCard.SetCardInfo(spreadMethodDataSO);
+    }
+
+    public void ClearCards()
+    {
+        if (evolutionCardParent.childCount > 0)
+            foreach (Transform child in evolutionCardParent)
+                Destroy(child.gameObject);
+    }
+
+    #endregion
+
+    private void SetBackgroundUIElementsVisibility(bool show, bool showTopLeftPanel)
+    {
+        topMiddlePanel.SetActive(show);
+        topLeftPanel.SetActive(showTopLeftPanel);
+        topRightPanel.SetActive(show);
+        cellInfoViewPanel.SetActive(show);
+
+        if (VaccineSystem.Instance.Stage != VaccineDevelopmentStage.NotStarted)
+            vaccinePanel.SetActive(show);
+    }
+
+    public bool IsEvolutionPanelsOpened()
+    {
+        return evolutionSelectionPanel.activeSelf || evolutionTreePanel.gameObject.activeSelf;
+    }
+
+    #region Points
+
+    public void SetEvolutionPointText(int value, int diff)
+    {
+        evolutionPointTextContainer.SetPoints(value, diff);
+    }
+
+    public void SetInfectionPointText(int value, int diff)
+    {
+        infectionPointTextContainer.SetPoints(value, diff);
+    }
+
     #endregion
 }

@@ -29,9 +29,7 @@ public class UrbanGenerator : IMapGeneratorStep
         System.Random populationRandom = new(randomSeed);
 
         // Randomly decide how many population centers will appear
-        int centerCount = populationRandom.Next(
-            config.minUrbans,
-            config.maxUrbans + 1);
+        int centerCount = populationRandom.Next(config.minUrbans, config.maxUrbans + 1);
 
         PopulationData highPopulationData = PropertyDataManager.Instance.GetPopulationData(PopulationType.High);
 

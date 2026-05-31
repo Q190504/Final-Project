@@ -1,6 +1,6 @@
 public enum HumanActionType
 {
-    Disinfect,
+    Sterilize,
     Lockdown,
     BuildHospital,
     BuildVaccineResearchCenter,

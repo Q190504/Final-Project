@@ -29,7 +29,7 @@ public class VaccineResearchCenter : Structure
 
     }
 
-    public override void ApplyTickEffect()
+    public override void ApplyTickGlobalEffect()
     {
         VaccineSystem.Instance.UpdateProgress(extraConfig.vaccineProgressIncrementPercentPerTick);
     }
@@ -40,6 +40,21 @@ public class VaccineResearchCenter : Structure
     }
 
     public override void DisapplyEffectToCellWhenEnabled(GridCell cell)
+    {
+
+    }
+
+    public override void ApplyTickEffectToCell(GridCell cell)
+    {
+
+    }
+
+    public override void ApplyGlobalEffectWhenDisabled()
+    {
+
+    }
+
+    public override void DisapplyGlobalEffectWhenEnabled()
     {
 
     }

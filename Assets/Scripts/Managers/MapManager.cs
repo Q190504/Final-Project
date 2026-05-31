@@ -49,6 +49,7 @@ public class MapManager : MonoBehaviour
     private float previousUpdateTick = 0f;
 
     private UIManager uiManager;
+    private EvolutionManager evolutionManager;
 
     void Awake()
     {
@@ -62,6 +63,8 @@ public class MapManager : MonoBehaviour
     void Start()
     {
         uiManager = UIManager.Instance;
+        evolutionManager = EvolutionManager.Instance;
+
         SetMapData();
 
         if (config != null && config.generateRandomSeed)
@@ -107,7 +110,7 @@ public class MapManager : MonoBehaviour
         cellSize = config.cellSize;
         originPosition = config.originPosition;
 
-        mapBoundary.size = new Vector2(width + Mathf.RoundToInt(0.3f * width), height + Mathf.RoundToInt(0.3f * height));
+        mapBoundary.size = new Vector2(width + Mathf.FloorToInt(0.3f * width), height + Mathf.FloorToInt(0.3f * height));
         CameraController.Instance.Init();
     }
 
@@ -181,9 +184,13 @@ public class MapManager : MonoBehaviour
             {
                 CellStats cellStats = grid.GetCell(x, y).Stats;
                 CellStructure cellStructure = cellStats.structure;
+
+                cellStats.UpdateTickInfectedCount();
+                cellStats.UpdateSterilizationImmunityTicks();
+
                 if (cellStructure.type != StructureType.None && cellStructure.isActive)
                 {
-                    cellStructure.logic.ApplyTickEffect();
+                    cellStructure.ApplyTickEffectToCellsInRange();
                 }
 
                 if (!cellStats.isDetected)
@@ -197,22 +204,16 @@ public class MapManager : MonoBehaviour
         updateGridVisualSO.RaiseEvent();
     }
 
-    public void UpdateMapInfectionResistanceByVaccine(InfectionResistanceModifier infectionResistanceModifier, int newValue)
+    public void AddInfectionResistanceByVaccineToMap(InfectionResistanceModifier infectionResistanceModifier)
     {
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
                 GridCell cell = grid.GetCell(x, y);
-                if (cell.Stats.infectionLevel > 0)
-                {
-                    cell.Stats.UpdateInfectionResistanceModifierValue(infectionResistanceModifier, newValue);
-                    AddCellNeedToUpdateVisual(new Vector2Int(x, y));
-                }
+                cell.Stats.AddInfectionResistanceModifier(infectionResistanceModifier);
             }
         }
-
-        updateGridVisualSO.RaiseEvent();
     }
 
     public void AddCellNeedToUpdateVisual(Vector2Int cell)
@@ -293,6 +294,7 @@ public class MapManager : MonoBehaviour
         {
             uiManager.UpdateActualInfectedRateAndDeadRate(totalInfected, infectedRate, totalDead, deadRate);
             uiManager.UpdateDeadSlider(deadRate, GameManager.Instance.endGameDeadRate);
+            evolutionManager.OnInfectedRateChanged(infectedRate);
         }
     }
 
@@ -328,6 +330,11 @@ public class MapManager : MonoBehaviour
 
     public float GetDeadRate()
     { return deadRate; }
+
+    public float GetInfectedRate()
+    {
+        return infectedRate;
+    }
 
     public MapConfig GetMapConfig()
     {

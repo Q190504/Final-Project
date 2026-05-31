@@ -27,8 +27,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private InputAction togglePauseAction;
 
     [Header("Events")]
-    [SerializeField] private BoolPublisherSO togglePauseSO;
-    [SerializeField] private FloatPublisherSO onToggleTimeSO;
+    [SerializeField] private VoidPublisherSO togglePauseSO;
+    [SerializeField] private VoidPublisherSO onToggleTimeSO;
     [SerializeField] private FloatPublisherSO onTickIncreaseSO;
     [SerializeField] private StringPublisherSO onDayIncreaseSO;
 
@@ -107,44 +107,65 @@ public class TimeManager : MonoBehaviour
     {
         if (toggleTimeAction.WasPressedThisFrame())
         {
+            GameState gameState = GameManager.Instance.GetGameState();
+            if (gameState != GameState.Playing && gameState != GameState.Paused)
+                return;
+
+            if (UIManager.Instance.IsEvolutionPanelsOpened())
+                return;
+
             if (IsPaused)
                 TogglePause();
 
             if (currentTimeScale == defaultTimeScale)
             {
                 IsSpeedUp = true;
-                currentTimeScale = speedUpFirstTimeScale;
+                SetTimeScale(speedUpFirstTimeScale);
             }
             else
             {
                 IsSpeedUp = false;
-                currentTimeScale = defaultTimeScale;
+                SetTimeScale(defaultTimeScale);
             }
-
-            onToggleTimeSO.RaiseEvent(currentTimeScale);
         }
 
         if (togglePauseAction.WasPressedThisFrame())
         {
+            GameState gameState = GameManager.Instance.GetGameState();
+            if (gameState != GameState.Playing && gameState != GameState.Paused)
+                return;
+
+            if (UIManager.Instance.IsEvolutionPanelsOpened())
+                return;
+
             TogglePause();
         }
     }
 
-    public ScheduledEvent ScheduleEvent(float delayTicks, Action action, EventPriority priority = EventPriority.RandomEvent)
+    public ScheduledEvent ScheduleEvent(float delayTicks, Action action, EventPriority priority = EventPriority.None, 
+        int order = -1)
     {
-        return scheduler.Schedule(delayTicks, action, priority);
+        return scheduler.Schedule(delayTicks, action, priority, order);
+    }
+
+    public void SetIsPaused(bool isPaused)
+    {
+        IsPaused = isPaused;
+        GameManager.Instance.SetGameState(IsPaused ? GameState.Paused : GameState.Playing);
+        togglePauseSO.RaiseEvent();
     }
 
     public void TogglePause()
     {
         IsPaused = !IsPaused;
 
-        togglePauseSO.RaiseEvent(IsPaused);
+        togglePauseSO.RaiseEvent();
     }
 
     public void SetTimeScale(float scale)
     {
         currentTimeScale = scale;
+        onToggleTimeSO.RaiseEvent();
     }
 
     public void SetDefaultTimeScale()
@@ -156,17 +177,6 @@ public class TimeManager : MonoBehaviour
     {
         onDayIncreaseSO.RaiseEvent(((int)CurrentTick + 1).ToString());
     }
-
-    //public void StepOneEvent()
-    //{
-    //    IsPaused = true;
-
-    //    float nextTime = scheduler.CurrentTime;
-
-    //    scheduler.AdvanceTo(nextTime + 0.0001f);
-
-    //    CurrentTick = scheduler.CurrentTime;
-    //}
 
     public void StartMatch()
     {

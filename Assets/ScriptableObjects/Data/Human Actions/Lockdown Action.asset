@@ -14,25 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActionType: 1
   actionName: Lockdown
-  actionIcon: {fileID: 0}
   executionType: 2
   priority: 1
   minTargetPerExecution: 10
-  maxTargetPerExecution: 30
-  minUtility: 0
-  maxUtility: 52057.023
-  cooldownTicks: 3
+  maxTargetPerExecution: 50
+  minUtility: -500000
+  maxUtility: 56316.668
+  cooldownTicks: 2
   extraConfig:
     UndetectedCellWeight: 0.5
-    SpreadPotentialWeight: 0.5
+    InfectionPressureWeight: 0.5
+    FrontierCellWeight: 0.5
     SafeNeighborsPopulationWeight: 0.5
-    InfectionPressureRadius: 10
+    CurrentCellInfectionPenaltyWeight: 1
+    DetectRadius: 15
+    cellScoreWeight: 10
     FrontlinePressureThreshold: 0.01
     SealBonus: 5
-    AdjacentToExistingLockdownBonus: 3
+    AdjacentToExistingLockdownBonus: 15
+    AnchorProgressBonus: 5
+    NearHighPopulationCellBonus: 5
+    ClusterPenalty: 50
     RegionCompletionWeight: 20
-    InfectionPressureWeight: 15
     RegionProtectionWeight: 10
     TargetsScoreWeight: 5
     InfectionResistanceIncreasedAfterLockdown: 5
-    lockdownDuration: 10
+    LockdownDuration: 10

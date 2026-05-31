@@ -4,36 +4,39 @@ using UnityEngine;
 public class EventScheduler
 {
     private readonly PriorityQueue<ScheduledEvent> eventQueue;
+
     private readonly ScheduledEventComparer comparer;
+
+    private EventPriority lastPriority = EventPriority.None;
+    private int nextOrder = 0;
 
     public float CurrentTime { get; private set; }
 
-    private bool needUpdateVisual = false;
-    private bool stillhasActionThisTime = true;
+    private bool needUpdateVisual;
 
     public EventScheduler()
     {
         comparer = new ScheduledEventComparer();
+
         eventQueue = new PriorityQueue<ScheduledEvent>(comparer);
+
         CurrentTime = 0f;
     }
 
     public void AdvanceTo(float time)
     {
         CurrentTime = time;
-        ScheduledEvent next;
-        stillhasActionThisTime = true;
         needUpdateVisual = false;
 
-        while (stillhasActionThisTime)
+        while (true)
         {
-            next = eventQueue.Peek();
-
-            if (next == default || next.ExecutionTime > CurrentTime)
-            {
-                stillhasActionThisTime = false;
+            if (eventQueue.Count == 0)
                 break;
-            }
+
+            ScheduledEvent next = eventQueue.Peek();
+
+            if (next.ExecutionTime > CurrentTime)
+                break;
 
             eventQueue.Dequeue();
 
@@ -47,21 +50,24 @@ public class EventScheduler
         if (needUpdateVisual)
         {
             UIManager.Instance.UpdateCellsVisual();
+
             needUpdateVisual = false;
         }
-
-        stillhasActionThisTime = false;
     }
 
-    public ScheduledEvent Schedule(
-        float delay,
-        Action action,
-        EventPriority priority = EventPriority.RandomEvent)
+    public ScheduledEvent Schedule(float delay, Action action, EventPriority priority = EventPriority.None, int order = -1)
     {
-        ScheduledEvent e = new(CurrentTime + delay, (int)priority, action, false);
+        ScheduledEvent e;
+        if (priority != lastPriority)
+            nextOrder = -1;
+
+        if (order < 0)
+            e = new(CurrentTime + delay, (int)priority, nextOrder++, action, false);
+        else
+            e = new(CurrentTime + delay, (int)priority, order, action, false);
 
         eventQueue.Enqueue(e);
-
+        lastPriority = priority;
         return e;
     }
 
@@ -74,5 +80,7 @@ public class EventScheduler
     {
         eventQueue.Clear();
         CurrentTime = 0;
+        lastPriority = EventPriority.None;
+        nextOrder = -1;
     }
 }

@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7afdb0a06e422141acda5af989526d4, type: 3}
   m_Name: Water Spread Data
   m_EditorClassIdentifier: 
+  methodName: Water
+  description: 
+  methodIcon: {fileID: 21300000, guid: 7c67103c456c7dd41a12797025002f8e, type: 3}
   baseConfig:
     methodType: 3
     baseInfectionPower: 1
-    methodOrder: 2
+    baseSterilizationResistance: 0
+    methodOrder: 1
     eventPriority: 3
     tickToSpread: 3
     spreadChanceWhenBlocked: 0
@@ -51,9 +55,9 @@ MonoBehaviour:
       - temperature: 1
         multiplier: 1
       - temperature: 2
-        multiplier: 1
+        multiplier: 0.5
       - temperature: 3
-        multiplier: 1
+        multiplier: 0.5
     populationModifiers:
       entries:
       - population: 1
@@ -62,3 +66,10 @@ MonoBehaviour:
         multiplier: 1
       - population: 3
         multiplier: 1
+  extraConfig:
+    increaseRangeIfAffectedByWaterFactory: 0
+    infectionGainPercentForWaterCell: 0
+    increaseBaseInfectionPowerIfWaterFactoryDisabled: 0
+    bonusBaseInfectionPowerPercentIfAWaterFactoryDisabled: 0
+    totalDisabledWaterFactory: 0
+    chanceToSpreadToNonWaterCell: 0

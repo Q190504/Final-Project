@@ -24,11 +24,31 @@ public class MountainGenerator : IMapGeneratorStep
         totalCell = w * h;
         System.Random mountainRandom = new(randomSeed);
 
-        int chainCount = mountainRandom.Next(
+        int mountainCount = mountainRandom.Next(
             config.minMountainChains,
             config.MaxMountainChains + 1);
 
-        for (int i = 0; i < chainCount; i++)
+        if (mountainCount > 0)
+        {
+            bool found = false;
+            foreach (GridCell cell in grid.GetGrid())
+            {
+                if (Utility.CheckIsValidPosForRiverOrLake(grid, new Vector2Int(cell.X, cell.Y)))
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                Debug.LogError("Can't find valid pos for mountain");
+                return;
+            }
+        }
+        else return;
+
+        for (int i = 0; i < mountainCount; i++)
         {
             Vector2Int start;
 
@@ -43,9 +63,7 @@ public class MountainGenerator : IMapGeneratorStep
         }
     }
 
-    private bool CanPlaceMountain(
-        Grid<GridCell> grid,
-        List<Vector2Int> cells)
+    private bool CanPlaceMountain(Grid<GridCell> grid, List<Vector2Int> cells)
     {
         bool[,] mountain = grid.GetMountainGrid();
         int incrementalMountainCells = 0;
@@ -70,9 +88,7 @@ public class MountainGenerator : IMapGeneratorStep
         #endregion
     }
 
-    private bool CheckConnectivityAfterPlacement(
-    Grid<GridCell> grid,
-    List<Vector2Int> newMountains)
+    private bool CheckConnectivityAfterPlacement(Grid<GridCell> grid, List<Vector2Int> newMountains)
     {
         int w = grid.GetWidth();
         int h = grid.GetHeight();
@@ -148,11 +164,7 @@ public class MountainGenerator : IMapGeneratorStep
         return reachable == futureLand;
     }
 
-
-    private void DrawMountain(
-        Grid<GridCell> grid,
-        Vector2Int start,
-        System.Random mountainRandom)
+    private void DrawMountain(Grid<GridCell> grid, Vector2Int start, System.Random mountainRandom)
     {
         //MountainData mountainData = new();
 
@@ -166,8 +178,7 @@ public class MountainGenerator : IMapGeneratorStep
         float minLength = config.minMountainLengthPercent * baseSize;
         float maxLength = config.maxMountainLengthPercent * baseSize;
 
-        int length = Mathf.FloorToInt(
-            Mathf.Lerp(minLength, maxLength, (float)mountainRandom.NextDouble()));
+        int length = Mathf.FloorToInt(Mathf.Lerp(minLength, maxLength, (float)mountainRandom.NextDouble()));
 
         //mountainData.targetLength = length;
 
@@ -181,11 +192,9 @@ public class MountainGenerator : IMapGeneratorStep
             float minRadius = config.minMountainRadiusPercent * baseSize;
             float maxRadius = config.maxMountainRadiusPercent * baseSize;
 
-            int radius = Mathf.FloorToInt(
-                Mathf.Lerp(minRadius, maxRadius, (float)mountainRandom.NextDouble()));
+            int radius = Mathf.FloorToInt(Mathf.Lerp(minRadius, maxRadius, (float)mountainRandom.NextDouble()));
 
-            List<Vector2Int> cells =
-                GetMountainStampCells(grid, current, radius);
+            List<Vector2Int> cells = GetMountainStampCells(grid, current, radius);
 
             if (!CanPlaceMountain(grid, cells))
                 break;
@@ -203,9 +212,7 @@ public class MountainGenerator : IMapGeneratorStep
         //return mountainData;
     }
 
-    private Vector2Int RandomizeDirection(
-        Vector2Int currentDir,
-        System.Random random)
+    private Vector2Int RandomizeDirection(Vector2Int currentDir, System.Random random)
     {
         int roll = random.Next(100);
 
@@ -221,10 +228,7 @@ public class MountainGenerator : IMapGeneratorStep
         return Utility.GetRandomCardinalDirection(random);
     }
 
-    private List<Vector2Int> GetMountainStampCells(
-    Grid<GridCell> grid,
-    Vector2Int center,
-    int radius)
+    private List<Vector2Int> GetMountainStampCells(Grid<GridCell> grid, Vector2Int center, int radius)
     {
         List<Vector2Int> cells = new();
 
@@ -255,10 +259,7 @@ public class MountainGenerator : IMapGeneratorStep
         return cells;
     }
 
-    private void StampMountain(
-    Grid<GridCell> grid,
-    List<Vector2Int> cells,
-    MountainSegment segment)
+    private void StampMountain(Grid<GridCell> grid, List<Vector2Int> cells, MountainSegment segment)
     {
         bool[,] mountain = grid.GetMountainGrid();
 
@@ -267,7 +268,7 @@ public class MountainGenerator : IMapGeneratorStep
             if (mountain[c.x, c.y])
                 continue;
 
-            mountain[c.x, c.y] = true;
+            grid.SetMoutainCell(c.x, c.y, true);
 
             segment.stampedCells.Add(c);
 

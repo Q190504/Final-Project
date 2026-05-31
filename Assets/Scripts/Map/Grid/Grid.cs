@@ -22,29 +22,6 @@ public class Grid<TGridObject>
     private int mountainCellCount = 0;
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition,
-        Func<Grid<TGridObject>, int, int, PopulationType, TemperatureType, StructureType, int, GridCell> createCell)
-    {
-        this.width = width;
-        this.height = height;
-        this.cellSize = cellSize;
-        this.originPosition = originPosition;
-
-        gridArray = new GridCell[width, height];
-        temperatureGridArray = new float[width, height];
-        populationGridArray = new float[width, height];
-        waterGridArray = new bool[width, height];
-        mountainGridArray = new bool[width, height];
-
-        for (int x = 0; x < gridArray.GetLength(0); x++)
-        {
-            for (int y = 0; y < gridArray.GetLength(1); y++)
-            {
-                gridArray[x, y] = createCell(this, x, y, PopulationType.High, TemperatureType.Normal, StructureType.None, 50);
-            }
-        }
-    }
-
-    public Grid(int width, int height, float cellSize, Vector3 originPosition,
     Func<Grid<TGridObject>, int, int, GridCell> createCell)
     {
         this.width = width;
@@ -193,6 +170,11 @@ public class Grid<TGridObject>
         return (x >= 0 && y >= 0 && x < width && y < height);
     }
 
+    public bool IsMapEdge(int x, int y)
+    {
+        return x == 0 || y == 0 || x == width - 1 || y == height - 1;
+    }
+
     public void IncrementWaterCellCount()
     {
         waterCellCount++;
@@ -294,7 +276,7 @@ public class Grid<TGridObject>
     {
         List<GridCell> neighbors = new();
 
-        for (int x = cell.X - range;  x <= cell.X + range; x++)
+        for (int x = cell.X - range; x <= cell.X + range; x++)
         {
             for (int y = cell.Y - range; y <= cell.Y + range; y++)
             {
@@ -337,11 +319,8 @@ public class Grid<TGridObject>
 
                 if (IsInBounds(nx, ny) && (dx * dx + dy * dy <= radius * radius))
                 {
-                    if (dx * dx + dy * dy <= radius * radius)
-                    {
-                        GridCell cell = GetCell(nx, ny);
-                        neighbours.Add(cell);
-                    }
+                    GridCell cell = GetCell(nx, ny);
+                    neighbours.Add(cell);
                 }
             }
         }

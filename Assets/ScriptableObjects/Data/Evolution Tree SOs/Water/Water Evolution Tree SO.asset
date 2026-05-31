@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cabf3f8c2012d499b5548dd9e4b54c, type: 3}
+  m_Name: Water Evolution Tree SO
+  m_EditorClassIdentifier: 
+  spreadType: 3
+  tiers:
+  - tierIndex: 0
+    choices:
+    - {fileID: 11400000, guid: 5eec3a5fb3799da4990a8c4e10eeb04b, type: 2}
+    - {fileID: 11400000, guid: be3e1992bb822a64e84dd3ab99cbbf40, type: 2}
+  - tierIndex: 1
+    choices:
+    - {fileID: 11400000, guid: 2359eb7335fa9794898ba208c3574b3f, type: 2}
+    - {fileID: 11400000, guid: 7a870156ea9d842488907ce8b0016cb1, type: 2}
+  - tierIndex: 2
+    choices:
+    - {fileID: 11400000, guid: 753c412af00ea5148bcb26dc0c3db21c, type: 2}
+    - {fileID: 11400000, guid: 83dbac38112f7984686067aea078c4f1, type: 2}

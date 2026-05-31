@@ -8,7 +8,11 @@ public abstract class Structure
     public abstract void DisapplyEffectToCellWhenDisabled(GridCell cell);
 
     public abstract void ApplyGlobalEffectWhenEnabled();
+    public abstract void ApplyGlobalEffectWhenDisabled();
+    public abstract void DisapplyGlobalEffectWhenEnabled();
     public abstract void DisapplyGlobalEffectWhenDisabled();
 
-    public abstract void ApplyTickEffect();
+    public abstract void ApplyTickGlobalEffect();
+
+    public abstract void ApplyTickEffectToCell(GridCell cell);
 }

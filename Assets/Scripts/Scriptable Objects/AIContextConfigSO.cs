@@ -4,7 +4,7 @@ using UnityEngine;
 public class AIContextConfigSO : ScriptableObject
 {
     [Header("Action's Strategic Weight")]
-    public Vector2 DisinfectStrategicWeight;
+    public Vector2 SterilizeStrategicWeight;
     public Vector2 LockdownStrategicWeight;
     public Vector2 BuildVaccineResearchCenterStrategicWeight;
     public Vector2 BuildHospitalStrategicWeight;

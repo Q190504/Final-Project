@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum EventPriority
 {
-    RandomEvent,
+    None,
     MapUpdate,
     HumanAction,
     InfectionSpread,

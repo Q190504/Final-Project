@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e991937bdbb1374e9f9053ad4777ee6, type: 3}
   m_Name: Airborne Spread Data
   m_EditorClassIdentifier: 
+  methodName: Air
+  description: 
+  methodIcon: {fileID: 21300000, guid: 7128ee89c443e024a9111b9d4744a11f, type: 3}
   baseConfig:
     methodType: 2
     baseInfectionPower: 1
-    methodOrder: 1
+    baseSterilizationResistance: 0
+    methodOrder: 2
     eventPriority: 3
     tickToSpread: 10
     spreadChanceWhenBlocked: 0
@@ -51,9 +55,9 @@ MonoBehaviour:
       - temperature: 1
         multiplier: 1
       - temperature: 2
-        multiplier: 1
+        multiplier: 0.5
       - temperature: 3
-        multiplier: 1
+        multiplier: 0.5
     populationModifiers:
       entries:
       - population: 1
@@ -62,3 +66,5 @@ MonoBehaviour:
         multiplier: 1
       - population: 3
         multiplier: 1
+  extraConfig:
+    distanceDecayFactor: 0.5

@@ -15,7 +15,16 @@ public class CellStructure
     public PriorityToMethods currentPriorityToMethods;
     public PriorityToMethods originalPriorityToMethods;
 
+    public int infectionPointWhenDisabled;
+    public int evolutionPointWhenDisabled;
+
+    public int infectionPointWhenDestroyed;
+    public int evolutionPointWhenDestroyed;
+
+    private Vector2Int pos;
+
     private GridCell parentCell;
+    private Grid<GridCell> grid;
 
     public CellStructure()
     {
@@ -37,18 +46,36 @@ public class CellStructure
             currentPriorityToHuman = originalPriorityToHuman = structureData.priorityToHuman;
             currentPriorityToMethods = originalPriorityToMethods = structureData.basePriorityToMethods;
 
+            infectionPointWhenDestroyed = structureData.infectionPointWhenDestroyed;
+            evolutionPointWhenDestroyed = structureData.evolutionPointWhenDestroyed;
+
             EnableStructure();
 
             return;
         }
     }
 
-    public void SetAffectedByStructuresListOfCellsInRange(Vector2Int pos, int range)
+    public void ApplyTickEffectToCellsInRange()
+    {
+        if (effectRange > 0 && grid != null)
+        {
+            List<GridCell> effectedCells = grid.GetNeighbourInCircleWithRange(pos.x, pos.y, effectRange);
+
+            foreach (GridCell cell in effectedCells)
+            {
+                logic.ApplyTickEffectToCell(cell);
+            }
+        }
+    }
+
+    public void SetAffectedByStructuresListOfCellsInRange(Vector2Int pos)
     {
         if (type == StructureType.None) return;
 
-        Grid<GridCell> grid = MapManager.Instance.GetGrid();
-        List<GridCell> effectedCells = grid.GetNeighbourInCircleWithRange(pos.x, pos.y, range);
+        this.pos = pos;
+
+        grid = MapManager.Instance.GetGrid();
+        List<GridCell> effectedCells = grid.GetNeighbourInCircleWithRange(pos.x, pos.y, effectRange);
         effectedCells.Add(parentCell);
         foreach (GridCell cell in effectedCells)
         {
@@ -58,12 +85,12 @@ public class CellStructure
         }
     }
 
-    public void RemoveAffectedByStructuresListOfCellsInRange(Vector2Int pos, int range)
+    public void RemoveAffectedByStructuresListOfCellsInRange(Vector2Int pos)
     {
         if (type == StructureType.None) return;
 
-        Grid<GridCell> grid = MapManager.Instance.GetGrid();
-        List<GridCell> effectedCells = grid.GetNeighbourInCircleWithRange(pos.x, pos.y, range);
+        grid = MapManager.Instance.GetGrid();
+        List<GridCell> effectedCells = grid.GetNeighbourInCircleWithRange(pos.x, pos.y, effectRange);
         effectedCells.Add(parentCell);
         foreach (GridCell cell in effectedCells)
         {
@@ -73,9 +100,9 @@ public class CellStructure
         }
     }
 
-    public void DisableStructure()
+    public PointsGainedStruct DisableStructure()
     {
-        if (type == StructureType.None || !isActive) return;
+        if (type == StructureType.None || !isActive) return new PointsGainedStruct(0, 0);
 
         isActive = false;
 
@@ -85,7 +112,7 @@ public class CellStructure
         {
             hasBeenDisabledBefore = true;
 
-            // TO DO: Add points to the player for the structure being disabled
+            return new PointsGainedStruct(evolutionPointWhenDisabled, infectionPointWhenDisabled);
         }
 
         originalPriorityToHuman = currentPriorityToHuman;
@@ -94,8 +121,9 @@ public class CellStructure
         originalPriorityToMethods = currentPriorityToMethods;
         currentPriorityToMethods = new PriorityToMethods();
 
-        if (effectRange > 0)
-            RemoveAffectedByStructuresListOfCellsInRange(new Vector2Int(parentCell.X, parentCell.Y), effectRange);
+        RemoveAffectedByStructuresListOfCellsInRange(new Vector2Int(parentCell.X, parentCell.Y));
+
+        return new PointsGainedStruct(0, 0);
     }
 
     public void EnableStructure()
@@ -109,16 +137,19 @@ public class CellStructure
         currentPriorityToHuman = originalPriorityToHuman;
         currentPriorityToMethods = originalPriorityToMethods;
 
-        if (effectRange > 0)
-            SetAffectedByStructuresListOfCellsInRange(new Vector2Int(parentCell.X, parentCell.Y), effectRange);
+        SetAffectedByStructuresListOfCellsInRange(new Vector2Int(parentCell.X, parentCell.Y));
     }
 
-    public void DestroyStructure()
+    public PointsGainedStruct DestroyStructure()
     {
-        DisableStructure();
-        // TO DO: Add points to the player for the structure being destroyed
+        PointsGainedStruct pointsGained = DisableStructure();
 
         SetDefaultValues();
+
+        pointsGained.evolutionPoints += evolutionPointWhenDestroyed;
+        pointsGained.infectionPoints += infectionPointWhenDestroyed;
+
+        return pointsGained;
     }
 
     private void SetDefaultValues()

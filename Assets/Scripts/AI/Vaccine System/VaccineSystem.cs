@@ -40,7 +40,7 @@ public class VaccineSystem : MonoBehaviour
         Stage = VaccineDevelopmentStage.NotStarted;
         mapManager = MapManager.Instance;
         uiManager = UIManager.Instance;
-        infectionResistanceModifier = new InfectionResistanceModifier(0, InfectionResistanceAdditiveSourceType.Vaccine);
+        infectionResistanceModifier = null;
     }
 
     public void UpdateProgress(float amount)
@@ -70,9 +70,20 @@ public class VaccineSystem : MonoBehaviour
             Debug.Log("Vaccine research reset to not started.");
         }
 
-        uiManager.SetVaccineProgress(Progress);
-        int resistanceAdditive = CalculateInfectionResistanceAdditive();
-        mapManager.UpdateMapInfectionResistanceByVaccine(infectionResistanceModifier, resistanceAdditive);
+        if (Stage != VaccineDevelopmentStage.NotStarted)
+        {
+            uiManager.SetVaccineProgress(Progress);
+            int resistanceAdditive = CalculateInfectionResistanceAdditive();
+            if (infectionResistanceModifier == null)
+            {
+                infectionResistanceModifier = new InfectionResistanceModifier(resistanceAdditive,
+                    InfectionResistanceAdditiveSourceType.Vaccine, ModifierType.Additive);
+
+                mapManager.AddInfectionResistanceByVaccineToMap(infectionResistanceModifier);
+            }
+            else
+                infectionResistanceModifier.Value = resistanceAdditive;
+        }
     }
 
     private int CalculateInfectionResistanceAdditive()

@@ -17,6 +17,26 @@ public class RiverGenerator : IMapGeneratorStep
 
         int riverCount = riverRandom.Next(config.minRiverCount, config.maxRiverCount + 1);
 
+        if (riverCount > 0)
+        {
+            bool found = false;
+            foreach (GridCell cell in grid.GetGrid())
+            {
+                if (Utility.CheckIsValidPosForRiverOrLake(grid, new Vector2Int(cell.X, cell.Y)))
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                Debug.LogError("Can't find valid pos for river");
+                return;
+            }
+        }
+        else return;
+
         for (int i = 0; i < riverCount; i++)
         {
             Vector2Int start;
@@ -26,14 +46,11 @@ public class RiverGenerator : IMapGeneratorStep
             }
             while (!Utility.CheckIsValidPosForRiverOrLake(grid, start));
 
-           grid.AddRiverData(GenerateRiver(grid, start, riverRandom));
+            grid.AddRiverData(GenerateRiver(grid, start, riverRandom));
         }
     }
 
-    private RiverData GenerateRiver(
-        Grid<GridCell> grid,
-        Vector2Int start,
-        System.Random random)
+    private RiverData GenerateRiver(Grid<GridCell> grid, Vector2Int start, System.Random random)
     {
         RiverData riverData = new();
 
@@ -47,8 +64,7 @@ public class RiverGenerator : IMapGeneratorStep
         float minLength = config.minRiverLengthPercent * baseSize;
         float maxLength = config.maxRiverLengthPercent * baseSize;
 
-        int length = Mathf.FloorToInt(
-            Mathf.Lerp(minLength, maxLength, (float)random.NextDouble()));
+        int length = Mathf.FloorToInt(Mathf.Lerp(minLength, maxLength, (float)random.NextDouble()));
         riverData.targetLength = length;
 
         Vector2Int direction = Utility.GetRandom8Direction(random);
@@ -61,8 +77,7 @@ public class RiverGenerator : IMapGeneratorStep
             float minRadius = config.minRiverRadiusPercent * baseSize;
             float maxRadius = config.maxRiverRadiusPercent * baseSize;
 
-            int radius = Mathf.FloorToInt(
-                Mathf.Lerp(minRadius, maxRadius, (float)random.NextDouble()));
+            int radius = Mathf.FloorToInt(Mathf.Lerp(minRadius, maxRadius, (float)random.NextDouble()));
 
             RiverSegment segment = new();
             Utility.StampRiver(grid, current, radius, segment);
@@ -75,9 +90,7 @@ public class RiverGenerator : IMapGeneratorStep
         return riverData;
     }
 
-    private Vector2Int RandomizeDirection(
-        Vector2Int currentDir,
-        System.Random random)
+    private Vector2Int RandomizeDirection(Vector2Int currentDir, System.Random random)
     {
         int roll = random.Next(100);
 

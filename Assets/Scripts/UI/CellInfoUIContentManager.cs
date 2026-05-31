@@ -19,6 +19,8 @@ public class CellInfoUIContentManager : MonoBehaviour
     [SerializeField] private CellInfoUIEntry infectionLevelEntry;
     [SerializeField] private CellInfoUIEntry stageEntry;
     [SerializeField] private CellInfoUIEntry infectionResistanceEntry;
+    [SerializeField] private CellInfoUIEntry sterilizationResistanceEntry;
+    [SerializeField] private CellInfoUIEntry sterilizationImmnuneDaysEntry;
     [SerializeField] private CellInfoUIEntry waterEntry;
     [SerializeField] private CellInfoUIEntry carrierEntry;
     [SerializeField] private CellInfoUIEntry isLockdownEntry;
@@ -159,8 +161,11 @@ public class CellInfoUIContentManager : MonoBehaviour
             SetupEntry(stageEntry, Safe(stageData != null ? $"Stage: {stageData.displayName}." : null), stageData != null ? stageData.sprite : null);
 
             SetupEntry(infectionResistanceEntry, $"Infection Resistance: {cellStats.finalInfectionResistance}.");
+            SetupEntry(sterilizationResistanceEntry, $"Sterilization Resistance: {cellStats.GetSterilizationResistance()}.");
+            SetupEntry(sterilizationImmnuneDaysEntry, $"Sterilization Immunity Days: {cellStats.sterilizationImmunityTicks}.");
 
             // ===== FLAGS =====
+            SetActiveSafe(sterilizationImmnuneDaysEntry, cellStats.sterilizationImmunityTicks > 0);
             SetActiveSafe(waterEntry, cellStats.HasWater());
             SetActiveSafe(carrierEntry, cellStats.hasCarrier);
             SetActiveSafe(isContagiousEntry, cellStats.isContagious);
@@ -175,7 +180,7 @@ public class CellInfoUIContentManager : MonoBehaviour
                     detectionValueEntry.Setup("Is detected!", detectedSprite);
                 else
                 {
-                    float detectionValue = Mathf.RoundToInt(cellStats.finalDetection * 100);
+                    float detectionValue = Mathf.FloorToInt(cellStats.finalDetection * 100);
                     detectionValueEntry.Setup(
                        $"Detection percent: {detectionValue}%.",
                        undetectedSprite

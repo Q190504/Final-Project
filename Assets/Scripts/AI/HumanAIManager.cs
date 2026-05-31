@@ -22,11 +22,15 @@ public class HumanAIManager : MonoBehaviour
     [Header("Skill Threat")]
     public float MaxSkillUseThreat = 10f;
 
+    [Header("AI Context Config")]
     public AIContextConfigSO aiContextConfigSO;
 
+    [Header("Settings")]
     public ThreatTier ThreatTierWhenHavingReducedCooldown;
     [Range(0f, 1f), Tooltip("Multiplier for the action's reduced cooldown time when at the final threat tier.")]
     public float ReducedCooldownModifier;
+
+    public AIContext currentContext;
 
     private Dictionary<HumanActionType, HumanAction> humanActionDataDict;
 
@@ -46,7 +50,7 @@ public class HumanAIManager : MonoBehaviour
     public void Tick(AIContext ctx)
     {
         mapManager.UpdateMap(ctx);
-        contextBuilder.Build(ctx, Mathf.RoundToInt(timeManager.CurrentTick));
+        contextBuilder.Build(ctx, Mathf.FloorToInt(timeManager.CurrentTick));
 
         ThreatTierSO currentThreatTier = PropertyDataManager.Instance.GetThreatTierData(ctx.ThreatTier);
         UpdateUI(currentThreatTier);
@@ -184,7 +188,7 @@ public class HumanAIManager : MonoBehaviour
         {
             return penalty;
         }
-        else if (inst.Action.Data.ActionType == HumanActionType.Disinfect)
+        else if (inst.Action.Data.ActionType == HumanActionType.Sterilize)
         {
             foreach (var cell in inst.Cells)
             {
@@ -199,8 +203,8 @@ public class HumanAIManager : MonoBehaviour
     {
         return type switch
         {
-            HumanActionType.Disinfect => Mathf.Lerp(aiContextConfigSO.DisinfectStrategicWeight.x,
-            aiContextConfigSO.DisinfectStrategicWeight.y, threat),
+            HumanActionType.Sterilize => Mathf.Lerp(aiContextConfigSO.SterilizeStrategicWeight.x,
+            aiContextConfigSO.SterilizeStrategicWeight.y, threat),
             HumanActionType.Lockdown => Mathf.Lerp(aiContextConfigSO.LockdownStrategicWeight.x,
             aiContextConfigSO.LockdownStrategicWeight.y, threat),
             HumanActionType.BuildHospital => Mathf.Lerp(aiContextConfigSO.BuildHospitalStrategicWeight.x,
@@ -269,6 +273,7 @@ public class HumanAIManager : MonoBehaviour
         timeManager.ScheduleEvent(delayTicks, () =>
         {
             AIContext ctx = new();
+            currentContext = ctx;
             Tick(ctx);
         }, EventPriority.HumanAction);
     }
@@ -290,7 +295,5 @@ public class HumanAIManager : MonoBehaviour
 
         if (Mathf.Abs(multipilers - 1f) > 0.0001f)
             Debug.LogWarning($"Multipliers for threatLevel should sum to 1. Current sum = {multipilers}");
-        else
-            Debug.Log($"Multipliers for threatLevel are valid. Current sum = {multipilers}");
     }
 }

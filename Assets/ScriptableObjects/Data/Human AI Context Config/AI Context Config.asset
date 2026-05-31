@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9b112ef5160d840a0a8dc30dd6cc53, type: 3}
   m_Name: AI Context Config
   m_EditorClassIdentifier: 
-  DisinfectStrategicWeight: {x: 1, y: 0.5}
+  SterilizeStrategicWeight: {x: 1, y: 0.5}
   LockdownStrategicWeight: {x: 0.75, y: 1.2}
   BuildVaccineResearchCenterStrategicWeight: {x: 0.6, y: 1}
   BuildHospitalStrategicWeight: {x: 0.2, y: 1}

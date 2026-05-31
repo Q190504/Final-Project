@@ -39,8 +39,8 @@ MonoBehaviour:
     spawnRateOnEnvironment: 0
   - environmentTypeCanSpawn: 11
     spawnRateOnEnvironment: 0
-  spawnRate: 0.2
-  maxAmountInAMatch: 6
+  spawnRate: 0.3
+  maxAmountInAMatch: 10
   effectRangePercent: 0.08
   priorityToHuman: 0.3333333
   basePriorityToMethods:
@@ -49,8 +49,8 @@ MonoBehaviour:
     waterPriority: 0
     carrierPriority: 0
   infectionPointWhenDestroyed: 25
-  dnaPointWhenDestroyed: 25
-  mutationPointWhenDestroyed: 25
+  evolutionPointWhenDestroyed: 15
   extraConfig:
-    inreasedInfectionResistance: 10
-    disinfectAmount: 100
+    additionalInfectionResistance: 30
+    sterilizeAmountWhenPlaced: 100
+    sterilizeAmountEachTick: 10

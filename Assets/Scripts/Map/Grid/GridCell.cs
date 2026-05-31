@@ -17,17 +17,6 @@ public class GridCell
         Y = y;
 
         Stats = new CellStats();
-
-        SetCellData(PopulationType.None, TemperatureType.None, StructureType.None, CellStageType.Safe);
-    }
-
-    public void SetCellData(PopulationType populationType, TemperatureType tempuratureType, StructureType structureType, CellStageType cellStageType)
-    {
-        Stats.population.type = populationType;
-        Stats.tempurature.type = tempuratureType;
-        Stats.environment.SetEnvironmentType(populationType, tempuratureType);
-        Stats.structure.type = structureType;
-        Stats.stage.SetCellStageType(cellStageType, Stats);
     }
 
     public string GetIndexToString()
@@ -40,8 +29,10 @@ public class GridCell
         Debug.Log($"Cell ({X}, {Y})\n" +
             $"Infec Level: {Stats.infectionLevel}\n" +
             $"Stage: {Stats.stage.type}\n" +
-            $"Current Infec Restist: {Stats.finalInfectionResistance}\n" +
-            $"Base Restist: {Stats.baseInfectionResistance}\n" +
+            $"Current Infec Restist: {Stats.GetInfectionResistance()}\n" +
+            $"Base Infec Restist: {Stats.baseInfectionResistance}\n" +
+            $"Current Sterilization Restist: {Stats.GetSterilizationResistance()}\n" +
+            $"Base Sterilization Restist: {Stats.baseSterilizationResistance}\n" +
             $"isContagious: {Stats.isContagious}\n" +
             $"isBlocked: {Stats.isBlocked}\n" +
             $"isLockdown: {Stats.isLockdown}\n" +
@@ -58,9 +49,8 @@ public class GridCell
             $"Affected by: {Stats.affectedByStructures}\n" +
             $"canSwitchToDead: {Stats.canSwitchToDead}\n" +
             $"toDeadTicksCount: {Stats.toDeadTicksCount}\n" +
-            $"canBeDisinfected: {Stats.canBeDisinfected}\n" +
-            $"disinfectionImmunityTicks: {Stats.disinfectionImmunityTicks}\n" +
-            $"disinfectionImmunityTicksCount: {Stats.disinfectionImmunityTicksCount}\n" +
+            $"canBeSterilized: {Stats.canBeSterilized}\n" +
+            $"sterilizationImmunityTicks: {Stats.sterilizationImmunityTicks}\n" +
             $"priorityToHuman: {Stats.priorityToHuman}\n" +
             $"priorityToSurface: {Stats.priorityToMethods.surfacePriority}\n" +
             $"priorityToAir: {Stats.priorityToMethods.airPriority}\n" +
@@ -83,9 +73,9 @@ public class GridCell
             && Stats.stage.type != CellStageType.Immune;
     }
 
-    public float GetStageInfectionIncreasePercent()
+    public float GetBonusInfectionGainPercentOfStage()
     {
-        return Stats.targetInfectionIncreasePercent;
+        return Stats.bonusTargetInfectionGainPercent;
     }
 
     public bool IsAffectedByStructure(StructureType structureType)

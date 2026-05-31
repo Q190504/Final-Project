@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8197c428dc8c5394ba601def6f840dcc, type: 3}
+  m_Name: Water 2B Upgrade Node SO
+  m_EditorClassIdentifier: 
+  upgradeName: Water 2B
+  description: Increase the chances of successful spreading to locked cells.
+  icon: {fileID: 0}
+  effects:
+  - {fileID: 11400000, guid: 4a0208a1bc508e0498eddcce22a8f972, type: 2}

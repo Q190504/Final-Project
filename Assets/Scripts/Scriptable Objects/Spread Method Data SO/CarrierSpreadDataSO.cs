@@ -6,7 +6,8 @@ public struct CarrierExtraConfig
     public float travelTime;
     public float baseCarrierSpawnChance;
     public float structurePriority;
-    public int spreadCellCount;
+    public int targetCellCountForEachOriginCell;
+    public float weightBonusForSafeCells;
 }
 
 [CreateAssetMenu(fileName = "Carrier Spread Data", menuName = "Scriptable Objects/Spread Method/Carrier")]
@@ -14,8 +15,13 @@ public class CarrierSpreadDataSO : SpreadMethodDataSO
 {
     public CarrierExtraConfig extraConfig;
 
-    public override ISpreadMethod CreateMethod(Grid<GridCell> grid)
+    public override ISpreadMethod CreateMethod(SpreadMethodContext context)
     {
-        return new CarrierSpreadMethod(grid, this);
+        return new CarrierSpreadMethod(context, this);
+    }
+
+    public override SpreadMethodRuntimeData CreateRuntimeData()
+    {
+        return new CarrierRuntimeData(this);
     }
 }

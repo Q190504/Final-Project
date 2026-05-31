@@ -47,7 +47,7 @@ public abstract class HumanAction
         if (ctx.ThreatTier == reducedCooldownTier)
             dynamicCooldown = data.cooldownTicks * reducedCooldownModifier;
 
-        int minCooldown = Mathf.Max(1, Mathf.RoundToInt(dynamicCooldown));
+        int minCooldown = Mathf.Max(1, Mathf.FloorToInt(dynamicCooldown));
 
         cooldownTicks = minCooldown;
 

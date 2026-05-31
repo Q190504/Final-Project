@@ -15,7 +15,7 @@ MonoBehaviour:
   tierType: 3
   tierName: Vaccine
   threatRange:
-    min: 0.2
+    min: 0.15
     max: 0.7
   maxActionsPerTick: 3
   availableActions: 0000000001000000020000000300000004000000

@@ -116,17 +116,7 @@ public class BuildHospitalAction : HumanAction
             float contribution = neighborStats.population.weight * need + infectionBonus;
 
             rawUtility += contribution;
-
-            //// HOSPITAL DISTANCE PENALTY
-            //if (neighborStats.structure.type == StructureType.Hospital)
-            //{
-            //    float d = Mathf.Max(1f, dist);
-            //    hospitalPenalty += extraConfig.hospitalDistancePenaltyWeight / d;
-            //}
         }
-
-        //// penalty if build near other hospitals
-        //rawUtility -= hospitalPenalty;
 
         return rawUtility;
     }
@@ -144,7 +134,8 @@ public class BuildHospitalAction : HumanAction
     {
         float totalBenefit = 0f;
         float infectionBonus = 0f;
-        float hospitalPenalty = 0f;
+        float totalHospitalPenalty = 0f;
+        float totalCantBeSterilizedPenalty = 0f;
 
         int cellCount = 0;
 
@@ -165,21 +156,35 @@ public class BuildHospitalAction : HumanAction
 
             // BENEFIT
             float resistanceLack = (maxInfectionResistance - neighborStats.finalInfectionResistance);
-            float benefit =
-                neighborStats.population.weight *
-                resistanceLack *
-                detectWeight;
+            float benefit = neighborStats.population.weight *
+                (resistanceLack * detectWeight);
 
             totalBenefit += benefit;
-
-            // INFECTION BONUS
-            infectionBonus += neighborStats.infectionLevel * detectWeight;
 
             // HOSPITAL DISTANCE PENALTY
             if (neighborStats.structure.type == StructureType.Hospital)
             {
                 float d = Mathf.Max(1f, dist);
-                hospitalPenalty += extraConfig.hospitalDistancePenaltyWeight / d;
+                totalHospitalPenalty += extraConfig.hospitalDistancePenaltyWeight / d;
+            }
+
+            if (neighborStats.isDetected)
+            {
+                if (!neighborStats.canBeSterilized)
+                {
+                    totalCantBeSterilizedPenalty += extraConfig.CellCantBeSterilizedPenalty;
+                }
+                else
+                {
+                    // INFECTION BONUS
+                    infectionBonus += neighborStats.infectionLevel * detectWeight;
+                }
+            }
+            else
+            {
+                totalCantBeSterilizedPenalty += extraConfig.CellCantBeSterilizedPenalty / extraConfig.undetectedCellWeight;
+                // INFECTION BONUS
+                infectionBonus += neighborStats.infectionLevel * detectWeight;
             }
         }
 
@@ -190,7 +195,8 @@ public class BuildHospitalAction : HumanAction
             avg * extraConfig.avgBenefitWeight
             + totalBenefit * extraConfig.totalBenefitWeight
             + infectionBonus
-            - hospitalPenalty;
+            - totalHospitalPenalty
+            - totalCantBeSterilizedPenalty;
 
         return finalScore;
     }

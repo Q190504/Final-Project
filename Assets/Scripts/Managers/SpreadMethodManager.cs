@@ -73,10 +73,17 @@ public class SpreadMethodManager : MonoBehaviour
 
         Grid<GridCell> grid = MapManager.Instance.GetGrid();
 
+        SpreadMethodContext spreadMethodContext = new()
+        {
+            Grid = grid,
+            TimeManager = TimeManager.Instance,
+            MapManager = MapManager.Instance,
+            HumanAIManager = HumanAIManager.Instance
+        };
+
         foreach (SpreadMethodDataSO methodData in spreadMethodDatas)
         {
-            ISpreadMethod method = methodData.CreateMethod(grid);
-            method.Initialize();
+            ISpreadMethod method = methodData.CreateMethod(spreadMethodContext);
             spreadMethods.Add(method);
         }
 
@@ -89,6 +96,34 @@ public class SpreadMethodManager : MonoBehaviour
         foreach (ISpreadMethod method in spreadMethods)
         {
             method.Start();
+        }
+    }
+
+    public SpreadMethodRuntimeData GetRuntimeData(SpreadMethodType type)
+    {
+        ISpreadMethod method = spreadMethods.Find(m => m.GetConfig().methodType == type);
+        if (method != null)
+        {
+            return method.GetRuntimeData();
+        }
+        else
+        {
+            Debug.LogError($"Spread method not found for type {type}");
+            return null;
+        }
+    }
+
+    public SpreadMethodContext GetSpreadMethodContext(SpreadMethodType type)
+    {
+        ISpreadMethod method = spreadMethods.Find(m => m.GetConfig().methodType == type);
+        if (method != null)
+        {
+            return method.GetContext();
+        }
+        else
+        {
+            Debug.LogError($"Spread method not found for type {type}");
+            return null;
         }
     }
 }

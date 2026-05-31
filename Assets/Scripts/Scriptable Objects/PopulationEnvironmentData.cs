@@ -11,6 +11,10 @@ public class PopulationData : ScriptableObject
     public float minPopulationValue;
     public float maxPopulationValue;
 
+    [Header("Point Multipliers")]
+    public float evolutionPointMultiplier = 1f;
+    public float infectionPointMultiplier = 1f;
+
     public float weight;
 
     public float priorityToHuman;

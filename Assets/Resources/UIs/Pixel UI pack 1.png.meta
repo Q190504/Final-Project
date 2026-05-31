@@ -1258,7 +1258,7 @@ TextureImporter:
         height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 2, z: 5, w: 2}
       customData: 
       outline: []
       physicsShape: []
@@ -1368,7 +1368,7 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 6, y: 7, z: 6, w: 5}
       customData: 
       outline: []
       physicsShape: []
@@ -1390,7 +1390,7 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 6, y: 7, z: 6, w: 5}
       customData: 
       outline: []
       physicsShape: []
@@ -1412,7 +1412,7 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 6, y: 7, z: 6, w: 5}
       customData: 
       outline: []
       physicsShape: []
@@ -1764,7 +1764,7 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 7, z: 7, w: 6}
       customData: 
       outline: []
       physicsShape: []
@@ -1786,7 +1786,7 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 7, z: 7, w: 6}
       customData: 
       outline: []
       physicsShape: []
@@ -1808,7 +1808,7 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 7, z: 7, w: 6}
       customData: 
       outline: []
       physicsShape: []
@@ -3543,7 +3543,7 @@ TextureImporter:
         x: 32
         y: 209
         width: 16
-        height: 14
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3741,7 +3741,7 @@ TextureImporter:
         x: 1
         y: 209
         width: 14
-        height: 14
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3761,9 +3761,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 17
-        y: 210
+        y: 209
         width: 14
-        height: 10
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -6295,7 +6295,7 @@ TextureImporter:
         width: 30
         height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6304,6 +6304,72 @@ TextureImporter:
       bones: []
       spriteID: 8210b1815f57fe649bc12bd6040ed9b0
       internalID: 1028523296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel UI pack 1_280
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 209
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5770ba3420195749820dcceb2c4ae82
+      internalID: -2031920314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel UI pack 1_281
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 209
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 401f454b9ea56d44a81dccda3ab2ab56
+      internalID: 2039888564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel UI pack 1_282
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 432
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 2, z: 1, w: 1}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f98316016ead3747960d1e698aa9d4b
+      internalID: 651381660
       vertices: []
       indices: 
       edges: []
@@ -6524,6 +6590,9 @@ TextureImporter:
       Pixel UI pack 1_278: 1629117127
       Pixel UI pack 1_279: 1028523296
       Pixel UI pack 1_28: 1134188845
+      Pixel UI pack 1_280: -2031920314
+      Pixel UI pack 1_281: 2039888564
+      Pixel UI pack 1_282: 651381660
       Pixel UI pack 1_29: -301896842
       Pixel UI pack 1_3: 969640030
       Pixel UI pack 1_30: 1381976431

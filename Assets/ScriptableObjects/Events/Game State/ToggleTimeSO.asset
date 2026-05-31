@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98eb5c2019aa52a4fa9f29fa37a0615d, type: 3}
+  m_Script: {fileID: 11500000, guid: a9e63cb2edf005941be580274da40dfb, type: 3}
   m_Name: ToggleTimeSO
   m_EditorClassIdentifier: 

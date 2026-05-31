@@ -29,7 +29,7 @@ public class Airport : Structure
 
     }
 
-    public override void ApplyTickEffect()
+    public override void ApplyTickGlobalEffect()
     {
 
     }
@@ -42,5 +42,20 @@ public class Airport : Structure
     public override void DisapplyEffectToCellWhenEnabled(GridCell cell)
     {
         cell.Stats.UpdateIncreaseCarrierSpreadChance(-extraConfig.increaseCarrierSpawningPercent);
+    }
+
+    public override void ApplyTickEffectToCell(GridCell cell)
+    {
+
+    }
+
+    public override void ApplyGlobalEffectWhenDisabled()
+    {
+
+    }
+
+    public override void DisapplyGlobalEffectWhenEnabled()
+    {
+
     }
 }

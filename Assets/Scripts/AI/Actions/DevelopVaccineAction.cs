@@ -5,8 +5,8 @@ public class DevelopVaccineAction : HumanAction
 {
     private DevelopVaccineActionExtraConfig extraConfig;
 
-    private int maxInfectionResistance;
-    private int possibleInfectionResistanceIncreasementIfExecute;
+    //private int maxInfectionResistance;
+    //private int possibleInfectionResistanceIncreasementIfExecute;
 
     private VaccineSystem vaccineSystem;
 
@@ -15,9 +15,9 @@ public class DevelopVaccineAction : HumanAction
         this.extraConfig = extraConfig;
         vaccineSystem = VaccineSystem.Instance;
 
-        maxInfectionResistance = Utility.maxInfectionResistance;
-        possibleInfectionResistanceIncreasementIfExecute = 
-            vaccineSystem.CalculateInfectionResistanceIncreasementIfExecute(extraConfig.VaccineProgressPerExecution);
+        //maxInfectionResistance = Utility.maxInfectionResistance;
+        //possibleInfectionResistanceIncreasementIfExecute = 
+        //    vaccineSystem.CalculateInfectionResistanceIncreasementIfExecute(extraConfig.VaccineProgressPerExecution);
 
         ThreatTierSO vaccineThreatTier = PropertyDataManager.Instance.GetThreatTierData(ThreatTier.Vaccine);
 

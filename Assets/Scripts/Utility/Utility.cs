@@ -10,8 +10,11 @@ public static class Utility
     public const int minInfectionResistance = 0;
     public const int maxInfectionResistance = 100;
 
-    public const int minTargetInfectionIncreasePercent = 0;
-    public const int maxTargetInfectionIncreasePercent = 100;
+    public const int minSterilizationResistance = 0;
+    public const int maxSterilizationResistance = 100;
+
+    public const float minTargetInfectionIncreasePercent = 0f;
+    public const float maxTargetInfectionIncreasePercent = 1f;
 
     public const float minDetection = 0f;
     public const float maxDetection = 1f;
@@ -126,9 +129,7 @@ public static class Utility
         }
     }
 
-    public static Vector2Int GetRandomPosition(
-    Grid<GridCell> grid,
-    System.Random random)
+    public static Vector2Int GetRandomPosition(Grid<GridCell> grid, System.Random random)
     {
         return new Vector2Int(
             random.Next(0, grid.GetWidth() - 1),
@@ -258,6 +259,23 @@ public static class Utility
 
     public static int CreateUrban(Grid<GridCell> grid, int w, int h, MapConfig config, System.Random populationRandom, PopulationData urbanData)
     {
+        bool found = false;
+
+        foreach (GridCell cell in grid.GetGrid())
+        {
+            if (CheckIsValidPosForUrban(grid, new Vector2Int(cell.X, cell.Y)))
+            {
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            Debug.LogError("can't find Valid Pos For Urban");
+            return 0;
+        }
+
         int cx, cy;
         do
         {
@@ -265,7 +283,7 @@ public static class Utility
             cx = populationRandom.Next(0, w);
             cy = populationRandom.Next(0, h);
         }
-        while (CheckIsValidPosForUrban(grid, new Vector2Int(cx, cy)));
+        while (!CheckIsValidPosForUrban(grid, new Vector2Int(cx, cy)));
 
         // Strength of this center (how dense it is at peak)
         float strength = urbanData.maxPopulationValue;
@@ -348,5 +366,10 @@ public static class Utility
         return grid.IsInBounds(pos.x, pos.y)
             && !grid.GetWaterGrid()[pos.x, pos.y]
             && !grid.GetMountainGrid()[pos.x, pos.y];
+    }
+
+    public static int GetDistance(GridCell a, GridCell b)
+    {
+        return Mathf.Max(Mathf.Abs(a.X - b.X), Mathf.Abs(a.Y - b.Y));
     }
 }

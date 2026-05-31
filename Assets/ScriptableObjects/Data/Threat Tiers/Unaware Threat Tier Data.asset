@@ -16,6 +16,6 @@ MonoBehaviour:
   tierName: Unaware
   threatRange:
     min: 0
-    max: 0.05
+    max: 0.03
   maxActionsPerTick: 0
   availableActions: 

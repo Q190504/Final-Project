@@ -15,7 +15,7 @@ MonoBehaviour:
   tierType: 2
   tierName: Lockdown
   threatRange:
-    min: 0.1
-    max: 0.2
+    min: 0.05
+    max: 0.15
   maxActionsPerTick: 1
   availableActions: 0000000001000000

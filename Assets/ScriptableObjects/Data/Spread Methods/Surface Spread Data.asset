@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ffc3a80973e6443b349fd804a64f18, type: 3}
   m_Name: Surface Spread Data
   m_EditorClassIdentifier: 
+  methodName: Surface
+  description: 
+  methodIcon: {fileID: 21300000, guid: 9c56ffe0b5e934b4f8c9031bd4c4f0ec, type: 3}
   baseConfig:
     methodType: 1
     baseInfectionPower: 2
+    baseSterilizationResistance: 0
     methodOrder: 0
     eventPriority: 3
     tickToSpread: 3
@@ -51,9 +55,9 @@ MonoBehaviour:
       - temperature: 1
         multiplier: 1
       - temperature: 2
-        multiplier: 1
+        multiplier: 0.5
       - temperature: 3
-        multiplier: 1
+        multiplier: 0.5
     populationModifiers:
       entries:
       - population: 1
@@ -62,3 +66,8 @@ MonoBehaviour:
         multiplier: 1
       - population: 3
         multiplier: 1
+  extraConfig:
+    disinfectionImmunityTicks: 0
+    infectionPowerPercentBonusEachNeighbor: 0
+    targetInfectionGainPercentForCriticalOriginCell: 0
+    minTickToBonusSterilizationResistancePercent: 0

@@ -20,7 +20,12 @@ public class CellStats
     public int finalInfectionResistance = 0;
     private List<InfectionResistanceModifier> infectionResistanceModifiers = new();
 
-    public float targetInfectionIncreasePercent = 0;
+    public int baseSterilizationResistance = 0;
+    public float baseSerilizationResistanceMultiplier = 1f;
+    public int finalSterilizationResistance = 0;
+    private List<SterilizationResistanceModifier> sterilizationResistanceModifiers = new();
+
+    public float bonusTargetInfectionGainPercent = 0;
 
     public bool isDetected = false;
     public float baseDetection = 0;
@@ -39,20 +44,32 @@ public class CellStats
     public bool hasCarrier = false;
     public float additionalCarrierSpreadChancePercent = 0;
 
-    //public bool currentHasWater = false;
-    //public bool originalHasWater = false;
-
     public bool canSwitchToDead = false;
     public float toDeadTicksCount = 0;
 
-    public bool canBeDisinfected = false;
-    public float disinfectionImmunityTicks = 0;
-    public float disinfectionImmunityTicksCount = 0;
+    public bool canBeSterilized = true;
+    public int sterilizationImmunityTicks = 0;
 
     public float priorityToHuman;
     public PriorityToMethods priorityToMethods;
 
+    private int tickInfectedCount = 0;
+
+    #region Surface's upgrade
+
+    private int minTickToBonusSterilizationResistance = -1;
+    private SterilizationResistanceModifier sterilizationResistanceModifierIfInfectedForALongTime = null;
+
+    #endregion
+
+    #region Water's upgrade
+
+    private SterilizationResistanceModifier sterilizationResistanceModifierForWaterCell = null;
+
+    #endregion
+
     private MapManager mapManager;
+    private Grid<GridCell> grid;
     private CellDetectionModifier lockdownDetectionModifier = null;
 
     public CellStats()
@@ -80,8 +97,6 @@ public class CellStats
 
         if (environment == EnvironmentType.Water)
         {
-            //this.originalHasWater = true;
-            //this.currentHasWater = true;
             this.canBuildStructure = false;
             this.canHasCarrier = false;
         }
@@ -95,6 +110,7 @@ public class CellStats
 
         UpdateHumanPriority();
         mapManager = MapManager.Instance;
+        grid = mapManager.GetGrid();
     }
 
     public void SetStats(float populationValue, float tempuratureValue, GridCell cell)
@@ -105,6 +121,7 @@ public class CellStats
         this.environment.SetEnvironmentType(population.type, tempurature.type);
         UpdateHumanPriority();
         mapManager = MapManager.Instance;
+        grid = mapManager.GetGrid();
     }
 
     public void SetStructure(StructureType structure, GridCell cell)
@@ -143,12 +160,14 @@ public class CellStats
         isLockdown = value;
         if (isLockdown)
         {
-            SetInfectionLevel(0);
+            if (canBeSterilized)
+                SetInfectionLevel(0);
+
             isContagious = false;
             isBlocked = true;
             lockdownRemainingTicks = lockdownDuration;
 
-            lockdownInfectionResistanceModifier = new(infectionResistanceIncreased, InfectionResistanceAdditiveSourceType.Lockdown);
+            lockdownInfectionResistanceModifier = new(infectionResistanceIncreased, InfectionResistanceAdditiveSourceType.Lockdown, ModifierType.Additive);
             AddInfectionResistanceModifier(lockdownInfectionResistanceModifier);
             lockdownDetectionModifier = AddDetectionModifier(1f, DetectionAdditiveSourceType.Lockdown, ctx);
 
@@ -192,17 +211,24 @@ public class CellStats
     #region Infection Level
 
     /// <summary>
-    /// Increase or decrease the infection level of the cell by the value
+    /// Increase or decrease the infection level of the cell by the value. Return infection points and evolution points gained from this update. 
+    /// If the cell is already dead, this method will not change the infection level and will return zero points.
     /// </summary>
-    public void UpdateInfectionLevel(int value)
+    public PointsGainedStruct UpdateInfectionLevel(int value)
     {
         if (stage.type == CellStageType.Dead)
-            return;
+            return new PointsGainedStruct(0, 0);
 
         infectionLevel += value;
         if (infectionLevel < Utility.minInfectionLevel) infectionLevel = Utility.minInfectionLevel;
         else if (infectionLevel > Utility.maxInfectionLevel) infectionLevel = Utility.maxInfectionLevel;
-        SetStage(stage.SetCellStageType(this.infectionLevel, this));
+
+        (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(this.infectionLevel, this);
+
+        SetStage(cellStageResult.Item1);
+        PointsGainedStruct finalPointsGained = GetFinalPointGained(cellStageResult.Item2, population.type);
+
+        return finalPointsGained;
     }
 
     /// <summary>
@@ -222,15 +248,15 @@ public class CellStats
 
         this.infectionLevel = infectionLevel;
 
-        SetStage(stage.SetCellStageType(this.infectionLevel, this));
+        (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(this.infectionLevel, this);
+
+        SetStage(cellStageResult.Item1);
     }
 
     public void SetStage(CellStageType cellStageType)
     {
         if (stage.type == CellStageType.Dead)
             return;
-
-        stage.SetCellStageType(cellStageType, this);
 
         mapManager.UpdateInfectedRateAndDeadRate(new Vector2Int(parentCell.X, parentCell.Y),
             cellStageType, population.weight);
@@ -248,10 +274,16 @@ public class CellStats
             infectionLevel = cellStageStats.minInfectionValue;
         }
 
-        targetInfectionIncreasePercent = cellStageStats.targetInfectionIncreasePercent;
+        bonusTargetInfectionGainPercent = cellStageStats.bonusTargetInfectionGainPercent;
         canBuildStructure = cellStageStats.canBuildStructure;
         canHasCarrier = cellStageStats.canHasCarrier;
-        canBeDisinfected = cellStageStats.canBeDisinfected;
+        canBeSterilized = cellStageStats.canBeSterilized;
+
+        if (stage.type == CellStageType.Safe || stage.type == CellStageType.Immune)
+        {
+            tickInfectedCount = 0;
+            RemoveSterilizationResistanceModifierIfInfectedForALongTime();
+        }
 
         if (!isLockdown)
         {
@@ -280,9 +312,12 @@ public class CellStats
 
     public InfectionResistanceModifier AddInfectionResistanceModifier(InfectionResistanceModifier modifier)
     {
-        infectionResistanceModifiers.Add(modifier);
+        if (!infectionResistanceModifiers.Contains(modifier))
+        {
+            infectionResistanceModifiers.Add(modifier);
+            RecalculateInfectionResistance();
+        }
 
-        RecalculateInfectionResistance();
         return modifier; // return the modifier so that it can be removed later if needed
     }
 
@@ -294,32 +329,27 @@ public class CellStats
         }
     }
 
-    public InfectionResistanceModifier UpdateInfectionResistanceModifierValue(InfectionResistanceModifier modifier, int newValue)
+    public void UpdateInfectionResistanceMultiplier(float value)
     {
-        if (!infectionResistanceModifiers.Contains(modifier))
-        {
-            modifier.Value = newValue;
-            return AddInfectionResistanceModifier(modifier);
-        }
-        else
-            modifier.Value = newValue;
-
+        infectionResistanceMultiplier += value;
         RecalculateInfectionResistance();
-
-        return modifier;
     }
 
-    private void RecalculateInfectionResistance()
+    public void RecalculateInfectionResistance()
     {
-        int total = 0;
+        float additive = 0;
+        float multiplier = infectionResistanceMultiplier;
 
         foreach (var mod in infectionResistanceModifiers)
         {
-            total += mod.Value;
+            if (mod.ModifierType == ModifierType.Additive)
+                additive += mod.Value;
+            else
+                multiplier += mod.Value;
         }
 
         finalInfectionResistance = Mathf.Clamp(
-            Mathf.RoundToInt((baseInfectionResistance + total) * infectionResistanceMultiplier),
+            Mathf.FloorToInt((baseInfectionResistance + additive) * multiplier),
             Utility.minInfectionResistance,
             Utility.maxInfectionResistance
         );
@@ -328,6 +358,74 @@ public class CellStats
             SetStage(CellStageType.Immune);
 
         parentCell.CheckIsBeingShownInfo();
+    }
+
+    public int GetInfectionResistance()
+    {
+        RecalculateInfectionResistance();
+        return finalInfectionResistance;
+    }
+
+    #endregion
+
+    #region Sterilization Resistance
+
+    public int GetSterilizationResistance()
+    {
+        return finalSterilizationResistance;
+    }
+
+    public SterilizationResistanceModifier AddSterilizationResistanceModifier(SterilizationResistanceModifier modifier)
+    {
+        sterilizationResistanceModifiers.Add(modifier);
+
+        RecalculateSterilizationResistance();
+        return modifier; // return the modifier so that it can be removed later if needed
+    }
+
+    public void RemoveSterilizationResistanceModifier(SterilizationResistanceModifier modifier)
+    {
+        if (sterilizationResistanceModifiers.Remove(modifier))
+        {
+            RecalculateSterilizationResistance();
+        }
+    }
+
+    public void UpdateSterilizationResistanceMultiplier(float value)
+    {
+        baseSerilizationResistanceMultiplier += value;
+    }
+
+    public void RecalculateSterilizationResistance()
+    {
+        float additive = 0;
+        float multiplier = baseSerilizationResistanceMultiplier;
+
+        foreach (SterilizationResistanceModifier mod in sterilizationResistanceModifiers)
+        {
+            if (mod.ModifierType == ModifierType.Additive)
+                additive += mod.Value;
+            else
+                multiplier += mod.Value;
+        }
+
+        finalSterilizationResistance = Mathf.Clamp(
+            Mathf.FloorToInt((baseSterilizationResistance + additive) * multiplier),
+            Utility.minSterilizationResistance,
+            Utility.maxSterilizationResistance
+        );
+
+        parentCell.CheckIsBeingShownInfo();
+    }
+
+    public bool HasSterilizationResistance()
+    {
+        return finalSterilizationResistance > 0;
+    }
+
+    public bool HasSterilizationResistanceModifier(SterilizationResistanceModifier modifier)
+    {
+        return sterilizationResistanceModifiers.Contains(modifier);
     }
 
     #endregion
@@ -424,7 +522,6 @@ public class CellStats
 
     #endregion
 
-
     #region Carrier Spread Chance
     public void UpdateIncreaseCarrierSpreadChance(float value)
     {
@@ -446,8 +543,115 @@ public class CellStats
 
     #endregion
 
+    #region Can Be Sterilized
+
+    public void SetSterilizationImmunityTicks(int sterilizationImmunityTicks = 0)
+    {
+        if (sterilizationImmunityTicks <= 0)
+        {
+            canBeSterilized = true;
+            this.sterilizationImmunityTicks = 0;
+        }
+        else
+        {
+            canBeSterilized = false;
+            this.sterilizationImmunityTicks = sterilizationImmunityTicks;
+        }
+
+        parentCell.CheckIsBeingShownInfo();
+    }
+
+    public void UpdateSterilizationImmunityTicks()
+    {
+        if (!canBeSterilized && sterilizationImmunityTicks > 0)
+        {
+            sterilizationImmunityTicks--;
+            if (sterilizationImmunityTicks <= 0)
+            {
+                SetSterilizationImmunityTicks();
+                parentCell.CheckIsBeingShownInfo();
+            }
+        }
+    }
+
+    #endregion
+
+    #region Surface's Upgrade
+
+    private void AddSterilizationResistanceModifierIfInfectedForALongTime()
+    {
+        AddSterilizationResistanceModifier(sterilizationResistanceModifierIfInfectedForALongTime);
+    }
+
+    private void RemoveSterilizationResistanceModifierIfInfectedForALongTime()
+    {
+        if (sterilizationResistanceModifierIfInfectedForALongTime != null
+            && sterilizationResistanceModifiers.Contains(sterilizationResistanceModifierIfInfectedForALongTime))
+        {
+            sterilizationResistanceModifiers.Remove(sterilizationResistanceModifierIfInfectedForALongTime);
+            sterilizationResistanceModifierIfInfectedForALongTime = null;
+        }
+    }
+
+    public void AddSterilizationResistancBonusPercentIfInfectedForALongTime(int minTickToBonusSterilizationResistance,
+        SterilizationResistanceModifier sterilizationResistanceModifierIfInfectedForALongTime)
+    {
+        this.minTickToBonusSterilizationResistance = minTickToBonusSterilizationResistance;
+        this.sterilizationResistanceModifierIfInfectedForALongTime = sterilizationResistanceModifierIfInfectedForALongTime;
+    }
+
+    #endregion
+
+    #region Water's Upgrade
+
+    public void AddSterilizationResistancBonusPercentIfCellHasWater(SterilizationResistanceModifier sterilizationResistanceModifierForWaterCell)
+    {
+        this.sterilizationResistanceModifierForWaterCell = sterilizationResistanceModifierForWaterCell;
+        AddSterilizationResistanceModifier(sterilizationResistanceModifierForWaterCell);
+    }
+
+    public void RemoveSterilizationResistancBonusPercentIfCellHasWater()
+    {
+        if (sterilizationResistanceModifierForWaterCell != null
+            && sterilizationResistanceModifiers.Contains(sterilizationResistanceModifierForWaterCell))
+        {
+            sterilizationResistanceModifiers.Remove(sterilizationResistanceModifierForWaterCell);
+            sterilizationResistanceModifierForWaterCell = null;
+        }
+    }
+
+    #endregion
+
+    public void UpdateTickInfectedCount()
+    {
+        if (stage.type != CellStageType.Safe
+            || stage.type != CellStageType.Immune
+            || stage.type != CellStageType.Dead)
+        {
+            tickInfectedCount++;
+
+            if (minTickToBonusSterilizationResistance > 0
+                && tickInfectedCount >= minTickToBonusSterilizationResistance
+                && sterilizationResistanceModifierIfInfectedForALongTime == null)
+            {
+                AddSterilizationResistanceModifierIfInfectedForALongTime();
+            }
+        }
+    }
+
+
     public bool IsSafe()
     {
         return stage.type == CellStageType.Safe || stage.type == CellStageType.Immune;
+    }
+
+    public PointsGainedStruct GetFinalPointGained(PointsGainedStruct pointsGained, PopulationType populationType)
+    {
+        PopulationData populationData = PropertyDataManager.Instance.GetPopulationData(populationType);
+
+        int finalEvolutionPoints = Mathf.FloorToInt(pointsGained.evolutionPoints * populationData.evolutionPointMultiplier);
+        int finalInfectionPoints = Mathf.FloorToInt(pointsGained.infectionPoints * populationData.infectionPointMultiplier);
+
+        return new PointsGainedStruct(finalEvolutionPoints, finalInfectionPoints);
     }
 }

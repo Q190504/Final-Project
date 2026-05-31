@@ -3,7 +3,7 @@ using UnityEngine;
 public enum ThreatTier
 {
     Unaware,
-    Disinfect,
+    Sterilize,
     Lockdown,
     Vaccine,
     Emergency

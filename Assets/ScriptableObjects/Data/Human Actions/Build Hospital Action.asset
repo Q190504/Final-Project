@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActionType: 2
   actionName: Build Hospital
-  actionIcon: {fileID: 0}
   executionType: 1
   priority: 2
   minTargetPerExecution: 1
@@ -27,3 +26,4 @@ MonoBehaviour:
     totalBenefitWeight: 0.3
     undetectedCellWeight: 0.5
     hospitalDistancePenaltyWeight: 90
+    CellCantBeSterilizedPenalty: 100

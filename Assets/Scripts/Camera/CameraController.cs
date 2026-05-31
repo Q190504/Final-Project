@@ -57,6 +57,10 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        GameState gameState = GameManager.Instance.GetGameState();
+        if (gameState != GameState.Playing && gameState != GameState.Paused)
+            return;
+
         HandlePan();
         HandleZoom();
         ApplyMovement();
@@ -117,8 +121,8 @@ public class CameraController : MonoBehaviour
 
         Bounds b = bounds.bounds;
 
-        float mapWidth = 35 * 0.5f;
-        float mapHeight = 35 * 0.5f;
+        float mapWidth = MapManager.Instance.GetMapConfig().width * 0.5f;
+        float mapHeight = MapManager.Instance.GetMapConfig().height * 0.5f;
 
         Vector3 center = b.center;
 
@@ -161,7 +165,7 @@ public class CameraController : MonoBehaviour
         float aspect = Camera.main.aspect;
 
         float zoomY = mapHeight / 2f;
-        float zoomX = mapWidth / (2f * aspect);
+        float zoomX = mapWidth / (1.8f * aspect);
 
         return Mathf.Max(zoomY, zoomX);
     }

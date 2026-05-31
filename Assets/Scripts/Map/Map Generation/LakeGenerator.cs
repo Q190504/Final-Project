@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -28,6 +29,26 @@ public class LakeGenerator : IMapGeneratorStep
         // Random number of lakes within configured range
         int lakeCount = lakeRandom.Next(config.minLakeCount, config.maxLakeCount);
 
+        if (lakeCount > 0)
+        {
+            bool found = false;
+            foreach (GridCell cell in grid.GetGrid())
+            {
+                if (Utility.CheckIsValidPosForRiverOrLake(grid, new Vector2Int(cell.X, cell.Y)))
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                Debug.LogError("Can't find valid pos for lake");
+                return;
+            }
+        }
+        else return;
+
         // Random lake size (radius)
         int w = grid.GetWidth();
         int h = grid.GetHeight();
@@ -47,7 +68,7 @@ public class LakeGenerator : IMapGeneratorStep
                 // Random lake center position
                 x = lakeRandom.Next(grid.GetWidth());
                 y = lakeRandom.Next(grid.GetHeight());
-            } while (Utility.CheckIsValidPosForRiverOrLake(grid, new Vector2Int(x, y)));
+            } while (!Utility.CheckIsValidPosForRiverOrLake(grid, new Vector2Int(x, y)));
 
             radius = Mathf.FloorToInt(Mathf.Lerp(minRadius, maxRadius, (float)lakeRandom.NextDouble()));
 
