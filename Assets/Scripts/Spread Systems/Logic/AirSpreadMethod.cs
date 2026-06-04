@@ -1,17 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AirSpreadMethod : BaseSpreadMethod<AirSpreadDataSO>
+public class AirSpreadMethod : BaseSpreadMethod<AirSpreadDataSO, AirRuntimeData>
 {
-    AirExtraConfig extraConfig;
-
     private Queue<(Vector2Int pos, float dist)> queue = new();
     private HashSet<Vector2Int> visited = new();
 
-    public AirSpreadMethod(SpreadMethodContext context, AirSpreadDataSO data) : base(context, data)
+    public AirSpreadMethod(SpreadMethodContext context, AirSpreadDataSO data, AirRuntimeData runtimeData) 
+        : base(context, data, runtimeData)
     {
-        methodType = SpreadMethodType.Air;
-        extraConfig = data.extraConfig;
     }
 
     public override SpreadResult Execute()
@@ -29,7 +26,7 @@ public class AirSpreadMethod : BaseSpreadMethod<AirSpreadDataSO>
 
     private void Spread(Vector2Int origin, SpreadResult result)
     {
-        //AirRuntimeData airRuntimeData = runtimeData as AirRuntimeData;
+        AirRuntimeData airRuntimeData = runtimeData as AirRuntimeData;
 
         Grid<GridCell> grid = context.Grid;
         GridCell originCell = grid.GetCell(origin.x, origin.y);

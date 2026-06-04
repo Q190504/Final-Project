@@ -51,4 +51,4 @@ MonoBehaviour:
   infectionPointWhenDestroyed: 35
   evolutionPointWhenDestroyed: 20
   extraConfig:
-    vaccineProgressIncrementPercentPerTick: 0.005
+    vaccineProgressIncrementPercentPerTick: 0.01

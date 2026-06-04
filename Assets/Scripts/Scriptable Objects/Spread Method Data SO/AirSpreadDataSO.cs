@@ -12,9 +12,9 @@ public class AirSpreadDataSO : SpreadMethodDataSO
 {
     public AirExtraConfig extraConfig;
 
-    public override ISpreadMethod CreateMethod(SpreadMethodContext context)
+    public override ISpreadMethod CreateMethod(SpreadMethodContext context, SpreadMethodRuntimeData runtimeData)
     {
-        return new AirSpreadMethod(context, this);
+        return new AirSpreadMethod(context, this, (AirRuntimeData)runtimeData);
     }
 
     public override SpreadMethodRuntimeData CreateRuntimeData()

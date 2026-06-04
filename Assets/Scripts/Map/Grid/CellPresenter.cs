@@ -23,6 +23,16 @@ public class CellPresenter
         view.SetCellFocusVFXVisibility(state);
     }
 
+    public void SetCellTargetedBySkillOverlayVisibility(bool state)
+    {
+        view.SetAffectedBySkillOverlayVisibility(state);
+    }
+
+    public void SetCellAffectedByStructureOverlayColor(bool state)
+    {
+        view.SetAffectedByStructureOverlayVisibility(state);
+    }
+
     public void PlayHumanActionVisual(HumanActionVisualPreset preset)
     {
         humanActionVisualizer.PlayVisual(preset);

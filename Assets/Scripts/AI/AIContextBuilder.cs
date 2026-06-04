@@ -119,6 +119,10 @@ public class AIContextBuilder
         // ----------------------------
         // Skill multiplier
         // ----------------------------
+        if(SkillManager.Instance != null)
+            ctx.VirusSkillsUsedCount = SkillManager.Instance.GetAllSkillsUsedCount();
+        else 
+            ctx.VirusSkillsUsedCount = 0;
 
         float normalizedSkillUse = Mathf.Clamp01(ctx.VirusSkillsUsedCount / humanAIManager.MaxSkillUseThreat);
 
@@ -128,13 +132,11 @@ public class AIContextBuilder
         // Final threat
         // ----------------------------
 
-        float threatLevel =
-            baseThreat
+        float threatLevel = baseThreat
             * infectionPressureMultiplier
             * skillMultiplier;
 
-        ctx.ThreatLevel =
-            Mathf.Clamp01(threatLevel);
+        ctx.ThreatLevel = Mathf.Clamp01(threatLevel);
 
         UpdateThreatTier(ctx);
 

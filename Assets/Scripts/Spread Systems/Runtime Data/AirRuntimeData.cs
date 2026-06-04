@@ -27,12 +27,12 @@ public class AirRuntimeData : SpreadMethodRuntimeData
         if (populationModifiers != null)
             multiplier *= populationModifiers.GetModifier(originStats.population.type);
 
-        multiplier += originStats.bonusTargetInfectionGainPercent;
+        multiplier *= 1 + originStats.bonusTargetInfectionGainPercent;
 
         float dist = new Vector2Int(originCell.X - targetCell.X, originCell.Y - targetCell.Y).magnitude;
         float distanceMultiplier = Mathf.Pow(extraConfig.distanceDecayFactor, dist);
         distanceMultiplier = Mathf.Max(0f, distanceMultiplier);
-        multiplier -= distanceMultiplier;
+        multiplier *= 1 - distanceMultiplier;
 
         float valueFloat = Mathf.Clamp(addition * multiplier, Utility.minInfectionLevel, Utility.maxInfectionLevel);
         int valueInt = Mathf.FloorToInt(valueFloat);

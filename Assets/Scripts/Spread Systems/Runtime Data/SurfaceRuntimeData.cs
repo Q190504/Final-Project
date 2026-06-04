@@ -27,7 +27,7 @@ public class SurfaceRuntimeData : SpreadMethodRuntimeData
         if (populationModifiers != null)
             multiplier *= populationModifiers.GetModifier(originStats.population.type);
 
-        multiplier += originStats.bonusTargetInfectionGainPercent;
+        multiplier *= 1 + originStats.bonusTargetInfectionGainPercent;
 
         if (extraConfig.infectionPowerPercentBonusEachNeighbor > 0)
         {
@@ -38,12 +38,12 @@ public class SurfaceRuntimeData : SpreadMethodRuntimeData
                     infectedNeigbors++;
             }
 
-            multiplier += infectedNeigbors * extraConfig.infectionPowerPercentBonusEachNeighbor;
+            multiplier *= 1 + infectedNeigbors * extraConfig.infectionPowerPercentBonusEachNeighbor;
         }
 
         if (extraConfig.targetInfectionGainPercentForCriticalOriginCell > 0
             && originStats.stage.type == CellStageType.Critical)
-            multiplier += extraConfig.targetInfectionGainPercentForCriticalOriginCell;
+            multiplier *= 1 + extraConfig.targetInfectionGainPercentForCriticalOriginCell;
 
         float valueFloat = Mathf.Clamp(addition * multiplier, Utility.minInfectionLevel, Utility.maxInfectionLevel);
         int valueInt = Mathf.FloorToInt(valueFloat);

@@ -45,18 +45,14 @@ public class PointsManager : MonoBehaviour
 
     public void SpendInfectionPoints(int cost)
     {
-        int previousPoints = infectionPoints;
         infectionPoints -= cost;
-        int diffPoints = infectionPoints - previousPoints;
-        UIManager.Instance.SetInfectionPointText(infectionPoints, diffPoints);
+        UIManager.Instance.SetInfectionPointText(infectionPoints, cost);
     }
 
     public void AddInfectionPoints(int amount)
     {
-        int previousPoints = infectionPoints;
         infectionPoints += amount;
-        int diffPoints = infectionPoints - previousPoints;
-        UIManager.Instance.SetInfectionPointText(infectionPoints, diffPoints);
+        UIManager.Instance.SetInfectionPointText(infectionPoints, amount);
     }
 
     #endregion

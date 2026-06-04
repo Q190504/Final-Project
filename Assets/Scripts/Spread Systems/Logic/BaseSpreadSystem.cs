@@ -12,28 +12,28 @@ public enum SpreadMethodType
 
 public interface ISpreadMethod
 {
-    void Start();
+    void Tick(float deltaTime);
     SpreadResult Execute();
-    SpreadMethodConfig GetConfig();
+    SpreadMethodConfig GetBaseConfig();
 
     SpreadMethodRuntimeData GetRuntimeData();
 
     SpreadMethodContext GetContext();
 }
 
-public abstract class BaseSpreadMethod<T> : ISpreadMethod where T : SpreadMethodDataSO
+public abstract class BaseSpreadMethod<TData, TRuntime> : ISpreadMethod
+    where TData : SpreadMethodDataSO
+    where TRuntime : SpreadMethodRuntimeData
 {
-    protected SpreadMethodType methodType;
-    protected SpreadMethodConfig config;
-    protected SpreadMethodRuntimeData runtimeData;
+    protected TData data;
+    protected TRuntime runtimeData;
     protected SpreadMethodContext context;
 
-    protected BaseSpreadMethod(SpreadMethodContext context, T methodDataSO)
+    protected BaseSpreadMethod(SpreadMethodContext context, TData data, TRuntime runtimeData)
     {
         this.context = context;
-        config = methodDataSO.baseConfig;
-        methodType = methodDataSO.baseConfig.methodType;
-        runtimeData = methodDataSO.CreateRuntimeData();
+        this.data = data;
+        this.runtimeData = runtimeData;
     }
 
     public virtual int GetInfectionPowerOfMethod(GridCell originCell, GridCell targetCell)
@@ -41,20 +41,17 @@ public abstract class BaseSpreadMethod<T> : ISpreadMethod where T : SpreadMethod
         return runtimeData.GetFinalInfectionPower(originCell, targetCell);
     }
 
-    public void Start()
+    public void Tick(float deltaTime)
     {
-        ScheduleNext();
-    }
-
-    private void ScheduleNext()
-    {
-        if (context.TimeManager != null)
+        if (GameManager.Instance.GetGameState() == GameState.Playing
+            && runtimeData != null)
         {
-            context.TimeManager.ScheduleEvent(
-                config.tickToSpread,
-                ExecuteInternal,
-                config.eventPriority,
-                config.methodOrder);
+            runtimeData.remainingTicksToSpread -= deltaTime;
+            if (runtimeData.remainingTicksToSpread <= 0)
+            {
+                ExecuteInternal();
+                runtimeData.remainingTicksToSpread = runtimeData.GetFinalTickToSpread();
+            }
         }
     }
 
@@ -62,7 +59,6 @@ public abstract class BaseSpreadMethod<T> : ISpreadMethod where T : SpreadMethod
     {
         SpreadResult result = Execute();
         ApplyResult(result);
-        ScheduleNext();
     }
 
     public abstract SpreadResult Execute();
@@ -101,9 +97,6 @@ public abstract class BaseSpreadMethod<T> : ISpreadMethod where T : SpreadMethod
                         infectionInfo.sterilizationResistanceModifierIfInfectedForALongTime);
                 }
 
-                //if (infectionInfo.sterilizationResistanceBonusEachInfectedNeighbor > 0)
-                //    stats.UpdateSterilizationResistanceBonusEachInfectedNeighbor(infectionInfo.sterilizationResistanceBonusEachInfectedNeighbor);
-
                 if (stats.HasWater() && infectionInfo.sterilizationResistanceModifierForWaterCell != null)
                 {
                     stats.AddSterilizationResistancBonusPercentIfCellHasWater(infectionInfo.sterilizationResistanceModifierForWaterCell);
@@ -115,7 +108,6 @@ public abstract class BaseSpreadMethod<T> : ISpreadMethod where T : SpreadMethod
                     stats.SetSterilizationImmunityTicks(infectionInfo.disinfectionImmunityTicks);
 
                 context.MapManager.AddCellNeedToUpdateVisual(new Vector2Int(cell.X, cell.Y));
-
             }
         }
 
@@ -126,9 +118,9 @@ public abstract class BaseSpreadMethod<T> : ISpreadMethod where T : SpreadMethod
         }
     }
 
-    public SpreadMethodConfig GetConfig()
+    public SpreadMethodConfig GetBaseConfig()
     {
-        return config;
+        return data.baseConfig;
     }
 
     public SpreadMethodRuntimeData GetRuntimeData()

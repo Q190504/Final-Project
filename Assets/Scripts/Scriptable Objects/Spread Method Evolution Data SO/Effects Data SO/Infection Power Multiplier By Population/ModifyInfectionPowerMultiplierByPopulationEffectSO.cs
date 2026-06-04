@@ -9,7 +9,7 @@ public class ModifyInfectionPowerMultiplierByPopulationEffectSO : UpgradeEffectS
     public override void Apply(SpreadMethodRuntimeData runtime, SpreadMethodContext context)
     { 
         float oldValue = runtime.populationModifiers.GetModifier(populationType);
-        float newValue = Mathf.Max(0f, oldValue + multiplierDelta);
+        float newValue = oldValue * (1 + multiplierDelta);
 
         runtime.populationModifiers.SetModifier(populationType, newValue);
     }

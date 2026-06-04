@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO>
+public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO, CarrierRuntimeData>
 {
     private List<Vector2Int> cachedOffsets;
 
-    public CarrierSpreadMethod(SpreadMethodContext context, CarrierSpreadDataSO data) : base(context, data)
+    public CarrierSpreadMethod(SpreadMethodContext context, CarrierSpreadDataSO data, CarrierRuntimeData runtimeData) 
+        : base(context, data, runtimeData)
     {
         BuildOffsets();
     }
@@ -16,8 +17,7 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO>
         TimeManager timeManager = context.TimeManager;
 
         var sources = grid.GetInfectedSnapshot();
-        CarrierRuntimeData carrierRuntime = runtimeData as CarrierRuntimeData;
-        CarrierExtraConfig extraConfig = carrierRuntime.extraConfig;
+        CarrierExtraConfig extraConfig = runtimeData.extraConfig;
 
         HashSet<Vector2Int> globallySelected = new();
         MinHeapWithSize candidateHeap = new(extraConfig.targetCellCountForEachOriginCell);
@@ -103,12 +103,12 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO>
                 timeManager.ScheduleEvent(extraConfig.travelTime, () =>
                 {
                     ClearCarrierSource(source);
-                }, config.eventPriority);
+                }, data.baseConfig.eventPriority);
 
                 timeManager.ScheduleEvent(extraConfig.travelTime, () =>
                 {
                     CreateCarrierInfection(targetCell, increaseInfectionLevel);
-                }, config.eventPriority);
+                }, data.baseConfig.eventPriority);
 
                 thisSourceInfectedAny = true;
             }

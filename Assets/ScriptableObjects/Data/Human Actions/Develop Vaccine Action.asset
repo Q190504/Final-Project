@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActionType: 4
   actionName: Develop Vaccine
-  actionIcon: {fileID: 0}
   executionType: 0
   priority: 3
+  minTargetPerExecution: 1
   maxTargetPerExecution: 1
   minUtility: 0
   maxUtility: 0
   cooldownTicks: 2
   extraConfig:
-    VaccineProgressPerExecution: 0.01
+    VaccineProgressPerExecution: 0.05
     UndetectedCellWeight: 0.5

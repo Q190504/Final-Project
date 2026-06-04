@@ -21,9 +21,9 @@ public class WaterSpreadDataSO : SpreadMethodDataSO
 {
     public WaterExtraConfig extraConfig;
 
-    public override ISpreadMethod CreateMethod(SpreadMethodContext context)
+    public override ISpreadMethod CreateMethod(SpreadMethodContext context, SpreadMethodRuntimeData runtimeData)
     {
-        return new WaterSpreadMethod(context, this);
+        return new WaterSpreadMethod(context, this, runtimeData as WaterRuntimeData);
     }
 
     public override SpreadMethodRuntimeData CreateRuntimeData()

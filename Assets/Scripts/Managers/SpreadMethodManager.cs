@@ -36,6 +36,16 @@ public class SpreadMethodManager : MonoBehaviour
         return spreadMethodDatas;
     }
 
+    public List<SpreadMethodRuntimeData> GetAllSpreadMethodRuntimeDatas()
+    {
+        List<SpreadMethodRuntimeData> runtimeDatas = new();
+
+        foreach (ISpreadMethod method in spreadMethods)
+            runtimeDatas.Add(method.GetRuntimeData());
+
+        return runtimeDatas;
+    }
+
     public void CreateDicts()
     {
         if (spreadMethodDataDict == null)
@@ -83,25 +93,27 @@ public class SpreadMethodManager : MonoBehaviour
 
         foreach (SpreadMethodDataSO methodData in spreadMethodDatas)
         {
-            ISpreadMethod method = methodData.CreateMethod(spreadMethodContext);
+            ISpreadMethod method = methodData.CreateMethod(spreadMethodContext, methodData.CreateRuntimeData());
             spreadMethods.Add(method);
         }
 
         spreadMethods.Sort((a, b) =>
-            a.GetConfig().methodOrder.CompareTo(b.GetConfig().methodOrder));
+            a.GetBaseConfig().methodOrder.CompareTo(b.GetBaseConfig().methodOrder));
     }
 
-    public void StartMethods()
+    public void TickAllMethods(float deltaTime)
     {
         foreach (ISpreadMethod method in spreadMethods)
         {
-            method.Start();
+            method.Tick(deltaTime);
         }
+
+        UIManager.Instance.UpdateSpreadMethodCooldownUI(GetAllSpreadMethodRuntimeDatas());
     }
 
     public SpreadMethodRuntimeData GetRuntimeData(SpreadMethodType type)
     {
-        ISpreadMethod method = spreadMethods.Find(m => m.GetConfig().methodType == type);
+        ISpreadMethod method = spreadMethods.Find(m => m.GetBaseConfig().methodType == type);
         if (method != null)
         {
             return method.GetRuntimeData();
@@ -115,7 +127,7 @@ public class SpreadMethodManager : MonoBehaviour
 
     public SpreadMethodContext GetSpreadMethodContext(SpreadMethodType type)
     {
-        ISpreadMethod method = spreadMethods.Find(m => m.GetConfig().methodType == type);
+        ISpreadMethod method = spreadMethods.Find(m => m.GetBaseConfig().methodType == type);
         if (method != null)
         {
             return method.GetContext();

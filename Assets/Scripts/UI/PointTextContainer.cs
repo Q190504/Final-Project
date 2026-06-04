@@ -30,7 +30,7 @@ public class PointTextContainer : MonoBehaviour
         else if (diffPoints < 0)
         {
             diffPointText.color = Color.red;
-            diffPointText.SetText($"{diffPoints}");
+            diffPointText.SetText($"-{diffPoints}");
 
             animator.SetTrigger("ShowPointDiff");
         }

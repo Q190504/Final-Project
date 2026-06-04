@@ -42,8 +42,16 @@ public class CellStage
                 if (!stagesReachedBefore.Contains(type))
                 {
                     stagesReachedBefore.Add(type);
-                    totalPointsGained.evolutionPoints = cellStageData.cellStageStats.evolutionPointsGained;
-                    totalPointsGained.infectionPoints = cellStageData.cellStageStats.infectionPointsGained;
+                    float evolutionPointMultiplier = SkillManager.Instance.GetEvolutionPointMultiplier();
+                    float infectionPointMultiplier = SkillManager.Instance.GetInfectionPointMultiplier();
+
+                    totalPointsGained.evolutionPoints = Mathf.RoundToInt(cellStageData.cellStageStats.evolutionPointsGained
+                        * cellStats.population.weight
+                        * evolutionPointMultiplier);
+
+                    totalPointsGained.infectionPoints = Mathf.RoundToInt(cellStageData.cellStageStats.infectionPointsGained
+                        * cellStats.population.weight
+                        * infectionPointMultiplier);
                 }
 
                 priorityToHuman = cellStageData.cellStageStats.priorityToHuman;
@@ -67,14 +75,22 @@ public class CellStage
 
                 if (cellStats.structure != null)
                 {
-                    if (type == CellStageType.Infected)
+                    if (type == CellStageType.Critical)
                     {
+                        float evolutionPointMultiplier = SkillManager.Instance.GetEvolutionPointMultiplier();
+                        float infectionPointMultiplier = SkillManager.Instance.GetInfectionPointMultiplier();
+
                         PointsGainedStruct structurePointsGained = cellStats.structure.DisableStructure();
-                        totalPointsGained.evolutionPoints += structurePointsGained.evolutionPoints;
-                        totalPointsGained.infectionPoints += structurePointsGained.infectionPoints;
+
+                        totalPointsGained.evolutionPoints = Mathf.RoundToInt(structurePointsGained.evolutionPoints
+                            * evolutionPointMultiplier);
+
+                        totalPointsGained.infectionPoints = Mathf.RoundToInt(structurePointsGained.infectionPoints
+                            * infectionPointMultiplier);
                     }
                     else if ((type == CellStageType.Safe
                         || type == CellStageType.Exposed
+                        || type == CellStageType.Infected
                         || type == CellStageType.Immune)
                         && !cellStats.structure.isActive)
                     {
@@ -82,9 +98,16 @@ public class CellStage
                     }
                     else if (type == CellStageType.Dead)
                     {
+                        float evolutionPointMultiplier = SkillManager.Instance.GetEvolutionPointMultiplier();
+                        float infectionPointMultiplier = SkillManager.Instance.GetInfectionPointMultiplier();
+
                         PointsGainedStruct structurePointsGained = cellStats.structure.DestroyStructure();
-                        totalPointsGained.evolutionPoints += structurePointsGained.evolutionPoints;
-                        totalPointsGained.infectionPoints += structurePointsGained.infectionPoints;
+
+                        totalPointsGained.evolutionPoints = Mathf.RoundToInt(structurePointsGained.evolutionPoints
+                            * evolutionPointMultiplier);
+
+                        totalPointsGained.infectionPoints = Mathf.RoundToInt(structurePointsGained.infectionPoints
+                            * infectionPointMultiplier);
                     }
                 }
 
@@ -94,52 +117,4 @@ public class CellStage
 
         return (CellStageType.None, new PointsGainedStruct());
     }
-
-    //public void SetCellStageType(CellStageType cellStageType, CellStats cellStats)
-    //{
-    //    CellStageType previousType = type;
-
-    //    CellStageData cellStageData = PropertyDataManager.Instance.GetCellStageData(cellStageType);
-    //    if (cellStageData != null && cellStageData.type != previousType)
-    //    {
-    //        type = cellStageData.type;
-    //        priorityToHuman = cellStageData.cellStageStats.priorityToHuman;
-    //        detectionPercent = cellStageData.cellStageStats.detectionPercent;
-
-    //        int infectionResistance = cellStageData.cellStageStats.infectionResistance;
-    //        if (infectionResistance > 0)
-    //        {
-    //            if (infectionResistanceModifier != null)
-    //            {
-    //                cellStats.UpdateInfectionResistanceModifierValue(infectionResistanceModifier, infectionResistance);
-    //            }
-    //            else
-    //            {
-    //                infectionResistanceModifier = new(infectionResistance, InfectionResistanceAdditiveSourceType.CellStage);
-    //                cellStats.AddInfectionResistanceModifier(infectionResistanceModifier);
-    //            }
-    //        }
-
-    //        cellStats.DetermineInfectionStats(cellStageData.cellStageStats);
-
-    //        if (cellStats.structure != null)
-    //        {
-    //            if ((type == CellStageType.Infected || type == CellStageType.Critical) && cellStats.structure.isActive)
-    //            {
-    //                cellStats.structure.DisableStructure();
-    //            }
-    //            else if ((type == CellStageType.Safe
-    //                || type == CellStageType.Exposed
-    //                || type == CellStageType.Immune)
-    //                && !cellStats.structure.isActive)
-    //            {
-    //                cellStats.structure.EnableStructure();
-    //            }
-    //            else if (type == CellStageType.Dead)
-    //            {
-    //                cellStats.structure.DestroyStructure();
-    //            }
-    //        }
-    //    }
-    //}
 }

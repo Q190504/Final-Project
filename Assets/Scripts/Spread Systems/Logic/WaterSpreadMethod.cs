@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterSpreadMethod : BaseSpreadMethod<WaterSpreadDataSO>
+public class WaterSpreadMethod : BaseSpreadMethod<WaterSpreadDataSO, WaterRuntimeData>
 {
     private Queue<(Vector2Int pos, int dist)> queue = new();
     private HashSet<Vector2Int> visited = new();
 
-    public WaterSpreadMethod(SpreadMethodContext context, WaterSpreadDataSO data) : base(context, data)
+    public WaterSpreadMethod(SpreadMethodContext context, WaterSpreadDataSO data, WaterRuntimeData runtimeData)
+        : base(context, data, runtimeData)
     {
     }
 
@@ -25,8 +26,7 @@ public class WaterSpreadMethod : BaseSpreadMethod<WaterSpreadDataSO>
 
     private void Spread(Vector2Int origin, SpreadResult result)
     {
-        WaterRuntimeData waterRuntime = runtimeData as WaterRuntimeData;
-        WaterExtraConfig extraConfig = waterRuntime.extraConfig;
+        WaterExtraConfig extraConfig = runtimeData.extraConfig;
         Grid<GridCell> grid = context.Grid;
 
         GridCell originCell = grid.GetCell(origin.x, origin.y);

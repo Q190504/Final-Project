@@ -16,9 +16,9 @@ public class SurfaceSpreadDataSO : SpreadMethodDataSO
 {
     public SurfaceExtraConfig extraConfig;
 
-    public override ISpreadMethod CreateMethod(SpreadMethodContext context)
+    public override ISpreadMethod CreateMethod(SpreadMethodContext context, SpreadMethodRuntimeData runtimeData)
     {
-        return new SurfaceSpreadMethod(context, this);
+        return new SurfaceSpreadMethod(context, this, (SurfaceRuntimeData)runtimeData);
     }
 
     public override SpreadMethodRuntimeData CreateRuntimeData()

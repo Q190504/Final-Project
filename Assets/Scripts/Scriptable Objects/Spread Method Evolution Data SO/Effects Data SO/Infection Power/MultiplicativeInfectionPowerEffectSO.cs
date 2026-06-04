@@ -7,7 +7,6 @@ public class MultiplicativeInfectionPowerEffectSO : UpgradeEffectSO
 
     public override void Apply(SpreadMethodRuntimeData runtime, SpreadMethodContext context)
     {
-        runtime.multiplicativeInfectionPower += percentageDelta;
-        runtime.multiplicativeInfectionPower = Mathf.Max(runtime.multiplicativeInfectionPower, 0f);
+        runtime.multiplicativeInfectionPower *= 1 + percentageDelta;
     }
 }

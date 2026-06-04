@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SurfaceSpreadMethod : BaseSpreadMethod<SurfaceSpreadDataSO>
+public class SurfaceSpreadMethod : BaseSpreadMethod<SurfaceSpreadDataSO, SurfaceRuntimeData>
 {
     private Queue<(Vector2Int pos, int dist)> queue = new();
     private HashSet<Vector2Int> visited = new();
 
-    public SurfaceSpreadMethod(SpreadMethodContext context, SurfaceSpreadDataSO data) : base(context, data)
+    public SurfaceSpreadMethod(SpreadMethodContext context, SurfaceSpreadDataSO data, SurfaceRuntimeData runtimeData) 
+        : base(context, data, runtimeData)
     {
     }
 
@@ -27,8 +28,7 @@ public class SurfaceSpreadMethod : BaseSpreadMethod<SurfaceSpreadDataSO>
 
     private void Spread(Vector2Int origin, SpreadResult result)
     {
-        SurfaceRuntimeData surfaceRuntime = runtimeData as SurfaceRuntimeData;
-        SurfaceExtraConfig surfacExtraConfig = surfaceRuntime.extraConfig;
+        SurfaceExtraConfig surfaceExtraConfig = runtimeData.extraConfig;
 
         Grid<GridCell> grid = context.Grid;
         GridCell originCell = grid.GetCell(origin.x, origin.y);
@@ -62,9 +62,9 @@ public class SurfaceSpreadMethod : BaseSpreadMethod<SurfaceSpreadDataSO>
                 int increaseInfectionLevel = GetInfectionPowerOfMethod(originCell, currentTargetCell);
                 if (increaseInfectionLevel > 0)
                 {
-                    InfectionInfo cellDelta = new(currentTargetCell, increaseInfectionLevel, surfacExtraConfig.sterilizationImmunityTicks,
-                       surfacExtraConfig.minTickToBonusSterilizationResistancePercent,
-                       surfacExtraConfig.sterilizationResistanceModifierIfInfectedForALongTime);
+                    InfectionInfo cellDelta = new(currentTargetCell, increaseInfectionLevel, surfaceExtraConfig.sterilizationImmunityTicks,
+                       surfaceExtraConfig.minTickToBonusSterilizationResistancePercent,
+                       surfaceExtraConfig.sterilizationResistanceModifierIfInfectedForALongTime);
 
                     result.Add(currentTargetCell, cellDelta);
                 }

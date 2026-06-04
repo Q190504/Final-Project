@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eb0a8cafe45b13f4fbf3b03fa362c015
+guid: 6403dd93eff7aa5468a92e8412f134c2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3411058610218024602
-    second: vecteezy_pixel-art-illustration-radiation-hazard-pixelated-hazard_59474438-removebg_0
+      213: 3749720800288806874
+    second: Infected 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,12 +126,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vecteezy_pixel-art-illustration-radiation-hazard-pixelated-hazard_59474438-removebg_0
+      name: Infected 1_0
       rect:
         serializedVersion: 2
-        x: 119
-        y: 122
-        width: 262
+        x: 0
+        y: 0
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 661caed344c79a0d0800000000000000
-      internalID: -3411058610218024602
+      spriteID: ad79b14733fa90430800000000000000
+      internalID: 3749720800288806874
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      vecteezy_pixel-art-illustration-radiation-hazard-pixelated-hazard_59474438-removebg_0: -3411058610218024602
+      Infected 1_0: 3749720800288806874
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

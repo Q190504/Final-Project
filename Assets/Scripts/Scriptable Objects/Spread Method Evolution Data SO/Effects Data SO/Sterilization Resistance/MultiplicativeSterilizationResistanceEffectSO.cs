@@ -7,7 +7,6 @@ public class MultiplicativeSterilizationResistanceEffectSO : UpgradeEffectSO
 
     public override void Apply(SpreadMethodRuntimeData runtime, SpreadMethodContext context)
     {
-        runtime.multiplicativeSterilizationResistance += percentageDelta;
-        runtime.multiplicativeSterilizationResistance = Mathf.Max(runtime.multiplicativeSterilizationResistance, 0f);
+        runtime.multiplicativeSterilizationResistance *= 1 + percentageDelta;
     }
 }

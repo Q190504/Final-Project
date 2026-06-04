@@ -24,6 +24,7 @@ public class SpreadMethodRuntimeData
     public int bonusMinDistance = 0;
     public int bonusMaxDistance = 0;
 
+    public float remainingTicksToSpread = 0f;
     public float baseTickToSpread = 0f;
     public float tickToSpreadDecreasive = 0f;
     public float tickToSpreadMultiplier = 1f;
@@ -51,7 +52,7 @@ public class SpreadMethodRuntimeData
         if (populationModifiers != null)
             multiplier *= populationModifiers.GetModifier(originStats.population.type);
 
-        multiplier += originStats.bonusTargetInfectionGainPercent;
+        multiplier *= 1 + originStats.bonusTargetInfectionGainPercent;
 
         float valueFloat = Mathf.Clamp(addition * multiplier, Utility.minInfectionLevel, Utility.maxInfectionLevel);
         int valueInt = Mathf.FloorToInt(valueFloat);
@@ -115,11 +116,54 @@ public class SpreadMethodRuntimeData
 
     public float GetFinalTickToSpread()
     {
+        return CalculateFinalTickToSpread();
+    }
+
+    public void DecreaseTickToSpreadPercent(float decreasePercent)
+    {
+        if (decreasePercent <= 0)
+            return;
+
+        float oldDuration = CalculateFinalTickToSpread();
+
+        tickToSpreadDecreasive += baseTickToSpread * decreasePercent;
+
+        float newDuration = CalculateFinalTickToSpread();
+
+        ScaleRemainingTime(oldDuration, newDuration);
+    }
+
+    public void IncreaseTickToSpreadPercent(float increasePercent)
+    {
+        if (increasePercent <= 0)
+            return;
+
+        float oldDuration = CalculateFinalTickToSpread();
+
+        tickToSpreadDecreasive -= baseTickToSpread * increasePercent;
+
+        float newDuration = CalculateFinalTickToSpread();
+
+        ScaleRemainingTime(oldDuration, newDuration);
+    }
+
+    private float CalculateFinalTickToSpread()
+    {
         float value = baseTickToSpread;
+
         value -= tickToSpreadDecreasive;
-        value = Mathf.FloorToInt(value * tickToSpreadMultiplier);
-        value = Mathf.Max(0.1f, value);
-        return value;
+
+        value *= tickToSpreadMultiplier;
+
+        return Mathf.Max(0f, value);
+    }
+
+    private void ScaleRemainingTime(float oldDuration, float newDuration)
+    {
+        if (oldDuration <= 0)
+            return;
+
+        remainingTicksToSpread *= newDuration / oldDuration;
     }
 
     public SpreadMethodRuntimeData(SpreadMethodDataSO methodDataSO)
@@ -140,7 +184,10 @@ public class SpreadMethodRuntimeData
         bonusMinDistance = 0;
         bonusMaxDistance = 0;
 
+        baseTickToSpread = methodDataSO.baseConfig.tickToSpread;
         tickToSpreadDecreasive = 0;
+        tickToSpreadMultiplier = 1f;
+        remainingTicksToSpread = GetFinalTickToSpread();
 
         InitModifiersTables(methodDataSO.baseConfig);
     }

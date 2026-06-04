@@ -9,7 +9,7 @@ public class ModifyInfectionPowerMultiplierByTemperatureEffectSO : UpgradeEffect
     public override void Apply(SpreadMethodRuntimeData runtime, SpreadMethodContext context)
     {
         float oldValue = runtime.temperatureModifiers.GetModifier(temperatureType);
-        float newValue = Mathf.Max(0f, oldValue + multiplierDelta);
+        float newValue = oldValue * (1 + multiplierDelta);
 
         runtime.temperatureModifiers.SetModifier(temperatureType, newValue);
     }

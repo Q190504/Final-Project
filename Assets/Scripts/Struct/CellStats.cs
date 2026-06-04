@@ -331,7 +331,7 @@ public class CellStats
 
     public void UpdateInfectionResistanceMultiplier(float value)
     {
-        infectionResistanceMultiplier += value;
+        infectionResistanceMultiplier *= value;
         RecalculateInfectionResistance();
     }
 
@@ -345,7 +345,7 @@ public class CellStats
             if (mod.ModifierType == ModifierType.Additive)
                 additive += mod.Value;
             else
-                multiplier += mod.Value;
+                multiplier *= 1 + mod.Value;
         }
 
         finalInfectionResistance = Mathf.Clamp(
@@ -393,7 +393,7 @@ public class CellStats
 
     public void UpdateSterilizationResistanceMultiplier(float value)
     {
-        baseSerilizationResistanceMultiplier += value;
+        baseSerilizationResistanceMultiplier *= value;
     }
 
     public void RecalculateSterilizationResistance()
@@ -406,7 +406,7 @@ public class CellStats
             if (mod.ModifierType == ModifierType.Additive)
                 additive += mod.Value;
             else
-                multiplier += mod.Value;
+                multiplier *= 1 + mod.Value;
         }
 
         finalSterilizationResistance = Mathf.Clamp(

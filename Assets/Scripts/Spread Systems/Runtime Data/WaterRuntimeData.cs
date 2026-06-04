@@ -30,13 +30,13 @@ public class WaterRuntimeData : SpreadMethodRuntimeData
         if (extraConfig.increaseBaseInfectionPowerIfWaterFactoryDisabled
             && extraConfig.totalDisabledWaterFactory > 0
             && extraConfig.bonusBaseInfectionPowerPercentIfAWaterFactoryDisabled > 0)
-            multiplier += extraConfig.totalDisabledWaterFactory * extraConfig.bonusBaseInfectionPowerPercentIfAWaterFactoryDisabled;
+            multiplier *= 1 + extraConfig.totalDisabledWaterFactory * extraConfig.bonusBaseInfectionPowerPercentIfAWaterFactoryDisabled;
 
-        multiplier += originStats.bonusTargetInfectionGainPercent;
+        multiplier *= 1 + originStats.bonusTargetInfectionGainPercent;
 
         if (extraConfig.infectionGainPercentForWaterCell > 0
             && targetStats.HasWater())
-            multiplier += extraConfig.infectionGainPercentForWaterCell;
+            multiplier *= 1 + extraConfig.infectionGainPercentForWaterCell;
 
         float valueFloat = Mathf.Clamp(addition * multiplier, Utility.minInfectionLevel, Utility.maxInfectionLevel);
         int valueInt = Mathf.FloorToInt(valueFloat);

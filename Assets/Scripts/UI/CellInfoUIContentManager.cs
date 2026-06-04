@@ -10,8 +10,8 @@ public class CellInfoUIContentManager : MonoBehaviour
     public static CellInfoUIContentManager Instance;
 
     [SerializeField] private CellInfoUIEntry cellInfoUIEntryPrefab;
-    [SerializeField] private Image background;
     [SerializeField] private Transform container;
+    [SerializeField] private Button openButton;
     [SerializeField] private bool showDebug;
 
     [Header("Entries")]
@@ -36,6 +36,7 @@ public class CellInfoUIContentManager : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private Sprite undetectedSprite;
     [SerializeField] private Sprite detectedSprite;
+    [SerializeField] private List<RectTransform> ignoredPanels;
 
     [Header("Input")]
     [SerializeField] private InputAction getCellInfoAction;
@@ -86,7 +87,7 @@ public class CellInfoUIContentManager : MonoBehaviour
         if (getCellInfoAction.triggered)
         {
             Grid<GridCell> grid = mapManager.GetGrid();
-            if (grid != null)
+            if (grid != null && !Utility.IsPointerOverPanel(ignoredPanels))
             {
                 Vector3 mouseWorldPos = Utility.GetMouseWorldPosition();
                 Vector2Int cellPos = Utility.WorldToGridPosition(
@@ -99,7 +100,7 @@ public class CellInfoUIContentManager : MonoBehaviour
 
                 if (grid.IsInBounds(cellPos.x, cellPos.y))
                 {
-                    SetVisibity(true, cellPos);
+                    SetVisibility(true, cellPos);
                     GridCell cell = grid.GetCell(cellPos.x, cellPos.y);
                     if (showDebug)
                         cell.DebugStats();
@@ -108,16 +109,15 @@ public class CellInfoUIContentManager : MonoBehaviour
         }
     }
 
-    public void SetVisibity(bool state, Vector2Int? cellPos = null)
+    public void SetVisibility(bool state)
+    {
+        SetVisibility(state, null);
+    }
+
+    public void SetVisibility(bool state, Vector2Int? targetCellPos = null)
     {
         if (state)
         {
-            if (!cellPos.HasValue)
-            {
-                Debug.LogWarning("cellPos is null. Can't show cell's info.");
-                return;
-            }
-
             Grid<GridCell> grid = mapManager.GetGrid();
             if (grid == null)
             {
@@ -131,56 +131,60 @@ public class CellInfoUIContentManager : MonoBehaviour
                 return;
             }
 
-            GridCell previousCell = currentCell;
-
-            GridCell cell = grid.GetCell(cellPos.Value.x, cellPos.Value.y);
-
-            if (cell?.Stats == null)
+            if (targetCellPos.HasValue)
             {
-                Debug.LogError("Cell or CellStats is null!");
-                return;
+                GridCell previousCell = currentCell;
+
+                GridCell targetCell = grid.GetCell(targetCellPos.Value.x, targetCellPos.Value.y);
+                if (targetCell.Stats == null)
+                {
+                    Debug.LogError("Cell or CellStats is null!");
+                    return;
+                }
+
+                currentCell = targetCell;
+                if (previousCell != null && currentCell != previousCell)
+                {
+                    previousCell.IsBeingShownInfo = false;
+                    uiManager.SetCellFocusVFXVisibility(previousCell, false);
+                }
+
+                uiManager.SetCellFocusVFXVisibility(currentCell, true);
             }
 
-            currentCell = cell;
-            if (previousCell != null && currentCell != previousCell)
-            {
-                previousCell.IsBeingShownInfo = false;
-                uiManager.SetCellFocusVFXVisibility(previousCell, false);
-            }
+            if (currentCell == null) return;
 
+            CellStats currentCellStats = currentCell.Stats;
             currentCell.IsBeingShownInfo = true;
-            uiManager.SetCellFocusVFXVisibility(currentCell, true);
-
-            CellStats cellStats = cell.Stats;
 
             // ===== BASIC =====
-            if (showDebug) SetupEntry(posEntry, $"Pos: {cell.X}, {cell.Y}.");
-            SetupEntry(infectionLevelEntry, $"Infection Level: {cellStats.infectionLevel}.");
+            if (showDebug) SetupEntry(posEntry, $"Pos: {currentCell.X}, {currentCell.Y}.");
+            SetupEntry(infectionLevelEntry, $"Infection Level: {currentCellStats.infectionLevel}.");
 
-            CellStageData stageData = cellPropertyManager.GetCellStageData(cellStats.stage.type);
+            CellStageData stageData = cellPropertyManager.GetCellStageData(currentCellStats.stage.type);
             SetupEntry(stageEntry, Safe(stageData != null ? $"Stage: {stageData.displayName}." : null), stageData != null ? stageData.sprite : null);
 
-            SetupEntry(infectionResistanceEntry, $"Infection Resistance: {cellStats.finalInfectionResistance}.");
-            SetupEntry(sterilizationResistanceEntry, $"Sterilization Resistance: {cellStats.GetSterilizationResistance()}.");
-            SetupEntry(sterilizationImmnuneDaysEntry, $"Sterilization Immunity Days: {cellStats.sterilizationImmunityTicks}.");
+            SetupEntry(infectionResistanceEntry, $"Infection Resistance: {currentCellStats.GetInfectionResistance()}.");
+            SetupEntry(sterilizationResistanceEntry, $"Sterilization Resistance: {currentCellStats.GetSterilizationResistance()}.");
+            SetupEntry(sterilizationImmnuneDaysEntry, $"Sterilization Immunity Days: {currentCellStats.sterilizationImmunityTicks}.");
 
             // ===== FLAGS =====
-            SetActiveSafe(sterilizationImmnuneDaysEntry, cellStats.sterilizationImmunityTicks > 0);
-            SetActiveSafe(waterEntry, cellStats.HasWater());
-            SetActiveSafe(carrierEntry, cellStats.hasCarrier);
-            SetActiveSafe(isContagiousEntry, cellStats.isContagious);
-            SetActiveSafe(isBlockedEntry, cellStats.isBlocked);
-            SetActiveSafe(isLockdownEntry, cellStats.isLockdown);
-            SetActiveSafe(structureEntry, cellStats.structure.type != StructureType.None);
+            SetActiveSafe(sterilizationImmnuneDaysEntry, currentCellStats.sterilizationImmunityTicks > 0);
+            SetActiveSafe(waterEntry, currentCellStats.HasWater());
+            SetActiveSafe(carrierEntry, currentCellStats.hasCarrier);
+            SetActiveSafe(isContagiousEntry, currentCellStats.isContagious);
+            SetActiveSafe(isBlockedEntry, currentCellStats.isBlocked);
+            SetActiveSafe(isLockdownEntry, currentCellStats.isLockdown);
+            SetActiveSafe(structureEntry, currentCellStats.structure.type != StructureType.None);
 
             // ===== DETECTION =====
             if (detectionValueEntry != null)
             {
-                if (cellStats.isDetected)
+                if (currentCellStats.isDetected)
                     detectionValueEntry.Setup("Is detected!", detectedSprite);
                 else
                 {
-                    float detectionValue = Mathf.FloorToInt(cellStats.finalDetection * 100);
+                    float detectionValue = Mathf.FloorToInt(currentCellStats.finalDetection * 100);
                     detectionValueEntry.Setup(
                        $"Detection percent: {detectionValue}%.",
                        undetectedSprite
@@ -190,31 +194,31 @@ public class CellInfoUIContentManager : MonoBehaviour
             }
 
             // ===== ENVIRONMENT =====
-            EnvironmentData environmentData = cellPropertyManager.GetEnvironmentData(cellStats.environment.currentEnvironmentType);
+            EnvironmentData environmentData = cellPropertyManager.GetEnvironmentData(currentCellStats.environment.currentEnvironmentType);
             SetupEntry(environmentEntry,
                 Safe(environmentData != null ? environmentData.displayName : null),
                 environmentData != null ? environmentData.sprite : null);
 
             // ===== POPULATION =====
-            PopulationData populationData = cellPropertyManager.GetPopulationData(cellStats.population.type);
+            PopulationData populationData = cellPropertyManager.GetPopulationData(currentCellStats.population.type);
             SetupEntry(populationEntry, Safe(populationData != null ? populationData.displayName : null));
 
             // ===== TEMPERATURE =====
-            TempuratureData tempData = cellPropertyManager.GetTempuratureData(cellStats.tempurature.type);
+            TempuratureData tempData = cellPropertyManager.GetTempuratureData(currentCellStats.tempurature.type);
             SetupEntry(temperatureEntry,
                 Safe(tempData != null ? tempData.displayName : null),
                 tempData != null ? tempData.sprite : null);
 
             // ===== STRUCTURE =====
-            StructureDataSO structureData = cellPropertyManager.GetStructureData(cellStats.structure.type);
+            StructureDataSO structureData = cellPropertyManager.GetStructureData(currentCellStats.structure.type);
             SetupEntry(structureEntry,
-                Safe(structureData != null ? structureData.displayName + $" - {(cellStats.structure.isActive ? "Active" : "Inactive")}" : null),
+                Safe(structureData != null ? structureData.displayName + $" - {(currentCellStats.structure.isActive ? "Active" : "Inactive")}" : null),
                 structureData != null ? structureData.sprite : null);
 
             // ===== NEAR STRUCTURES =====
-            if (cellStats.affectedByStructures != null)
+            if (currentCellStats.affectedByStructures != null)
             {
-                var counts = cellStats.affectedByStructures
+                var counts = currentCellStats.affectedByStructures
                     .Where(x => x != StructureType.None)
                     .GroupBy(x => x)
                     .ToDictionary(g => g.Key, g => g.Count());
@@ -241,12 +245,11 @@ public class CellInfoUIContentManager : MonoBehaviour
             if (currentCell != null)
             {
                 currentCell.IsBeingShownInfo = false;
-                currentCell = null;
             }
         }
 
-        if (background != null)
-            background.enabled = state;
+        if (openButton != null)
+            openButton.gameObject.SetActive(!state);
 
         if (container != null)
             container.gameObject.SetActive(state);
@@ -286,6 +289,6 @@ public class CellInfoUIContentManager : MonoBehaviour
 
         posEntry.gameObject.SetActive(showDebug);
 
-        SetVisibity(false);
+        SetVisibility(false);
     }
 }

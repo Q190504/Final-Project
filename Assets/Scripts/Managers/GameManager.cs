@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private HumanAIManager humanAIManager;
     [SerializeField] private VaccineSystem vaccineSystem;
     [SerializeField] private EvolutionManager evolutionManager;
+    [SerializeField] private SkillManager skillManager;
 
     void Awake()
     {
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
         spreadMethodManager.Init();
         humanAIManager.Init();
         evolutionManager.Init();
+        skillManager.Init();
 
         mapManager.StartMatch();
         humanAIManager.StartMatch();

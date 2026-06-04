@@ -110,7 +110,7 @@ public class MapManager : MonoBehaviour
         cellSize = config.cellSize;
         originPosition = config.originPosition;
 
-        mapBoundary.size = new Vector2(width + Mathf.FloorToInt(0.3f * width), height + Mathf.FloorToInt(0.3f * height));
+        mapBoundary.size = new Vector2(width + Mathf.FloorToInt(0.5f * width), height + Mathf.FloorToInt(0.5f * height));
         CameraController.Instance.Init();
     }
 

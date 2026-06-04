@@ -754,7 +754,7 @@ MonoBehaviour:
   environmentRenderer: {fileID: 6718983281267188361}
   lockdownOverlayRenderer: {fileID: 5390419238851262142}
   affectedByStructureOverlayRenderer: {fileID: 4665609219589624124}
-  affectedBySkillOverlayRenderer: {fileID: 8345228870397926559}
+  targetedBySkillOverlayRenderer: {fileID: 4665609219589624124}
   detectedIcon: {fileID: 6348889022563621999}
   structureIcon: {fileID: 21905690330475301}
   carrierIcon: {fileID: 4052389489764491442}
@@ -883,7 +883,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 7
-  m_Sprite: {fileID: 21300000, guid: cab616b9238746845812bf02c525849f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c56760b4ee1aac0469bcc9cf50aaa8c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

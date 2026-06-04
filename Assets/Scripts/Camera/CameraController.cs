@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,6 +24,7 @@ public class CameraController : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private CinemachineCamera virtualCam;
     [SerializeField] private BoxCollider2D bounds;
+    [SerializeField] private List<RectTransform> uiPanels;
 
     private Vector3 targetPosition;
     private Vector3 velocity;
@@ -81,6 +83,8 @@ public class CameraController : MonoBehaviour
     // ================= ZOOM =================
     private void HandleZoom()
     {
+        if (Utility.IsPointerOverPanel(uiPanels)) return;
+
         float scroll = zoomAction.ReadValue<float>();
         if (Mathf.Abs(scroll) < 0.01f) return;
 

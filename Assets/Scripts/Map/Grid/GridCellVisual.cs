@@ -9,7 +9,7 @@ public class GridCellVisual : MonoBehaviour
     [SerializeField] private SpriteRenderer environmentRenderer;
     [SerializeField] private SpriteRenderer lockdownOverlayRenderer;
     [SerializeField] private SpriteRenderer affectedByStructureOverlayRenderer;
-    [SerializeField] private SpriteRenderer affectedBySkillOverlayRenderer;
+    [SerializeField] private SpriteRenderer targetedBySkillOverlayRenderer;
 
     [Header("Icons")]
     [SerializeField] private SpriteRenderer detectedIcon;
@@ -27,7 +27,7 @@ public class GridCellVisual : MonoBehaviour
     {
         lockdownOverlayRenderer.gameObject.SetActive(false);
         affectedByStructureOverlayRenderer.gameObject.SetActive(false);
-        affectedBySkillOverlayRenderer.gameObject.SetActive(false);
+        targetedBySkillOverlayRenderer.gameObject.SetActive(false);
         cellFocusVFX.SetActive(false);
     }
 
@@ -94,8 +94,8 @@ public class GridCellVisual : MonoBehaviour
 
     public void SetAffectedBySkillOverlayVisibility(bool state)
     {
-        if (affectedBySkillOverlayRenderer != null)
-            affectedBySkillOverlayRenderer.gameObject.SetActive(state);
+        if (targetedBySkillOverlayRenderer != null)
+            targetedBySkillOverlayRenderer.gameObject.SetActive(state);
     }
 
     public void SetCellFocusVFXVisibility(bool state)

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public static class Utility
 {
@@ -56,6 +57,31 @@ public static class Utility
     {
         Vector3 worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
         return worldPosition;
+    }
+
+    public static bool IsPointerOverPanel(List<RectTransform> targets)
+    {
+        PointerEventData pointerData = new(EventSystem.current)
+        {
+            position = Input.mousePosition
+        };
+
+        List<RaycastResult> results = new();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        foreach (RaycastResult result in results)
+        {
+            foreach (RectTransform target in targets)
+            {
+                if (result.gameObject.transform == target ||
+                    result.gameObject.transform.IsChildOf(target))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     public static Vector3 GridToWorldPosition(

@@ -26,8 +26,8 @@ public class CarrierRuntimeData : SpreadMethodRuntimeData
 
         if (populationModifiers != null)
             multiplier *= populationModifiers.GetModifier(originStats.population.type);
-
-        multiplier += originStats.bonusTargetInfectionGainPercent;
+            
+        multiplier *= 1 + originStats.bonusTargetInfectionGainPercent;
 
         float valueFloat = Mathf.Clamp(addition * multiplier, Utility.minInfectionLevel, Utility.maxInfectionLevel);
         int valueInt = Mathf.FloorToInt(valueFloat);

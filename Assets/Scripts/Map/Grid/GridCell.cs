@@ -87,7 +87,7 @@ public class GridCell
     {
         if (IsBeingShownInfo)
         {
-            CellInfoUIContentManager.Instance.SetVisibity(true, new Vector2Int(X, Y));
+            CellInfoUIContentManager.Instance.SetVisibility(true, new Vector2Int(X, Y));
         }
     }
 }

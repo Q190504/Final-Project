@@ -72,7 +72,7 @@ public class VaccineSystem : MonoBehaviour
 
         if (Stage != VaccineDevelopmentStage.NotStarted)
         {
-            uiManager.SetVaccineProgress(Progress);
+            uiManager.SetVaccineProgress(Progress, amount > 0);
             int resistanceAdditive = CalculateInfectionResistanceAdditive();
             if (infectionResistanceModifier == null)
             {

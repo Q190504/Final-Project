@@ -12,12 +12,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject topMiddlePanel;
     [SerializeField] private GameObject topLeftPanel;
     [SerializeField] private GameObject topRightPanel;
-    [SerializeField] private GameObject cellInfoViewPanel;
-    [SerializeField] private GameObject vaccinePanel;
+    [SerializeField] private CellInfoUIContentManager cellInfoViewPanel;
+    [SerializeField] private VaccinePanel vaccinePanel;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject evolutionSelectionPanel;
     [SerializeField] private EvolutionTreePanel evolutionTreePanel;
     [SerializeField] private Notification notificationPanel;
+    [SerializeField] private GameObject skillsPanel;
+    [SerializeField] private SkillDetailPanel skillDetailPanel;
 
     [Header("Points")]
     [SerializeField] private PointTextContainer evolutionPointTextContainer;
@@ -44,20 +46,22 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text evolutionTierText;
     [SerializeField] private TMP_Text evolutionCostText;
     [SerializeField] private Button evolutionPanelToggleVisibilityButton;
-    [SerializeField] private TMP_Text evolutionPanelToggleVisibilityButtonText;
 
     [Header("Evolution Tree Panel")]
     [SerializeField] private Button evolutionTreePanelToggleVisibilityButton;
+
+    [Header("Spread Methods")]
+    [SerializeField] private List<SpreadMethodUI> spreadMethodUIs;
+
+    [Header("Skill UI")]
+    [SerializeField] private SkillUI skillUIPrefab;
+    [SerializeField] private Transform skillUIContainer;
 
     [Header("Human")]
     [SerializeField] private TMP_Text threatTierText;
     [SerializeField] private List<ThreatTierUITextColor> threatTierTextColors;
     [SerializeField] private HumanActionVisualDatabase humanActionVisualDatabase;
     [SerializeField] private List<HumanActionUI> humanActionUIs;
-
-    [Header("Vaccine")]
-    [SerializeField] private Slider vaccineProgressSlider;
-    [SerializeField] private TMP_Text vaccineProgressText;
 
     [Header("Prefabs")]
     [SerializeField] private GridCellVisual cellPrefab;
@@ -122,9 +126,7 @@ public class UIManager : MonoBehaviour
         tickTimerSlider.maxValue = 1;
         tickTimerSlider.value = 0;
 
-        vaccineProgressText.SetText("0%");
-        vaccineProgressSlider.value = 0;
-        vaccinePanel.SetActive(false);
+        vaccinePanel.gameObject.SetActive(false);
 
         UpdateDeadSlider(0, GameManager.Instance.endGameDeadRate);
 
@@ -140,6 +142,8 @@ public class UIManager : MonoBehaviour
         SetEvolutionTreePanelToggleButtonVisibility(false);
 
         notificationPanel.HidePanel();
+
+        SpawnSkillUIs();
     }
 
     public void SetTimeState()
@@ -246,6 +250,22 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    #region Spread Method Cooldown
+
+    public void UpdateSpreadMethodCooldownUI(List<SpreadMethodRuntimeData> spreadMethodRuntimeDatas)
+    {
+        foreach (SpreadMethodRuntimeData methodRuntimeData in spreadMethodRuntimeDatas)
+        {
+            SpreadMethodUI ui = spreadMethodUIs.Find(x => x.methodType == methodRuntimeData.methodType);
+            if (ui != null)
+            {
+                ui.SetCooldown(methodRuntimeData.remainingTicksToSpread);
+            }
+        }
+    }
+
+    #endregion
+
     #region Human Action Cooldown Visual
 
     public void ShowHumanActionsOfTheCurrentThreatTier(ThreatTierSO currentThreatTier)
@@ -304,12 +324,9 @@ public class UIManager : MonoBehaviour
 
     #region Vaccine Progress Visual
 
-    public void SetVaccineProgress(float progress)
+    public void SetVaccineProgress(float progress, bool isIncreasing)
     {
-        vaccineProgressSlider.value = progress;
-        vaccineProgressText.SetText($"{Mathf.FloorToInt(progress * 100)}%");
-        if (!vaccinePanel.activeSelf)
-            vaccinePanel.SetActive(true);
+        vaccinePanel.UpdateData(progress, isIncreasing);
     }
 
     #endregion
@@ -402,20 +419,32 @@ public class UIManager : MonoBehaviour
 
     public void SetEvolutionSelectionPanelVisibility(bool isVisible, bool showTogglePanelButton)
     {
-        SetBackgroundUIElementsVisibility(!isVisible, true);
+        SetBackgroundUIElementsVisibilityForEvolutionSelection(!isVisible, true);
         evolutionSelectionPanel.SetActive(isVisible);
         evolutionPanelToggleVisibilityButton.gameObject.SetActive(showTogglePanelButton);
-
-        if (isVisible)
-            evolutionPanelToggleVisibilityButtonText.text = "CLOSE";
-        else
-            evolutionPanelToggleVisibilityButtonText.text = "SHOW UPGRADES";
     }
 
     public void AddCard(EvolutionUpgradeNodeSO upgradeNodeSO)
     {
         EvolutionUpgradeCard upgradeCard = Instantiate(evolutionCardPrefab, evolutionCardParent);
         upgradeCard.SetCardInfo(upgradeNodeSO);
+    }
+
+    private void SetBackgroundUIElementsVisibilityForEvolutionSelection(bool show, bool showTopLeftPanel)
+    {
+        topMiddlePanel.SetActive(show);
+        topLeftPanel.SetActive(showTopLeftPanel);
+        topRightPanel.SetActive(show);
+        cellInfoViewPanel.SetVisibility(show);
+        skillsPanel.SetActive(show);
+        skillDetailPanel.gameObject.SetActive(false);
+
+        if (VaccineSystem.Instance.Stage != VaccineDevelopmentStage.NotStarted)
+            vaccinePanel.gameObject.SetActive(show);
+        else
+            vaccinePanel.gameObject.SetActive(false);
+
+        evolutionTreePanel.SetPanelVisibility(false, null);
     }
 
     public void OnEvolutionUpgradeFinishSelection()
@@ -442,7 +471,7 @@ public class UIManager : MonoBehaviour
 
     public void SetEvolutionTreePanel(bool isVisible)
     {
-        SetBackgroundUIElementsVisibility(!isVisible, !isVisible);
+        SetBackgroundUIElementsVisibilityForEvolutionTree(!isVisible);
 
         if (isVisible)
         {
@@ -454,6 +483,24 @@ public class UIManager : MonoBehaviour
             onEvolutionTreePanelClosed.RaiseEvent();
         }
     }
+
+    private void SetBackgroundUIElementsVisibilityForEvolutionTree(bool show)
+    {
+        topMiddlePanel.SetActive(show);
+        topLeftPanel.SetActive(show);
+        topRightPanel.SetActive(show);
+        cellInfoViewPanel.SetVisibility(show);
+        skillsPanel.SetActive(show);
+        skillDetailPanel.gameObject.SetActive(false);
+
+        if (VaccineSystem.Instance.Stage != VaccineDevelopmentStage.NotStarted)
+            vaccinePanel.gameObject.SetActive(show);
+        else
+            vaccinePanel.gameObject.SetActive(false);
+
+        evolutionSelectionPanel.SetActive(false);
+    }
+
 
     public void InitializeEvolutionTree(EvolutionTreeSO evolutionTree, string methodName, Sprite methodIcon)
     {
@@ -501,17 +548,6 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
-    private void SetBackgroundUIElementsVisibility(bool show, bool showTopLeftPanel)
-    {
-        topMiddlePanel.SetActive(show);
-        topLeftPanel.SetActive(showTopLeftPanel);
-        topRightPanel.SetActive(show);
-        cellInfoViewPanel.SetActive(show);
-
-        if (VaccineSystem.Instance.Stage != VaccineDevelopmentStage.NotStarted)
-            vaccinePanel.SetActive(show);
-    }
-
     public bool IsEvolutionPanelsOpened()
     {
         return evolutionSelectionPanel.activeSelf || evolutionTreePanel.gameObject.activeSelf;
@@ -530,4 +566,84 @@ public class UIManager : MonoBehaviour
     }
 
     #endregion
+
+    #region Skill Panel
+
+    public void SpawnSkillUIs()
+    {
+        List<SkillDataSO> skillDataList = SkillManager.Instance.GetAllSkillData();
+
+        foreach (SkillDataSO skillData in skillDataList)
+        {
+            SkillUI skillUI = Instantiate(skillUIPrefab, skillUIContainer);
+            skillUI.SetData(skillData);
+        }
+    }
+
+    public void UpdateSkillUIs()
+    {
+        foreach (Transform child in skillUIContainer)
+        {
+            if (child.TryGetComponent<SkillUI>(out var skillUI))
+            {
+                IBaseSkill skill = SkillManager.Instance.GetSkill(skillUI.skillType);
+                if (skill != null)
+                {
+                    SkillRuntimeData skillRuntimeData = skill.GetRuntimeData();
+
+                    if (skillRuntimeData != null)
+                        skillUI.SetCooldown(skillRuntimeData.remainingCooldownTicks, skill.GetData().cooldownTicks);
+                }
+            }
+        }
+    }
+
+    #endregion
+
+    #region Skill Detail Panel
+
+    public void ShowSkillDetailPanel(SkillType skillType)
+    {
+        SkillDataSO skillData = SkillManager.Instance.GetSkillData(skillType);
+        if (skillData == null)
+        {
+            Debug.LogError($"No SkillData found for skill type {skillType}");
+            return;
+        }
+
+        skillDetailPanel.gameObject.SetActive(true);
+        skillDetailPanel.SetInfo(skillData);
+    }
+
+    public void HideSkillDetailPanel()
+    {
+        skillDetailPanel.gameObject.SetActive(false);
+    }
+
+    public void SetBackgroundUIElementsVisibilityForSelectTargetsForSkill(bool show)
+    {
+        topMiddlePanel.SetActive(show);
+        topRightPanel.SetActive(show);
+        //cellInfoViewPanel.SetVisibility(show);
+        if (show)
+            skillDetailPanel.gameObject.SetActive(false);
+
+        if (VaccineSystem.Instance.Stage != VaccineDevelopmentStage.NotStarted)
+            vaccinePanel.gameObject.SetActive(show);
+        else
+            vaccinePanel.gameObject.SetActive(false);
+
+        evolutionSelectionPanel.SetActive(false);
+        evolutionTreePanel.gameObject.SetActive(false);
+    }
+
+    #endregion
+
+    public void SetCellHightlight(List<Vector2Int> cellPositions, bool state)
+    {
+        foreach (Vector2Int cellPos in cellPositions)
+        {
+            presenters[cellPos.x, cellPos.y].SetCellTargetedBySkillOverlayVisibility(state);
+        }
+    }
 }

@@ -92,6 +92,8 @@ public class TimeManager : MonoBehaviour
         scheduler.AdvanceTo(newTick);
         CurrentTick = newTick;
 
+        UpdateGame(deltaTick);
+
         thisTickTimer += deltaTick;
 
         onTickIncreaseSO.RaiseEvent(thisTickTimer);
@@ -101,6 +103,12 @@ public class TimeManager : MonoBehaviour
             SetDay();
             thisTickTimer -= 1f;
         }
+    }
+
+    private void UpdateGame(float deltaTime)
+    {
+        SpreadMethodManager.Instance.TickAllMethods(deltaTime);
+        SkillManager.Instance.TickCooldowns(deltaTime);
     }
 
     private void HandleInput()
@@ -185,6 +193,5 @@ public class TimeManager : MonoBehaviour
         thisTickTimer = 0;
         CurrentTick = 0;
         SetDay();
-        SpreadMethodManager.Instance.StartMethods();
     }
 }
