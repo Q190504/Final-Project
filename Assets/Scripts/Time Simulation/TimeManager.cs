@@ -194,4 +194,10 @@ public class TimeManager : MonoBehaviour
         CurrentTick = 0;
         SetDay();
     }
+
+    public void StopMatch()
+    {
+        SetDefaultTimeScale();
+        IsStarted = false;
+    }
 }

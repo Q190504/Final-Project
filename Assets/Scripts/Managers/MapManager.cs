@@ -20,6 +20,7 @@ public class MapManager : MonoBehaviour
     [Header("Events")]
     [SerializeField] private VoidPublisherSO spawnGridVisualSO;
     [SerializeField] private VoidPublisherSO updateGridVisualSO;
+    [SerializeField] private BoolPublisherSO onGameEndedSO;
 
     MapGenerator mapGenerator;
     private Grid<GridCell> grid;
@@ -192,6 +193,10 @@ public class MapManager : MonoBehaviour
                 {
                     cellStructure.ApplyTickEffectToCellsInRange();
                 }
+                else if(!cellStructure.isActive)
+                {
+                    cellStructure.UpdateDisableTime();
+                }
 
                 if (!cellStats.isDetected)
                 {
@@ -295,6 +300,15 @@ public class MapManager : MonoBehaviour
             uiManager.UpdateActualInfectedRateAndDeadRate(totalInfected, infectedRate, totalDead, deadRate);
             uiManager.UpdateDeadSlider(deadRate, GameManager.Instance.endGameDeadRate);
             evolutionManager.OnInfectedRateChanged(infectedRate);
+
+            if (infectedRate == 0)
+            {
+                onGameEndedSO.RaiseEvent(false);
+            }
+            else if (deadRate == 1)
+            {
+                onGameEndedSO.RaiseEvent(true);
+            }
         }
     }
 

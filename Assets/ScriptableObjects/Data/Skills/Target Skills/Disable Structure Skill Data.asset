@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d257e7e9bd3443428c3f5b68bd0f0f9, type: 3}
+  m_Name: Disable Structure Skill Data
+  m_EditorClassIdentifier: 
+  type: 5
+  displayName: Disable Structure
+  description: "Disable the structure in the target cell. \nFirst-time structure
+    disables do not grant bonus points."
+  mainIcon: {fileID: 21300000, guid: 5de20c9b3ad61f6478640cc8f4864d11, type: 3}
+  secondaryIcon: {fileID: -457789343, guid: 0ffd74a9cc87b9e45942059c27e3330a, type: 3}
+  secondaryIconColor: {r: 1, g: 0, b: 0, a: 1}
+  infectionPointCost: 1
+  cooldownTicks: 13
+  skillExtraConfig:
+    disableTickCount: 5

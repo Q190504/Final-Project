@@ -304,7 +304,7 @@ public class Grid<TGridObject>
 
     public List<GridCell> GetNeighbourInCircleWithRange(int cx, int cy, int radius)
     {
-        List<GridCell> neighbours = new List<GridCell>();
+        List<GridCell> neighbours = new();
 
         for (int dx = -radius; dx <= radius; dx++)
         {

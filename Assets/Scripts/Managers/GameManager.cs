@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour
     [Range(0, 1f)]
     public float endGameDeadRate;
 
-    private GameState gameState;
-
+    [Header("Refs")]
     [SerializeField] private TimeManager timeManager;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private MapManager mapManager;
@@ -27,6 +26,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private VaccineSystem vaccineSystem;
     [SerializeField] private EvolutionManager evolutionManager;
     [SerializeField] private SkillManager skillManager;
+
+    [SerializeField] private VoidPublisherSO setBGMWhenMatchStartedSO;
+
+    private GameState gameState;
 
     void Awake()
     {
@@ -56,6 +59,8 @@ public class GameManager : MonoBehaviour
         humanAIManager.StartMatch();
         timeManager.StartMatch();
 
+        setBGMWhenMatchStartedSO.RaiseEvent();
+
         gameState = GameState.Playing;
     }
 
@@ -67,5 +72,10 @@ public class GameManager : MonoBehaviour
     public GameState GetGameState()
     {
         return gameState;
+    }
+
+    public void EndGame()
+    {
+        gameState = GameState.Ended;
     }
 }

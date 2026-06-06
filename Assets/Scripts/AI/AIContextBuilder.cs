@@ -9,6 +9,8 @@ public class AIContextBuilder
     private MapManager mapManager;
     private AIContextConfigSO config;
 
+    private bool hasPassedUnawareTierBefore = false;
+
     public AIContextBuilder(Grid<GridCell> grid, AIContextConfigSO config)
     {
         this.grid = grid;
@@ -119,9 +121,9 @@ public class AIContextBuilder
         // ----------------------------
         // Skill multiplier
         // ----------------------------
-        if(SkillManager.Instance != null)
+        if (SkillManager.Instance != null)
             ctx.VirusSkillsUsedCount = SkillManager.Instance.GetAllSkillsUsedCount();
-        else 
+        else
             ctx.VirusSkillsUsedCount = 0;
 
         float normalizedSkillUse = Mathf.Clamp01(ctx.VirusSkillsUsedCount / humanAIManager.MaxSkillUseThreat);
@@ -156,7 +158,9 @@ public class AIContextBuilder
 
         for (int i = 0; i < threatTierSOs.Count; i++)
         {
-            var tier = threatTierSOs[i];
+            ThreatTier previousTier = ctx.ThreatTier;
+
+            ThreatTierSO tier = threatTierSOs[i];
             bool isLast = i == threatTierSOs.Count - 1;
 
             bool inRange = isLast
@@ -167,7 +171,19 @@ public class AIContextBuilder
 
             if (inRange)
             {
-                ctx.ThreatTier = tier.tierType;
+                if (!hasPassedUnawareTierBefore
+                    && previousTier == ThreatTier.Unaware 
+                    && tier.tierType != ThreatTier.Unaware)
+                    hasPassedUnawareTierBefore = true;
+                else if (tier.tierType == ThreatTier.Unaware
+                    && hasPassedUnawareTierBefore) // if had passed Unaware tier, the lowest tier now is Sterilize
+                {
+                    ThreatTierSO sterilizeTier = PropertyDataManager.Instance.GetThreatTierData(ThreatTier.Sterilize);
+                    ctx.ThreatTier = sterilizeTier.tierType;
+                }
+                else
+                    ctx.ThreatTier = tier.tierType;
+
                 return;
             }
         }

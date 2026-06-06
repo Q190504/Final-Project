@@ -1,5 +1,6 @@
 public enum SkillCastType
 {
     Instant,
-    Target,
+    MultipleTarget,
+    SingleTarget,
 }

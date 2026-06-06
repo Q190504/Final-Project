@@ -189,7 +189,6 @@ public class CellInfoUIContentManager : MonoBehaviour
                        $"Detection percent: {detectionValue}%.",
                        undetectedSprite
                    );
-
                 }
             }
 
@@ -211,9 +210,12 @@ public class CellInfoUIContentManager : MonoBehaviour
 
             // ===== STRUCTURE =====
             StructureDataSO structureData = cellPropertyManager.GetStructureData(currentCellStats.structure.type);
-            SetupEntry(structureEntry,
-                Safe(structureData != null ? structureData.displayName + $" - {(currentCellStats.structure.isActive ? "Active" : "Inactive")}" : null),
-                structureData != null ? structureData.sprite : null);
+            if (currentCellStats.structure.type != StructureType.None)
+            {
+                SetupEntry(structureEntry,
+                    Safe(structureData != null ? structureData.displayName + $" - {(currentCellStats.structure.isActive ? "Active" : "Inactive")}" : null),
+                    structureData != null ? structureData.sprite : null);
+            }
 
             // ===== NEAR STRUCTURES =====
             if (currentCellStats.affectedByStructures != null)

@@ -17,7 +17,7 @@ MonoBehaviour:
   methodIcon: {fileID: 21300000, guid: 9c56ffe0b5e934b4f8c9031bd4c4f0ec, type: 3}
   baseConfig:
     methodType: 1
-    baseInfectionPower: 2
+    baseInfectionPower: 3
     baseSterilizationResistance: 0
     methodOrder: 0
     eventPriority: 3
@@ -67,7 +67,7 @@ MonoBehaviour:
       - population: 3
         multiplier: 1
   extraConfig:
-    disinfectionImmunityTicks: 0
+    sterilizationImmunityTicks: 0
     infectionPowerPercentBonusEachNeighbor: 0
     targetInfectionGainPercentForCriticalOriginCell: 0
     minTickToBonusSterilizationResistancePercent: 0

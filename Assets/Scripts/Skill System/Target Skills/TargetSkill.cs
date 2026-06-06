@@ -1,15 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public interface ITargetSkill
 {
-    bool IsValidTarget(GridCell centerCell);
-
-    void Execute(GridCell centerCell);
+    void Execute(List<GridCell> targets);
+    void Execute(GridCell target);
 
     TargetSkillRuntimeData GetTargetSkillRuntimeData();
 }
 
-public abstract class TargetSkill<TData, TRuntime> : BaseSkill<TData, TRuntime>, ITargetSkill
+public abstract class TargetSkill<TData, TRuntime> : BaseSkill<TData, TRuntime>
     where TData : TargetSkillDataSO
     where TRuntime : TargetSkillRuntimeData
 {
@@ -17,9 +17,14 @@ public abstract class TargetSkill<TData, TRuntime> : BaseSkill<TData, TRuntime>,
     {
     }
 
-    public abstract bool IsValidTarget(GridCell centerCell);
+    public virtual void Execute(List<GridCell> targets)
+    {
+        PointsManager.Instance.SpendInfectionPoints(Data.infectionPointCost);
+        RuntimeData.skillUseCount++;
+        StartCooldown();
+    }
 
-    public virtual void Execute(GridCell centerCell)
+    public virtual void Execute(GridCell target)
     {
         PointsManager.Instance.SpendInfectionPoints(Data.infectionPointCost);
         RuntimeData.skillUseCount++;

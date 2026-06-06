@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 public class IncreaseInfectionLevelToCellsSkill
-    : TargetSkill<IncreaseInfectionLevelToCellsSkillDataSO, IncreaseInfectionLevelToCellsSkillRuntimeData>
+    : MultiTargetSkill<IncreaseInfectionLevelToCellsSkillDataSO, IncreaseInfectionLevelToCellsSkillRuntimeData>
 {
     public IncreaseInfectionLevelToCellsSkill(IncreaseInfectionLevelToCellsSkillDataSO data,
         IncreaseInfectionLevelToCellsSkillRuntimeData runtimeData)
@@ -11,17 +11,11 @@ public class IncreaseInfectionLevelToCellsSkill
     {
     }
 
-    public override void Execute(GridCell centerCell)
+    public override void Execute(List<GridCell> targets)
     {
-        TargetSkillExtraConfig targetSkillExtraConfig = RuntimeData.targetSkillExtraConfig;
         IncreaseInfectionLevelToCellsSkillExtraConfig skillExtraConfig = RuntimeData.skillExtraConfig;
 
         float percent = skillExtraConfig.increaseInfectionLevelPercentForEachCell;
-        Grid<GridCell> grid = MapManager.Instance.GetGrid();
-        int targetRadius = targetSkillExtraConfig.targetRadius;
-
-        List<GridCell> targets = grid.GetNeighborsInRange(centerCell, targetRadius);
-        targets.Add(centerCell);
 
         foreach (GridCell cell in targets)
         {
@@ -33,19 +27,25 @@ public class IncreaseInfectionLevelToCellsSkill
             }
         }
 
-        base.Execute(centerCell);
+        base.Execute(targets);
     }
 
-    public override bool IsValidTarget(GridCell centerCell)
+    public override List<GridCell> GetTargets(GridCell centerCell)
     {
-        if (centerCell == null) return false;
+        if (centerCell == null) return null;
 
-        TargetSkillExtraConfig targetSkillExtraConfig = RuntimeData.targetSkillExtraConfig;
+        MultiTargetSkillExtraConfig multiTargetSkillExtraConfig = RuntimeData.multiTargetSkillExtraConfig;
         Grid<GridCell> grid = MapManager.Instance.GetGrid();
-        int targetRadius = targetSkillExtraConfig.targetRadius;
+        int targetRadius = multiTargetSkillExtraConfig.targetRadius;
 
-        List<GridCell> targets = grid.GetNeighborsInRange(centerCell, targetRadius);
+        List<GridCell> targets = new() { centerCell };
+        targets.AddRange(grid.GetNeighborsInRange(centerCell, targetRadius));
 
+        return targets;
+    }
+
+    public override bool IsValidTargets(List<GridCell> targets)
+    {
         return targets.Any(c => IsValidStage(c.Stats.stage.type));
     }
 

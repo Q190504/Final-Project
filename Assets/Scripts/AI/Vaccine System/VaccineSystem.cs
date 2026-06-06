@@ -16,10 +16,14 @@ public class VaccineSystem : MonoBehaviour
     private float progressPerStep;
     [SerializeField, Range(0, 100), Tooltip("The amount of infection resistance gained for each step of vaccine development.")]
     private int infectionResistancePerStep;
-    private InfectionResistanceModifier infectionResistanceModifier;
+
+    [Header("Vaccine Settings")]
+    [SerializeField] private BoolPublisherSO onGameEndedSO;
 
     public float Progress { get; private set; }
     public VaccineDevelopmentStage Stage { get; private set; }
+
+    private InfectionResistanceModifier infectionResistanceModifier;
 
     private MapManager mapManager;
     private UIManager uiManager;
@@ -56,6 +60,8 @@ public class VaccineSystem : MonoBehaviour
             Progress = 1f;
             Stage = VaccineDevelopmentStage.Developed;
             Debug.Log("Vaccine developed!");
+
+            onGameEndedSO.RaiseEvent(false);
 
             return;
         }

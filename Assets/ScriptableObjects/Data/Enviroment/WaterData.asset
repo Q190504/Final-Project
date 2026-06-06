@@ -17,7 +17,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 4bc4aa763cbb2bf428f2b46226699901, type: 3}
   populationType: 0
   tempuratureType: 0
-  maxSpawnRate: 0.125
+  maxSpawnRate: 0
   isBlocked: 0
   canBeLockeddown: 1
   canHaveStructure: 0

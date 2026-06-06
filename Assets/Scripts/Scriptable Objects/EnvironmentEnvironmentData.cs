@@ -10,8 +10,6 @@ public class EnvironmentData : ScriptableObject
     [Header("Base Gameplay Values")]
     public PopulationType populationType;
     public TemperatureType tempuratureType;
-    [Range(0, 1)]
-    public float maxSpawnRate;
     public bool isBlocked;
     public bool canBeLockeddown;
     public bool canHaveStructure;

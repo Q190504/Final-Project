@@ -21,7 +21,7 @@ MonoBehaviour:
   infectionPointCost: 1
   cooldownTicks: 15
   castType: 1
-  targetSkillExtraConfig:
-    targetRadius: 3
+  multiTargetSkillExtraConfig:
+    targetRadius: 2
   skillExtraConfig:
-    increaseInfectionLevelPercentForEachCell: 0.3
+    increaseInfectionLevelPercentForEachCell: 1

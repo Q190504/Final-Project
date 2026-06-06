@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 public class DestroyLockdownSkill
-    : TargetSkill<DestroyLockdownSkillDataSO, DestroyLockdownSkillRuntimeData>
+    : MultiTargetSkill<DestroyLockdownSkillDataSO, DestroyLockdownSkillRuntimeData>
 {
     public DestroyLockdownSkill(DestroyLockdownSkillDataSO data,
         DestroyLockdownSkillRuntimeData runtimeData)
@@ -11,16 +11,8 @@ public class DestroyLockdownSkill
     {
     }
 
-    public override void Execute(GridCell centerCell)
+    public override void Execute(List<GridCell> targets)
     {
-        TargetSkillExtraConfig targetSkillExtraConfig = RuntimeData.targetSkillExtraConfig;
-
-        Grid<GridCell> grid = MapManager.Instance.GetGrid();
-        int targetRadius = targetSkillExtraConfig.targetRadius;
-
-        List<GridCell> targets = grid.GetNeighborsInRange(centerCell, targetRadius);
-        targets.Add(centerCell);
-
         foreach (GridCell cell in targets)
         {
             if (cell.Stats.isLockdown)
@@ -29,19 +21,26 @@ public class DestroyLockdownSkill
             }
         }
 
-        base.Execute(centerCell);
+        base.Execute(targets);
     }
 
-    public override bool IsValidTarget(GridCell centerCell)
+    public override List<GridCell> GetTargets(GridCell centerCell)
     {
-        if (centerCell == null) return false;
+        if (centerCell == null) return null;
 
-        TargetSkillExtraConfig targetSkillExtraConfig = RuntimeData.targetSkillExtraConfig;
+        MultiTargetSkillExtraConfig targetSkillExtraConfig = RuntimeData.multiTargetSkillExtraConfig;
+
         Grid<GridCell> grid = MapManager.Instance.GetGrid();
         int targetRadius = targetSkillExtraConfig.targetRadius;
 
         List<GridCell> targets = grid.GetNeighborsInRange(centerCell, targetRadius);
+        targets.Add(centerCell);
 
+        return targets;
+    }
+
+    public override bool IsValidTargets(List<GridCell> targets)
+    {
         return targets.Any(c => c.Stats.isLockdown);
     }
 }

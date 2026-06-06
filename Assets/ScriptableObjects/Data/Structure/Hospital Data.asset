@@ -39,7 +39,7 @@ MonoBehaviour:
     spawnRateOnEnvironment: 0
   - environmentTypeCanSpawn: 11
     spawnRateOnEnvironment: 0
-  spawnRate: 0.3
+  spawnRate: 0
   maxAmountInAMatch: 10
   effectRangePercent: 0.08
   priorityToHuman: 0.3333333
@@ -51,6 +51,6 @@ MonoBehaviour:
   infectionPointWhenDestroyed: 25
   evolutionPointWhenDestroyed: 15
   extraConfig:
-    additionalInfectionResistance: 30
+    additionalInfectionResistance: 2
     sterilizeAmountWhenPlaced: 100
-    sterilizeAmountEachTick: 10
+    sterilizeAmountEachTick: 5

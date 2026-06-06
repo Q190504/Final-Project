@@ -7,7 +7,7 @@ public struct DestroyLockdownSkillExtraConfig
 }
 
 [CreateAssetMenu(fileName = "Destroy Lockdown Skill Data", menuName = "Scriptable Objects/Skill/Destroy Lockdown")]
-public class DestroyLockdownSkillDataSO : TargetSkillDataSO
+public class DestroyLockdownSkillDataSO : MultiTargetSkillDataSO
 {
     public DestroyLockdownSkillExtraConfig skillExtraConfig;
 

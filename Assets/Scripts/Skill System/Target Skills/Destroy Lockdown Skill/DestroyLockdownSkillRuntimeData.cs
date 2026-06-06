@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class DestroyLockdownSkillRuntimeData : TargetSkillRuntimeData
+public class DestroyLockdownSkillRuntimeData : MultiTargetSkillRuntimeData
 {
     public DestroyLockdownSkillExtraConfig skillExtraConfig;
 
-    public DestroyLockdownSkillRuntimeData(DestroyLockdownSkillDataSO dataSO) : base(dataSO.targetSkillExtraConfig)
+    public DestroyLockdownSkillRuntimeData(DestroyLockdownSkillDataSO dataSO) 
+        : base(dataSO.multiTargetSkillExtraConfig, dataSO.targetSkillExtraConfig)
     {
         skillExtraConfig = dataSO.skillExtraConfig;
     }

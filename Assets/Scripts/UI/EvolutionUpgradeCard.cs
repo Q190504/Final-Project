@@ -20,8 +20,12 @@ public class EvolutionUpgradeCard : MonoBehaviour
     public void SetCardInfo(EvolutionUpgradeNodeSO upgradeNode)
     {
         cardName.text = upgradeNode.upgradeName;
+
         if (upgradeNode.icon != null)
             cardImage.sprite = upgradeNode.icon;
+        else
+            cardImage.gameObject.SetActive(false);
+
         cardDescription.text = upgradeNode.description;
         upgradeNodeSO = upgradeNode;
         spreadMethodType = SpreadMethodType.None;

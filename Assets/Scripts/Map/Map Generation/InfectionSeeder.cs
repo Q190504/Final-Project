@@ -21,7 +21,9 @@ public class InfectionSeeder : IMapGeneratorStep
         {
             cell.Stats.SetInfectionLevel(0);
 
-            if (!cell.Stats.isBlocked)
+            if (!cell.Stats.isBlocked
+                && cell.Stats.population.type == PopulationType.Low
+                && cell.Stats.structure.type == StructureType.None)
                 candidates.Add(cell);
         }
 

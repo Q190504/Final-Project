@@ -78,7 +78,6 @@ public class RiverGenerator : IMapGeneratorStep
             float maxRadius = config.maxRiverRadiusPercent * baseSize;
 
             int radius = Mathf.FloorToInt(Mathf.Lerp(minRadius, maxRadius, (float)random.NextDouble()));
-
             RiverSegment segment = new();
             Utility.StampRiver(grid, current, radius, segment);
             riverData.segments.Add(segment);

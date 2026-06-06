@@ -3,12 +3,11 @@ using UnityEngine;
 [System.Serializable]
 public struct IncreaseInfectionLevelToCellsSkillExtraConfig
 {
-    [Range(0f, 1f)]
     public float increaseInfectionLevelPercentForEachCell;
 }
 
 [CreateAssetMenu(fileName = "Increase Infection Level To Cells Skill Data", menuName = "Scriptable Objects/Skill/Increase Infection Level To Cells")]
-public class IncreaseInfectionLevelToCellsSkillDataSO : TargetSkillDataSO
+public class IncreaseInfectionLevelToCellsSkillDataSO : MultiTargetSkillDataSO
 {
     public IncreaseInfectionLevelToCellsSkillExtraConfig skillExtraConfig;
 

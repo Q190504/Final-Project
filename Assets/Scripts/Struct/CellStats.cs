@@ -129,7 +129,6 @@ public class CellStats
         this.structure.SetStructure(structure, cell);
         UpdateHumanPriority();
         parentCell.CheckIsBeingShownInfo();
-        mapManager.AddCellNeedToUpdateVisual(new Vector2Int(cell.X, cell.Y));
     }
 
     public void SetTempurature(TemperatureType temperatureType)
@@ -190,7 +189,7 @@ public class CellStats
             mapManager.RemoveLockdownedCell(new Vector2Int(parentCell.X, parentCell.Y));
         }
 
-        mapManager.AddCellNeedToUpdateVisual(new Vector2Int(parentCell.X, parentCell.Y));
+        AddCellNeedToUpdateVisual(new Vector2Int(parentCell.X, parentCell.Y));
         parentCell.CheckIsBeingShownInfo();
     }
 
@@ -255,16 +254,13 @@ public class CellStats
 
     public void SetStage(CellStageType cellStageType)
     {
-        if (stage.type == CellStageType.Dead)
-            return;
-
         mapManager.UpdateInfectedRateAndDeadRate(new Vector2Int(parentCell.X, parentCell.Y),
             cellStageType, population.weight);
 
         UpdateHumanPriority();
 
         parentCell.CheckIsBeingShownInfo();
-        mapManager.AddCellNeedToUpdateVisual(new Vector2Int(parentCell.X, parentCell.Y));
+        AddCellNeedToUpdateVisual(new Vector2Int(parentCell.X, parentCell.Y));
     }
 
     public void DetermineInfectionStats(CellStageStats cellStageStats)
@@ -275,7 +271,8 @@ public class CellStats
         }
 
         bonusTargetInfectionGainPercent = cellStageStats.bonusTargetInfectionGainPercent;
-        canBuildStructure = cellStageStats.canBuildStructure;
+        if (environment.currentEnvironmentType != EnvironmentType.Water && environment.currentEnvironmentType != EnvironmentType.Mountain)
+            canBuildStructure = cellStageStats.canBuildStructure;
         canHasCarrier = cellStageStats.canHasCarrier;
         canBeSterilized = cellStageStats.canBeSterilized;
 
@@ -298,7 +295,11 @@ public class CellStats
         {
             TimeManager.Instance.ScheduleEvent(
                 toDeadTicksCount,
-                () => SetStage(CellStageType.Dead),
+                () =>
+                {
+                    (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(CellStageType.Dead, this);
+                    SetStage(cellStageResult.Item1);
+                },
                 0);
         }
 
@@ -355,9 +356,10 @@ public class CellStats
         );
 
         if (finalInfectionResistance == Utility.maxInfectionResistance)
-            SetStage(CellStageType.Immune);
-
-        parentCell.CheckIsBeingShownInfo();
+        {
+            (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(CellStageType.Immune, this);
+            SetStage(cellStageResult.Item1);
+        }
     }
 
     public int GetInfectionResistance()
@@ -372,6 +374,7 @@ public class CellStats
 
     public int GetSterilizationResistance()
     {
+        RecalculateSterilizationResistance();
         return finalSterilizationResistance;
     }
 
@@ -414,8 +417,6 @@ public class CellStats
             Utility.minSterilizationResistance,
             Utility.maxSterilizationResistance
         );
-
-        parentCell.CheckIsBeingShownInfo();
     }
 
     public bool HasSterilizationResistance()
@@ -639,7 +640,6 @@ public class CellStats
         }
     }
 
-
     public bool IsSafe()
     {
         return stage.type == CellStageType.Safe || stage.type == CellStageType.Immune;
@@ -653,5 +653,10 @@ public class CellStats
         int finalInfectionPoints = Mathf.FloorToInt(pointsGained.infectionPoints * populationData.infectionPointMultiplier);
 
         return new PointsGainedStruct(finalEvolutionPoints, finalInfectionPoints);
+    }
+
+    public void AddCellNeedToUpdateVisual(Vector2Int cellPos)
+    {
+        mapManager.AddCellNeedToUpdateVisual(cellPos);
     }
 }

@@ -77,7 +77,7 @@ public class SkillManager : MonoBehaviour
         if (gameState == GameState.Paused
             && isSelectingTarget
             && selectedSkill != null
-            && selectedSkill is ITargetSkill)
+            && IsTargetSkill(selectedSkill))
         {
             if (grid != null)
             {
@@ -98,26 +98,50 @@ public class SkillManager : MonoBehaviour
                     {
                         GridCell cell = grid.GetCell(cellPos.x, cellPos.y);
 
-                        ITargetSkill currentSkill = selectedSkill as ITargetSkill;
-                        int radius = currentSkill.GetTargetSkillRuntimeData().targetSkillExtraConfig.targetRadius;
-                        targets = grid.GetNeighborsInRange(cell, radius);
-                        targets.Add(cell);
-
-                        SetTargetCellsHighlightOverlay(true);
-
-                        if (selectTargetAction.triggered)
+                        if (selectedSkill is IMultiTargetSkill)
                         {
-                            foreach (GridCell target in targets)
+                            IMultiTargetSkill currentSkill = selectedSkill as IMultiTargetSkill;
+                            targets = currentSkill.GetTargets(cell);
+
+                            if (targets != null && targets.Count > 0)
                             {
-                                if (!currentSkill.IsValidTarget(target))
+                                SetTargetCellsHighlightOverlay(true);
+
+                                if (selectTargetAction.triggered)
                                 {
-                                    UIManager.Instance.ShowNotification("Invalid target!", 2f, Color.red);
-                                    return;
+                                    if (!currentSkill.IsValidTargets(targets))
+                                    {
+                                        UIManager.Instance.ShowNotification("Invalid target!", 2f, Color.red);
+                                        return;
+                                    }
+
+                                    currentSkill.Execute(targets);
+                                    OnTargetSkillFinishExecuteOrDeselected();
                                 }
                             }
+                        }
+                        else if (selectedSkill is ISingleTargetSkill)
+                        {
+                            ISingleTargetSkill currentSkill = selectedSkill as ISingleTargetSkill;
 
-                            currentSkill.Execute(cell);
-                            OnTargetSkillFinishExecuteOrDeselected();
+                            targets.Add(cell);
+
+                            SetTargetCellsHighlightOverlay(true);
+
+                            if (selectTargetAction.triggered)
+                            {
+                                foreach (GridCell target in targets)
+                                {
+                                    if (!currentSkill.IsValidTarget(target))
+                                    {
+                                        UIManager.Instance.ShowNotification("Invalid target!", 2f, Color.red);
+                                        return;
+                                    }
+                                }
+
+                                currentSkill.Execute(cell);
+                                OnTargetSkillFinishExecuteOrDeselected();
+                            }
                         }
                     }
                 }
@@ -260,7 +284,8 @@ public class SkillManager : MonoBehaviour
 
                 selectedSkill = null;
             }
-            else if (selectedSkill is ITargetSkill)
+            else if (selectedSkill is IMultiTargetSkill
+                 || selectedSkill is ISingleTargetSkill)
             {
                 isSelectingTarget = true;
                 onTargetSkillSelectTargetSO.RaiseEvent();
@@ -285,6 +310,12 @@ public class SkillManager : MonoBehaviour
         selectedSkill = null;
         targets.Clear();
         onTargetSkillFinishSO.RaiseEvent();
+    }
+
+    private bool IsTargetSkill(IBaseSkill skill)
+    {
+        return skill is ISingleTargetSkill
+            || skill is IMultiTargetSkill;
     }
 
     #endregion

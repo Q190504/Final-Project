@@ -13,7 +13,7 @@ public abstract class SkillDataSO : ScriptableObject
     public int infectionPointCost;
     public int cooldownTicks;
 
-    public SkillCastType castType;
+    //public SkillCastType castType;
 
     public abstract IBaseSkill CreateSkill(SkillRuntimeData runtimeData);
     public abstract SkillRuntimeData CreateRuntimeData();

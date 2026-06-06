@@ -44,7 +44,7 @@ public class GridCell
             $"Original Env: {Stats.environment.originalEnvironmentType}\n" +
             $"Pop: {Stats.population.type}\n" +
             $"Temp: {Stats.tempurature.type}\n" +
-            $"Currnent Water: {Stats.HasWater()}\n" +
+            $"Current Water: {Stats.HasWater()}\n" +
             $"Structure: {Stats.structure.type}\n" +
             $"Affected by: {Stats.affectedByStructures}\n" +
             $"canSwitchToDead: {Stats.canSwitchToDead}\n" +

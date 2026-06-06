@@ -17,7 +17,7 @@ MonoBehaviour:
   methodIcon: {fileID: 21300000, guid: 6e7b470c1849fdb43b1be7ddff21f793, type: 3}
   baseConfig:
     methodType: 4
-    baseInfectionPower: 1
+    baseInfectionPower: 2
     baseSterilizationResistance: 0
     methodOrder: 3
     eventPriority: 3

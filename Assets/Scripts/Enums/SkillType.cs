@@ -5,4 +5,5 @@ public enum SkillType
     DestroyLockdownSkill,
     DecreaseTickToSpreadSkill,
     DereaseVaccineProgressSkill,
+    DisableStructureSkill,
 }

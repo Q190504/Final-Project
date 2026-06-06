@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -20,6 +21,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Notification notificationPanel;
     [SerializeField] private GameObject skillsPanel;
     [SerializeField] private SkillDetailPanel skillDetailPanel;
+    [SerializeField] private GameObject settingPanel;
+    [SerializeField] private GameObject confirmExitGamePanel;
+    [SerializeField] private GameObject endGamePanel;
 
     [Header("Points")]
     [SerializeField] private PointTextContainer evolutionPointTextContainer;
@@ -57,6 +61,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private SkillUI skillUIPrefab;
     [SerializeField] private Transform skillUIContainer;
 
+    [Header("End Game Panel")]
+    [SerializeField] private TMP_Text endGamePanelTitleText;
+    [SerializeField] private TMP_Text endGameTimeText;
+
     [Header("Human")]
     [SerializeField] private TMP_Text threatTierText;
     [SerializeField] private List<ThreatTierUITextColor> threatTierTextColors;
@@ -72,11 +80,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite normalTimeSpeedIcon;
     [SerializeField] private Sprite spedUpTimeIcon;
 
+    [Header("Input")]
+    [SerializeField] private InputAction toggleSettingPanelAction;
+
     [Header("Event SOs")]
     [SerializeField] private VoidPublisherSO onEvolutionTierSelectionUIOpened;
     [SerializeField] private VoidPublisherSO onEvolutionTierSelectionUIClosed;
     [SerializeField] private VoidPublisherSO onEvolutionTreePanelOpened;
     [SerializeField] private VoidPublisherSO onEvolutionTreePanelClosed;
+    [SerializeField] private BoolPublisherSO onToggleSettingPanel;
 
     private Dictionary<ThreatTier, Color> threatTierColorMap;
 
@@ -93,26 +105,43 @@ public class UIManager : MonoBehaviour
             Destroy(this);
     }
 
+
+    /// <summary>
+    /// Standard Unity function called whenever the attached gameobject is enabled
+    /// </summary>
+    void OnEnable()
+    {
+        HumanAction.OnExecutedVisual += HandleHumanActionVisualOnCell;
+        toggleSettingPanelAction.Enable();
+    }
+
+    /// <summary>
+    /// Standard Unity function called whenever the attached gameobject is disabled
+    /// </summary>
+    void OnDisable()
+    {
+        HumanAction.OnExecutedVisual -= HandleHumanActionVisualOnCell;
+        toggleSettingPanelAction.Disable();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        if (toggleSettingPanelAction.bindings.Count == 0)
+        {
+            Debug.LogWarning("The Toggle Setting Panel Action does not have a binding set! Make sure that each Input Action has a binding set or the controller will not work!");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.GetGameState() == GameState.Ended) return;
 
-    }
-
-    private void OnEnable()
-    {
-        HumanAction.OnExecutedVisual += HandleHumanActionVisualOnCell;
-    }
-
-    private void OnDisable()
-    {
-        HumanAction.OnExecutedVisual -= HandleHumanActionVisualOnCell;
+        if (toggleSettingPanelAction.triggered)
+        {
+            SetSettingPanelVisibility(!settingPanel.activeSelf);
+        }
     }
 
     public void Init()
@@ -388,6 +417,7 @@ public class UIManager : MonoBehaviour
     {
         ClearCards();
 
+        SetBackgroundUIElementsVisibilityForEvolutionSelection(false, false);
         evolutionSelectionPanel.SetActive(true);
         evolutionPanelToggleVisibilityButton.gameObject.SetActive(false);
 
@@ -624,15 +654,13 @@ public class UIManager : MonoBehaviour
     {
         topMiddlePanel.SetActive(show);
         topRightPanel.SetActive(show);
-        //cellInfoViewPanel.SetVisibility(show);
-        if (show)
-            skillDetailPanel.gameObject.SetActive(false);
 
         if (VaccineSystem.Instance.Stage != VaccineDevelopmentStage.NotStarted)
             vaccinePanel.gameObject.SetActive(show);
         else
             vaccinePanel.gameObject.SetActive(false);
 
+        skillDetailPanel.gameObject.SetActive(false);
         evolutionSelectionPanel.SetActive(false);
         evolutionTreePanel.gameObject.SetActive(false);
     }
@@ -646,4 +674,62 @@ public class UIManager : MonoBehaviour
             presenters[cellPos.x, cellPos.y].SetCellTargetedBySkillOverlayVisibility(state);
         }
     }
+
+    #region Setting Panel
+
+    public void SetSettingPanelVisibility(bool isVisible)
+    {
+        settingPanel.SetActive(isVisible);
+        onToggleSettingPanel.RaiseEvent(isVisible);
+    }
+
+    public void SetConfirmExitGamePanelVisibility(bool isVisible)
+    {
+        confirmExitGamePanel.SetActive(isVisible);
+    }
+
+    #endregion
+
+    #region End Game Panel
+
+    public void OpenEndGamePanel(bool result)
+    {
+        SetBackgroundUIElementsVisibilityForEndGamePanel(false);
+
+        if (result)
+        {
+            endGamePanelTitleText.text = "VICTORY";
+        }
+        else
+        {
+            endGamePanelTitleText.text = "DEFEATED";
+        }
+
+        int totalDay = TimeManager.Instance.CurrentDay;
+        endGameTimeText.text = $"{totalDay} days.";
+
+        endGamePanel.SetActive(true);
+    }
+
+    public void CloseEndGamePanel()
+    {
+        SetBackgroundUIElementsVisibilityForEndGamePanel(true);
+        endGamePanel.SetActive(false);
+        endGameTimeText.text = "0 days.";
+    }
+
+    public void SetBackgroundUIElementsVisibilityForEndGamePanel(bool show)
+    {
+        topMiddlePanel.SetActive(show);
+        topRightPanel.SetActive(show);
+
+        cellInfoViewPanel.SetVisibility(false);
+        skillDetailPanel.gameObject.SetActive(false);
+        vaccinePanel.gameObject.SetActive(false);
+
+        evolutionSelectionPanel.SetActive(false);
+        evolutionTreePanel.gameObject.SetActive(false);
+    }
+
+    #endregion
 }

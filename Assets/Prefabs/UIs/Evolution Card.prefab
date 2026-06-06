@@ -151,7 +151,6 @@ MonoBehaviour:
   cardName: {fileID: 8941865984309951170}
   cardImage: {fileID: 7411385066383652077}
   cardDescription: {fileID: 4531501812600337675}
-  cost: {fileID: 0}
   playSoundSO: {fileID: 11400000, guid: 306614d19d1155d40b2da513c5831c03, type: 2}
 --- !u!1 &2590929363803596910
 GameObject:
@@ -187,8 +186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -102.6178}
-  m_SizeDelta: {x: 250, y: 176.1681}
+  m_AnchoredPosition: {x: 0, y: -176.53505}
+  m_SizeDelta: {x: 250, y: 280.235}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3856099847440983975
 CanvasRenderer:
@@ -323,8 +322,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 36}
-  m_SizeDelta: {x: 250, y: 66}
+  m_AnchoredPosition: {x: 0, y: 22}
+  m_SizeDelta: {x: 250, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5862769407096077363
 CanvasRenderer:

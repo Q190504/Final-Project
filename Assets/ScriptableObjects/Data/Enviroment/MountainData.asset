@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 217f13e4024fd4f45a506412147155b7, type: 3}
-  m_Name: ColdMountainData
+  m_Name: MountainData
   m_EditorClassIdentifier: 
   type: 11
-  displayName: Cold Mountain
+  displayName: Mountain
   sprite: {fileID: 21300000, guid: 0e0e8996e2ef0544c87a15084f91eb1e, type: 3}
   populationType: 0
-  tempuratureType: 3
-  maxSpawnRate: 0.041666668
+  tempuratureType: 0
+  maxSpawnRate: 0
   isBlocked: 1
   canBeLockeddown: 0
   canHaveStructure: 0

@@ -17,5 +17,5 @@ MonoBehaviour:
   threatRange:
     min: 0.7
     max: 1
-  maxActionsPerTick: 3
+  maxActionsPerTick: 4
   availableActions: 0000000001000000020000000300000004000000
