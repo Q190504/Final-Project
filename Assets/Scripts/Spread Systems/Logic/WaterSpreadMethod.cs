@@ -62,6 +62,8 @@ public class WaterSpreadMethod : BaseSpreadMethod<WaterSpreadDataSO, WaterRuntim
             }
 
             int newDist = dist + 1;
+            if (newDist < runtimeData.GetFinalMinDistance() - 1 || newDist > runtimeData.GetFinalMaxDistance())
+                continue;
 
             foreach (Vector2Int dir in Utility.Neighbor8Directions)
             {
