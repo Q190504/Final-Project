@@ -23,7 +23,7 @@ public class VaccineSystem : MonoBehaviour
     public float Progress { get; private set; }
     public VaccineDevelopmentStage Stage { get; private set; }
 
-    private InfectionResistanceModifier infectionResistanceModifier;
+    //private InfectionResistanceModifier infectionResistanceModifier;
 
     private MapManager mapManager;
     private UIManager uiManager;
@@ -44,7 +44,7 @@ public class VaccineSystem : MonoBehaviour
         Stage = VaccineDevelopmentStage.NotStarted;
         mapManager = MapManager.Instance;
         uiManager = UIManager.Instance;
-        infectionResistanceModifier = null;
+        //infectionResistanceModifier = null;
     }
 
     public void UpdateProgress(float amount)
@@ -79,16 +79,16 @@ public class VaccineSystem : MonoBehaviour
         if (Stage != VaccineDevelopmentStage.NotStarted)
         {
             uiManager.SetVaccineProgress(Progress, amount > 0);
-            int resistanceAdditive = CalculateInfectionResistanceAdditive();
-            if (infectionResistanceModifier == null)
-            {
-                infectionResistanceModifier = new InfectionResistanceModifier(resistanceAdditive,
-                    InfectionResistanceAdditiveSourceType.Vaccine, ModifierType.Additive);
+            //int resistanceAdditive = CalculateInfectionResistanceAdditive();
+            //if (infectionResistanceModifier == null)
+            //{
+            //    infectionResistanceModifier = new InfectionResistanceModifier(resistanceAdditive,
+            //        InfectionResistanceAdditiveSourceType.Vaccine, ModifierType.Additive);
 
-                mapManager.AddInfectionResistanceByVaccineToMap(infectionResistanceModifier);
-            }
-            else
-                infectionResistanceModifier.Value = resistanceAdditive;
+            //    mapManager.AddInfectionResistanceByVaccineToMap(infectionResistanceModifier);
+            //}
+            //else
+            //    infectionResistanceModifier.Value = resistanceAdditive;
         }
     }
 

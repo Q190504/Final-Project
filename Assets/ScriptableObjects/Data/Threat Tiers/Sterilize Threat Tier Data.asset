@@ -16,6 +16,6 @@ MonoBehaviour:
   tierName: Sterilize
   threatRange:
     min: 0.03
-    max: 0.05
+    max: 0.08
   maxActionsPerTick: 1
   availableActions: 00000000

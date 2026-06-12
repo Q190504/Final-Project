@@ -13,14 +13,13 @@ MonoBehaviour:
   m_Name: Increase Infection Level To Cells Skill Data
   m_EditorClassIdentifier: 
   type: 1
-  displayName: Increase Infection Level To Cells
+  displayName: Outbreak
   description: Increase infection level of cells.
   mainIcon: {fileID: 21300000, guid: 6403dd93eff7aa5468a92e8412f134c2, type: 3}
   secondaryIcon: {fileID: 21300000, guid: ed724da9c6a410948ac34ae6010b83f2, type: 3}
   secondaryIconColor: {r: 1, g: 1, b: 1, a: 1}
   infectionPointCost: 1
   cooldownTicks: 15
-  castType: 1
   multiTargetSkillExtraConfig:
     targetRadius: 2
   skillExtraConfig:

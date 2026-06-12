@@ -15,8 +15,8 @@ MonoBehaviour:
   type: 1
   displayName: Normal
   sprite: {fileID: 21300000, guid: f491dfcdb605a08419c0cf5bba32e5bf, type: 3}
-  minTempuratureValue: 0.4
-  maxTempuratureValue: 0.7
+  minTempuratureValue: 0.3
+  maxTempuratureValue: 0.6
   priorityToHuman: 0
   basePriorityToMethods:
     surfacePriority: 1

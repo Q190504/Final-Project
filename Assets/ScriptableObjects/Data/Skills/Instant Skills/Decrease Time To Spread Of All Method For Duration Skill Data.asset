@@ -13,14 +13,13 @@ MonoBehaviour:
   m_Name: Decrease Time To Spread Of All Method For Duration Skill Data
   m_EditorClassIdentifier: 
   type: 3
-  displayName: Decrease Time To Spread
+  displayName: Acceleration
   description: Decrease the time to spread of each method.
   mainIcon: {fileID: 21300000, guid: 2a1d712434ed2eb4280c8b91c877df3f, type: 3}
   secondaryIcon: {fileID: 1017879102727171100, guid: 28926a4a40fdb6e4e95fedc46af42a43, type: 3}
   secondaryIconColor: {r: 1, g: 1, b: 1, a: 1}
   infectionPointCost: 1
   cooldownTicks: 15
-  castType: 0
   skillExtraConfig:
     decreaseTimeToSpreadPercentForEachMethod: 0.5
     duration: 10

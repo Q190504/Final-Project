@@ -375,6 +375,7 @@ public static class Utility
                 float value = strength * Mathf.Exp(-dist2 / r2);
 
                 pop[x, y] += value;
+                pop[x, y] = Mathf.Min(pop[x, y], 1f);
                 cellsUpdated++;
             }
         }

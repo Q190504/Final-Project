@@ -104,9 +104,10 @@ public class HumanAIManager : MonoBehaviour
             foreach (ActionInstance inst in actionCandidates)
             {
                 float strategic = StrategicWeight(inst.Action.Data.ActionType, ctx.ThreatLevel);
-                float penalty = ComputePenalty(inst, simCache);
+                //float penalty = ComputePenalty(inst, simCache);
 
-                inst.FinalScore = inst.NormalizedUtility * strategic * penalty;
+                //inst.FinalScore = inst.NormalizedUtility * strategic * penalty;
+                inst.FinalScore = inst.NormalizedUtility * strategic;
             }
 
             Debug.Log($"Has {actionCandidates.Count} candidates:\n" +
@@ -143,10 +144,7 @@ public class HumanAIManager : MonoBehaviour
                 // remove all old instances of this action
                 actionCandidates.RemoveAll(x => x.Action == action);
 
-                ActionInstance newInstance = action.BuildBestInstances(
-                  simCtx,
-                  simCache
-                );
+                ActionInstance newInstance = action.BuildBestInstances(simCtx, simCache);
 
                 // add new
                 if (newInstance != null && newInstance.IsValid)

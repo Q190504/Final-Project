@@ -15,7 +15,7 @@ MonoBehaviour:
   ActionType: 1
   actionName: Lockdown
   executionType: 2
-  priority: 1
+  priority: 0
   minTargetPerExecution: 10
   maxTargetPerExecution: 50
   minUtility: -500000
@@ -29,12 +29,10 @@ MonoBehaviour:
     CurrentCellInfectionPenaltyWeight: 1
     DetectRadius: 15
     cellScoreWeight: 10
-    FrontlinePressureThreshold: 0.01
     SealBonus: 5
-    AdjacentToExistingLockdownBonus: 15
-    AnchorProgressBonus: 5
-    NearHighPopulationCellBonus: 5
-    ClusterPenalty: 50
+    ChokePointWeight: 0.5
+    DistanceToInfectionWeight: 0.3
+    ComponentValueWeight: 0.2
     RegionCompletionWeight: 20
     RegionProtectionWeight: 10
     TargetsScoreWeight: 5

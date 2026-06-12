@@ -15,7 +15,7 @@ MonoBehaviour:
   ActionType: 2
   actionName: Build Hospital
   executionType: 1
-  priority: 2
+  priority: 3
   minTargetPerExecution: 1
   maxTargetPerExecution: 1
   minUtility: 0

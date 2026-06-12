@@ -15,7 +15,7 @@ MonoBehaviour:
   ActionType: 0
   actionName: Sterilize
   executionType: 2
-  priority: 0
+  priority: 1
   minTargetPerExecution: 30
   maxTargetPerExecution: 200
   minUtility: -6150

@@ -20,18 +20,14 @@ public struct LockdownActionExtraConfig
     public int DetectRadius;
     [Tooltip("Weight for cell score when building fronline chain.")]
     public float cellScoreWeight;
-    [Tooltip("Threshold for determining frontline cells based on infection pressure.")]
-    public float FrontlinePressureThreshold;
     [Tooltip("Bonus for sealing a chain when building chain.")]
     public float SealBonus;
-    [Tooltip("Bonus for cells adjacent to existing lockdowns when building chain.")]
-    public float AdjacentToExistingLockdownBonus;
-    [Tooltip("Bonus for cells make progress to anchor (mountain cells / map's boundary cell) when building frontline chain.")]
-    public float AnchorProgressBonus;
-    [Tooltip("Bonus for cells near high-populaion cells when building frontline chain.")]
-    public float NearHighPopulationCellBonus;
-    [Tooltip("Penalty for cells have to many adjacent to existing lockdowns when building frontline chain.")]
-    public float ClusterPenalty;
+    [Tooltip("Weight for choke point cells when evaluating containment score for containment lockdown.")]
+    public float ChokePointWeight;
+    [Tooltip("Weight for DistanceToInfection value when evaluating containment score for containment lockdown.")]
+    public float DistanceToInfectionWeight;
+    [Tooltip("Weight for ComponentValue when evaluating containment score for containment lockdown.")]
+    public float ComponentValueWeight;
 
     [Header("Calculate Raw Utility Stats")]
     [Tooltip("Weight for region completion when building chain.")]

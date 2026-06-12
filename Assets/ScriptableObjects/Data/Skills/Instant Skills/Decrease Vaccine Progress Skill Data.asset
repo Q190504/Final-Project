@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: Decrease Vaccine Progress Skill Data
   m_EditorClassIdentifier: 
   type: 4
-  displayName: Decrease Vaccine Progress
+  displayName: Sabotage Research
   description: Decrease vaccine progress.
   mainIcon: {fileID: 21300000, guid: 505baafd76be96748aef2d0a98a3ca09, type: 3}
   secondaryIcon: {fileID: -2031920314, guid: 0ffd74a9cc87b9e45942059c27e3330a, type: 3}
   secondaryIconColor: {r: 1, g: 0, b: 0, a: 1}
   infectionPointCost: 1
   cooldownTicks: 7
-  castType: 0
   skillExtraConfig:
     decreaseVaccineProgressPercent: 0.1

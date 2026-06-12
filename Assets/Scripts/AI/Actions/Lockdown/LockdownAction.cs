@@ -2,6 +2,22 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
+public class LockdownAnalysisCache
+{
+    public Dictionary<GridCell, int> DistanceToInfection = new();
+
+    public Dictionary<GridCell, int> ComponentId = new();
+
+    public HashSet<GridCell> ArticulationCells = new();
+
+    public Dictionary<GridCell, float> ChokePointScore = new();
+
+    public Dictionary<int, float> ComponentValue = new();
+
+    public float TotalProtectValue = 0;
+}
+
 public class LockdownAction : HumanAction
 {
     private LockdownActionExtraConfig extraConfig;
@@ -15,10 +31,18 @@ public class LockdownAction : HumanAction
     private float MIN_CELL_SCORE;
     private float MAX_INFECTION_PRESSURE;
 
+    private float MAX_BOUNDARY_CELL_SCORE;
+
     private bool isBuildForRegion = true;
 
     private List<NeedToBeProtectedRegion> regions = new();
     private Dictionary<GridCell, Vector2> pressureCache = new();
+
+    private LockdownAnalysisCache analysisCache;
+    private Dictionary<GridCell, int> disc = new();
+    private Dictionary<GridCell, int> low = new();
+
+    private int dfsTime;
 
     private MapManager mapManager;
     private Grid<GridCell> grid;
@@ -81,13 +105,16 @@ public class LockdownAction : HumanAction
         int maxFrontierStrength = (maxNeighbors / 2) * (maxNeighbors - (maxNeighbors / 2));
         float maxFrontierScore = maxFrontierStrength * extraConfig.FrontierCellWeight;
 
-        float maxInfectionPenalty = MAX_INFECTION_LEVEL * MAX_INFECTION_LEVEL * extraConfig.CurrentCellInfectionPenaltyWeight;
-
-        MIN_CELL_SCORE = -maxInfectionPenalty;
+        MIN_CELL_SCORE = -extraConfig.CurrentCellInfectionPenaltyWeight;
 
         MAX_CELL_SCORE = Mathf.Max(MAX_INFECTION_PRESSURE * extraConfig.InfectionPressureWeight, maxFrontierScore)
             + maxSafeNeighborPopulation * extraConfig.SafeNeighborsPopulationWeight
             + highestStructurePriority;
+
+        float maxGapClosingScore = maxNeighbors * 10f;
+        float maxThreatScore = 1f;
+        float maxChokePointScore = 1f;
+        MAX_BOUNDARY_CELL_SCORE = maxThreatScore + maxGapClosingScore + maxChokePointScore;
 
         // Max protected value
         float maxCellProtectValue = highPopulationWeight * MAX_INFECTION_LEVEL + highestStructurePriority;
@@ -110,7 +137,7 @@ public class LockdownAction : HumanAction
                 + extraConfig.SealBonus
                 : 0f;
 
-            float frontlineUtility = MAX_CELL_SCORE * (data.maxTargetPerExecution - k);
+            float frontlineUtility = MAX_BOUNDARY_CELL_SCORE * (data.maxTargetPerExecution - k);
 
             float total = regionUtility + frontlineUtility;
 
@@ -251,9 +278,13 @@ public class LockdownAction : HumanAction
 
     public override ActionInstance BuildBestInstances(AIContext ctx, SimulationCache simCache)
     {
-        pressureCache.Clear();
         HashSet<GridCell> finalTargets = new();
         int finalTargetCount = Mathf.FloorToInt(Mathf.Lerp(data.minTargetPerExecution, data.maxTargetPerExecution, ctx.ThreatLevel));
+
+        BuildAnalysisCache();
+
+        BuildNeedToBeProtectedRegions();
+
         bool allProtected = false;
 
         regions = BuildNeedToBeProtectedRegions();
@@ -276,16 +307,16 @@ public class LockdownAction : HumanAction
             }
         }
 
-        int frontlineTargetCount = finalTargetCount - finalTargets.Count;
+        int containmentTargetCount = finalTargetCount - finalTargets.Count;
 
-        if (frontlineTargetCount > 0)
+        if (containmentTargetCount > 0)
         {
-            Debug.Log(allProtected ? "Building frontline lockdowns for remaining targets..."
-                : "No region to protect, building frontline lockdowns...");
+            Debug.Log(allProtected ? "Building containment lockdowns for remaining targets..."
+                : "No region to protect, building containment lockdowns...");
 
-            BuildFrontlineSafeLockdowns(finalTargets, frontlineTargetCount, ctx, simCache);
+            BuildContainmentLockdowns(finalTargets, containmentTargetCount, ctx, simCache);
 
-            Debug.Log($"finalTargets count after BuildFrontlineSafeLockdowns: {finalTargets.Count}");
+            Debug.Log($"finalTargets count after BuildContainmentLockdowns: {finalTargets.Count}");
         }
 
         if (finalTargets.Count == 0)
@@ -322,19 +353,205 @@ public class LockdownAction : HumanAction
 
         #region Frontline utility
 
-        List<GridCell> frontlineTargets = finalTargets
+        List<GridCell> containmentTargets = finalTargets
             .Where(t => !regionCells.Contains(t))
             .ToList();
 
-        if (frontlineTargets.Count > 0)
+        if (containmentTargets.Count > 0)
         {
-            raw += CalculateFrontlineRawUtility(frontlineTargets, ctx);
+            raw += CalculateFrontlineRawUtility(containmentTargets, ctx);
         }
 
         #endregion
 
         return new ActionInstance(this, finalTargets.ToList(), raw, NormalizeUtility(raw));
     }
+
+    #region Build Cache
+
+    private void BuildAnalysisCache()
+    {
+        analysisCache = new();
+
+        BuildDistanceMap();
+
+        BuildConnectedComponents();
+
+        BuildArticulationPoints();
+
+        CalculateChokeScores();
+    }
+
+    private void BuildDistanceMap()
+    {
+        Queue<GridCell> queue = new();
+
+        foreach (GridCell cell in cellList)
+        {
+            if (EstimateInfection(cell) > INF_THRESHOLD)
+            {
+                analysisCache.DistanceToInfection[cell] = 0;
+                queue.Enqueue(cell);
+            }
+            else
+            {
+                analysisCache.DistanceToInfection[cell] = int.MaxValue;
+            }
+        }
+
+        while (queue.Count > 0)
+        {
+            GridCell current = queue.Dequeue();
+
+            int currentDist = analysisCache.DistanceToInfection[current];
+
+            foreach (GridCell neighbour in grid.GetNeighborsInRange(current, 1))
+            {
+                if (neighbour.Stats.isLockdown)
+                    continue;
+
+                int newDist = currentDist + 1;
+
+                if (newDist >= analysisCache.DistanceToInfection[neighbour])
+                    continue;
+
+                analysisCache.DistanceToInfection[neighbour] = newDist;
+
+                queue.Enqueue(neighbour);
+            }
+        }
+    }
+
+    private void BuildConnectedComponents()
+    {
+        int nextId = 0;
+        analysisCache.TotalProtectValue = 0;
+
+        HashSet<GridCell> visited = new();
+
+        foreach (GridCell cell in cellList)
+        {
+            if (visited.Contains(cell))
+                continue;
+
+            if (cell.Stats.isLockdown)
+                continue;
+
+            float componentValue = 0;
+
+            Queue<GridCell> queue = new();
+
+            queue.Enqueue(cell);
+
+            visited.Add(cell);
+
+            while (queue.Count > 0)
+            {
+                GridCell current = queue.Dequeue();
+
+                analysisCache.ComponentId[current] = nextId;
+
+                componentValue += CalculateProtectValue(current);
+
+                foreach (GridCell neighbour in grid.GetNeighborsInRange(current, 1))
+                {
+                    if (visited.Contains(neighbour))
+                        continue;
+
+                    if (neighbour.Stats.isLockdown)
+                        continue;
+
+                    visited.Add(neighbour);
+
+                    queue.Enqueue(neighbour);
+                }
+            }
+
+            analysisCache.ComponentValue[nextId] = componentValue;
+            analysisCache.TotalProtectValue += componentValue;
+
+            nextId++;
+        }
+    }
+
+    private void BuildArticulationPoints()
+    {
+        disc.Clear();
+        low.Clear();
+
+        dfsTime = 0;
+
+        foreach (GridCell cell in cellList)
+        {
+            if (!disc.ContainsKey(cell))
+            {
+                TarjanDFS(cell, null);
+            }
+        }
+    }
+
+    private void TarjanDFS(GridCell current, GridCell parent)
+    {
+        disc[current] = low[current] = ++dfsTime;
+
+        int children = 0;
+
+        foreach (GridCell neighbour in grid.GetNeighborsInRange(current, 1))
+        {
+            if (neighbour.Stats.isLockdown)
+                continue;
+
+            if (!disc.ContainsKey(neighbour))
+            {
+                children++;
+
+                TarjanDFS(neighbour, current);
+
+                low[current] = Mathf.Min(low[current], low[neighbour]);
+
+                if (parent != null && low[neighbour] >= disc[current])
+                {
+                    analysisCache.ArticulationCells.Add(current);
+                }
+            }
+            else if (neighbour != parent)
+            {
+                low[current] = Mathf.Min(low[current], disc[neighbour]);
+            }
+        }
+
+        if (parent == null && children > 1)
+        {
+            analysisCache.ArticulationCells.Add(current);
+        }
+    }
+
+    private void CalculateChokeScores()
+    {
+        foreach (GridCell cell in analysisCache.ArticulationCells)
+        {
+            float score = 0;
+            HashSet<int> connectedComponents = new();
+
+            foreach (GridCell neighbor in grid.GetNeighborsInRange(cell, 1))
+            {
+                if (!analysisCache.ComponentId.ContainsKey(neighbor))
+                    continue;
+
+                int component = analysisCache.ComponentId[neighbor];
+                connectedComponents.Add(component);
+            }
+
+            foreach (int component in connectedComponents)
+            {
+                score += analysisCache.ComponentValue[component];
+            }
+
+            analysisCache.ChokePointScore[cell] = score / analysisCache.TotalProtectValue;
+        }
+    }
+
+    #endregion
 
     #region Build For Regions
 
@@ -505,7 +722,6 @@ public class LockdownAction : HumanAction
 
             int before = finalTargets.Count;
 
-            // commit as much as needed
             BuildChainForRegion(region, remainingTargets, finalTargets, simCache, ctx);
 
             int used = finalTargets.Count - before;
@@ -535,13 +751,7 @@ public class LockdownAction : HumanAction
                 if (finalTargets.Contains(cell))
                     continue;
 
-                float score = EvaluateCell(cell, ctx);
-
-                int adjacency = CountAdjacent(cell, finalTargets);
-                // prioritize cells that connect to existing chain
-                score += adjacency * extraConfig.AdjacentToExistingLockdownBonus;
-                // prioritize uncovered boundary gaps
-                score += CalculateGapClosingScore(cell, region, simCache);
+                float score = EvaluateBoundaryCell(cell, region, simCache);
 
                 if (score > bestScore)
                 {
@@ -556,6 +766,22 @@ public class LockdownAction : HumanAction
             finalTargets.Add(best);
             quota--;
         }
+    }
+
+    private float EvaluateBoundaryCell(GridCell cell, NeedToBeProtectedRegion region, SimulationCache simCache)
+    {
+        if (EstimateInfection(cell) > INF_THRESHOLD)
+            return -extraConfig.CurrentCellInfectionPenaltyWeight;
+
+        float score = 0;
+
+        score += CalculateGapClosingScore(cell, region, simCache);
+
+        score += 1f / (analysisCache.DistanceToInfection[cell] + 1);
+
+        score += analysisCache.ChokePointScore.GetValueOrDefault(cell);
+
+        return score;
     }
 
     private float CalculateRegionPriority(NeedToBeProtectedRegion region, SimulationCache simCache)
@@ -716,7 +942,7 @@ public class LockdownAction : HumanAction
 
     #region Build For Frontline
 
-    private void BuildFrontlineSafeLockdowns(HashSet<GridCell> finalTargets, int maxTargets, AIContext ctx, SimulationCache simCache)
+    private void BuildContainmentLockdowns(HashSet<GridCell> finalTargets, int maxTargets, AIContext ctx, SimulationCache simCache)
     {
         isBuildForRegion = false;
 
@@ -734,163 +960,37 @@ public class LockdownAction : HumanAction
         List<GridCell> candidates = cellList
             .Where(c =>
                 !c.Stats.isLockdown
+                && c.Stats.environment.currentEnvironmentType != EnvironmentType.Mountain
                 && !simCache.lockdownedCells.Contains(c)
                 && !finalTargets.Contains(c)
                 && !allBoundaryCells.Contains(c))
-            .OrderByDescending(c => EvaluateCell(c, ctx))
+            .OrderByDescending(c => EvaluateContainmentCell(c))
             .ToList();
 
         if (candidates.Count == 0)
             return;
 
-        GridCell seed = candidates[0];
-        HashSet<GridCell> selected = new() { seed };
-        candidates.RemoveAt(0);
-        maxTargets--;
-
-        GridCell anchor = FindClosestAnchor(seed);
-
-        while (maxTargets > 0)
+        for (int i = 0; i < maxTargets && i < candidates.Count; i++)
         {
-            List<GridCell> expansionCandidates = GetExpansionCandidates(selected, candidates);
-
-            if (expansionCandidates.Count == 0)
-                break;
-
-            GridCell bestCell = null;
-            float bestScore = float.MinValue;
-
-            foreach (GridCell cell in expansionCandidates)
-            {
-                float score = GetSelectionScore(cell, selected, anchor, ctx);
-
-                if (score > bestScore)
-                {
-                    bestScore = score;
-                    bestCell = cell;
-                }
-            }
-
-            if (bestCell == null)
-                break;
-
-            selected.Add(bestCell);
-            candidates.Remove(bestCell);
-
-            maxTargets--;
+            finalTargets.Add(candidates[i]);
         }
-
-        foreach (GridCell cell in selected)
-            finalTargets.Add(cell);
     }
 
-    private List<GridCell> GetExpansionCandidates(HashSet<GridCell> selected, List<GridCell> candidates)
+    private float EvaluateContainmentCell(GridCell cell)
     {
-        HashSet<GridCell> result = new();
+        if (EstimateInfection(cell) > INF_THRESHOLD)
+            return -extraConfig.CurrentCellInfectionPenaltyWeight;
 
-        foreach (GridCell cell in selected)
-        {
-            foreach (GridCell neighbor in grid.GetNeighborsInRange(cell, 1))
-            {
-                if (candidates.Contains(neighbor))
-                    result.Add(neighbor);
-            }
-        }
+        float choke = analysisCache.ChokePointScore.GetValueOrDefault(cell);
 
-        return result.ToList();
-    }
+        float distanceToInfectionValue = 1f / (analysisCache.DistanceToInfection[cell] + 1);
 
-    private float GetSelectionScore(GridCell cell, HashSet<GridCell> selected, GridCell anchor, AIContext ctx)
-    {
-        float score = EvaluateCell(cell, ctx) * extraConfig.cellScoreWeight;
+        float componentValue = analysisCache.ComponentValue[analysisCache.ComponentId[cell]];
 
-        score += GetChainBonus(cell, selected);
-
-        score += GetAnchorProgressBonus(cell, selected, anchor);
-
-        score += GetNearHighPopulationCellBonus(cell);
-
-        return score;
-    }
-
-    private float GetChainBonus(GridCell cell, HashSet<GridCell> selected)
-    {
-        int adjacentSelected = 0;
-
-        foreach (GridCell neighbor in grid.GetNeighborsInRange(cell, 1))
-        {
-            if (selected.Contains(neighbor) || neighbor.Stats.isLockdown)
-                adjacentSelected++;
-        }
-
-        if (adjacentSelected == 1)
-            return extraConfig.AdjacentToExistingLockdownBonus;
-
-        if (adjacentSelected >= 2)
-            return -extraConfig.ClusterPenalty;
-
-        return 0f;
-    }
-
-    private float GetAnchorProgressBonus(GridCell candidate, HashSet<GridCell> selected, GridCell anchor)
-    {
-        if (anchor == null)
-            return 0f;
-
-        float bestProgress = 0f;
-
-        foreach (GridCell selectedCell in selected)
-        {
-            int currentDist = Utility.GetDistance(selectedCell, anchor);
-
-            int candidateDist = Utility.GetDistance(candidate, anchor);
-
-            bestProgress = Mathf.Max(bestProgress, currentDist - candidateDist);
-        }
-
-        return bestProgress * extraConfig.AnchorProgressBonus;
-    }
-
-    private float GetNearHighPopulationCellBonus(GridCell candidate)
-    {
-        float highPopulationInRadiusCount = 0;
-
-        foreach (GridCell neighbor in grid.GetNeighborsInRange(candidate, extraConfig.DetectRadius))
-        {
-            if (neighbor.Stats.population.weight == highPopulationWeight)
-                highPopulationInRadiusCount++;
-        }
-
-        return highPopulationInRadiusCount * extraConfig.NearHighPopulationCellBonus
-            + candidate.Stats.population.weight;
-    }
-
-    private GridCell FindClosestAnchor(GridCell source)
-    {
-        GridCell best = null;
-        int bestDist = int.MaxValue;
-
-        foreach (GridCell cell in cellList)
-        {
-            if (!IsAnchor(cell))
-                continue;
-
-            int dist = Utility.GetDistance(source, cell);
-
-            if (dist < bestDist)
-            {
-                bestDist = dist;
-                best = cell;
-            }
-        }
-
-        return best;
-    }
-
-    private bool IsAnchor(GridCell cell)
-    {
-        return cell.Stats.environment.currentEnvironmentType == EnvironmentType.Mountain
-            || grid.IsMapEdge(cell.X, cell.Y);
+        return
+            choke * extraConfig.ChokePointWeight +
+            distanceToInfectionValue * extraConfig.DistanceToInfectionWeight +
+            componentValue * extraConfig.ComponentValueWeight;
     }
 
     #endregion
@@ -900,14 +1000,6 @@ public class LockdownAction : HumanAction
         CellStats stats = c.Stats;
         return stats.population.weight * (MAX_INFECTION_LEVEL - EstimateInfection(c))
             + (stats.structure.type != StructureType.None ? stats.structure.currentPriorityToHuman : 0);
-    }
-
-    private int CountAdjacent(GridCell c, HashSet<GridCell> chain)
-    {
-        int count = 0;
-        foreach (var n in grid.GetNeighborsInRange(c, 1))
-            if (chain.Contains(n)) count++;
-        return count;
     }
 
     public override float CalculateRawUtility(List<GridCell> targets, AIContext ctx)
@@ -928,10 +1020,10 @@ public class LockdownAction : HumanAction
         float targetsScore = 0f;
         foreach (var c in targets)
         {
-            targetsScore += EvaluateCell(c, ctx);
+            targetsScore += EvaluateBoundaryCell(c, region, simCache);
         }
 
-        float normalizedTargetsScore = targets.Count > 0 ? targetsScore / (MAX_CELL_SCORE * targets.Count) : 0f;
+        float normalizedTargetsScore = targets.Count > 0 ? targetsScore / (MAX_BOUNDARY_CELL_SCORE * targets.Count) : 0f;
 
         return
             +completionBonus * extraConfig.RegionCompletionWeight
@@ -945,7 +1037,7 @@ public class LockdownAction : HumanAction
         float utility = 0f;
         foreach (GridCell cell in targets)
         {
-            utility += EvaluateCell(cell, ctx);
+            utility += EvaluateContainmentCell(cell);
         }
 
         return utility;

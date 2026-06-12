@@ -224,7 +224,7 @@ public class CellStats
 
         (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(this.infectionLevel, this);
 
-        SetStage(cellStageResult.Item1);
+        SetStage();
         PointsGainedStruct finalPointsGained = GetFinalPointGained(cellStageResult.Item2, population.type);
 
         return finalPointsGained;
@@ -246,21 +246,43 @@ public class CellStats
         }
 
         this.infectionLevel = infectionLevel;
-
-        (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(this.infectionLevel, this);
-
-        SetStage(cellStageResult.Item1);
+        SetStage();
     }
 
-    public void SetStage(CellStageType cellStageType)
+    public void SetStage()
     {
-        mapManager.UpdateInfectedRateAndDeadRate(new Vector2Int(parentCell.X, parentCell.Y),
-            cellStageType, population.weight);
+        CellStageType oldStage = stage.type;
 
-        UpdateHumanPriority();
+        (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(infectionLevel, this);
 
-        parentCell.CheckIsBeingShownInfo();
-        AddCellNeedToUpdateVisual(new Vector2Int(parentCell.X, parentCell.Y));
+        if (oldStage != cellStageResult.Item1)
+        {
+            mapManager.UpdateInfectedRateAndDeadRate(new Vector2Int(parentCell.X, parentCell.Y),
+                cellStageResult.Item1, population.weight);
+
+            UpdateHumanPriority();
+
+            parentCell.CheckIsBeingShownInfo();
+            AddCellNeedToUpdateVisual(new Vector2Int(parentCell.X, parentCell.Y));
+        }
+    }
+
+    public void SetStage(CellStageType stageType)
+    {
+        CellStageType oldStage = stage.type;
+
+        (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(stageType, this);
+
+        if (oldStage != cellStageResult.Item1)
+        {
+            mapManager.UpdateInfectedRateAndDeadRate(new Vector2Int(parentCell.X, parentCell.Y),
+                stageType, population.weight);
+
+            UpdateHumanPriority();
+
+            parentCell.CheckIsBeingShownInfo();
+            AddCellNeedToUpdateVisual(new Vector2Int(parentCell.X, parentCell.Y));
+        }
     }
 
     public void DetermineInfectionStats(CellStageStats cellStageStats)
@@ -297,8 +319,7 @@ public class CellStats
                 toDeadTicksCount,
                 () =>
                 {
-                    (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(CellStageType.Dead, this);
-                    SetStage(cellStageResult.Item1);
+                    SetStage(CellStageType.Dead);
                 },
                 0);
         }
@@ -357,8 +378,7 @@ public class CellStats
 
         if (finalInfectionResistance == Utility.maxInfectionResistance)
         {
-            (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(CellStageType.Immune, this);
-            SetStage(cellStageResult.Item1);
+            SetStage(CellStageType.Immune);
         }
     }
 
@@ -469,9 +489,7 @@ public class CellStats
             total += mod.Value;
         }
 
-        baseDetection = ctx.InfectionRateDetected * human.InfectionRateDetectedWeight
-            + ctx.DeadRateDetected * human.DeadRateDetectedWeight
-            + stage.detectionPercent;
+        baseDetection = ctx.ThreatLevel + stage.detectionPercent;
 
         finalDetection = Mathf.Clamp(
             baseDetection + (total * detectionMultiplier),

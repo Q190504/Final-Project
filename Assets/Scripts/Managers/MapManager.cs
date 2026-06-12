@@ -72,10 +72,10 @@ public class MapManager : MonoBehaviour
         {
             Random.InitState(System.Environment.TickCount);
             seed = Random.Range(0, int.MaxValue / 2);
-            config.seed = seed;
+            mapGenerator = new(seed, config);
         }
-
-        mapGenerator = new(seed, config);
+        else
+            mapGenerator = new(config.seed, config);
     }
 
     // Update is called once per frame

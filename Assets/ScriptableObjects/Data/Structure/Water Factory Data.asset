@@ -41,7 +41,7 @@ MonoBehaviour:
     spawnRateOnEnvironment: 0
   spawnRate: 0.5
   maxAmountInAMatch: 5
-  effectRangePercent: 0.15
+  effectRangePercent: 0.08
   priorityToHuman: 0.1666667
   basePriorityToMethods:
     surfacePriority: 0

@@ -6676,32 +6676,32 @@ MonoBehaviour:
     height: 35
     cellSize: 1
     originPosition: {x: 0, y: 0, z: 0}
-    generateRandomSeed: 0
-    seed: 190504
-    maxWaterRatio: 0.125
+    generateRandomSeed: 1
+    seed: 7051996
+    maxWaterRatio: 0.2
     maxMountainRatio: 0.15
-    urbanRatioRange: {x: 0.2, y: 0.4}
+    urbanRatioRange: {x: 0.05, y: 0.1}
     minUrbans: 3
     maxUrbans: 6
     minUrbanRadiusPercent: 0.05
-    maxUrbanRadiusPercent: 0.15
-    minMountainChains: 1
+    maxUrbanRadiusPercent: 0.1
+    minMountainChains: 0
     MaxMountainChains: 7
     minMountainLengthPercent: 0.2
     maxMountainLengthPercent: 0.4
-    minMountainRadiusPercent: 0.03
-    maxMountainRadiusPercent: 0.05
+    minMountainRadiusPercent: 0.02
+    maxMountainRadiusPercent: 0.04
     minLakeCount: 0
     maxLakeCount: 7
     minLakeRadiusPercent: 0.1
     maxLakeRadiusPercent: 0.35
-    minRiverCount: 1
+    minRiverCount: 0
     maxRiverCount: 5
     minRiverLengthPercent: 0.2
     maxRiverLengthPercent: 0.4
     minRiverRadiusPercent: 0.03
     maxRiverRadiusPercent: 0.05
-    temperatureNoiseScale: 0.04
+    temperatureNoiseScale: 0.05
     populationNoiseScale: 0.03
     startingInfectedCellCount: 1
     startingInfectionLevelsList:
@@ -8699,22 +8699,22 @@ MonoBehaviour:
     hasShownNoti: 0
     selectedNode: {fileID: 0}
   - tier: 2
-    infectedRate: 0.1
-    cost: 1
+    infectedRate: 0.2
+    cost: 300
     hasBeenChosen: 0
     hasBeenSetInfo: 0
     hasShownNoti: 0
     selectedNode: {fileID: 0}
   - tier: 3
-    infectedRate: 0.2
-    cost: 1
+    infectedRate: 0.4
+    cost: 500
     hasBeenChosen: 0
     hasBeenSetInfo: 0
     hasShownNoti: 0
     selectedNode: {fileID: 0}
   - tier: 4
-    infectedRate: 0.3
-    cost: 1
+    infectedRate: 0.6
+    cost: 700
     hasBeenChosen: 0
     hasBeenSetInfo: 0
     hasShownNoti: 0
@@ -9172,7 +9172,7 @@ MonoBehaviour:
   InfectionRateDetectedWeight: 0.7
   DeadRateDetectedWeight: 0.3
   MaxInfectionPressureMultiplier: 2
-  MaxSkillMultiplier: 1.3
+  MaxSkillMultiplier: 1.8
   MaxSkillUseThreat: 10
   aiContextConfigSO: {fileID: 11400000, guid: 66d5951b15cb2834285d82bf18e580bc, type: 2}
   ThreatTierWhenHavingReducedCooldown: 4
@@ -11036,7 +11036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad814f2b26557745b72d16cc24a850b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressPerStep: 0.01
+  progressPerStep: 0.03
   infectionResistancePerStep: 1
   onGameEndedSO: {fileID: 11400000, guid: 681cf718454cbc44695f2b614b09816d, type: 2}
 --- !u!4 &1284491772
@@ -13478,7 +13478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20d1b4dff7f0d542bfc76b95d094211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsPerTick: 2
+  secondsPerTick: 6
   defaultTimeScale: 1
   speedUpFirstTimeScale: 2
   toggleTimeAction:

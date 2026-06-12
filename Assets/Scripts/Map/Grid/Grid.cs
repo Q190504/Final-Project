@@ -67,12 +67,16 @@ public class Grid<TGridObject>
 
     public void SetTemperatureCell(int x, int y, float value)
     {
+        value = Mathf.Clamp01(value);
+
         if (IsInBounds(x, y))
             temperatureGridArray[x, y] = value;
     }
 
     public void SetPopulationCell(int x, int y, float value)
     {
+        value = Mathf.Clamp01(value);
+
         if (IsInBounds(x, y))
             populationGridArray[x, y] = value;
     }
@@ -100,14 +104,13 @@ public class Grid<TGridObject>
         // Avoid division by zero
         if (max <= 0f) return;
 
-
         // Normalize and clamp
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
                 float normalized = populationGridArray[x, y] / max;
-                populationGridArray[x, y] = Mathf.Clamp(normalized, 0.1f, 1f);
+                populationGridArray[x, y] = Mathf.Clamp(normalized, 0f, 1f);
             }
         }
     }

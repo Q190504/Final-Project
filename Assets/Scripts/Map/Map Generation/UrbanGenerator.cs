@@ -38,6 +38,6 @@ public class UrbanGenerator : IMapGeneratorStep
             Utility.CreateUrban(grid, w, h, config, populationRandom, highPopulationData);
         }
 
-        grid.NormalizePopulationMap();
+        //grid.NormalizePopulationMap();
     }
 }

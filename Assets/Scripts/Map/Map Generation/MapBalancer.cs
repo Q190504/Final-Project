@@ -86,7 +86,7 @@ public class MapBalancer : IMapGeneratorStep
             ratio = (float)urbanCount / totalCell;
         }
 
-        grid.NormalizePopulationMap();
+        //grid.NormalizePopulationMap();
 
         //Debug.Log($"Final Urban Ratio: {ratio * 100}%");
     }

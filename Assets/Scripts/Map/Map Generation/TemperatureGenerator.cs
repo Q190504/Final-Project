@@ -7,18 +7,18 @@ public class TemperatureGenerator : IMapGeneratorStep
 
     // Range used to sample a different area in Perlin noise space.
     // Large range ensures different maps for different seeds.
-    [SerializeField] private int NoiseOffsetMin = -10000;
-    [SerializeField] private int NoiseOffsetMax = 10000;
+    private int noiseOffsetMin = -100000;
+    private int noiseOffsetMax = 100000;
 
     // Frequency multiplier for the secondary noise layer.
-    [SerializeField, Tooltip ("Higher value = smaller and more detailed variations.")] 
-    private float SecondaryFrequencyMultiplier = 2f;
+    // Higher value = smaller and more detailed variations.
+    private float secondaryFrequencyMultiplier = 2f;
 
     // Blending weights between large-scale and small-scale noise.
-    [Range(0, 1), Tooltip("Must sum to 1 for normalized blending.")]
-    [SerializeField] private float BaseNoiseWeight = 0.7f;
-    [Range(0, 1), Tooltip("Must sum to 1 for normalized blending.")]
-    [SerializeField] private float SecondaryNoiseWeight = 0.3f;
+    // Must sum to 1 for normalized blending
+    private float baseNoiseWeight = 0.7f;
+    // Must sum to 1 for normalized blending
+    private float secondaryNoiseWeight = 0.3f;
 
     public TemperatureGenerator(MapConfig config, int seed)
     {
@@ -42,14 +42,14 @@ public class TemperatureGenerator : IMapGeneratorStep
          * Conceptually, we are shifting the "camera position"
          * in infinite Perlin noise space.
          */
-        float baseOffsetX = temperatureRandom.Next(NoiseOffsetMin, NoiseOffsetMax);
-        float baseOffsetY = temperatureRandom.Next(NoiseOffsetMin, NoiseOffsetMax);
+        float baseOffsetX = temperatureRandom.Next(noiseOffsetMin, noiseOffsetMax);
+        float baseOffsetY = temperatureRandom.Next(noiseOffsetMin, noiseOffsetMax);
 
-        float secondaryOffsetX = temperatureRandom.Next(NoiseOffsetMin, NoiseOffsetMax);
-        float secondaryOffsetY = temperatureRandom.Next(NoiseOffsetMin, NoiseOffsetMax);
+        float secondaryOffsetX = temperatureRandom.Next(noiseOffsetMin, noiseOffsetMax);
+        float secondaryOffsetY = temperatureRandom.Next(noiseOffsetMin, noiseOffsetMax);
 
         float baseScale = config.temperatureNoiseScale;
-        float secondaryScale = config.temperatureNoiseScale * SecondaryFrequencyMultiplier;
+        float secondaryScale = config.temperatureNoiseScale * secondaryFrequencyMultiplier;
 
         /*
          * Temperature generation algorithm:
@@ -84,8 +84,8 @@ public class TemperatureGenerator : IMapGeneratorStep
                 // Weighted combination to preserve macro structure
                 // while adding fine details.
                 float temperature =
-                    BaseNoiseWeight * baseNoise +
-                    SecondaryNoiseWeight * secondaryNoise;
+                    baseNoiseWeight * baseNoise +
+                    secondaryNoiseWeight * secondaryNoise;
 
                 grid.SetTemperatureCell(x, y, temperature);
             }
