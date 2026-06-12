@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Water 3A Upgrade Node SO
   m_EditorClassIdentifier: 
   upgradeName: Water 3A
-  description: +X% sterilization resistance for cells that have water.
+  description: Cells with water gain increased resistance to sterilization.
   icon: {fileID: 0}
   effects:
   - {fileID: 11400000, guid: d9af3f4b7db84bb4187577515f239779, type: 2}

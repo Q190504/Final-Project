@@ -69,6 +69,6 @@ public class SkillUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        UIManager.Instance.HideSkillDetailPanel();
+        UIManager.Instance.HideSpreadMethodDetailPanel();
     }
 }

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Surface 2B Upgrade Node SO
   m_EditorClassIdentifier: 
   upgradeName: Surface 2B
-  description: Cells infected for the first time gain disinfect immunity for X days.
+  description: Cells infected for the first time gain immunity to disinfection for
+    a number of days.
   icon: {fileID: 0}
   effects:
   - {fileID: 11400000, guid: 8ada5e47f28acd244926cff8447df81c, type: 2}

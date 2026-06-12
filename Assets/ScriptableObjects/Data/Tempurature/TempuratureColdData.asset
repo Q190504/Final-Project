@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Cold
   sprite: {fileID: 21300000, guid: c0fb67054ee0f854f9b82fe59a64f3a9, type: 3}
   minTempuratureValue: 0
-  maxTempuratureValue: 0.2
+  maxTempuratureValue: 0.3
   priorityToHuman: 0
   basePriorityToMethods:
     surfacePriority: 1

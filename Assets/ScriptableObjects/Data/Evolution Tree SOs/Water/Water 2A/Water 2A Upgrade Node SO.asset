@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Water 2A Upgrade Node SO
   m_EditorClassIdentifier: 
   upgradeName: Water 2A
-  description: +X% infection power if a water factory is disabled.
+  description: Increase infection power if a water factory is disabled.
   icon: {fileID: 0}
   effects:
   - {fileID: 11400000, guid: f8de8248fb753f44fa386607dd55ae88, type: 2}

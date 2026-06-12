@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Water 3B Upgrade Node SO
   m_EditorClassIdentifier: 
   upgradeName: Water 3B
-  description: Has an X% chance to spread to non-water cells.
+  description: Has a chance to spread to non-water cells.
   icon: {fileID: 0}
   effects:
   - {fileID: 11400000, guid: 94f42cdaf95c91f4db00067b33d59483, type: 2}

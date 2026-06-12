@@ -1,8 +1,9 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SpreadMethodUI : MonoBehaviour
+public class SpreadMethodUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public SpreadMethodType methodType;
     [SerializeField] private Image icon;
@@ -27,5 +28,15 @@ public class SpreadMethodUI : MonoBehaviour
         {
             cooldownText.gameObject.SetActive(false);
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        UIManager.Instance.ShowSpreadMethodDetailPanel(methodType);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        UIManager.Instance.HideSpreadMethodDetailPanel();
     }
 }

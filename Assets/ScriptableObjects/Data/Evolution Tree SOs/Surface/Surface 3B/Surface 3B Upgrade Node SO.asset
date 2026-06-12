@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Surface 3B Upgrade Node SO
   m_EditorClassIdentifier: 
   upgradeName: Surface 3B
-  description: If a cell is infected for X days, it gets +X% sterilization resistance.
+  description: If a cell is infected for long enough, it gets bonus sterilization
+    resistance.
   icon: {fileID: 0}
   effects:
   - {fileID: 11400000, guid: fd1253abe2148d54aaecf01396cfca64, type: 2}

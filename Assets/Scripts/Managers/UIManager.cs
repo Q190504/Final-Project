@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Notification notificationPanel;
     [SerializeField] private GameObject skillsPanel;
     [SerializeField] private SkillDetailPanel skillDetailPanel;
+    [SerializeField] private SpreadMethodDetailPanel spreadMethodDetailPanel;
     [SerializeField] private GameObject settingPanel;
     [SerializeField] private GameObject confirmExitGamePanel;
     [SerializeField] private GameObject endGamePanel;
@@ -166,6 +167,8 @@ public class UIManager : MonoBehaviour
 
         evolutionSelectionPanel.SetActive(false);
         evolutionPanelToggleVisibilityButton.gameObject.SetActive(false);
+        spreadMethodDetailPanel.gameObject.SetActive(false);
+        skillDetailPanel.gameObject.SetActive(false);
 
         evolutionTreePanel.SetPanelVisibility(false, null);
         SetEvolutionTreePanelToggleButtonVisibility(false);
@@ -468,6 +471,7 @@ public class UIManager : MonoBehaviour
         cellInfoViewPanel.SetVisibility(show);
         skillsPanel.SetActive(show);
         skillDetailPanel.gameObject.SetActive(false);
+        spreadMethodDetailPanel.gameObject.SetActive(false);
 
         if (VaccineSystem.Instance.Stage != VaccineDevelopmentStage.NotStarted)
             vaccinePanel.gameObject.SetActive(show);
@@ -522,6 +526,7 @@ public class UIManager : MonoBehaviour
         cellInfoViewPanel.SetVisibility(show);
         skillsPanel.SetActive(show);
         skillDetailPanel.gameObject.SetActive(false);
+        spreadMethodDetailPanel.gameObject.SetActive(false);
 
         if (VaccineSystem.Instance.Stage != VaccineDevelopmentStage.NotStarted)
             vaccinePanel.gameObject.SetActive(show);
@@ -630,6 +635,28 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    #region Spread Method Detail Panel
+
+    public void ShowSpreadMethodDetailPanel(SpreadMethodType type)
+    {
+        SpreadMethodRuntimeData data = SpreadMethodManager.Instance.GetRuntimeData(type);
+        if (data == null)
+        {
+            Debug.LogError($"No data found for spread method type {type}");
+            return;
+        }
+
+        spreadMethodDetailPanel.gameObject.SetActive(true);
+        spreadMethodDetailPanel.SetInfo(data);
+    }
+
+    public void HideSpreadMethodDetailPanel()
+    {
+        spreadMethodDetailPanel.gameObject.SetActive(false);
+    }
+
+    #endregion
+
     #region Skill Detail Panel
 
     public void ShowSkillDetailPanel(SkillType skillType)
@@ -661,6 +688,7 @@ public class UIManager : MonoBehaviour
             vaccinePanel.gameObject.SetActive(false);
 
         skillDetailPanel.gameObject.SetActive(false);
+        spreadMethodDetailPanel.gameObject.SetActive(false);
         evolutionSelectionPanel.SetActive(false);
         evolutionTreePanel.gameObject.SetActive(false);
     }
@@ -725,6 +753,7 @@ public class UIManager : MonoBehaviour
 
         cellInfoViewPanel.SetVisibility(false);
         skillDetailPanel.gameObject.SetActive(false);
+        spreadMethodDetailPanel.gameObject.SetActive(false);
         vaccinePanel.gameObject.SetActive(false);
 
         evolutionSelectionPanel.SetActive(false);

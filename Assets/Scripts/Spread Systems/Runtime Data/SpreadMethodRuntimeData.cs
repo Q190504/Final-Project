@@ -205,4 +205,30 @@ public class SpreadMethodRuntimeData
         temperatureModifiers.Initialize();
         populationModifiers.Initialize();
     }
+
+    #region Getters for UI
+
+    public int GetBaseInfectionPower()
+    {
+        float addition = baseInfectionPower + additiveInfectionPower;
+
+        float multiplier = multiplicativeInfectionPower;
+
+        float valueFloat = Mathf.Clamp(addition * multiplier, Utility.minInfectionLevel, Utility.maxInfectionLevel);
+        int valueInt = Mathf.FloorToInt(valueFloat);
+
+        return valueInt;
+    }
+
+    public List<TemperatureModifierEntry> GetTemperatureModifiers()
+    {
+        return temperatureModifiers.GetEntries();
+    }
+
+    public List<PopulationModifierEntry> GetPopulationModifiers()
+    {
+        return populationModifiers.GetEntries();
+    }
+
+    #endregion
 }

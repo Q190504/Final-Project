@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Carrier 1A Upgrade Node SO
   m_EditorClassIdentifier: 
   upgradeName: Carrier 1A
-  description: +X% chance to spawn carrier.
+  description: Increase chance to spawn carrier.
   icon: {fileID: 0}
   effects:
   - {fileID: 11400000, guid: 523174fee2410e948a417e44b5510aa7, type: 2}

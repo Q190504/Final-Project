@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Surface 3A
   description: If a source cell's stage is Critical, it increases its target's infection
-    gain by X%.
+    gain percent.
   icon: {fileID: 0}
   effects:
   - {fileID: 11400000, guid: 9b34aae499268194e9c295ed1ac697be, type: 2}
