@@ -483,6 +483,9 @@ public class LockdownAction : HumanAction
 
         foreach (GridCell cell in cellList)
         {
+            if (neighbour.Stats.isLockdown)
+                continue;
+
             if (!disc.ContainsKey(cell))
             {
                 TarjanDFS(cell, null);
