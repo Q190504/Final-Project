@@ -93,6 +93,8 @@ public class UIManager : MonoBehaviour
 
     private Dictionary<ThreatTier, Color> threatTierColorMap;
 
+    private bool evolutionPanelToggleVisibilityButtonStateBeforeOpenEvolutionTreePanel = false;
+
     private CellPresenter[,] presenters;
 
     private TimeManager timeManager;
@@ -552,7 +554,17 @@ public class UIManager : MonoBehaviour
         else
             vaccinePanel.gameObject.SetActive(false);
 
-        evolutionPanelToggleVisibilityButton.gameObject.SetActive(show);
+        if (!show)
+        {
+            evolutionPanelToggleVisibilityButtonStateBeforeOpenEvolutionTreePanel = evolutionPanelToggleVisibilityButton.gameObject.activeSelf;
+            evolutionPanelToggleVisibilityButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            evolutionPanelToggleVisibilityButton.gameObject.SetActive(evolutionPanelToggleVisibilityButtonStateBeforeOpenEvolutionTreePanel);
+            evolutionPanelToggleVisibilityButtonStateBeforeOpenEvolutionTreePanel = false;
+        }
+
         evolutionSelectionPanel.SetActive(false);
     }
 

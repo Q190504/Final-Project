@@ -21,7 +21,7 @@ public class InfectionSeeder : IMapGeneratorStep
         {
             cell.Stats.SetInfectionLevel(0);
 
-            if (!cell.Stats.isBlocked
+            if (cell.Stats.environment.currentEnvironmentType != EnvironmentType.Mountain
                 && cell.Stats.environment.currentEnvironmentType != EnvironmentType.Water
                 && cell.Stats.population.type == PopulationType.Low
                 && cell.Stats.structure.type == StructureType.None)
