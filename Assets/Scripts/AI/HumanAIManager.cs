@@ -126,11 +126,11 @@ public class HumanAIManager : MonoBehaviour
             actionCandidates.RemoveAll(x => x.Action == best.Action);
             chosenActions.Add(best.Action);
 
-            // Apply simulation
-            best.Action.ApplyLightSimulation(best.Cells, simCtx, simCache);
-
             if (i == actionCount - 1)
                 break;
+
+            // Apply simulation
+            best.Action.ApplyLightSimulation(best.Cells, simCtx, simCache);
 
             // 3. Rebuild candidates for actions that are affected by the previously selected action
             foreach (HumanAction action in actionsToConsider)
