@@ -108,7 +108,7 @@ public class BuildHospitalAction : HumanAction
             // Distance
             float dist = Mathf.Abs(targetCell.X - neighborCell.X) + Mathf.Abs(targetCell.Y - neighborCell.Y);
 
-            float resistance = neighborStats.finalInfectionResistance * detectWeight;
+            float resistance = neighborStats.GetInfectionResistance() * detectWeight;
             float need = maxInfectionResistance - resistance;
             // bonus if build on high infected area
             float infectionBonus = neighborStats.infectionLevel * detectWeight;
@@ -155,7 +155,7 @@ public class BuildHospitalAction : HumanAction
             float dist = Mathf.Abs(neighborCell.X - cell.X) + Mathf.Abs(neighborCell.Y - cell.Y);
 
             // BENEFIT
-            float resistanceLack = (maxInfectionResistance - neighborStats.finalInfectionResistance);
+            float resistanceLack = (maxInfectionResistance - neighborStats.GetInfectionResistance());
             float benefit = neighborStats.population.weight *
                 (resistanceLack * detectWeight);
 

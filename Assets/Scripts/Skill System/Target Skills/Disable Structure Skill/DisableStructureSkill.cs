@@ -18,7 +18,7 @@ public class DisableStructureSkill
         int disableTick = RuntimeData.skillExtraConfig.disableTickCount;
 
         if (IsValidTarget(centerCell))
-            structure.DisableStructure(null, true, disableTick);
+            structure.DisableStructure(null, true, disableTick, true);
 
         base.Execute(centerCell);
     }

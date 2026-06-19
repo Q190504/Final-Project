@@ -25,7 +25,7 @@ public class PointsManager : MonoBehaviour
     public void SpendEvolutionPoints(int cost)
     {
         evolutionPoints -= cost;
-        UIManager.Instance.SetEvolutionPointText(evolutionPoints, cost);
+        UIManager.Instance.SetEvolutionPointText(evolutionPoints, -cost);
     }
 
     public void AddEvolutionPoints(int amount)
@@ -46,7 +46,7 @@ public class PointsManager : MonoBehaviour
     public void SpendInfectionPoints(int cost)
     {
         infectionPoints -= cost;
-        UIManager.Instance.SetInfectionPointText(infectionPoints, cost);
+        UIManager.Instance.SetInfectionPointText(infectionPoints, -cost);
     }
 
     public void AddInfectionPoints(int amount)

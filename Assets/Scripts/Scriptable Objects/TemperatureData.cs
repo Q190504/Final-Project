@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Tempurature Data", menuName = "Scriptable Objects/Cell Property/Tempurature Data")]
-public class TempuratureData : ScriptableObject
+[CreateAssetMenu(fileName = "New Temperature Data", menuName = "Scriptable Objects/Cell Property/Temperature Data")]
+public class TemperatureData : ScriptableObject
 {
     public TemperatureType type;
     public string displayName;

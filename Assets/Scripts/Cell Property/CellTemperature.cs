@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CellTempurature
+public class CellTemperature
 {
     public TemperatureType type;
 
@@ -8,7 +8,7 @@ public class CellTempurature
     public float priorityToHuman;
     public PriorityToMethods priorityToMethods;
 
-    public CellTempurature()
+    public CellTemperature()
     {
         type = TemperatureType.None;
         priorityToHuman = 0f;
@@ -22,7 +22,7 @@ public class CellTempurature
     {
         type = tempuratureType;
 
-        TempuratureData tempuratureData = PropertyDataManager.Instance.GetTempuratureData(tempuratureType);
+        TemperatureData tempuratureData = PropertyDataManager.Instance.GetTempuratureData(tempuratureType);
         if (tempuratureData != null)
         {
             priorityToHuman = tempuratureData.priorityToHuman;
@@ -35,7 +35,7 @@ public class CellTempurature
     {
         if (environmentData != null)
         {
-            foreach (TempuratureData tempuratureData in PropertyDataManager.Instance.GetTempuratureDatas())
+            foreach (TemperatureData tempuratureData in PropertyDataManager.Instance.GetTempuratureDatas())
             {
                 if (tempuratureData != null && tempuratureData.type == environmentData.tempuratureType)
                 {
@@ -49,7 +49,7 @@ public class CellTempurature
 
     public void SetTempurature(float value)
     {
-        foreach (TempuratureData tempuratureData in PropertyDataManager.Instance.GetTempuratureDatas())
+        foreach (TemperatureData tempuratureData in PropertyDataManager.Instance.GetTempuratureDatas())
         {
             if (tempuratureData != null && tempuratureData.minTempuratureValue <= value
                 && value <= tempuratureData.maxTempuratureValue)

@@ -67,8 +67,6 @@ public class Grid<TGridObject>
 
     public void SetTemperatureCell(int x, int y, float value)
     {
-        value = Mathf.Clamp01(value);
-
         if (IsInBounds(x, y))
             temperatureGridArray[x, y] = value;
     }

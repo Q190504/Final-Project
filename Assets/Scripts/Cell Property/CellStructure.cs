@@ -102,7 +102,7 @@ public class CellStructure
         }
     }
 
-    public PointsGainedStruct DisableStructure(CellStageType? cellStageType = null, bool ignoreConditions = false, int disableTick = 0)
+    public PointsGainedStruct DisableStructure(CellStageType? cellStageType = null, bool ignoreConditions = false, int disableTick = 0, bool updateVisualInstantly = false)
     {
         PointsGainedStruct pointsGained = new();
 
@@ -150,12 +150,16 @@ public class CellStructure
         currentPriorityToMethods = new PriorityToMethods();
 
         RemoveAffectedByStructuresListOfCellsInRange();
-        parentCell.Stats.AddCellNeedToUpdateVisual(pos);
+
+        if (updateVisualInstantly)
+            parentCell.Stats.AddCellNeedToUpdateVisualInstantly(pos);
+        else
+            parentCell.Stats.AddCellNeedToUpdateVisualNextTick(pos);
 
         return pointsGained;
     }
 
-    public PointsGainedStruct DestroyStructure(CellStageType cellStageType, bool ignoreConditions = false)
+    public PointsGainedStruct DestroyStructure(CellStageType cellStageType, bool ignoreConditions = false, bool updateVisualInstantly = false)
     {
         PointsGainedStruct pointsGained = new();
 
@@ -173,12 +177,14 @@ public class CellStructure
         pointsGained.evolutionPoints += evolutionPointWhenDestroyed;
         pointsGained.infectionPoints += infectionPointWhenDestroyed;
 
-        parentCell.Stats.AddCellNeedToUpdateVisual(pos);
-
+        if (updateVisualInstantly)
+            parentCell.Stats.AddCellNeedToUpdateVisualInstantly(pos);
+        else
+            parentCell.Stats.AddCellNeedToUpdateVisualNextTick(pos);
         return pointsGained;
     }
 
-    public void EnableStructure(CellStageType cellStageType, bool ignoreConditions = false)
+    public void EnableStructure(CellStageType cellStageType, bool ignoreConditions = false, bool updateVisualInstantly = false)
     {
         if (GameManager.Instance != null)
         {
@@ -199,7 +205,10 @@ public class CellStructure
 
         SetAffectedByStructuresListOfCellsInRange();
 
-        parentCell.Stats.AddCellNeedToUpdateVisual(pos);
+        if (updateVisualInstantly)
+            parentCell.Stats.AddCellNeedToUpdateVisualInstantly(pos);
+        else
+            parentCell.Stats.AddCellNeedToUpdateVisualNextTick(pos);
     }
 
     private bool SuitableStageToEnableStructure(CellStageType cellStageType)

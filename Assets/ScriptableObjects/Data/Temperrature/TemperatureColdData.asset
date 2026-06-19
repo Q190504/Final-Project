@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6066b2abde0bf894cbf3fc01c2fd9990, type: 3}
-  m_Name: TempuratureColdData
+  m_Name: TemperatureColdData
   m_EditorClassIdentifier: 
   type: 3
   displayName: Cold

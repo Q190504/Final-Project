@@ -15,13 +15,8 @@ public class CarrierSpreadDataSO : SpreadMethodDataSO
 {
     public CarrierExtraConfig extraConfig;
 
-    public override ISpreadMethod CreateMethod(SpreadMethodContext context, SpreadMethodRuntimeData runtimeData)
+    public override ISpreadMethod CreateMethod(SpreadMethodContext context)
     {
-        return new CarrierSpreadMethod(context, this, (CarrierRuntimeData)runtimeData);
-    }
-
-    public override SpreadMethodRuntimeData CreateRuntimeData()
-    {
-        return new CarrierRuntimeData(this);
+        return new CarrierSpreadMethod(context, this, new CarrierRuntimeData(this));
     }
 }

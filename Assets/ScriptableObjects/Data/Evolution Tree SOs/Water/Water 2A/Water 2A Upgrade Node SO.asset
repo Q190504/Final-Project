@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8197c428dc8c5394ba601def6f840dcc, type: 3}
   m_Name: Water 2A Upgrade Node SO
   m_EditorClassIdentifier: 
-  upgradeName: Water 2A
+  upgradeName: Contaminated Supply
   description: Increase infection power if a water factory is disabled.
   icon: {fileID: 0}
   effects:

@@ -7,14 +7,14 @@ public class PropertyDataManager : MonoBehaviour
 
     [Header("Cell Property Data")]
     [SerializeField] private List<PopulationData> populationDatas;
-    [SerializeField] private List<TempuratureData> tempuratureDatas;
+    [SerializeField] private List<TemperatureData> tempuratureDatas;
     [SerializeField] private List<EnvironmentData> environmentDatas;
     [SerializeField] private List<StructureDataSO> structureDatas;
     [SerializeField] private List<CellStageData> cellStageDatas;
     [SerializeField] private List<ThreatTierSO> threatTierDatas;
 
     private Dictionary<PopulationType, PopulationData> populationDict;
-    private Dictionary<TemperatureType, TempuratureData> tempuratureDict;
+    private Dictionary<TemperatureType, TemperatureData> tempuratureDict;
     private Dictionary<EnvironmentType, EnvironmentData> environmentDict;
     private Dictionary<StructureType, StructureDataSO> structureDict;
     private Dictionary<CellStageType, CellStageData> cellStageDict;
@@ -76,7 +76,7 @@ public class PropertyDataManager : MonoBehaviour
 
     public List<PopulationData> GetPopulationDatas() { return populationDatas; }
 
-    public List<TempuratureData> GetTempuratureDatas() { return tempuratureDatas; }
+    public List<TemperatureData> GetTempuratureDatas() { return tempuratureDatas; }
 
     public List<EnvironmentData> GetEnvironmentDatas() { return environmentDatas; }
 
@@ -91,7 +91,7 @@ public class PropertyDataManager : MonoBehaviour
         return populationDict.TryGetValue(type, out var data) ? data : null;
     }
 
-    public TempuratureData GetTempuratureData(TemperatureType type)
+    public TemperatureData GetTempuratureData(TemperatureType type)
     {
         return tempuratureDict.TryGetValue(type, out var data) ? data : null;
     }

@@ -107,7 +107,7 @@ public abstract class BaseSpreadMethod<TData, TRuntime> : ISpreadMethod
                     && (afterStage != CellStageType.Safe || afterStage != CellStageType.Immune))
                     stats.SetSterilizationImmunityTicks(infectionInfo.disinfectionImmunityTicks);
 
-                context.MapManager.AddCellNeedToUpdateVisual(new Vector2Int(cell.X, cell.Y));
+                context.MapManager.AddCellNeedToUpdateVisualNotInstantly(new Vector2Int(cell.X, cell.Y));
             }
         }
 

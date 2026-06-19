@@ -9,6 +9,5 @@ public abstract class SpreadMethodDataSO : ScriptableObject
 
     public SpreadMethodConfig baseConfig;
 
-    public abstract ISpreadMethod CreateMethod(SpreadMethodContext context, SpreadMethodRuntimeData data);
-    public abstract SpreadMethodRuntimeData CreateRuntimeData();
+    public abstract ISpreadMethod CreateMethod(SpreadMethodContext context);
 }

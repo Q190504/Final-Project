@@ -41,7 +41,7 @@ public class WaterFactory : Structure
     {
         int increaseInfectionLevel = Mathf.FloorToInt(cell.Stats.infectionLevel * extraConfig.increasedInfectionLevelPercentWhenTakenDown);
 
-        cell.Stats.UpdateInfectionLevel(increaseInfectionLevel);
+        cell.Stats.UpdateInfectionLevel(increaseInfectionLevel, true);
     }
 
     public override void DisapplyEffectToCellWhenEnabled(GridCell cell)

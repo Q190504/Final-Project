@@ -203,7 +203,7 @@ public class CellInfoUIContentManager : MonoBehaviour
             SetupEntry(populationEntry, Safe(populationData != null ? populationData.displayName : null));
 
             // ===== TEMPERATURE =====
-            TempuratureData tempData = cellPropertyManager.GetTempuratureData(currentCellStats.tempurature.type);
+            TemperatureData tempData = cellPropertyManager.GetTempuratureData(currentCellStats.tempurature.type);
             SetupEntry(temperatureEntry,
                 Safe(tempData != null ? tempData.displayName : null),
                 tempData != null ? tempData.sprite : null);

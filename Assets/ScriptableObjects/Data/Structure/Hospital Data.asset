@@ -51,6 +51,6 @@ MonoBehaviour:
   infectionPointWhenDestroyed: 25
   evolutionPointWhenDestroyed: 15
   extraConfig:
-    additionalInfectionResistance: 2
+    additionalInfectionResistance: 3
     sterilizeAmountWhenPlaced: 100
-    sterilizeAmountEachTick: 5
+    sterilizeAmountEachTick: 2

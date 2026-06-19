@@ -120,7 +120,7 @@ public class EvolutionTreePanel : MonoBehaviour
 
     private void SetNodeInfoUIElementsVisibility(bool visible)
     {
-        nodeIconImage.gameObject.SetActive(visible);
+        //nodeIconImage.gameObject.SetActive(visible);
         nodeNameText.gameObject.SetActive(visible);
         nodeDescriptionText.gameObject.SetActive(visible);
     }

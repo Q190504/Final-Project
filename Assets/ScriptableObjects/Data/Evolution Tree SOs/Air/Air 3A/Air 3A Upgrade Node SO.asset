@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8197c428dc8c5394ba601def6f840dcc, type: 3}
   m_Name: Air 3A Upgrade Node SO
   m_EditorClassIdentifier: 
-  upgradeName: Air 3A
+  upgradeName: Crowd Transmission
   description: Increase infection power when infecting high-population cells.
-  flavorText: 
   icon: {fileID: 0}
   effects:
   - {fileID: 11400000, guid: 6a9013cac60fad7409ad8efaa891e355, type: 2}

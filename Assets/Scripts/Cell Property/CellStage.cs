@@ -17,10 +17,10 @@ public class CellStage
     public CellStage()
     {
         type = CellStageType.None;
-        stagesReachedBefore = new List<CellStageType> { CellStageType.Safe };
+        stagesReachedBefore = new List<CellStageType> { CellStageType.None };
     }
 
-    public (CellStageType, PointsGainedStruct) SetCellStageType(int infectionLevel, CellStats cellStats)
+    public (CellStageType, PointsGainedStruct) SetCellStageType(int infectionLevel, CellStats cellStats, bool updateVisualInstantly = false)
     {
         CellStageType previousType = type;
 
@@ -37,7 +37,6 @@ public class CellStage
                 && cellStageData.type != previousType)
             {
                 type = cellStageData.type;
-
                 PointsGainedStruct totalPointsGained = new();
                 if (!stagesReachedBefore.Contains(type))
                 {
@@ -77,15 +76,17 @@ public class CellStage
                 {
                     if (!cellStats.structure.isActive)
                     {
-                        cellStats.structure.EnableStructure(cellStats.stage.type);
+                        cellStats.structure.EnableStructure(cellStats.stage.type, updateVisualInstantly);
                     }
                     else
                     {
                         float evolutionPointMultiplier = SkillManager.Instance.GetEvolutionPointMultiplier();
                         float infectionPointMultiplier = SkillManager.Instance.GetInfectionPointMultiplier();
 
-                        PointsGainedStruct destroyStructurePointsGained = cellStats.structure.DestroyStructure(type);
-                        PointsGainedStruct DisableStructurePointsGained = cellStats.structure.DisableStructure(type);
+                        PointsGainedStruct destroyStructurePointsGained = 
+                            cellStats.structure.DestroyStructure(type, false, updateVisualInstantly);
+                        PointsGainedStruct DisableStructurePointsGained =
+                            cellStats.structure.DisableStructure(type, false, 0, updateVisualInstantly);
 
                         totalPointsGained.evolutionPoints = Mathf.RoundToInt(destroyStructurePointsGained.evolutionPoints
                             * evolutionPointMultiplier);
@@ -108,7 +109,7 @@ public class CellStage
         return (CellStageType.None, new PointsGainedStruct());
     }
 
-    public (CellStageType, PointsGainedStruct) SetCellStageType(CellStageType cellStageType, CellStats cellStats)
+    public (CellStageType, PointsGainedStruct) SetCellStageType(CellStageType cellStageType, CellStats cellStats, bool updateVisualInstantly = false)
     {
         CellStageType previousType = type;
 
@@ -162,15 +163,17 @@ public class CellStage
                 {
                     if (!cellStats.structure.isActive)
                     {
-                        cellStats.structure.EnableStructure(cellStats.stage.type);
+                        cellStats.structure.EnableStructure(cellStats.stage.type, false, updateVisualInstantly);
                     }
                     else
                     {
                         float evolutionPointMultiplier = SkillManager.Instance.GetEvolutionPointMultiplier();
                         float infectionPointMultiplier = SkillManager.Instance.GetInfectionPointMultiplier();
 
-                        PointsGainedStruct destroyStructurePointsGained = cellStats.structure.DestroyStructure(type, true);
-                        PointsGainedStruct disableStructurePointsGained = cellStats.structure.DisableStructure(type, true);
+                        PointsGainedStruct destroyStructurePointsGained = 
+                            cellStats.structure.DestroyStructure(type, true, updateVisualInstantly);
+                        PointsGainedStruct disableStructurePointsGained =
+                            cellStats.structure.DisableStructure(type, true, 0, updateVisualInstantly);
 
                         totalPointsGained.evolutionPoints = Mathf.RoundToInt(destroyStructurePointsGained.evolutionPoints
                             * evolutionPointMultiplier);

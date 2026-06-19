@@ -49,7 +49,7 @@ public class EventScheduler
 
         if (needUpdateVisual)
         {
-            UIManager.Instance.UpdateCellsVisual();
+            UIManager.Instance.UpdateCellsVisualEveryTick();
 
             needUpdateVisual = false;
         }

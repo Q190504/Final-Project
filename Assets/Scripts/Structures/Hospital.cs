@@ -15,7 +15,7 @@ public class Hospital : Structure
     public override void ApplyEffectToCellWhenEnabled(GridCell cell)
     {
         if (cell.Stats.canBeSterilized)
-            cell.Stats.UpdateInfectionLevel(-extraConfig.sterilizeAmountWhenPlaced);
+            cell.Stats.UpdateInfectionLevel(-extraConfig.sterilizeAmountWhenPlaced, true);
 
         hospitalInfectionResistanceModifier = new(extraConfig.additionalInfectionResistance, InfectionResistanceAdditiveSourceType.Hospital, ModifierType.Additive);
         cell.Stats.AddInfectionResistanceModifier(hospitalInfectionResistanceModifier);
@@ -55,7 +55,7 @@ public class Hospital : Structure
     public override void ApplyTickEffectToCell(GridCell cell)
     {
         if (cell.Stats.canBeSterilized)
-            cell.Stats.UpdateInfectionLevel(-extraConfig.sterilizeAmountEachTick);
+            cell.Stats.UpdateInfectionLevel(-extraConfig.sterilizeAmountEachTick, true);
     }
 
     public override void ApplyGlobalEffectWhenDisabled()

@@ -3411,10 +3411,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ContinueButton, Assembly-CSharp
-        m_MethodName: OnButtonPressed
-        m_Mode: 1
+      - m_Target: {fileID: 850947328}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SetSettingPanelVisibility
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3972,7 +3972,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.991, y: 30.818}
+  m_AnchoredPosition: {x: 3.991, y: 235}
   m_SizeDelta: {x: 400, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &445543378
@@ -7630,7 +7630,7 @@ MonoBehaviour:
     maxRiverLengthPercent: 0.4
     minRiverRadiusPercent: 0.03
     maxRiverRadiusPercent: 0.05
-    temperatureNoiseScale: 0.05
+    temperatureNoiseScale: 0.02
     populationNoiseScale: 0.03
     startingInfectedCellCount: 1
     startingInfectionLevelsList:
@@ -8108,7 +8108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &781842272
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9192,6 +9192,7 @@ GameObject:
   - component: {fileID: 850947341}
   - component: {fileID: 850947340}
   - component: {fileID: 850947342}
+  - component: {fileID: 850947343}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -9593,6 +9594,34 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: 681cf718454cbc44695f2b614b09816d, type: 2}
+--- !u!114 &850947343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850947327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74db9761109e1b747b1484e44bd37157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 850947328}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SetConfirmExitGamePanelVisibility
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  publisher: {fileID: 11400000, guid: 44db2fd20c318ea46b3ea6accdbe33f4, type: 2}
 --- !u!1 &857902041
 GameObject:
   m_ObjectHideFlags: 0
@@ -9738,8 +9767,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   evolutionTrees:
   - {fileID: 11400000, guid: 05c1ad6b1a6221e4484cc0b44d3fbd42, type: 2}
-  - {fileID: 11400000, guid: 7c5ba1f78f1cb584c9061ae87a947fd3, type: 2}
   - {fileID: 11400000, guid: 63b9234f57bce494792277b552bc77f0, type: 2}
+  - {fileID: 11400000, guid: 7c5ba1f78f1cb584c9061ae87a947fd3, type: 2}
   - {fileID: 11400000, guid: 1ea3d61571cb9064b99ea25ae37ad0cb, type: 2}
   evolutionTiersInfo:
   - tier: 1
@@ -9757,15 +9786,15 @@ MonoBehaviour:
     hasShownNoti: 0
     selectedNode: {fileID: 0}
   - tier: 3
-    infectedRate: 0.4
-    cost: 500
+    infectedRate: 0.6
+    cost: 900
     hasBeenChosen: 0
     hasBeenSetInfo: 0
     hasShownNoti: 0
     selectedNode: {fileID: 0}
   - tier: 4
-    infectedRate: 0.6
-    cost: 700
+    infectedRate: 0.8
+    cost: 1300
     hasBeenChosen: 0
     hasBeenSetInfo: 0
     hasShownNoti: 0
@@ -10655,7 +10684,6 @@ MonoBehaviour:
   tempuratureDatas:
   - {fileID: 11400000, guid: a390a89535af7ef419e9eb65a415828e, type: 2}
   - {fileID: 11400000, guid: 8e4f342e6c85d8346b97d47d68423dea, type: 2}
-  - {fileID: 11400000, guid: c8722a6dcc74c974fb46e7f146e4db0b, type: 2}
   - {fileID: 11400000, guid: bc8e4177f11246e45ba7a710203da0f2, type: 2}
   environmentDatas:
   - {fileID: 11400000, guid: 3fb877a0ccf877f49a483e4dc2287a9e, type: 2}
@@ -13085,8 +13113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -189.39107}
-  m_SizeDelta: {x: 400, y: 251.217}
+  m_AnchoredPosition: {x: 0, y: -80.611}
+  m_SizeDelta: {x: 400, y: 442.021}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389271382
 MonoBehaviour:
@@ -15171,7 +15199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20d1b4dff7f0d542bfc76b95d094211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsPerTick: 6
+  secondsPerTick: 4
   defaultTimeScale: 1
   speedUpFirstTimeScale: 2
   toggleTimeAction:

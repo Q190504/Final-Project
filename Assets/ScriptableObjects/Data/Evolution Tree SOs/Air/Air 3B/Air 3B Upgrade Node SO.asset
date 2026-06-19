@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8197c428dc8c5394ba601def6f840dcc, type: 3}
   m_Name: Air 3B Upgrade Node SO
   m_EditorClassIdentifier: 
-  upgradeName: Air 3B
-  description: Increase the chances of successful spreading to locked cells.
-  flavorText: 
+  upgradeName: Airborne Infiltration
+  description: Increase the chances of successful spreading to blocked cells.
   icon: {fileID: 0}
   effects:
   - {fileID: 11400000, guid: 7845b604fc6b1c548838d709bd20194b, type: 2}

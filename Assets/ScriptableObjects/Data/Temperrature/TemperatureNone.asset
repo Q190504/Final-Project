@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6066b2abde0bf894cbf3fc01c2fd9990, type: 3}
-  m_Name: TempuratureNormalData
+  m_Name: TemperatureNone
   m_EditorClassIdentifier: 
-  type: 1
-  displayName: Normal
-  sprite: {fileID: 21300000, guid: f491dfcdb605a08419c0cf5bba32e5bf, type: 3}
-  minTempuratureValue: 0.4
-  maxTempuratureValue: 0.6
+  type: 0
+  displayName: None
+  sprite: {fileID: 0}
+  minTempuratureValue: -1
+  maxTempuratureValue: -1
   priorityToHuman: 0
   basePriorityToMethods:
-    surfacePriority: 1
-    airPriority: 1
-    waterPriority: 1
-    carrierPriority: 1
+    surfacePriority: 0
+    airPriority: 0
+    waterPriority: 0
+    carrierPriority: 0

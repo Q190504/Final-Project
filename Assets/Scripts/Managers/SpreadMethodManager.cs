@@ -93,7 +93,7 @@ public class SpreadMethodManager : MonoBehaviour
 
         foreach (SpreadMethodDataSO methodData in spreadMethodDatas)
         {
-            ISpreadMethod method = methodData.CreateMethod(spreadMethodContext, methodData.CreateRuntimeData());
+            ISpreadMethod method = methodData.CreateMethod(spreadMethodContext);
             spreadMethods.Add(method);
         }
 

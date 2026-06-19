@@ -18,7 +18,7 @@ MonoBehaviour:
   mainIcon: {fileID: 21300000, guid: c56760b4ee1aac0469bcc9cf50aaa8c2, type: 3}
   secondaryIcon: {fileID: -457789343, guid: 0ffd74a9cc87b9e45942059c27e3330a, type: 3}
   secondaryIconColor: {r: 1, g: 0, b: 0, a: 1}
-  infectionPointCost: 1
-  cooldownTicks: 3
+  infectionPointCost: 70
+  cooldownTicks: 2
   multiTargetSkillExtraConfig:
-    targetRadius: 1
+    targetRadius: 3

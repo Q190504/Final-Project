@@ -7,7 +7,7 @@ public class CellStats
     public GridCell parentCell;
 
     public CellPopulation population;
-    public CellTempurature tempurature;
+    public CellTemperature tempurature;
     public CellEnvironment environment;
     public CellStructure structure;
     public List<StructureType> affectedByStructures;
@@ -76,7 +76,7 @@ public class CellStats
     {
         parentCell = null;
         this.population = new CellPopulation();
-        this.tempurature = new CellTempurature();
+        this.tempurature = new CellTemperature();
         this.environment = new CellEnvironment();
         this.structure = new CellStructure();
         this.stage = new CellStage();
@@ -189,7 +189,7 @@ public class CellStats
             mapManager.RemoveLockdownedCell(new Vector2Int(parentCell.X, parentCell.Y));
         }
 
-        AddCellNeedToUpdateVisual(new Vector2Int(parentCell.X, parentCell.Y));
+        AddCellNeedToUpdateVisualInstantly(new Vector2Int(parentCell.X, parentCell.Y));
         parentCell.CheckIsBeingShownInfo();
     }
 
@@ -213,7 +213,7 @@ public class CellStats
     /// Increase or decrease the infection level of the cell by the value. Return infection points and evolution points gained from this update. 
     /// If the cell is already dead, this method will not change the infection level and will return zero points.
     /// </summary>
-    public PointsGainedStruct UpdateInfectionLevel(int value)
+    public PointsGainedStruct UpdateInfectionLevel(int value, bool updateVisualInstantly = false)
     {
         if (stage.type == CellStageType.Dead)
             return new PointsGainedStruct(0, 0);
@@ -222,10 +222,7 @@ public class CellStats
         if (infectionLevel < Utility.minInfectionLevel) infectionLevel = Utility.minInfectionLevel;
         else if (infectionLevel > Utility.maxInfectionLevel) infectionLevel = Utility.maxInfectionLevel;
 
-        (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(this.infectionLevel, this);
-
-        SetStage();
-        PointsGainedStruct finalPointsGained = GetFinalPointGained(cellStageResult.Item2, population.type);
+        PointsGainedStruct finalPointsGained = SetStage(updateVisualInstantly);
 
         return finalPointsGained;
     }
@@ -234,7 +231,7 @@ public class CellStats
     /// Sets the infection level for the cell.
     /// </summary>
     /// <param name="infectionLevel">The infection level to assign. Must be a non-negative integer representing the severity of infection.</param>
-    public void SetInfectionLevel(int infectionLevel)
+    public void SetInfectionLevel(int infectionLevel, bool updateVisualInstantly = false)
     {
         if (stage.type == CellStageType.Dead)
             return;
@@ -246,16 +243,16 @@ public class CellStats
         }
 
         this.infectionLevel = infectionLevel;
-        SetStage();
+        SetStage(updateVisualInstantly);
     }
 
-    public void SetStage()
+    public PointsGainedStruct SetStage(bool updateVisualInstantly = false)
     {
         CellStageType oldStage = stage.type;
 
-        (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(infectionLevel, this);
+        (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(infectionLevel, this, updateVisualInstantly);
 
-        if (oldStage != cellStageResult.Item1)
+        if (cellStageResult.Item1 != CellStageType.None && oldStage != cellStageResult.Item1)
         {
             mapManager.UpdateInfectedRateAndDeadRate(new Vector2Int(parentCell.X, parentCell.Y),
                 cellStageResult.Item1, population.weight);
@@ -263,17 +260,26 @@ public class CellStats
             UpdateHumanPriority();
 
             parentCell.CheckIsBeingShownInfo();
-            AddCellNeedToUpdateVisual(new Vector2Int(parentCell.X, parentCell.Y));
+
+            Vector2Int cellPos = new(parentCell.X, parentCell.Y);
+            if (updateVisualInstantly)
+                AddCellNeedToUpdateVisualInstantly(cellPos);
+            else
+                AddCellNeedToUpdateVisualNextTick(cellPos);
+
+            return cellStageResult.Item2;
         }
+
+        return new PointsGainedStruct();
     }
 
-    public void SetStage(CellStageType stageType)
+    public void SetStage(CellStageType stageType, bool updateVisualInstantly = false)
     {
         CellStageType oldStage = stage.type;
 
-        (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(stageType, this);
+        (CellStageType, PointsGainedStruct) cellStageResult = stage.SetCellStageType(stageType, this, updateVisualInstantly);
 
-        if (oldStage != cellStageResult.Item1)
+        if (cellStageResult.Item1 != CellStageType.None && oldStage != cellStageResult.Item1)
         {
             mapManager.UpdateInfectedRateAndDeadRate(new Vector2Int(parentCell.X, parentCell.Y),
                 stageType, population.weight);
@@ -281,7 +287,12 @@ public class CellStats
             UpdateHumanPriority();
 
             parentCell.CheckIsBeingShownInfo();
-            AddCellNeedToUpdateVisual(new Vector2Int(parentCell.X, parentCell.Y));
+
+            Vector2Int cellPos = new(parentCell.X, parentCell.Y);
+            if (updateVisualInstantly)
+                AddCellNeedToUpdateVisualInstantly(cellPos);
+            else
+                AddCellNeedToUpdateVisualNextTick(cellPos);
         }
     }
 
@@ -542,6 +553,7 @@ public class CellStats
     #endregion
 
     #region Carrier Spread Chance
+
     public void UpdateIncreaseCarrierSpreadChance(float value)
     {
         additionalCarrierSpreadChancePercent += value;
@@ -673,8 +685,13 @@ public class CellStats
         return new PointsGainedStruct(finalEvolutionPoints, finalInfectionPoints);
     }
 
-    public void AddCellNeedToUpdateVisual(Vector2Int cellPos)
+    public void AddCellNeedToUpdateVisualNextTick(Vector2Int cellPos)
     {
-        mapManager.AddCellNeedToUpdateVisual(cellPos);
+        mapManager.AddCellNeedToUpdateVisualNotInstantly(cellPos);
+    }
+
+    public void AddCellNeedToUpdateVisualInstantly(Vector2Int cellPos)
+    {
+        mapManager.AddCellNeedToUpdateVisualInstantly(cellPos);
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8197c428dc8c5394ba601def6f840dcc, type: 3}
   m_Name: Carrier 3B Upgrade Node SO
   m_EditorClassIdentifier: 
-  upgradeName: Carrier 3B
+  upgradeName: Unrestricted Movement
   description: Increase chance to spread to safe cells.
   icon: {fileID: 0}
   effects:

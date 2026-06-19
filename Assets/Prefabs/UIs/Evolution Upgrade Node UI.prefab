@@ -251,6 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeIconImage: {fileID: 2542335563079563882}
   unselectedIcon: {fileID: -457789343, guid: 0ffd74a9cc87b9e45942059c27e3330a, type: 3}
+  selectedIcon: {fileID: -183491797, guid: 0ffd74a9cc87b9e45942059c27e3330a, type: 3}
   selectedBorder: {fileID: 4833330827282704216}
 --- !u!114 &3509207058105380226
 MonoBehaviour:

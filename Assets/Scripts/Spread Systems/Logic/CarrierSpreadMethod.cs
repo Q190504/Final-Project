@@ -116,7 +116,7 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO, Carrier
             if (thisSourceInfectedAny)
             {
                 source.Stats.SetCarrier(true);
-                context.MapManager.AddCellNeedToUpdateVisual(new Vector2Int(source.X, source.Y));
+                context.MapManager.AddCellNeedToUpdateVisualNotInstantly(new Vector2Int(source.X, source.Y));
             }
 
             candidateHeap.Clear();
@@ -128,13 +128,13 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO, Carrier
     private void ClearCarrierSource(GridCell cell)
     {
         cell.Stats.SetCarrier(false);
-        context.MapManager.AddCellNeedToUpdateVisual(new Vector2Int(cell.X, cell.Y));
+        context.MapManager.AddCellNeedToUpdateVisualNotInstantly(new Vector2Int(cell.X, cell.Y));
     }
 
     private void CreateCarrierInfection(GridCell cell, int increaseInfection)
     {
         cell.Stats.UpdateInfectionLevel(increaseInfection);
-        context.MapManager.AddCellNeedToUpdateVisual(new Vector2Int(cell.X, cell.Y));
+        context.MapManager.AddCellNeedToUpdateVisualNotInstantly(new Vector2Int(cell.X, cell.Y));
     }
 
     private void BuildOffsets()

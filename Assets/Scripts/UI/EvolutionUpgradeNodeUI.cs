@@ -6,6 +6,7 @@ public class EvolutionUpgradeNodeUI : MonoBehaviour, IPointerEnterHandler, IPoin
 {
     [SerializeField] private Image nodeIconImage;
     [SerializeField] private Sprite unselectedIcon;
+    [SerializeField] private Sprite selectedIcon;
     [SerializeField] private Image selectedBorder;
 
     private EvolutionTreePanel treePanel;
@@ -40,7 +41,8 @@ public class EvolutionUpgradeNodeUI : MonoBehaviour, IPointerEnterHandler, IPoin
     public void SetState(EvolutionUpgradeNodeSO nodeData, bool isUnlocked)
     {
         this.isUnlocked = isUnlocked;
-        nodeIconImage.sprite = isUnlocked ? nodeData.icon : unselectedIcon;
+        //nodeIconImage.sprite = isUnlocked ? nodeData.icon : unselectedIcon;
+        nodeIconImage.sprite = isUnlocked ? selectedIcon : unselectedIcon;
     }
 
     public bool IsUnlocked()

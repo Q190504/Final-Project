@@ -17,10 +17,10 @@ MonoBehaviour:
   executionType: 2
   priority: 0
   minTargetPerExecution: 10
-  maxTargetPerExecution: 50
-  minUtility: -500000
-  maxUtility: 56316.668
-  cooldownTicks: 2
+  maxTargetPerExecution: 30
+  minUtility: -50
+  maxUtility: 4100
+  cooldownTicks: 5
   extraConfig:
     UndetectedCellWeight: 0.5
     InfectionPressureWeight: 0.5

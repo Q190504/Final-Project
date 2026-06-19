@@ -47,9 +47,9 @@ public class SterilizeAction : HumanAction
             if (cellStats.canBeSterilized)
             {
                 int sterilizationResistance = cell.Stats.GetSterilizationResistance();
-                int effectiveSterilizeAmount = Mathf.Max(0, sterilizeAmount - sterilizationResistance);
+                int effectiveSterilizeAmount = sterilizeAmount - sterilizationResistance;
                 if (effectiveSterilizeAmount > 0)
-                    cellStats.UpdateInfectionLevel(-effectiveSterilizeAmount);
+                    cellStats.UpdateInfectionLevel(-effectiveSterilizeAmount, true);
             }
         }
 

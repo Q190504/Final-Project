@@ -32,7 +32,8 @@ public class MapManager : MonoBehaviour
     private Vector2Int currentSize;
 
     private HashSet<Vector2Int> lockdownedCells = new();
-    private HashSet<Vector2Int> cellsNeedToUpdateVisual = new();
+    private HashSet<Vector2Int> cellsNeedToUpdateVisualNextTick = new();
+    private HashSet<Vector2Int> cellsNeedToUpdateVisualInstantly = new();
     //bool isFirstTime = true;
 
     private float totalPopulation;
@@ -201,7 +202,7 @@ public class MapManager : MonoBehaviour
                 if (!cellStats.isDetected)
                 {
                     cellStats.RecalculateDetection(ctx);
-                    AddCellNeedToUpdateVisual(new Vector2Int(x, y));
+                    AddCellNeedToUpdateVisualNotInstantly(new Vector2Int(x, y));
                 }
             }
         }
@@ -221,14 +222,24 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    public void AddCellNeedToUpdateVisual(Vector2Int cell)
+    public void AddCellNeedToUpdateVisualNotInstantly(Vector2Int cell)
     {
-        cellsNeedToUpdateVisual.Add(cell);
+        cellsNeedToUpdateVisualNextTick.Add(cell);
     }
 
-    public HashSet<Vector2Int> GetCellNeedToUpdateVisualList()
+    public HashSet<Vector2Int> GetCellNeedToUpdateVisualNextTickList()
     {
-        return cellsNeedToUpdateVisual;
+        return cellsNeedToUpdateVisualNextTick;
+    }
+
+    public void AddCellNeedToUpdateVisualInstantly(Vector2Int cell)
+    {
+        cellsNeedToUpdateVisualInstantly.Add(cell);
+    }
+
+    public HashSet<Vector2Int> GetCellNeedToUpdateVisualInstantlyList()
+    {
+        return cellsNeedToUpdateVisualInstantly;
     }
 
 

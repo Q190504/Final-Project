@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8197c428dc8c5394ba601def6f840dcc, type: 3}
   m_Name: Air 1B Upgrade Node SO
   m_EditorClassIdentifier: 
-  upgradeName: Air 1B
+  upgradeName: Cold Adaptation
   description: Increase infection power when infecting cold cells.
   icon: {fileID: 0}
   effects:

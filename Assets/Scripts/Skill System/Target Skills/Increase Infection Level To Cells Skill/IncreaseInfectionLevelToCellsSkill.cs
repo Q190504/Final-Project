@@ -23,7 +23,7 @@ public class IncreaseInfectionLevelToCellsSkill
             {
                 int currentInfectionLevel = cell.Stats.infectionLevel;
                 int increaseInfectionLevel = Mathf.RoundToInt(currentInfectionLevel * percent);
-                cell.Stats.UpdateInfectionLevel(increaseInfectionLevel);
+                cell.Stats.UpdateInfectionLevel(increaseInfectionLevel, true);
             }
         }
 

@@ -32,8 +32,6 @@ public class CarrierRuntimeData : SpreadMethodRuntimeData
         float valueFloat = Mathf.Clamp(addition * multiplier, Utility.minInfectionLevel, Utility.maxInfectionLevel);
         int valueInt = Mathf.FloorToInt(valueFloat);
 
-        int increaseInfectionLevel = valueInt - targetStats.finalInfectionResistance;
-
-        return increaseInfectionLevel;
+        return valueInt;
     }
 }

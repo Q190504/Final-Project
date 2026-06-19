@@ -143,6 +143,8 @@ public class UIManager : MonoBehaviour
         {
             SetSettingPanelVisibility(!settingPanel.activeSelf);
         }
+
+        UpdateCellsVisualInstantly();
     }
 
     public void Init()
@@ -247,10 +249,26 @@ public class UIManager : MonoBehaviour
         return view;
     }
 
-    public void UpdateCellsVisual()
+    public void UpdateCellsVisualEveryTick()
     {
-        HashSet<Vector2Int> cellsNeedToUpdateVisual = mapManager.GetCellNeedToUpdateVisualList();
-        if (cellsNeedToUpdateVisual.Count < 0)
+        HashSet<Vector2Int> cellsNeedToUpdateVisual = mapManager.GetCellNeedToUpdateVisualNextTickList();
+        if (cellsNeedToUpdateVisual.Count <= 0)
+            return;
+
+        foreach (Vector2Int cell in cellsNeedToUpdateVisual)
+        {
+            presenters[cell.x, cell.y].Refresh();
+        }
+
+        cellsNeedToUpdateVisual.Clear();
+    }
+
+    public void UpdateCellsVisualInstantly()
+    {
+        if (mapManager == null) return;
+
+        HashSet<Vector2Int> cellsNeedToUpdateVisual = mapManager.GetCellNeedToUpdateVisualInstantlyList();
+        if (cellsNeedToUpdateVisual.Count <= 0)
             return;
 
         foreach (Vector2Int cell in cellsNeedToUpdateVisual)
@@ -468,7 +486,7 @@ public class UIManager : MonoBehaviour
         topMiddlePanel.SetActive(show);
         topLeftPanel.SetActive(showTopLeftPanel);
         topRightPanel.SetActive(show);
-        cellInfoViewPanel.SetVisibility(show);
+        cellInfoViewPanel.gameObject.SetActive(show);
         skillsPanel.SetActive(show);
         skillDetailPanel.gameObject.SetActive(false);
         spreadMethodDetailPanel.gameObject.SetActive(false);
@@ -478,6 +496,7 @@ public class UIManager : MonoBehaviour
         else
             vaccinePanel.gameObject.SetActive(false);
 
+        SetEvolutionTreePanelToggleButtonVisibility(show);
         evolutionTreePanel.SetPanelVisibility(false, null);
     }
 
@@ -523,7 +542,7 @@ public class UIManager : MonoBehaviour
         topMiddlePanel.SetActive(show);
         topLeftPanel.SetActive(show);
         topRightPanel.SetActive(show);
-        cellInfoViewPanel.SetVisibility(show);
+        cellInfoViewPanel.gameObject.SetActive(show);
         skillsPanel.SetActive(show);
         skillDetailPanel.gameObject.SetActive(false);
         spreadMethodDetailPanel.gameObject.SetActive(false);
@@ -533,9 +552,9 @@ public class UIManager : MonoBehaviour
         else
             vaccinePanel.gameObject.SetActive(false);
 
+        evolutionPanelToggleVisibilityButton.gameObject.SetActive(show);
         evolutionSelectionPanel.SetActive(false);
     }
-
 
     public void InitializeEvolutionTree(EvolutionTreeSO evolutionTree, string methodName, Sprite methodIcon)
     {
@@ -751,7 +770,8 @@ public class UIManager : MonoBehaviour
         topMiddlePanel.SetActive(show);
         topRightPanel.SetActive(show);
 
-        cellInfoViewPanel.SetVisibility(false);
+        cellInfoViewPanel.gameObject.SetActive(show);
+        skillsPanel.SetActive(show);
         skillDetailPanel.gameObject.SetActive(false);
         spreadMethodDetailPanel.gameObject.SetActive(false);
         vaccinePanel.gameObject.SetActive(false);
