@@ -21,7 +21,7 @@ MonoBehaviour:
     baseSterilizationResistance: 0
     methodOrder: 1
     eventPriority: 4
-    tickToSpread: 5
+    tickToSpread: 3
     spreadChanceWhenBlocked: 0
     spreadDirection: 1
     minDistance: 1

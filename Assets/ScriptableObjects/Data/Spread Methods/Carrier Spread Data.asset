@@ -21,7 +21,7 @@ MonoBehaviour:
     baseSterilizationResistance: 0
     methodOrder: 3
     eventPriority: 4
-    tickToSpread: 12
+    tickToSpread: 6
     spreadChanceWhenBlocked: 0
     spreadDirection: 2
     minDistance: 4
@@ -68,7 +68,7 @@ MonoBehaviour:
         multiplier: 1
   extraConfig:
     travelTime: 1
-    baseCarrierSpawnChance: 0.05
+    baseCarrierSpawnChance: 0.08
     structurePriority: 0
     targetCellCountForEachOriginCell: 1
     weightBonusForSafeCells: 0
