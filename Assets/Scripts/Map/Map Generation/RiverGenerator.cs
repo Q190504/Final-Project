@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RiverGenerator : IMapGeneratorStep
@@ -54,8 +55,6 @@ public class RiverGenerator : IMapGeneratorStep
     {
         RiverData riverData = new();
 
-        Vector2Int current = start;
-
         int w = grid.GetWidth();
         int h = grid.GetHeight();
 
@@ -67,23 +66,58 @@ public class RiverGenerator : IMapGeneratorStep
         int length = Mathf.FloorToInt(Mathf.Lerp(minLength, maxLength, (float)random.NextDouble()));
         riverData.targetLength = length;
 
-        Vector2Int direction = Utility.GetRandom8Direction(random);
+        // First segment
+        int radius = GetRandomRadius(baseSize, random);
+        RiverSegment firstSegment = new();
+        Utility.StampRiver(grid, start, radius, firstSegment);
+        riverData.segments.Add(firstSegment);
+
+        length--;
+
+        Vector2Int current = start;
+        Vector2Int preferredDirection = Utility.GetRandom8Direction(random);
 
         for (int i = 0; i < length; i++)
         {
-            if (!Utility.CheckIsValidPosForRiverOrLake(grid, current))
+            if (i > 0) preferredDirection = RandomizeDirection(preferredDirection, random);
+
+            List<Vector2Int> directions = new() { preferredDirection };
+
+            foreach (Vector2Int dir in Utility.Neighbor8Directions)
+            {
+                if (dir != preferredDirection)
+                    directions.Add(dir);
+            }
+
+            // Shuffle sub directions
+            for (int j = 1; j < directions.Count; j++)
+            {
+                int swapIndex = random.Next(j, directions.Count);
+
+                (directions[j], directions[swapIndex]) = (directions[swapIndex], directions[j]);
+            }
+
+            bool foundValid = false;
+            foreach (Vector2Int dir in directions)
+            {
+                Vector2Int candidatePos = current + dir;
+
+                if (!Utility.CheckIsValidPosForRiverOrLake(grid, candidatePos))
+                    continue;
+
+                current = candidatePos;
+                preferredDirection = dir;
+                foundValid = true;
+                break;
+            }
+
+            if (!foundValid)
                 break;
 
-            float minRadius = config.minRiverRadiusPercent * baseSize;
-            float maxRadius = config.maxRiverRadiusPercent * baseSize;
-
-            int radius = Mathf.FloorToInt(Mathf.Lerp(minRadius, maxRadius, (float)random.NextDouble()));
             RiverSegment segment = new();
+            radius = GetRandomRadius(baseSize, random);
             Utility.StampRiver(grid, current, radius, segment);
             riverData.segments.Add(segment);
-
-            direction = RandomizeDirection(direction, random);
-            current += direction;
         }
 
         return riverData;
@@ -103,5 +137,12 @@ public class RiverGenerator : IMapGeneratorStep
             return new Vector2Int(currentDir.y, -currentDir.x);
 
         return Utility.GetRandomCardinalDirection(random);
+    }
+
+    private int GetRandomRadius(float baseSize, System.Random mountainRandom)
+    {
+        float minRadius = config.minRiverRadiusPercent * baseSize;
+        float maxRadius = config.maxRiverRadiusPercent * baseSize;
+        return Mathf.FloorToInt(Mathf.Lerp(minRadius, maxRadius, (float)mountainRandom.NextDouble()));
     }
 }

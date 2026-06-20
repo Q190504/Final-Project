@@ -166,10 +166,6 @@ public class MountainGenerator : IMapGeneratorStep
 
     private void DrawMountain(Grid<GridCell> grid, Vector2Int start, System.Random mountainRandom)
     {
-        //MountainData mountainData = new();
-
-        Vector2Int current = start;
-
         int w = grid.GetWidth();
         int h = grid.GetHeight();
 
@@ -180,36 +176,74 @@ public class MountainGenerator : IMapGeneratorStep
 
         int length = Mathf.FloorToInt(Mathf.Lerp(minLength, maxLength, (float)mountainRandom.NextDouble()));
 
-        //mountainData.targetLength = length;
+        // First segment
+        int radius = GetRandomRadius(baseSize, mountainRandom);
 
-        Vector2Int direction = Utility.GetRandom8Direction(mountainRandom);
-        //Debug.Log($"Mountain chain length: {length}");
+        List<Vector2Int> startCells = GetMountainStampCells(grid, start, radius);
+
+        if (!CanPlaceMountain(grid, startCells))
+            return;
+
+        MountainSegment firstSegment = new();
+        StampMountain(grid, startCells, firstSegment);
+
+        length--;
+
+        Vector2Int current = start;
+        Vector2Int preferredDirection = Utility.GetRandom8Direction(mountainRandom);
+
         for (int i = 0; i < length; i++)
         {
-            if (!CheckIsValidPosForMountain(grid, current))
+            radius = GetRandomRadius(baseSize, mountainRandom);
+
+            if (i > 0) preferredDirection = RandomizeDirection(preferredDirection, mountainRandom);
+
+            List<Vector2Int> directions = new() { preferredDirection };
+
+            foreach (Vector2Int dir in Utility.Neighbor8Directions)
+            {
+                if (dir != preferredDirection)
+                    directions.Add(dir);
+            }
+
+            // Shuffle sub directions
+            for (int j = 1; j < directions.Count; j++)
+            {
+                int swapIndex = mountainRandom.Next(j, directions.Count);
+
+                (directions[j], directions[swapIndex]) = (directions[swapIndex], directions[j]);
+            }
+
+            bool foundValid = false;
+            List<Vector2Int> validCells = null;
+
+            foreach (Vector2Int dir in directions)
+            {
+                Vector2Int candidatePos = current + dir;
+
+                if (!CheckIsValidPosForMountain(grid, candidatePos))
+                    continue;
+
+                List<Vector2Int> cells = GetMountainStampCells(grid, candidatePos, radius);
+
+                if (!CanPlaceMountain(grid, cells))
+                    continue;
+
+                current = candidatePos;
+                preferredDirection = dir;
+
+                validCells = cells;
+                foundValid = true;
+
                 break;
+            }
 
-            float minRadius = config.minMountainRadiusPercent * baseSize;
-            float maxRadius = config.maxMountainRadiusPercent * baseSize;
-
-            int radius = Mathf.FloorToInt(Mathf.Lerp(minRadius, maxRadius, (float)mountainRandom.NextDouble()));
-
-            List<Vector2Int> cells = GetMountainStampCells(grid, current, radius);
-
-            if (!CanPlaceMountain(grid, cells))
+            if (!foundValid)
                 break;
 
             MountainSegment segment = new();
-
-            StampMountain(grid, cells, segment);
-
-            //mountainData.segments.Add(segment);
-
-            direction = RandomizeDirection(direction, mountainRandom);
-            current += direction;
+            StampMountain(grid, validCells, segment);
         }
-
-        //return mountainData;
     }
 
     private Vector2Int RandomizeDirection(Vector2Int currentDir, System.Random random)
@@ -226,6 +260,13 @@ public class MountainGenerator : IMapGeneratorStep
             return new Vector2Int(currentDir.y, -currentDir.x);
 
         return Utility.GetRandomCardinalDirection(random);
+    }
+
+    private int GetRandomRadius(float baseSize, System.Random mountainRandom)
+    {
+        float minRadius = config.minMountainRadiusPercent * baseSize;
+        float maxRadius = config.maxMountainRadiusPercent * baseSize;
+        return Mathf.FloorToInt(Mathf.Lerp(minRadius, maxRadius, (float)mountainRandom.NextDouble()));
     }
 
     private List<Vector2Int> GetMountainStampCells(Grid<GridCell> grid, Vector2Int center, int radius)
