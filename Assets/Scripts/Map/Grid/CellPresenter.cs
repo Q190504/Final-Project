@@ -4,12 +4,14 @@ public class CellPresenter
 {
     private GridCell cell;
     private GridCellVisual view;
+    private SpreadMethodTargetVisualizerOnCell spreadMethodTargetVisualizer;
     private HumanActionVisualizerOnCell humanActionVisualizer;
 
     public CellPresenter(GridCell cell, GridCellVisual view)
     {
         this.cell = cell;
         this.view = view;
+        this.spreadMethodTargetVisualizer = view.GetComponent<SpreadMethodTargetVisualizerOnCell>();
         this.humanActionVisualizer = view.GetComponent<HumanActionVisualizerOnCell>();
     }
 
@@ -36,6 +38,11 @@ public class CellPresenter
     public void PlayHumanActionVisual(HumanActionVisualPreset preset)
     {
         humanActionVisualizer.PlayVisual(preset);
+    }
+
+    public void PlaySpreadMethodTargetVisual(SpreadMethodTargetVisualizationPreset preset)
+    {
+        spreadMethodTargetVisualizer.PlayVisual(preset);
     }
 }
 

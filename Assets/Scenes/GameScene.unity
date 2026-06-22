@@ -7605,8 +7605,8 @@ MonoBehaviour:
     height: 35
     cellSize: 1
     originPosition: {x: 0, y: 0, z: 0}
-    generateRandomSeed: 1
-    seed: 7051996
+    generateRandomSeed: 0
+    seed: 989462927
     maxWaterRatio: 0.2
     maxMountainRatio: 0.15
     urbanRatioRange: {x: 0.05, y: 0.1}
@@ -7615,21 +7615,23 @@ MonoBehaviour:
     minUrbanRadiusPercent: 0.05
     maxUrbanRadiusPercent: 0.1
     minMountainChains: 0
-    MaxMountainChains: 7
-    minMountainLengthPercent: 0.2
+    MaxMountainChains: 3
+    minMountainLengthPercent: 0.3
     maxMountainLengthPercent: 0.4
     minMountainRadiusPercent: 0.02
     maxMountainRadiusPercent: 0.04
+    chanceLakeSpawnOnRiver: 0.6
     minLakeCount: 0
-    maxLakeCount: 7
-    minLakeRadiusPercent: 0.1
-    maxLakeRadiusPercent: 0.35
+    maxLakeCount: 4
+    minLakeRadiusPercent: 0.05
+    maxLakeRadiusPercent: 0.1
     minRiverCount: 0
-    maxRiverCount: 5
-    minRiverLengthPercent: 0.2
+    maxRiverCount: 3
+    minRiverLengthPercent: 0.3
     maxRiverLengthPercent: 0.4
-    minRiverRadiusPercent: 0.03
-    maxRiverRadiusPercent: 0.05
+    minRiverRadiusPercent: 0.02
+    maxRiverRadiusPercent: 0.04
+    removeEdgesChance: 0.3
     temperatureNoiseScale: 0.02
     populationNoiseScale: 0.03
     startingInfectedCellCount: 1
@@ -9249,6 +9251,7 @@ MonoBehaviour:
   - {fileID: 935901979}
   - {fileID: 2052586885}
   - {fileID: 1638484347}
+  spreadMethodVisualizationDatabase: {fileID: 11400000, guid: c4037e61db5b05944b96a739eb3082a8, type: 2}
   skillUIPrefab: {fileID: 6086287101314334722, guid: 486d87e18834f8d4caf09dc1fe1d375f, type: 3}
   skillUIContainer: {fileID: 1363829419}
   endGamePanelTitleText: {fileID: 815682180}
@@ -14074,10 +14077,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1485784666}
-  - component: {fileID: 1485784667}
+  - component: {fileID: 1485784669}
   - component: {fileID: 1485784668}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: MatchManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14098,29 +14101,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1485784667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485784665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff6da6ab524a7ec47872d6f39cbdd0ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endGameDeadRate: 1
-  timeManager: {fileID: 1626480577}
-  uiManager: {fileID: 850947328}
-  mapManager: {fileID: 726332006}
-  spreadMethodManager: {fileID: 1964343048}
-  cellInfoUIContentManager: {fileID: 841117468}
-  humanAIManager: {fileID: 941350971}
-  vaccineSystem: {fileID: 1284491771}
-  evolutionManager: {fileID: 890168279}
-  skillManager: {fileID: 1490127925}
-  setBGMWhenMatchStartedSO: {fileID: 11400000, guid: 6c9fcc7df70a8224488220e84b9450e1, type: 2}
 --- !u!114 &1485784668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14136,8 +14116,8 @@ MonoBehaviour:
   EventResponse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1485784667}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1485784669}
+        m_TargetAssemblyTypeName: MatchManager, Assembly-CSharp
         m_MethodName: EndGame
         m_Mode: 1
         m_Arguments:
@@ -14149,6 +14129,29 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   publisher: {fileID: 11400000, guid: 681cf718454cbc44695f2b614b09816d, type: 2}
+--- !u!114 &1485784669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485784665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0829b8ec12fbe44ba09d8f9e9909fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endGameDeadRate: 1
+  timeManager: {fileID: 1626480577}
+  uiManager: {fileID: 850947328}
+  mapManager: {fileID: 726332006}
+  spreadMethodManager: {fileID: 1964343048}
+  cellInfoUIContentManager: {fileID: 841117468}
+  humanAIManager: {fileID: 941350971}
+  vaccineSystem: {fileID: 1284491771}
+  evolutionManager: {fileID: 890168279}
+  skillManager: {fileID: 1490127925}
+  setBGMWhenMatchStartedSO: {fileID: 11400000, guid: 6c9fcc7df70a8224488220e84b9450e1, type: 2}
 --- !u!1 &1490127924
 GameObject:
   m_ObjectHideFlags: 0
@@ -19231,8 +19234,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 900124005}
   m_HandleRect: {fileID: 900124004}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.5023405
+  m_Value: 0.9999999
+  m_Size: 0.50234044
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

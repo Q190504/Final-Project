@@ -35,7 +35,7 @@ public abstract class BaseSkill<TData, TRuntime> : IBaseSkill
 
     public virtual bool CanCast()
     {
-        GameState gameState = GameManager.Instance.GetGameState();
+        GameState gameState = MatchManager.Instance.GetGameState();
         if (gameState == GameState.NotStarted || gameState == GameState.Ended)
             return false;
 

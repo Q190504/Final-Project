@@ -57,6 +57,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Spread Methods")]
     [SerializeField] private List<SpreadMethodUI> spreadMethodUIs;
+    [SerializeField] private SpreadMethodTargetVisualizationDatabase spreadMethodVisualizationDatabase;
 
     [Header("Skill UI")]
     [SerializeField] private SkillUI skillUIPrefab;
@@ -125,6 +126,11 @@ public class UIManager : MonoBehaviour
     {
         HumanAction.OnExecutedVisual -= HandleHumanActionVisualOnCell;
         toggleSettingPanelAction.Disable();
+
+        if (SpreadMethodManager.Instance == null) return;
+        List<ISpreadMethod> spreadMethods = SpreadMethodManager.Instance.GetSpreadMethods();
+        foreach (ISpreadMethod spreadMethod in spreadMethods)
+            spreadMethod.OnExecutedVisual -= HandleMethodTargetVisualizationOnCell;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -139,7 +145,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.GetGameState() == GameState.Ended) return;
+        if (MatchManager.Instance.GetGameState() == GameState.Ended) return;
 
         if (toggleSettingPanelAction.triggered)
         {
@@ -162,7 +168,7 @@ public class UIManager : MonoBehaviour
 
         vaccinePanel.gameObject.SetActive(false);
 
-        UpdateDeadSlider(0, GameManager.Instance.endGameDeadRate);
+        UpdateDeadSlider(0, MatchManager.Instance.endGameDeadRate);
 
         threatTierColorMap = threatTierTextColors.ToDictionary(x => x.threatTier, x => x.color);
 
@@ -180,6 +186,14 @@ public class UIManager : MonoBehaviour
         notificationPanel.HidePanel();
 
         SpawnSkillUIs();
+    }
+
+    public void SetSpreadMethodTargetVisualizationData(List<ISpreadMethod> spreadMethods)
+    {
+        foreach (ISpreadMethod spreadMethod in spreadMethods)
+        {
+            spreadMethod.OnExecutedVisual += HandleMethodTargetVisualizationOnCell;
+        }
     }
 
     public void SetTimeState()
@@ -290,13 +304,27 @@ public class UIManager : MonoBehaviour
         presenters[cell.X, cell.Y].SetCellFocusVFXVisibility(state);
     }
 
-    public void HandleHumanActionVisualOnCell(ActionExecutionVisualData data)
+    public void HandleHumanActionVisualOnCell(HumanActionExecutionVisualData data)
     {
         var preset = humanActionVisualDatabase.Get(data.ActionType);
+
+        if (preset == null) return;
 
         foreach (var cell in data.Cells)
         {
             presenters[cell.X, cell.Y].PlayHumanActionVisual(preset);
+        }
+    }
+
+    public void HandleMethodTargetVisualizationOnCell(SpreadMethodExecutionVisualData data)
+    {
+        var preset = spreadMethodVisualizationDatabase.Get(data.MethodType);
+
+        if (preset == null) return;
+
+        foreach (var cell in data.Cells)
+        {
+            presenters[cell.X, cell.Y].PlaySpreadMethodTargetVisual(preset);
         }
     }
 

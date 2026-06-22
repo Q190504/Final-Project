@@ -15,10 +15,9 @@ public class Grid<TGridObject>
     private bool[,] waterGridArray;
     private bool[,] mountainGridArray;
 
-    private int waterCellCount = 0;
-    private MinHeap<Vector3Int> lakeCenterCellsHeap = new();
-    private MinHeap<RiverData> riverDatasHeap = new();
+    private List<RiverData> riverDatas = new();
 
+    private int waterCellCount = 0;
     private int mountainCellCount = 0;
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition,
@@ -196,40 +195,21 @@ public class Grid<TGridObject>
         return waterCellCount;
     }
 
-    #region Lake
-
-    public void AddLakeCenterCell(Vector3Int cell)
-    {
-        lakeCenterCellsHeap.Push(cell, cell.z);
-    }
-
-    public MinHeap<Vector3Int> GetLakeCenterCellsHeap()
-    {
-        return lakeCenterCellsHeap;
-    }
-
-    public void ClearLakeCenterCellsList()
-    {
-        lakeCenterCellsHeap.Clear();
-    }
-
-    #endregion
-
     #region River   
 
     public void AddRiverData(RiverData riverData)
     {
-        riverDatasHeap.Push(riverData, riverData.targetLength);
+        riverDatas.Add(riverData);
     }
 
-    public MinHeap<RiverData> GetRiverDataHeap()
+    public List<RiverData> GetRiverDatas()
     {
-        return riverDatasHeap;
+        return riverDatas;
     }
 
     public void ClearRiverData()
     {
-        riverDatasHeap.Clear();
+        riverDatas.Clear();
     }
 
     #endregion

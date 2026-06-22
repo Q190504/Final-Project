@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 
-public struct ActionExecutionVisualData
+public struct HumanActionExecutionVisualData
 {
     public List<GridCell> Cells;
     public HumanActionType ActionType;
 
-    public ActionExecutionVisualData(List<GridCell> cells, HumanActionType actionType)
+    public HumanActionExecutionVisualData(List<GridCell> cells, HumanActionType actionType)
     {
         Cells = cells;
         ActionType = actionType;

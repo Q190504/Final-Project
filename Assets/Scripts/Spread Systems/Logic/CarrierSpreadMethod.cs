@@ -1,11 +1,13 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO, CarrierRuntimeData>
 {
     private List<Vector2Int> cachedOffsets;
 
-    public CarrierSpreadMethod(SpreadMethodContext context, CarrierSpreadDataSO data, CarrierRuntimeData runtimeData) 
+    public CarrierSpreadMethod(SpreadMethodContext context, CarrierSpreadDataSO data, CarrierRuntimeData runtimeData)
         : base(context, data, runtimeData)
     {
         BuildOffsets();
@@ -20,6 +22,7 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO, Carrier
         CarrierExtraConfig extraConfig = runtimeData.extraConfig;
 
         HashSet<Vector2Int> globallySelected = new();
+        HashSet<GridCell> targetedCells = new();
         MinHeapWithSize candidateHeap = new(extraConfig.targetCellCountForEachOriginCell);
 
         foreach (GridCell source in sources)
@@ -29,20 +32,19 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO, Carrier
             if (!source.Stats.canHasCarrier) continue;
 
             float chance = (extraConfig.baseCarrierSpawnChance * source.Stats.population.weight) + source.Stats.additionalCarrierSpreadChancePercent;
+            chance = Mathf.Min(1f, chance);
             if (Random.value > chance) continue;
-
             List<(GridCell cell, float key)> candidates = new();
 
             foreach (var offset in cachedOffsets)
             {
-                // Skip if already selected by other source to prevent multiple sources infecting the same target
                 Vector2Int pos = new(source.X + offset.x, source.Y + offset.y);
 
+                // Skip if already selected by other source to prevent multiple sources infecting the same target
                 if (globallySelected.Contains(pos)) continue;
 
                 GridCell candidate = grid.GetCell(source.X + offset.x, source.Y + offset.y);
                 if (candidate == null) continue;
-
                 bool valid = false;
 
                 // --- Check valid ---
@@ -99,6 +101,8 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO, Carrier
                 if (increaseInfectionLevel <= 0)
                     continue;
 
+                targetedCells.Add(targetCell);
+
                 // --- Delay event ---
                 timeManager.ScheduleEvent(extraConfig.travelTime, () =>
                 {
@@ -121,6 +125,11 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO, Carrier
 
             candidateHeap.Clear();
         }
+
+        timeManager.ScheduleEvent(extraConfig.travelTime, () =>
+        {
+            RaiseExecuteVisual(targetedCells.ToList(), SpreadMethodType.Carrier);
+        }, data.baseConfig.eventPriority);
 
         return new SpreadResult();
     }
@@ -148,8 +157,8 @@ public class CarrierSpreadMethod : BaseSpreadMethod<CarrierSpreadDataSO, Carrier
         {
             for (int y = -maxDistance; y <= maxDistance; y++)
             {
-                if (x * x + y * y > maxDistance * maxDistance 
-                    || x * x + y * y < minDistance * minDistance 
+                if (x * x + y * y > maxDistance * maxDistance
+                    || x * x + y * y < minDistance * minDistance
                     || (x == 0 && y == 0))
                     continue;
 

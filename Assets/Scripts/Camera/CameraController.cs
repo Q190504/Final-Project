@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class CameraController : MonoBehaviour
 {
@@ -59,7 +58,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        GameState gameState = GameManager.Instance.GetGameState();
+        GameState gameState = MatchManager.Instance.GetGameState();
         if (gameState != GameState.Playing && gameState != GameState.Paused)
             return;
 
@@ -125,8 +124,8 @@ public class CameraController : MonoBehaviour
 
         Bounds b = bounds.bounds;
 
-        float mapWidth = MapManager.Instance.GetMapConfig().width * 0.5f;
-        float mapHeight = MapManager.Instance.GetMapConfig().height * 0.5f;
+        float mapWidth = MapManager.Instance.GetMapConfig().width * 1f;
+        float mapHeight = MapManager.Instance.GetMapConfig().height * 1f;
 
         Vector3 center = b.center;
 
@@ -172,5 +171,14 @@ public class CameraController : MonoBehaviour
         float zoomX = mapWidth / (1.8f * aspect);
 
         return Mathf.Max(zoomY, zoomX);
+    }
+
+    public void FocusCell(int x, int y, Grid<GridCell> grid)
+    {
+        Vector3 cellWorldPos = Utility.GridToWorldPosition(x, y, grid.GetWidth(), grid.GetHeight(), grid.GetCellSize(), grid.GetOriginPosition());
+
+        targetPosition = new Vector3(cellWorldPos.x, cellWorldPos.y, virtualCam.transform.position.z);
+        //targetPosition = ClampToBounds(pos);
+        //ApplyMovement();
     }
 }

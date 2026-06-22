@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d254280dc98cabd42b53b3f494e7d95e, type: 3}
+  m_Name: Spread Method Target Visualization Database
+  m_EditorClassIdentifier: 
+  entries:
+  - Type: 4
+    Preset: {fileID: 11400000, guid: 8df4f5c52df4cea48acd9c18a50abb41, type: 2}

@@ -115,7 +115,7 @@ public class TimeManager : MonoBehaviour
     {
         if (toggleTimeAction.WasPressedThisFrame())
         {
-            GameState gameState = GameManager.Instance.GetGameState();
+            GameState gameState = MatchManager.Instance.GetGameState();
             if (gameState != GameState.Playing && gameState != GameState.Paused)
                 return;
 
@@ -139,7 +139,7 @@ public class TimeManager : MonoBehaviour
 
         if (togglePauseAction.WasPressedThisFrame())
         {
-            GameState gameState = GameManager.Instance.GetGameState();
+            GameState gameState = MatchManager.Instance.GetGameState();
             if (gameState != GameState.Playing && gameState != GameState.Paused)
                 return;
 
@@ -159,7 +159,7 @@ public class TimeManager : MonoBehaviour
     public void SetIsPaused(bool isPaused)
     {
         IsPaused = isPaused;
-        GameManager.Instance.SetGameState(IsPaused ? GameState.Paused : GameState.Playing);
+        MatchManager.Instance.SetGameState(IsPaused ? GameState.Paused : GameState.Playing);
         togglePauseSO.RaiseEvent();
     }
 

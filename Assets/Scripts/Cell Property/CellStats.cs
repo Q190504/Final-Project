@@ -113,8 +113,33 @@ public class CellStats
         grid = mapManager.GetGrid();
     }
 
-    public void SetStats(float populationValue, float tempuratureValue, GridCell cell)
+    public void SetStats(PopulationType population, float tempuratureValue, EnvironmentType environment, GridCell cell)
     {
+        parentCell = cell;
+        this.population.SetPopulation(population);
+        this.tempurature.SetTempurature(tempuratureValue);
+        this.environment.SetEnvironmentType(environment);
+
+        if (environment == EnvironmentType.Water)
+        {
+            this.canBuildStructure = false;
+            this.canHasCarrier = false;
+        }
+        else if (environment == EnvironmentType.Mountain)
+        {
+            this.isBlocked = true;
+            this.isContagious = false;
+            this.canBuildStructure = false;
+            this.canHasCarrier = false;
+        }
+
+        UpdateHumanPriority();
+        mapManager = MapManager.Instance;
+        grid = mapManager.GetGrid();
+    }
+
+    public void SetStats(float populationValue, float tempuratureValue, GridCell cell)
+    { 
         parentCell = cell;
         this.population.SetPopulation(populationValue);
         this.tempurature.SetTempurature(tempuratureValue);
@@ -304,7 +329,8 @@ public class CellStats
         }
 
         bonusTargetInfectionGainPercent = cellStageStats.bonusTargetInfectionGainPercent;
-        if (environment.currentEnvironmentType != EnvironmentType.Water && environment.currentEnvironmentType != EnvironmentType.Mountain)
+        if (environment.currentEnvironmentType != EnvironmentType.Water
+            && environment.currentEnvironmentType != EnvironmentType.Mountain)
             canBuildStructure = cellStageStats.canBuildStructure;
         canHasCarrier = cellStageStats.canHasCarrier;
         canBeSterilized = cellStageStats.canBeSterilized;

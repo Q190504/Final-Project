@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class RiverData
 {
-    public int targetLength;
+    public int id;
+
+    public int length;
 
     // each step of a river
     public List<RiverSegment> segments = new();

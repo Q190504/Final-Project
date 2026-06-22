@@ -309,7 +309,7 @@ public class MapManager : MonoBehaviour
         if (infectedRateChanged || deadRateChanged)
         {
             uiManager.UpdateActualInfectedRateAndDeadRate(totalInfected, infectedRate, totalDead, deadRate);
-            uiManager.UpdateDeadSlider(deadRate, GameManager.Instance.endGameDeadRate);
+            uiManager.UpdateDeadSlider(deadRate, MatchManager.Instance.endGameDeadRate);
             evolutionManager.OnInfectedRateChanged(infectedRate);
 
             if (infectedRate == 0)

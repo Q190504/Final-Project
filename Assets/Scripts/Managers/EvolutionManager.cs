@@ -46,7 +46,7 @@ public class EvolutionManager : MonoBehaviour
 
     public void OnInfectedRateChanged(float infectedRate)
     {
-        GameState gameState = GameManager.Instance.GetGameState();
+        GameState gameState = MatchManager.Instance.GetGameState();
         if (gameState != GameState.Playing && gameState != GameState.Paused)
             return;
 

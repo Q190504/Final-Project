@@ -31,6 +31,7 @@ public class MapConfig
     public float minMountainRadiusPercent = 0.02f;
     public float maxMountainRadiusPercent = 0.02f;
 
+    public float chanceLakeSpawnOnRiver = 0f;
     public int minLakeCount = 0;
     public int maxLakeCount = 5;
     public float minLakeRadiusPercent = 0.01f;
@@ -43,6 +44,7 @@ public class MapConfig
     public float minRiverRadiusPercent = 0.02f;
     public float maxRiverRadiusPercent = 0.02f;
 
+    public float removeEdgesChance = 0f;
     public float temperatureNoiseScale = 0.05f;
     public float populationNoiseScale = 0.03f;
 

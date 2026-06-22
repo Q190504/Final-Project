@@ -1,4 +1,5 @@
-using UnityEditor.Rendering.LookDev;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum SpreadMethodType
@@ -19,6 +20,8 @@ public interface ISpreadMethod
     SpreadMethodRuntimeData GetRuntimeData();
 
     SpreadMethodContext GetContext();
+
+    public event Action<SpreadMethodExecutionVisualData> OnExecutedVisual;
 }
 
 public abstract class BaseSpreadMethod<TData, TRuntime> : ISpreadMethod
@@ -28,6 +31,8 @@ public abstract class BaseSpreadMethod<TData, TRuntime> : ISpreadMethod
     protected TData data;
     protected TRuntime runtimeData;
     protected SpreadMethodContext context;
+
+    public event Action<SpreadMethodExecutionVisualData> OnExecutedVisual;
 
     protected BaseSpreadMethod(SpreadMethodContext context, TData data, TRuntime runtimeData)
     {
@@ -43,7 +48,7 @@ public abstract class BaseSpreadMethod<TData, TRuntime> : ISpreadMethod
 
     public void Tick(float deltaTime)
     {
-        if (GameManager.Instance.GetGameState() == GameState.Playing
+        if (MatchManager.Instance.GetGameState() == GameState.Playing
             && runtimeData != null)
         {
             runtimeData.remainingTicksToSpread -= deltaTime;
@@ -131,5 +136,10 @@ public abstract class BaseSpreadMethod<TData, TRuntime> : ISpreadMethod
     public SpreadMethodContext GetContext()
     {
         return context;
+    }
+
+    public void RaiseExecuteVisual(List<GridCell> cells, SpreadMethodType methodType)
+    {
+        OnExecutedVisual?.Invoke(new SpreadMethodExecutionVisualData(cells, methodType));
     }
 }

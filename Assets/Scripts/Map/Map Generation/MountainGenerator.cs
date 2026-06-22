@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MountainGenerator : IMapGeneratorStep
@@ -8,6 +9,8 @@ public class MountainGenerator : IMapGeneratorStep
 
     private readonly float targetRatio;
     private int totalCell;
+
+    const int MaxStartAttempts = 100;
 
     public MountainGenerator(MapConfig config, int seed)
     {
@@ -22,45 +25,39 @@ public class MountainGenerator : IMapGeneratorStep
         int w = grid.GetWidth();
         int h = grid.GetHeight();
         totalCell = w * h;
+        float baseSize = Mathf.Sqrt(w * w + h * h);
+
         System.Random mountainRandom = new(randomSeed);
 
         int mountainCount = mountainRandom.Next(
             config.minMountainChains,
             config.MaxMountainChains + 1);
 
-        if (mountainCount > 0)
-        {
-            bool found = false;
-            foreach (GridCell cell in grid.GetGrid())
-            {
-                if (Utility.CheckIsValidPosForRiverOrLake(grid, new Vector2Int(cell.X, cell.Y)))
-                {
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found)
-            {
-                Debug.LogError("Can't find valid pos for mountain");
-                return;
-            }
-        }
-        else return;
+        if (mountainCount <= 0) return;
 
         for (int i = 0; i < mountainCount; i++)
         {
-            Vector2Int start;
-
-            do
+            for (int attempt = 0; attempt < MaxStartAttempts; attempt++)
             {
-                start = Utility.GetRandomPosition(grid, mountainRandom);
-            }
-            while (!CheckIsValidPosForMountain(grid, start));
+                Vector2Int start = Utility.GetRandomPosition(grid, mountainRandom);
 
-            //grid.AddMountainData(DrawMountain(grid, start, mountainRandom));
-            DrawMountain(grid, start, mountainRandom);
+                if (!CheckIsValidPosForMountain(grid, start))
+                    continue;
+
+                int minRadius = Mathf.RoundToInt(config.minMountainRadiusPercent * baseSize);
+
+                List<Vector2Int> cells = GetStampCells(grid, start, minRadius);
+
+                if (!CanPlaceMountain(grid, cells))
+                    continue;
+
+                if (DrawMountain(grid, start, baseSize, mountainRandom))
+                    break;
+            }
         }
+
+        if (grid.GetMountainCellCount() > 0)
+            SmoothingMountainsEdge(grid, mountainRandom);
     }
 
     private bool CanPlaceMountain(Grid<GridCell> grid, List<Vector2Int> cells)
@@ -71,8 +68,10 @@ public class MountainGenerator : IMapGeneratorStep
         #region Check mountain ratio
 
         foreach (var c in cells)
-            if (!mountain[c.x, c.y])
+            if (!mountain[c.x, c.y] && !grid.GetWaterGrid()[c.x, c.y])
                 incrementalMountainCells++;
+
+        if (incrementalMountainCells <= 0) return false;
 
         float tempRatio = ((float)grid.GetMountainCellCount() + incrementalMountainCells) / totalCell;
 
@@ -83,19 +82,21 @@ public class MountainGenerator : IMapGeneratorStep
 
         #region Flood fill connectivity check
 
-        return CheckConnectivityAfterPlacement(grid, cells);
+        return CheckMapConnectivityAfterCreateASegment(grid, cells);
 
         #endregion
     }
 
-    private bool CheckConnectivityAfterPlacement(Grid<GridCell> grid, List<Vector2Int> newMountains)
+    private bool CheckMapConnectivityAfterCreateASegment(Grid<GridCell> grid, List<Vector2Int> newMountains)
     {
         int w = grid.GetWidth();
         int h = grid.GetHeight();
 
         bool[,] mountain = grid.GetMountainGrid();
 
-        HashSet<Vector2Int> tempMountain = new(newMountains);
+        bool[,] tempBlocked = new bool[w, h];
+        foreach (Vector2Int newMountain in newMountains)
+            tempBlocked[newMountain.x, newMountain.y] = true;
 
         bool[,] visited = new bool[w, h];
 
@@ -110,7 +111,7 @@ public class MountainGenerator : IMapGeneratorStep
                 if (mountain[x, y])
                     continue;
 
-                if (tempMountain.Contains(new Vector2Int(x, y)))
+                if (tempBlocked[x, y])
                     continue;
 
                 start = new Vector2Int(x, y);
@@ -145,7 +146,7 @@ public class MountainGenerator : IMapGeneratorStep
                 if (mountain[nx, ny])
                     continue;
 
-                if (tempMountain.Contains(new Vector2Int(nx, ny)))
+                if (tempBlocked[nx, ny])
                     continue;
 
                 visited[nx, ny] = true;
@@ -164,49 +165,45 @@ public class MountainGenerator : IMapGeneratorStep
         return reachable == futureLand;
     }
 
-    private void DrawMountain(Grid<GridCell> grid, Vector2Int start, System.Random mountainRandom)
+    private bool DrawMountain(Grid<GridCell> grid, Vector2Int start, float baseSize, System.Random mountainRandom)
     {
-        int w = grid.GetWidth();
-        int h = grid.GetHeight();
-
-        float baseSize = Mathf.Sqrt(w * w + h * h);
-
         float minLength = config.minMountainLengthPercent * baseSize;
         float maxLength = config.maxMountainLengthPercent * baseSize;
 
         int length = Mathf.FloorToInt(Mathf.Lerp(minLength, maxLength, (float)mountainRandom.NextDouble()));
 
         // First segment
-        int radius = GetRandomRadius(baseSize, mountainRandom);
+        int previousRadius = GetRandomRadius(baseSize, mountainRandom);
 
-        List<Vector2Int> startCells = GetMountainStampCells(grid, start, radius);
+        List<Vector2Int> startCells = GetStampCells(grid, start, previousRadius);
 
         if (!CanPlaceMountain(grid, startCells))
-            return;
+            return false;
 
         MountainSegment firstSegment = new();
         StampMountain(grid, startCells, firstSegment);
 
         length--;
+        int actualLength = 1;
 
         Vector2Int current = start;
         Vector2Int preferredDirection = Utility.GetRandom8Direction(mountainRandom);
 
         for (int i = 0; i < length; i++)
         {
-            radius = GetRandomRadius(baseSize, mountainRandom);
+            int radius = GetRandomRadius(baseSize, mountainRandom);
 
             if (i > 0) preferredDirection = RandomizeDirection(preferredDirection, mountainRandom);
 
             List<Vector2Int> directions = new() { preferredDirection };
 
-            foreach (Vector2Int dir in Utility.Neighbor8Directions)
+            foreach (Vector2Int dir in Utility.NeighborCardinalDirections)
             {
                 if (dir != preferredDirection)
                     directions.Add(dir);
             }
 
-            // Shuffle sub directions
+            // Shuffle secondary directions, keep preferred direction first
             for (int j = 1; j < directions.Count; j++)
             {
                 int swapIndex = mountainRandom.Next(j, directions.Count);
@@ -219,18 +216,21 @@ public class MountainGenerator : IMapGeneratorStep
 
             foreach (Vector2Int dir in directions)
             {
-                Vector2Int candidatePos = current + dir;
+                int distance = previousRadius + radius - 1;
+
+                Vector2Int candidatePos = current + dir * distance;
 
                 if (!CheckIsValidPosForMountain(grid, candidatePos))
                     continue;
 
-                List<Vector2Int> cells = GetMountainStampCells(grid, candidatePos, radius);
+                List<Vector2Int> cells = GetStampCells(grid, candidatePos, radius);
 
                 if (!CanPlaceMountain(grid, cells))
                     continue;
 
                 current = candidatePos;
                 preferredDirection = dir;
+                previousRadius = radius;
 
                 validCells = cells;
                 foundValid = true;
@@ -243,7 +243,10 @@ public class MountainGenerator : IMapGeneratorStep
 
             MountainSegment segment = new();
             StampMountain(grid, validCells, segment);
+            actualLength++;
         }
+
+        return actualLength > 0;
     }
 
     private Vector2Int RandomizeDirection(Vector2Int currentDir, System.Random random)
@@ -269,24 +272,14 @@ public class MountainGenerator : IMapGeneratorStep
         return Mathf.FloorToInt(Mathf.Lerp(minRadius, maxRadius, (float)mountainRandom.NextDouble()));
     }
 
-    private List<Vector2Int> GetMountainStampCells(Grid<GridCell> grid, Vector2Int center, int radius)
+    private List<Vector2Int> GetStampCells(Grid<GridCell> grid, Vector2Int center, int radius)
     {
         List<Vector2Int> cells = new();
 
-        int w = grid.GetWidth();
-        int h = grid.GetHeight();
-
-        int r2 = radius * radius;
-
         for (int dx = -radius; dx <= radius; dx++)
         {
-            int dx2 = dx * dx;
-
             for (int dy = -radius; dy <= radius; dy++)
             {
-                if (dx2 + dy * dy > r2)
-                    continue;
-
                 int nx = center.x + dx;
                 int ny = center.y + dy;
 
@@ -319,6 +312,191 @@ public class MountainGenerator : IMapGeneratorStep
 
     private bool CheckIsValidPosForMountain(Grid<GridCell> grid, Vector2Int pos)
     {
-        return grid.IsInBounds(pos.x, pos.y) && !grid.GetWaterGrid()[pos.x, pos.y];
+        return grid.IsInBounds(pos.x, pos.y)
+            && !grid.GetWaterGrid()[pos.x, pos.y];
+    }
+
+    private void SmoothingMountainsEdge(Grid<GridCell> grid, System.Random random)
+    {
+        List<Vector2Int> borderCells = GetBorderCells(grid);
+
+        Utility.Shuffle(borderCells, random);
+
+        bool[,] mountain = grid.GetMountainGrid();
+
+        foreach (Vector2Int cell in borderCells)
+        {
+            if (random.NextDouble() > config.removeEdgesChance)
+                continue;
+
+            if (!CanRemoveMountainCell(grid, cell))
+                continue;
+
+            mountain[cell.x, cell.y] = false;
+            grid.DecrementMountainCellCount();
+        }
+    }
+
+    private List<Vector2Int> GetBorderCells(Grid<GridCell> grid)
+    {
+        List<Vector2Int> result = new();
+
+        bool[,] mountain = grid.GetMountainGrid();
+
+        int w = grid.GetWidth();
+        int h = grid.GetHeight();
+
+        for (int i = 0; i < w; i++)
+        {
+            for (int j = 0; j < h; j++)
+            {
+                if (!mountain[i, j])
+                    continue;
+
+                bool isBorder = false;
+
+                foreach (Vector2Int dir in Utility.Neighbor8Directions)
+                {
+                    int nx = i + dir.x;
+                    int ny = j + dir.y;
+
+                    if (!grid.IsInBounds(nx, ny))
+                        break;
+
+                    if (Utility.NeighborCardinalDirections.Contains(dir))
+                        if (!mountain[nx, ny])
+                        {
+                            isBorder = true;
+                            break;
+                        }
+                }
+
+                if (isBorder)
+                    result.Add(new Vector2Int(i, j));
+            }
+        }
+
+        return result;
+    }
+
+    private bool CanRemoveMountainCell(Grid<GridCell> grid, Vector2Int cell)
+    {
+        bool[,] mountain = grid.GetMountainGrid();
+
+        // ===== Check mountain connectivity =====
+
+        List<Vector2Int> mountainNeighbors = new();
+
+        foreach (Vector2Int dir in Utility.NeighborCardinalDirections)
+        {
+            Vector2Int n = cell + dir;
+
+            if (!grid.IsInBounds(n.x, n.y))
+                continue;
+
+            if (mountain[n.x, n.y])
+                mountainNeighbors.Add(n);
+        }
+
+        if (mountainNeighbors.Count > 1)
+        {
+            bool[,] visited = new bool[grid.GetWidth(), grid.GetHeight()];
+            Queue<Vector2Int> queue = new();
+
+            queue.Enqueue(mountainNeighbors[0]);
+            visited[mountainNeighbors[0].x, mountainNeighbors[0].y] = true;
+
+            while (queue.Count > 0)
+            {
+                Vector2Int current = queue.Dequeue();
+
+                foreach (Vector2Int dir in Utility.NeighborCardinalDirections)
+                {
+                    Vector2Int next = current + dir;
+
+                    if (next == cell)
+                        continue;
+
+                    if (!grid.IsInBounds(next.x, next.y))
+                        continue;
+
+                    if (!mountain[next.x, next.y])
+                        continue;
+
+                    if (visited[next.x, next.y])
+                        continue;
+
+                    visited[next.x, next.y] = true;
+                    queue.Enqueue(next);
+                }
+            }
+
+            foreach (Vector2Int n in mountainNeighbors)
+            {
+                if (!visited[n.x, n.y])
+                    return false;
+            }
+        }
+
+        // ===== Check land connectivity around removed cell =====
+
+        List<Vector2Int> landNeighbors = new();
+
+        foreach (Vector2Int dir in Utility.NeighborCardinalDirections)
+        {
+            Vector2Int n = cell + dir;
+
+            if (!grid.IsInBounds(n.x, n.y))
+                continue;
+
+            if (!mountain[n.x, n.y])
+                landNeighbors.Add(n);
+        }
+
+        if (landNeighbors.Count == 0)
+            return false;
+
+        if (landNeighbors.Count > 4) // has at least 1 cardinal neighbor
+            return true;
+
+        bool[,] landVisited = new bool[grid.GetWidth(), grid.GetHeight()];
+        Queue<Vector2Int> landQueue = new();
+
+        landQueue.Enqueue(landNeighbors[0]);
+        landVisited[landNeighbors[0].x, landNeighbors[0].y] = true;
+
+        while (landQueue.Count > 0)
+        {
+            Vector2Int current = landQueue.Dequeue();
+
+            foreach (Vector2Int dir in Utility.NeighborCardinalDirections)
+            {
+                Vector2Int next = current + dir;
+
+                if (!grid.IsInBounds(next.x, next.y))
+                    continue;
+
+                bool isLand =
+                    next == cell ||
+                    !mountain[next.x, next.y];
+
+                if (!isLand)
+                    continue;
+
+                if (landVisited[next.x, next.y])
+                    continue;
+
+                landVisited[next.x, next.y] = true;
+                landQueue.Enqueue(next);
+            }
+        }
+
+        foreach (Vector2Int n in landNeighbors)
+        {
+            if (!landVisited[n.x, n.y])
+                return false;
+        }
+
+        return true;
     }
 }

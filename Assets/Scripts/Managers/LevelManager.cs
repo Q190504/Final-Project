@@ -14,21 +14,9 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Found more than one Scene Manager in the scene. Destroying the newest one");
+            Debug.Log("Found more than one Level Manager in the scene. Destroying the newest one");
             Destroy(gameObject);
         }
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     /// <summary>
@@ -44,10 +32,5 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadSceneAsync(sceneName);
-    }
-
-    public void OnGameExit()
-    {
-        Application.Quit();
     }
 }

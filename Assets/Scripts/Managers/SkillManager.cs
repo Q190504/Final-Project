@@ -73,7 +73,7 @@ public class SkillManager : MonoBehaviour
         SetTargetCellsHighlightOverlay(false);
         targets.Clear();
 
-        GameState gameState = GameManager.Instance.GetGameState();
+        GameState gameState = MatchManager.Instance.GetGameState();
         if (gameState == GameState.Paused
             && isSelectingTarget
             && selectedSkill != null

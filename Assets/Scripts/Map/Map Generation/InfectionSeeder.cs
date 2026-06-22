@@ -44,6 +44,12 @@ public class InfectionSeeder : IMapGeneratorStep
                 Debug.Log($"Don't have enough stageData to spawn starting infected cell. " +
                     $"Starting infected cell: {config.startingInfectedCellCount}, stageData count {config.startingInfectionLevelsList.Count}");
             }
+
+            if (i == 0)
+            {
+                // Set camera to focus the first infected cell
+                CameraController.Instance.FocusCell(candidates[index].X, candidates[index].Y, grid);
+            }
         }
     }
 }

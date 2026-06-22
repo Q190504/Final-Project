@@ -15,7 +15,7 @@ public class EnvironmentDerivationStep : IMapGeneratorStep
                     EnvironmentData environmentData = PropertyDataManager.Instance
                  .GetEnvironmentData(EnvironmentType.Water);
 
-                    cell.Stats.SetStats(environmentData.populationType, environmentData.tempuratureType, EnvironmentType.Water, cell);
+                    cell.Stats.SetStats(environmentData.populationType, grid.GetTemperatureGrid()[x, y], EnvironmentType.Water, cell);
 
                     continue;
                 }
@@ -25,7 +25,7 @@ public class EnvironmentDerivationStep : IMapGeneratorStep
                     EnvironmentData environmentData = PropertyDataManager.Instance
                     .GetEnvironmentData(EnvironmentType.Mountain);
 
-                    cell.Stats.SetStats(environmentData.populationType, environmentData.tempuratureType, EnvironmentType.Mountain, cell);
+                    cell.Stats.SetStats(environmentData.populationType, grid.GetTemperatureGrid()[x, y], EnvironmentType.Mountain, cell);
 
                     continue;
                 }

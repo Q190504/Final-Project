@@ -13,7 +13,7 @@ public abstract class HumanAction
     public int CooldownTicks => cooldownTicks;
     public bool IsActived => isActived;
 
-    public static event Action<ActionExecutionVisualData> OnExecutedVisual;
+    public static event Action<HumanActionExecutionVisualData> OnExecutedVisual;
 
     protected TimeManager timeManager;
 
@@ -69,7 +69,7 @@ public abstract class HumanAction
         HumanActionType actionType)
     {
         OnExecutedVisual?.Invoke(
-            new ActionExecutionVisualData(
+            new HumanActionExecutionVisualData(
                 cells,
                 actionType
             )

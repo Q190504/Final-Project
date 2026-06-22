@@ -106,9 +106,9 @@ public class CellStructure
     {
         PointsGainedStruct pointsGained = new();
 
-        if (GameManager.Instance != null)
+        if (MatchManager.Instance != null)
         {
-            GameState gameState = GameManager.Instance.GetGameState();
+            GameState gameState = MatchManager.Instance.GetGameState();
             if (!IsValidGameStateToDisableOrDestroy(gameState)) return pointsGained;
         }
 
@@ -163,9 +163,9 @@ public class CellStructure
     {
         PointsGainedStruct pointsGained = new();
 
-        if (GameManager.Instance != null)
+        if (MatchManager.Instance != null)
         {
-            GameState gameState = GameManager.Instance.GetGameState();
+            GameState gameState = MatchManager.Instance.GetGameState();
             if (!IsValidGameStateToDisableOrDestroy(gameState)) return pointsGained;
         }
 
@@ -186,9 +186,9 @@ public class CellStructure
 
     public void EnableStructure(CellStageType cellStageType, bool ignoreConditions = false, bool updateVisualInstantly = false)
     {
-        if (GameManager.Instance != null)
+        if (MatchManager.Instance != null)
         {
-            GameState gameState = GameManager.Instance.GetGameState();
+            GameState gameState = MatchManager.Instance.GetGameState();
             if (!IsValidGameStateToEnable(gameState)) return;
         }
 

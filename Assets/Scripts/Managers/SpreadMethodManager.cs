@@ -75,6 +75,7 @@ public class SpreadMethodManager : MonoBehaviour
     {
         CreateDicts();
         CreateSpreadMethods();
+        UIManager.Instance.SetSpreadMethodTargetVisualizationData(spreadMethods);
     }
 
     public void CreateSpreadMethods()
@@ -137,5 +138,10 @@ public class SpreadMethodManager : MonoBehaviour
             Debug.LogError($"Spread method not found for type {type}");
             return null;
         }
+    }
+
+    public List<ISpreadMethod> GetSpreadMethods()
+    {
+        return spreadMethods;
     }
 }
