@@ -383,9 +383,9 @@ public class MountainGenerator : IMapGeneratorStep
     {
         bool[,] mountain = grid.GetMountainGrid();
 
-        // ===== Check mountain connectivity =====
-
-        List<Vector2Int> mountainNeighbors = new();
+        Vector2Int[] neighbors = new Vector2Int[8];
+        int mountainCount = 0;
+        int landCount = 0;
 
         foreach (Vector2Int dir in Utility.NeighborCardinalDirections)
         {
@@ -395,105 +395,56 @@ public class MountainGenerator : IMapGeneratorStep
                 continue;
 
             if (mountain[n.x, n.y])
-                mountainNeighbors.Add(n);
+                neighbors[mountainCount++] = n;
+            else
+                landCount++;
         }
 
-        if (mountainNeighbors.Count > 1)
-        {
-            bool[,] visited = new bool[grid.GetWidth(), grid.GetHeight()];
-            Queue<Vector2Int> queue = new();
-
-            queue.Enqueue(mountainNeighbors[0]);
-            visited[mountainNeighbors[0].x, mountainNeighbors[0].y] = true;
-
-            while (queue.Count > 0)
-            {
-                Vector2Int current = queue.Dequeue();
-
-                foreach (Vector2Int dir in Utility.NeighborCardinalDirections)
-                {
-                    Vector2Int next = current + dir;
-
-                    if (next == cell)
-                        continue;
-
-                    if (!grid.IsInBounds(next.x, next.y))
-                        continue;
-
-                    if (!mountain[next.x, next.y])
-                        continue;
-
-                    if (visited[next.x, next.y])
-                        continue;
-
-                    visited[next.x, next.y] = true;
-                    queue.Enqueue(next);
-                }
-            }
-
-            foreach (Vector2Int n in mountainNeighbors)
-            {
-                if (!visited[n.x, n.y])
-                    return false;
-            }
-        }
-
-        // ===== Check land connectivity around removed cell =====
-
-        List<Vector2Int> landNeighbors = new();
-
-        foreach (Vector2Int dir in Utility.NeighborCardinalDirections)
-        {
-            Vector2Int n = cell + dir;
-
-            if (!grid.IsInBounds(n.x, n.y))
-                continue;
-
-            if (!mountain[n.x, n.y])
-                landNeighbors.Add(n);
-        }
-
-        if (landNeighbors.Count == 0)
+        if (landCount == 0)
             return false;
 
-        if (landNeighbors.Count > 4) // has at least 1 cardinal neighbor
+        if (mountainCount <= 1)
             return true;
 
-        bool[,] landVisited = new bool[grid.GetWidth(), grid.GetHeight()];
-        Queue<Vector2Int> landQueue = new();
-
-        landQueue.Enqueue(landNeighbors[0]);
-        landVisited[landNeighbors[0].x, landNeighbors[0].y] = true;
-
-        while (landQueue.Count > 0)
+        if (mountainCount == 2)
         {
-            Vector2Int current = landQueue.Dequeue();
+            if ((neighbors[0] - neighbors[1]).sqrMagnitude <= 2)
+                return true;
+        }
+
+        HashSet<Vector2Int> visited = new();
+        Queue<Vector2Int> queue = new();
+
+        queue.Enqueue(neighbors[0]);
+        visited.Add(neighbors[0]);
+
+        while (queue.Count > 0)
+        {
+            Vector2Int current = queue.Dequeue();
 
             foreach (Vector2Int dir in Utility.NeighborCardinalDirections)
             {
                 Vector2Int next = current + dir;
 
+                if (next == cell)
+                    continue;
+
                 if (!grid.IsInBounds(next.x, next.y))
                     continue;
 
-                bool isLand =
-                    next == cell ||
-                    !mountain[next.x, next.y];
-
-                if (!isLand)
+                if (!mountain[next.x, next.y])
                     continue;
 
-                if (landVisited[next.x, next.y])
+                if (!visited.Add(next))
                     continue;
 
-                landVisited[next.x, next.y] = true;
-                landQueue.Enqueue(next);
+                queue.Enqueue(next);
             }
         }
 
-        foreach (Vector2Int n in landNeighbors)
+        for (int i = 1; i < mountainCount; i++)
         {
-            if (!landVisited[n.x, n.y])
+            if (!visited.Contains(neighbors[i]))
                 return false;
         }
 

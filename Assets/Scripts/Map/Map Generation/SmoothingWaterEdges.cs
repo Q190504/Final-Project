@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using UnityEngine;
 
@@ -88,7 +90,9 @@ public class SmoothingWaterEdges : IMapGeneratorStep
     {
         bool[,] water = grid.GetWaterGrid();
 
-        List<Vector2Int> neighbors = new();
+        Vector2Int[] neighbors = new Vector2Int[8];
+        int waterCount = 0;
+        int landCount = 0;
 
         foreach (Vector2Int dir in Utility.NeighborCardinalDirections)
         {
@@ -98,31 +102,32 @@ public class SmoothingWaterEdges : IMapGeneratorStep
                 continue;
 
             if (water[n.x, n.y])
-                neighbors.Add(n);
+                neighbors[waterCount++] = n;
+            else
+                landCount++;
         }
 
-        if (neighbors.Count <= 1)
+        if (landCount == 0)
+            return false;
+
+        if (waterCount <= 1)
             return true;
 
-        int connectedNeighbors = 1;
+        if (waterCount == 2)
+        {
+            if ((neighbors[0] - neighbors[1]).sqrMagnitude <= 2)
+                return true;
+        }
 
-        bool[,] visited = new bool[grid.GetWidth(), grid.GetHeight()];
+        HashSet<Vector2Int> visited = new();
         Queue<Vector2Int> queue = new();
 
         queue.Enqueue(neighbors[0]);
-        visited[neighbors[0].x, neighbors[0].y] = true;
+        visited.Add(neighbors[0]);
 
         while (queue.Count > 0)
         {
             Vector2Int current = queue.Dequeue();
-
-            if (neighbors.Contains(current))
-            {
-                connectedNeighbors++;
-
-                if (connectedNeighbors == neighbors.Count)
-                    return true;
-            }
 
             foreach (Vector2Int dir in Utility.NeighborCardinalDirections)
             {
@@ -137,14 +142,19 @@ public class SmoothingWaterEdges : IMapGeneratorStep
                 if (!water[next.x, next.y])
                     continue;
 
-                if (visited[next.x, next.y])
+                if (!visited.Add(next))
                     continue;
 
-                visited[next.x, next.y] = true;
                 queue.Enqueue(next);
             }
         }
 
-        return false;
+        for (int i = 1; i < waterCount; i++)
+        {
+            if (!visited.Contains(neighbors[i]))
+                return false;
+        }
+
+        return true;
     }
 }

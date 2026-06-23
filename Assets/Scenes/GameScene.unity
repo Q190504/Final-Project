@@ -7605,7 +7605,7 @@ MonoBehaviour:
     height: 35
     cellSize: 1
     originPosition: {x: 0, y: 0, z: 0}
-    generateRandomSeed: 0
+    generateRandomSeed: 1
     seed: 989462927
     maxWaterRatio: 0.2
     maxMountainRatio: 0.15
@@ -19235,7 +19235,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 900124004}
   m_Direction: 2
   m_Value: 0.9999999
-  m_Size: 0.50234044
+  m_Size: 0.5023405
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
