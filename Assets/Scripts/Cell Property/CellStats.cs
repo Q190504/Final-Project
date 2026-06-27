@@ -326,6 +326,7 @@ public class CellStats
         if (stage.type == CellStageType.Dead || stage.type == CellStageType.Immune)
         {
             infectionLevel = cellStageStats.minInfectionValue;
+            isDetected = true;
         }
 
         bonusTargetInfectionGainPercent = cellStageStats.bonusTargetInfectionGainPercent;
@@ -516,8 +517,6 @@ public class CellStats
     public void RecalculateDetection(AIContext ctx)
     {
         if (isDetected) return;
-
-        HumanAIManager human = HumanAIManager.Instance;
 
         float total = 0;
 

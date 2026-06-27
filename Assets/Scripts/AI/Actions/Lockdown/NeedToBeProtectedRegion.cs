@@ -8,6 +8,4 @@ public class NeedToBeProtectedRegion
     public HashSet<GridCell> BoundaryCells = new();
 
     public float TotalProtectValue;
-
-    public Vector2 Center;
 }

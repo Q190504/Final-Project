@@ -3,12 +3,19 @@ using UnityEngine;
 public class GridCell
 {
     private Grid<GridCell> grid;
+    public EnvironmentRegion Region { get; set; }
+    public UrbanRegion Urban { get; set; }
 
     public CellStats Stats { get; set; }
 
     public int X { get; set; }
     public int Y { get; set; }
     public bool IsBeingShownInfo { get; set; }
+
+    public float startingScore = -1;
+    public float distanceToNearestUrban = -1;
+    public float distanceToNearestWaterRegion = -1;
+    public float nearestWaterRegionAssistScore = -1;
 
     public GridCell(Grid<GridCell> grid, int x, int y)
     {

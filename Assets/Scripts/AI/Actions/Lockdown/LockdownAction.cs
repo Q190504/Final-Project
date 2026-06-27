@@ -556,7 +556,7 @@ public class LockdownAction : HumanAction
 
     #endregion
 
-    #region Build For Regions
+    #region Build Regions
 
     private List<NeedToBeProtectedRegion> BuildNeedToBeProtectedRegions()
     {

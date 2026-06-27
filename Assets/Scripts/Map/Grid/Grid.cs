@@ -17,6 +17,16 @@ public class Grid<TGridObject>
 
     private List<RiverData> riverDatas = new();
 
+    public List<EnvironmentRegion> waterRegions = new();
+    //public List<EnvironmentRegion> mountainRegions = new();
+    public List<UrbanRegion> urbanRegions = new();
+
+    public int[,] distanceToNearestUrbanMap;
+    public UrbanRegion[,] nearestUrbanMap;
+
+    public int[,] distanceToNearestWaterRegionMap;
+    public EnvironmentRegion[,] nearestWaterRegionMap;
+
     private int waterCellCount = 0;
     private int mountainCellCount = 0;
 
@@ -307,5 +317,55 @@ public class Grid<TGridObject>
         }
 
         return neighbours;
+    }
+
+    public int GetShortestDistance(GridCell start, GridCell target, bool ignoreMountain)
+    {
+        if (start == null || target == null)
+            return -1;
+
+        if (start == target)
+            return 0;
+
+        bool[,] visited = new bool[width, height];
+        int[,] distance = new int[width, height];
+
+        Queue<GridCell> queue = new();
+
+        visited[start.X, start.Y] = true;
+        queue.Enqueue(start);
+
+        while (queue.Count > 0)
+        {
+            GridCell current = queue.Dequeue();
+
+            foreach (Vector2Int dir in Utility.Neighbor8Directions)
+            {
+                int nx = current.X + dir.x;
+                int ny = current.Y + dir.y;
+
+                if (!IsInBounds(nx, ny))
+                    continue;
+
+                if (visited[nx, ny])
+                    continue;
+
+                GridCell next = GetCell(nx, ny);
+
+                if (!ignoreMountain &&
+                    next.Stats.environment.currentEnvironmentType == EnvironmentType.Mountain)
+                    continue;
+
+                visited[nx, ny] = true;
+                distance[nx, ny] = distance[current.X, current.Y] + 1;
+
+                if (next == target)
+                    return distance[nx, ny];
+
+                queue.Enqueue(next);
+            }
+        }
+
+        return -1; // can't find a way
     }
 }

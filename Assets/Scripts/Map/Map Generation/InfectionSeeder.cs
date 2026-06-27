@@ -23,24 +23,46 @@ public class InfectionSeeder : IMapGeneratorStep
 
             if (cell.Stats.environment.currentEnvironmentType != EnvironmentType.Mountain
                 && cell.Stats.environment.currentEnvironmentType != EnvironmentType.Water
-                && cell.Stats.population.type == PopulationType.Low
                 && cell.Stats.structure.type == StructureType.None)
                 candidates.Add(cell);
         }
 
         if (candidates.Count == 0)
+        {
+            Debug.LogWarning("No candidate for first infected cell!");
             return;
+        }
 
-        int index;
+        List<GridCell> bestCandidates = new();
+        float bestScore = float.MinValue;
+
+        foreach (GridCell candidate in candidates)
+        {
+            float score = CalculateScore(candidate, grid);
+
+            candidate.startingScore = score;
+
+            if (score > bestScore)
+            {
+                bestScore = score;
+                bestCandidates.Clear();
+                bestCandidates.Add(candidate);
+            }
+            else if (Mathf.Approximately(score, bestScore))
+            {
+                bestCandidates.Add(candidate);
+            }
+        }
+
         for (int i = 0; i < config.startingInfectedCellCount; i++)
         {
-            index = infectionCellRandom.Next(0, candidates.Count);
+            GridCell selectedCell = bestCandidates[infectionCellRandom.Next(bestCandidates.Count)];
             CellStageData stageData = config.startingInfectionLevelsList[i];
             if (stageData)
-                candidates[index].Stats.SetInfectionLevel(stageData.cellStageStats.minInfectionValue);
+                selectedCell.Stats.SetInfectionLevel(stageData.cellStageStats.minInfectionValue);
             else
             {
-                candidates[index].Stats.SetInfectionLevel(1);
+                selectedCell.Stats.SetInfectionLevel(1);
                 Debug.Log($"Don't have enough stageData to spawn starting infected cell. " +
                     $"Starting infected cell: {config.startingInfectedCellCount}, stageData count {config.startingInfectionLevelsList.Count}");
             }
@@ -48,8 +70,26 @@ public class InfectionSeeder : IMapGeneratorStep
             if (i == 0)
             {
                 // Set camera to focus the first infected cell
-                CameraController.Instance.FocusCell(candidates[index].X, candidates[index].Y, grid);
+                CameraController.Instance.FocusCell(selectedCell.X, selectedCell.Y, grid);
+                grid.GetCell(selectedCell.X, selectedCell.Y).IsBeingShownInfo = true;
             }
         }
+    }
+
+    private float CalculateScore(GridCell cell, Grid<GridCell> grid)
+    {
+        float score = 0;
+
+        cell.distanceToNearestUrban = grid.distanceToNearestUrbanMap[cell.X, cell.Y];
+        score += grid.distanceToNearestUrbanMap[cell.X, cell.Y] * 10;
+
+        cell.distanceToNearestWaterRegion = grid.distanceToNearestWaterRegionMap[cell.X, cell.Y];
+        score += grid.distanceToNearestWaterRegionMap[cell.X, cell.Y] * 5;
+
+        EnvironmentRegion nearestWaterRegion = grid.nearestWaterRegionMap[cell.X, cell.Y];
+        cell.nearestWaterRegionAssistScore = nearestWaterRegion.AssistScore;
+        score -= nearestWaterRegion.AssistScore;
+
+        return score;
     }
 }

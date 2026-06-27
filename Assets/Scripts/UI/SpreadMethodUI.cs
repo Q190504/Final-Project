@@ -18,10 +18,7 @@ public class SpreadMethodUI : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         if (cooldown > 0)
         {
-            if (cooldown > 1)
-                cooldownText.text = $"{Mathf.CeilToInt(cooldown)}";
-            else
-                cooldownText.text = cooldown.ToString("0.#");
+            cooldownText.text = cooldown.ToString("0.#");
             cooldownText.gameObject.SetActive(true);
         }
         else if (cooldown <= 0)

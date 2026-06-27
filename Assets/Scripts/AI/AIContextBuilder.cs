@@ -62,17 +62,17 @@ public class AIContextBuilder
             if (popWeight <= 0)
                 continue;
 
-            if (cell.IsInfectious())
+             if (cell.Stats.stage.type == CellStageType.Dead)
             {
-                infectedWeight += popWeight;
+                deadWeight += popWeight;
 
                 weightedInfectionLevel += infectionLevel * popWeight;
 
                 infectedPopulation += popWeight;
             }
-            else if (cell.Stats.stage.type == CellStageType.Dead)
+            else if(cell.IsInfectious())
             {
-                deadWeight += popWeight;
+                infectedWeight += popWeight;
 
                 weightedInfectionLevel += infectionLevel * popWeight;
 

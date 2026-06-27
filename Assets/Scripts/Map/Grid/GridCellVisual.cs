@@ -83,7 +83,7 @@ public class GridCellVisual : MonoBehaviour
         if (lockdownOverlayRenderer != null)
             lockdownOverlayRenderer.gameObject.SetActive(cellStats.isLockdown);
 
-        //text.text = $"Popu: {cellStats.population.type},\nTem: {cellStats.tempurature.type}";
+        //text.text = $"dis ur {gridCell.distanceToNearestUrban}\n dis wa {gridCell.distanceToNearestWaterRegion}\n wa sc {gridCell.nearestWaterRegionAssistScore}";
     }
 
     public void SetAffectedByStructureOverlayVisibility(bool state)

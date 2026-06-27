@@ -96,56 +96,53 @@ public class CameraController : MonoBehaviour
     // ================= APPLY =================
     private void ApplyMovement()
     {
-        // Smooth position
-        Vector3 pos = Vector3.SmoothDamp(
-            virtualCam.transform.position,
-            targetPosition,
-            ref velocity,
-            smoothTime
-        );
-
-        virtualCam.transform.position = pos;
-
-        // Smooth zoom
+        // Zoom
         var lens = virtualCam.Lens;
         lens.OrthographicSize = Mathf.Lerp(
             lens.OrthographicSize,
             targetZoom,
-            Time.deltaTime * zoomSmooth
-        );
+            Time.deltaTime * zoomSmooth);
         virtualCam.Lens = lens;
+
+        targetPosition = ClampToBounds(targetPosition);
+
+        // Move
+        virtualCam.transform.position = Vector3.SmoothDamp(
+            virtualCam.transform.position,
+            targetPosition,
+            ref velocity,
+            smoothTime);
     }
 
     // ================= CLAMP =================
     private Vector3 ClampToBounds(Vector3 pos)
     {
-        float camHeight = targetZoom;
-        float camWidth = camHeight * Camera.main.aspect;
-
         Bounds b = bounds.bounds;
 
-        float mapWidth = MapManager.Instance.GetMapConfig().width * 1f;
-        float mapHeight = MapManager.Instance.GetMapConfig().height * 1f;
+        float camHeight = virtualCam.Lens.OrthographicSize;
+        float camWidth = camHeight * Camera.main.aspect;
 
-        Vector3 center = b.center;
-
-        // If zoom out to much → force back to center
-        if (camWidth >= mapWidth)
-            pos.x = Mathf.Lerp(pos.x, center.x, Time.deltaTime * 5f);
+        if (camWidth * 2f >= b.size.x)
+        {
+            pos.x = b.center.x;
+        }
         else
         {
-            float minX = b.min.x + camWidth;
-            float maxX = b.max.x - camWidth;
-            pos.x = Mathf.Clamp(pos.x, minX, maxX);
+            pos.x = Mathf.Clamp(pos.x,
+                b.min.x + camWidth,
+                b.max.x - camWidth);
         }
 
-        if (camHeight >= mapHeight)
-            pos.y = Mathf.Lerp(pos.y, center.y, Time.deltaTime * 5f);
+        if (camHeight * 2f >= b.size.y)
+        {
+            pos.y = b.center.y;
+        }
         else
         {
-            float minY = b.min.y + camHeight;
-            float maxY = b.max.y - camHeight;
-            pos.y = Mathf.Clamp(pos.y, minY, maxY);
+            pos.y = Mathf.Clamp(
+                pos.y,
+                b.min.y + camHeight,
+                b.max.y - camHeight);
         }
 
         return pos;
