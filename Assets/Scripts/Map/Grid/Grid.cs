@@ -30,6 +30,8 @@ public class Grid<TGridObject>
     private int waterCellCount = 0;
     private int mountainCellCount = 0;
 
+    public GridCell startingCell;
+
     public Grid(int width, int height, float cellSize, Vector3 originPosition,
     Func<Grid<TGridObject>, int, int, GridCell> createCell)
     {

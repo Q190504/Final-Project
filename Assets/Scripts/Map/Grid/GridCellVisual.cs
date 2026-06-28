@@ -16,8 +16,9 @@ public class GridCellVisual : MonoBehaviour
     [SerializeField] private SpriteRenderer structureIcon;
     [SerializeField] private SpriteRenderer carrierIcon;
 
-    [Header("Icons")]
-    [SerializeField] private GameObject cellFocusVFX;
+    [Header("VFXs")]
+    [SerializeField] private GameObject inspectingVFX;
+    [SerializeField] private GameObject startingCellFocusVFX;
 
     [Header("Debug")]
     [SerializeField] private TMP_Text text;
@@ -28,7 +29,6 @@ public class GridCellVisual : MonoBehaviour
         lockdownOverlayRenderer.gameObject.SetActive(false);
         affectedByStructureOverlayRenderer.gameObject.SetActive(false);
         targetedBySkillOverlayRenderer.gameObject.SetActive(false);
-        cellFocusVFX.SetActive(false);
     }
 
     // Update is called once per frame
@@ -98,9 +98,15 @@ public class GridCellVisual : MonoBehaviour
             targetedBySkillOverlayRenderer.gameObject.SetActive(state);
     }
 
-    public void SetCellFocusVFXVisibility(bool state)
+    public void SetInspectingVFXVisibility(bool state)
     {
-        if (cellFocusVFX != null)
-            cellFocusVFX.SetActive(state);
+        if (inspectingVFX != null)
+            inspectingVFX.SetActive(state);
+    }
+
+    public void SetStartingCellFocusVFXVisibility(bool state)
+    {
+        if (startingCellFocusVFX != null)
+            startingCellFocusVFX.SetActive(state);
     }
 }

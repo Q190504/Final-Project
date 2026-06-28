@@ -194,7 +194,7 @@ public class MapManager : MonoBehaviour
                 {
                     cellStructure.ApplyTickEffectToCellsInRange();
                 }
-                else if(!cellStructure.isActive)
+                else if (!cellStructure.isActive)
                 {
                     cellStructure.UpdateDisableTime();
                 }

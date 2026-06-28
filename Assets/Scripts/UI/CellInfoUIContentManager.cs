@@ -146,10 +146,10 @@ public class CellInfoUIContentManager : MonoBehaviour
                 if (previousCell != null && currentCell != previousCell)
                 {
                     previousCell.IsBeingShownInfo = false;
-                    uiManager.SetCellFocusVFXVisibility(previousCell, false);
+                    uiManager.SetInspectingVFXVisibility(previousCell, false);
                 }
 
-                uiManager.SetCellFocusVFXVisibility(currentCell, true);
+                uiManager.SetInspectingVFXVisibility(currentCell, true);
             }
 
             if (currentCell == null) return;

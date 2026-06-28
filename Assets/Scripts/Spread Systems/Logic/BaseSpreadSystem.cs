@@ -118,6 +118,10 @@ public abstract class BaseSpreadMethod<TData, TRuntime> : ISpreadMethod
 
         if (hasSpread)
         {
+            GridCell gameStartingCell = MapManager.Instance.GetGrid().startingCell;
+            if(gameStartingCell != null)
+                UIManager.Instance.SetStartingCellVFXVisibility(gameStartingCell, false);
+
             PointsManager.Instance.AddEvolutionPoints(totalPointsGained.evolutionPoints);
             PointsManager.Instance.AddInfectionPoints(totalPointsGained.infectionPoints);
         }

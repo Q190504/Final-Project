@@ -58,6 +58,7 @@ public class MatchManager : MonoBehaviour
         mapManager.StartMatch();
         humanAIManager.StartMatch();
         timeManager.StartMatch();
+        uiManager.StartMatch();
 
         setBGMWhenMatchStartedSO.RaiseEvent();
 

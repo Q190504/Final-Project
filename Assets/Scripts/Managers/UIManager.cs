@@ -188,6 +188,19 @@ public class UIManager : MonoBehaviour
         SpawnSkillUIs();
     }
 
+    public void StartMatch()
+    {
+        Grid<GridCell> grid = MapManager.Instance.GetGrid();
+        GridCell startingCell = grid.startingCell;
+
+        if (startingCell != null)
+        {
+            // Set camera to focus the first infected cell
+            CameraController.Instance.FocusCell(startingCell.X, startingCell.Y, grid);
+            SetStartingCellVFXVisibility(startingCell, true);
+        }
+    }
+
     public void SetSpreadMethodTargetVisualizationData(List<ISpreadMethod> spreadMethods)
     {
         foreach (ISpreadMethod spreadMethod in spreadMethods)
@@ -299,9 +312,15 @@ public class UIManager : MonoBehaviour
 
     #region Cell Visual Animations
 
-    public void SetCellFocusVFXVisibility(GridCell cell, bool state)
+    public void SetInspectingVFXVisibility(GridCell cell, bool state)
     {
-        presenters[cell.X, cell.Y].SetCellFocusVFXVisibility(state);
+        presenters[cell.X, cell.Y].SetInspectingVFXVisibility(state);
+    }
+
+    public void SetStartingCellVFXVisibility(GridCell cell, bool state)
+    {
+        presenters[cell.X, cell.Y].SetStartingCellVFXVisibility(state);
+        presenters[cell.X, cell.Y].Refresh();
     }
 
     public void HandleHumanActionVisualOnCell(HumanActionExecutionVisualData data)

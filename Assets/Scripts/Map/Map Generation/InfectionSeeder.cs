@@ -69,9 +69,7 @@ public class InfectionSeeder : IMapGeneratorStep
 
             if (i == 0)
             {
-                // Set camera to focus the first infected cell
-                CameraController.Instance.FocusCell(selectedCell.X, selectedCell.Y, grid);
-                grid.GetCell(selectedCell.X, selectedCell.Y).IsBeingShownInfo = true;
+                grid.startingCell = selectedCell;
             }
         }
     }

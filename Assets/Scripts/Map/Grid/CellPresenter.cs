@@ -20,9 +20,14 @@ public class CellPresenter
         view.UpdateVisual(cell);
     }
 
-    public void SetCellFocusVFXVisibility(bool state)
+    public void SetInspectingVFXVisibility(bool state)
     {
-        view.SetCellFocusVFXVisibility(state);
+        view.SetInspectingVFXVisibility(state);
+    }
+
+    public void SetStartingCellVFXVisibility(bool state)
+    {
+        view.SetStartingCellFocusVFXVisibility(state);
     }
 
     public void SetCellTargetedBySkillOverlayVisibility(bool state)
